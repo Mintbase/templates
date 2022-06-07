@@ -7,5 +7,5 @@
 
 ## Index
 
-- [Simple App](./simple)
+- [Simple Login](./simple)
 - [Upload using Bundlr](./upload-bundlr)

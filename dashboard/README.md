@@ -1,6 +1,6 @@
 ---
-name: Simple Login
-slug: simple-login
+name: Simple App
+slug: simple-mb-app
 description: XXX
 framework: Next.js
 useCase: XXX
@@ -9,9 +9,11 @@ deployUrl: xxx
 demoUrl: XXX
 ---
 
-# Simple Login
+# Simple Mintbase App
 
-XXX
+[Google Optimize](https://marketingplatform.google.com/about/optimize/) is Google' optimization tool and A/B testing solution, natively integrated with Google Analytics. In this example we'll do A/B testing with Optimize experiments at the edge.
+
+By A/B testing directly on the server-side, you'll reduce layout shift from client-loaded experiments and improving your site's performance with smaller JavaScript bundles.
 
 ## Demo
 
@@ -21,8 +23,7 @@ https://edge-functions-ab-testing-google-optimize.vercel.app
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Fsimple&env=CONTRACT_ADDRESS,NETWORK)
-
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/ab-testing-google-optimize&project-name=ab-testing-google-optimize&repository-name=ab-testing-google-optimize)
 
 ## Getting Started
 

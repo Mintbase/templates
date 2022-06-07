@@ -7,8 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-
-import { MAINNET_CONFIG, TESTNET_CONFIG } from "./constants";
+import { MAINNET_CONFIG, TESTNET_CONFIG } from "../near/constants";
 
 interface IWalletProvider {
   network?: "testnet" | "mainnet" | string;
