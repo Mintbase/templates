@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
+name: Simple App
+slug: simple-mb-app
+description: XXX
+framework: Next.js
+useCase: XXX
+css: Tailwind
+deployUrl: xxx
+demoUrl: XXX
+---
+
+# Simple Mintbase App
+
+[Google Optimize](https://marketingplatform.google.com/about/optimize/) is Google' optimization tool and A/B testing solution, natively integrated with Google Analytics. In this example we'll do A/B testing with Optimize experiments at the edge.
+
+By A/B testing directly on the server-side, you'll reduce layout shift from client-loaded experiments and improving your site's performance with smaller JavaScript bundles.
+
+## Demo
+
+https://edge-functions-ab-testing-google-optimize.vercel.app
+
+### One-Click Deploy
+
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/ab-testing-google-optimize&project-name=ab-testing-google-optimize&repository-name=ab-testing-google-optimize)
 
 ## Getting Started
 
-First, run the development server:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npm run dev
+npx create-next-app --example https://github.com/vercel/examples/tree/main/edge-functions/ab-testing-google-optimize ab-testing-google-optimize
 # or
+yarn create next-app --example https://github.com/vercel/examples/tree/main/edge-functions/ab-testing-google-optimize ab-testing-google-optimize
+```
+
+[`pages/_middleware.ts`](pages/_middleware.ts) loads the experiments using a pre-defined JSON file ([lib/optimize-experiments.json](lib/optimize-experiments.json)), it currently has to be edited manually in order to add the experiments created in https://optimize.google.com.
+
+Run Next.js in development mode:
+
+```bash
+npm install
+npm run dev
+
+# or
+
+yarn
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once the page loads (http://localhost:3000) the layout will load the `optimize.js` script using your google tracking id, and the pages will register events for the current experiment and variant.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To create your own experiments you'll need an account with [Google Optimize](https://optimize.google.com/optimize/home). Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+cp .env.example .env.local
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
