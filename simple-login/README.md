@@ -21,7 +21,7 @@ https://edge-functions-ab-testing-google-optimize.vercel.app
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Fsimple&env=CONTRACT_ADDRESS,NETWORK&integration-ids=oac_2vhHlLAK5ddS6mHpafn5FGic)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-login&integration-ids=oac_2vhHlLAK5ddS6mHpafn5FGic)
 
 
 ## Getting Started
