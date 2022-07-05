@@ -1,20 +1,16 @@
+import { MbButton } from "mintbase-ui";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useWallet } from "../services/providers/NearWalletProvider";
 
 const Home: NextPage = () => {
   const { isConnected, details, signIn, signOut } = useWallet();
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen flex items-center justify-center">
       {isConnected && (
-        <button className="text-black" onClick={signOut}>
-          Sign Out ({details.accountId})
-        </button>
+        <MbButton onClick={signOut} label={`Sign Out ${details.accountId}`} />
       )}
       {!isConnected && (
-        <button className="text-black" onClick={signIn}>
-          Sign In
-        </button>
+        <MbButton onClick={signIn} label="Connect NEAR Wallet" />
       )}
     </div>
   );

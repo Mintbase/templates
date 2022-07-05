@@ -1,5 +1,5 @@
 {
-  "name": "do2earn",
+  "name": "examples-simple-login",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@bundlr-network/client": "^0.7.7",
+    "mintbase-ui": "^0.5.2",
     "near-api-js": "^0.44.2",
     "next": "12.1.6",
     "react": "18.1.0",

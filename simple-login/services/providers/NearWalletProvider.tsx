@@ -87,7 +87,7 @@ export const NearWalletProvider = (props: IWalletProvider) => {
           }
     );
 
-    const wallet = new WalletConnection(near, `minsta-${network}`);
+    const wallet = new WalletConnection(near, `${process.env.APP_NAME}-${network}`);
 
     setWallet(wallet);
 
