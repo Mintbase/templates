@@ -8,3 +8,4 @@
 ## Index
 
 - [Simple Login](./simple-login)
+- [Simple Galleru](./simple-gallery)
