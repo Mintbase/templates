@@ -5,7 +5,7 @@ description: Simple NEAR wallet login
 framework: Next.js
 css: Tailwind
 deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-login
-demoUrl: XXX
+demoUrl: https://examples-simple-login.vercel.app/
 ---
 
 # Simple Login
@@ -14,7 +14,7 @@ This examples shows a simple login with NEAR example.
 
 ## Demo
 
-https://edge-functions-ab-testing-google-optimize.vercel.app
+https://examples-simple-login.vercel.app/
 
 ### One-Click Deploy
 
