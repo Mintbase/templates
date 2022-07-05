@@ -8,4 +8,3 @@
 ## Index
 
 - [Simple Login](./simple-login)
-- [Upload using Bundlr](./upload-bundlr)
