@@ -48,7 +48,7 @@ const Items = () => {
                 <div className="flex space-x-8 items-center">
                   <span>{selectedStore === ''
                     ? 'All Stores'
-                    : stores.find((store: Store) => store.id === selectedStore).name
+                    : stores.find((store: Store) => store.id === selectedStore)?.name
                   }</span>
                   <div className="pointer-events-none">
                     <MbIcon
