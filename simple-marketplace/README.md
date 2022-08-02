@@ -1,26 +1,26 @@
 ---
-name: Simple Gallery
-slug: simple-gallery
-description: Simple Mintbase Gallery
+name: Simple Marketplace
+slug: simple-marketplace
+description: Simple Marketplace on MintBase
 framework: Next.js
 css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-gallery
-demoUrl: https://examples-simple-gallery.vercel.app/
+deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-marketplace
+demoUrl: https://examples-simple-marketplace.vercel.app/
 ---
 
-# Simple Gallery
+# Simple Marketplace
 
-This examples shows a simple gallery.
+This examples shows a simple marketplace.
 
 ## Demo
 
-https://examples-simple-gallery.vercel.app/
+https://examples-simple-marketplace.vercel.app/
 
 ### One-Click Deploy
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-gallery)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-marketplace)
 
 
 ## Getting Started
@@ -28,9 +28,9 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/Mintbase/examples/tree/main/simple-gallery
+npx create-next-app --example https://github.com/Mintbase/examples/tree/main/simple-marketplace
 # or
-yarn create next-app --example https://github.com/Mintbase/examples/tree/main/simple-gallery
+yarn create next-app --example https://github.com/Mintbase/examples/tree/main/simple-marketplace
 ```
 
 
@@ -53,3 +53,4 @@ cp .env.example .env.local
 ```
 
 Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
+Most importantly update the `NEXT_PUBLIC_STORES` to include which stores you want to show in the marketplace.
