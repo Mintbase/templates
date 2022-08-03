@@ -1,26 +1,26 @@
 ---
-name: Simple Gallery
-slug: simple-gallery
-description: Simple Mintbase Gallery
+name: Simple Minter
+slug: simple-minter
+description: Simple Minter on Mintbase
 framework: Next.js
 css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-gallery
-demoUrl: https://examples-simple-gallery.vercel.app/
+deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-minter
+demoUrl: https://examples-simple-minter.vercel.app/
 ---
 
 # Simple Gallery
 
-This examples shows a simple gallery.
+This examples shows a simple minter on Mintbase.
 
 ## Demo
 
-https://examples-simple-gallery.vercel.app/
+https://examples-simple-minter.vercel.app/
 
 ### One-Click Deploy
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-gallery)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-minter)
 
 
 ## Getting Started
@@ -28,9 +28,9 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/Mintbase/examples/tree/main/simple-gallery
+npx create-next-app --example https://github.com/Mintbase/examples/tree/main/simple-minter
 # or
-yarn create next-app --example https://github.com/Mintbase/examples/tree/main/simple-gallery
+yarn create next-app --example https://github.com/Mintbase/examples/tree/main/simple-minter
 ```
 
 
