@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { EState, MbButton, MbText } from 'mintbase-ui'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MetadataField } from 'mintbase'
-import { useRouter } from 'next/router'
 
-import { useWallet } from "../../../services/providers/NearWalletProvider"
+import { useWallet } from "../../../services/providers/WalletProvider"
 import { EInputType } from '../utils/types'
 import MintForm from './MintForm';
 
@@ -12,8 +11,7 @@ const Main = () => {
   const { wallet, isConnected, signIn} = useWallet()
   const [isMinting, setIsMinting] = useState(false)
 
-  const router = useRouter()
-  const { contract } = router.query
+  const store = process.env.NEXT_PUBLIC_STORE_ID || ''
 
   const methods = useForm({
     defaultValues: {
@@ -88,7 +86,7 @@ const Main = () => {
       wallet.minter.setField(MetadataField.Tags, data[EInputType.TAGS])
     } catch (error) {
       console.error(error)
-      // TODO: handle error
+      // TODO: handle error here
     }
 
     const mintAmount = data[EInputType.MINT_AMOUNT]
@@ -98,7 +96,7 @@ const Main = () => {
       title: data[EInputType.TITLE],
       description: data[EInputType.DESCRIPTION],
       extra,
-      store: contract,
+      store,
       type: 'NEP171',
       category,
     }
@@ -117,18 +115,18 @@ const Main = () => {
 
     await wallet.mint(
       Number(mintAmount),
-      contract.toString(),
+      store.toString(),
       !royalties ? undefined : royalties.royaltyArgs,
       !splits ? undefined : splits,
       category,
       {
-        callbackUrl: `${window.location.origin}/wallet-callback`,
+        callbackUrl: `${window.location.origin}/success`,
         meta: JSON.stringify({
           type: 'mint',
           args: {
-            contractAddress: contract.toString(),
+            contractAddress: store.toString(),
             amount: Number(mintAmount),
-            thingId: `${metadataId}:${contract.toString()}`,
+            thingId: `${metadataId}:${store.toString()}`,
           },
         }),
         royaltyPercentage: royalties?.percentage || 0,
@@ -154,7 +152,7 @@ const Main = () => {
 
           </div>
           <div>
-            <MbButton onClick={signIn} label="Sign-in with NEAR" />
+            <MbButton onClick={signIn} label="Connect NEAR Wallet to Mint" />
           </div>
         </div>
       )}

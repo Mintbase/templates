@@ -1,5 +1,5 @@
 import { MbButton } from "mintbase-ui"
-import { useWallet } from "../../../services/providers/NearWalletProvider"
+import { useWallet } from "../../../services/providers/WalletProvider"
 
 const Header = () => {
   const { isConnected, details, signIn, signOut } = useWallet()

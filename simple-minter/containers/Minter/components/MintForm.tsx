@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import {
   EControlStatus,
-  ESize,
   IMAGE_TYPES,
   MbInput,
   MbAmountInput,
@@ -41,7 +40,7 @@ const MintForm = () => {
       },
       { shouldFocus: true }
     )
-  }
+  }    
 
   const handleSelectCategory = (value: string) => {
     const currentValue = getValues(EInputType.CATEGORY)
@@ -87,7 +86,7 @@ const MintForm = () => {
           })}
         />
       </div>
-      <div className=''>
+      <div className='mb-4'>
         <MbText className="p-med-90 mb-4">
           Image
         </MbText>
@@ -140,11 +139,10 @@ const MintForm = () => {
       <div className='mb-4'>
         <MbInputTags
           label="Tags"
-          inputSize={ESize.BIG}
           maxTags={4}
           placeholder="Add up to 4 tags to improve discoverability"
           onTagsChange={(tags) => {
-            setValue('tags', tags)
+            setValue(EInputType.TAGS, tags)
           }}
           onMaxTags={() => console.log('mx')}
         />
