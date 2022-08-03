@@ -9,3 +9,5 @@
 
 - [Simple Login](./simple-login)
 - [Simple Gallery](./simple-gallery)
+- [Simple Marketplace](./simple-marketplace)
+- [Simple Minter](./simple-minter)
