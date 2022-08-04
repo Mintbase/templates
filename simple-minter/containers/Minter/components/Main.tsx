@@ -35,7 +35,7 @@ const Main = () => {
 
   const { handleSubmit, getValues, formState: { errors } } = methods
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: { [x: string]: any }) => {
     setIsMinting(true)
 
     try {
@@ -80,7 +80,7 @@ const Main = () => {
       // TODO: handle error
     }
 
-    let extra = []
+    let extra: any[] = []
 
     try {
       wallet.minter.setField(MetadataField.Tags, data[EInputType.TAGS])

@@ -129,7 +129,7 @@ const MintForm = () => {
               isChecked={watch(EInputType.CATEGORY) === tag}
               handleClick={() => handleSelectCategory(tag)}
               disabled={false}
-              label={tags[tag]}
+              label={tags[tag as keyof typeof tags]}
               {...register(`categories`)}
             ></MbChip>
           ))}
