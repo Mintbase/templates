@@ -17,7 +17,7 @@ interface IWalletProvider {
 }
 
 interface IWalletConsumer {
-  wallet: Wallet | undefined
+  wallet: Wallet
   details: {
     accountId: string
     balance: string
@@ -26,12 +26,12 @@ interface IWalletConsumer {
   }
   isConnected: boolean
   loading: boolean
-  signIn: () => Promise<void>
-  signOut: () => Promise<void>
+  signIn: () => void
+  signOut: () => void
 }
 
 export const WalletContext = createContext<{
-  wallet: Wallet | undefined
+  wallet: Wallet
   details: {
     accountId: string
     balance: string
@@ -40,7 +40,7 @@ export const WalletContext = createContext<{
   }
   isConnected: boolean
   loading: boolean
-  signIn: () => Promise<void>
+  signIn: () => void
   signOut: () => void
 }>({
   wallet: undefined,
@@ -53,7 +53,7 @@ export const WalletContext = createContext<{
   isConnected: false,
   loading: true,
   signIn: () => Promise.resolve(),
-  signOut: () => Promise.resolve(),
+  signOut: () => null,
 })
 
 export const WalletProvider = (props: IWalletProvider) => {  
