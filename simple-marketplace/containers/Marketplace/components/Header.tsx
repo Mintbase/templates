@@ -1,8 +1,9 @@
 import { MbButton } from "mintbase-ui"
-import { useWallet } from "../../../services/providers/NearWalletProvider"
+import { useWallet } from "../../../services/providers/WalletProvider"
 
 const Header = () => {
   const { isConnected, details, signIn, signOut } = useWallet()
+
   return (
     <nav className="flex justify-between w-full bg-white sticky top-0 z-40 lg:border-b border-solid border-gray-150">
       <div className="flex justify-between items-center">

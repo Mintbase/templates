@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "big.js": "^6.2.1",
     "graphql": "^16.5.0",
+    "lodash": "^4.17.21",
+    "mathjs": "^11.0.1",
+    "mintbase": "^0.7.0",
     "mintbase-ui": "^0.5.2",
     "near-api-js": "^0.44.2",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.34.0"
   },
   "devDependencies": {
     "@types/node": "17.0.40",
