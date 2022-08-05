@@ -1,18 +1,23 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { NearWalletProvider } from "../services/providers/NearWalletProvider";
+import { Chain, Network } from 'mintbase'
 import { ApolloProvider } from "@apollo/client";
 import { getClient } from "../services/providers/apollo";
+import { WalletProvider } from "../services/providers/WalletProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const network = process.env.NEXT_PUBLIC_NETWORK || "testnet";
+  const mjsKey = process.env.NEXT_PUBLIC_MBJS_KEY || "";
 
   return (
-    <NearWalletProvider network={network}>
-      <ApolloProvider client={getClient({ network: network })}>
+    <WalletProvider
+      network={Network.testnet as Network}
+      chain={Chain.near as Chain}
+      apiKey={mjsKey}
+    >
+      <ApolloProvider client={getClient({ network: Network.testnet })}>
         <Component {...pageProps} />
       </ApolloProvider>
-    </NearWalletProvider>
+    </WalletProvider>
   );
 }
 

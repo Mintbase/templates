@@ -1,7 +1,7 @@
 import { MbButton } from "mintbase-ui"
 import { StoreThing } from "../controllers/useMarketplaceController";
 
-const Item = ({ item }: {item: StoreThing}) => {
+const Item = ({ item, showModal }: {item: StoreThing, showModal: (item: StoreThing) => void}) => {
   return (
     <div className="bg-white rounded shadow-lg p-4 relative">
       <img src={item.media} className="w-full h-72 object-cover"></img>
@@ -10,7 +10,7 @@ const Item = ({ item }: {item: StoreThing}) => {
         <div className="text-sm">{item.storeId}</div>
       </div>
       <div className="flex items-center mt-2 justify-end">
-        <MbButton onClick={() => {}} label={`BUY NOW`} />
+        <MbButton onClick={() => showModal(item)} label={`BUY NOW`} />
       </div>
     </div>
   );

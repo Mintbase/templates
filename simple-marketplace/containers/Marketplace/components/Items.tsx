@@ -4,7 +4,7 @@ import { Item, LoadingItem } from "./Item";
 import useStoreThingsController, { StoreThing } from "../controllers/useMarketplaceController";
 import useStoreController, { Store } from "../controllers/useStoresController";
 
-const Items = () => {
+const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
   const [selectedTab, setSelectedTab] = useState('all');
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
@@ -81,7 +81,7 @@ const Items = () => {
           <LoadingItem />
         ) : (
           filteredThings.map((thing: StoreThing, index: number) => (
-            <Item key={index} item={thing} />
+            <Item key={index} item={thing} showModal={showModal} />
           ))
         )}
       </div>

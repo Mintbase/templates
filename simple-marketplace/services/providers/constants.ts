@@ -19,3 +19,7 @@ export const MAINNET_CONFIG = {
     "Content-Type": "application/json",
   },
 };
+
+export const WalletKeys = {
+  AUTH_KEY: 'Mintbase.js_wallet_auth_key',
+}
