@@ -1,16 +1,6 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useState } from "react";
-
-const GET_STORES = gql`
-  query StoresQuery($ids: [stores_bool_exp!]) {
-    store(where: {_or: 
-      $ids
-    }) {
-      id
-      name
-    }
-  }
-`;
+import { GET_STORES } from '../queries/stores';
 
 export type Store = {
   id: string;
@@ -20,7 +10,7 @@ export type Store = {
 const useStoreController = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
-  const _stores = process.env.NEXT_PUBLIC_STORES || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet'
+  const _stores = process.env.NEXT_PUBLIC_STORES || ''
   let ids: { id: { _eq: string; }; }[] = [];
   let _arr = _stores?.split(',')
 

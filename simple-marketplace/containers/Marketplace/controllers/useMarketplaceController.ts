@@ -1,23 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
-
-const GET_MB_STORE_THINGS = gql`
-  query StoreThings($storeIds: [mb_views_store_things_bool_exp!]) {
-    mb_views_store_things(
-      where: {_or: 
-        $storeIds
-      }, 
-      order_by: {createdAt: desc}
-    ) {
-      createdAt
-      listed
-      media
-      storeId
-      thingId
-      title
-    }
-  }
-`;
+import { GET_MB_STORE_THINGS } from '../queries/stores';
 
 export type StoreThing = {
   createdAt: string;
@@ -28,12 +11,10 @@ export type StoreThing = {
   title: string;
 };
 
-
-
 const useStoreThingsController = () => {
   const [things, setThings] = useState<StoreThing[]>([]);
 
-  const stores = process.env.NEXT_PUBLIC_STORES || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet'
+  const stores = process.env.NEXT_PUBLIC_STORES || ''
   let storeIds: { storeId: { _eq: string; }; }[] = [];
   let _arr = stores?.split(',')
 
