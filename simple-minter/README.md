@@ -1,4 +1,4 @@
-`---
+---
 name: Simple Minter
 slug: simple-minter
 description: Simple Minter on Mintbase
