@@ -8,7 +8,7 @@ deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%
 demoUrl: https://examples-simple-minter.vercel.app/
 ---
 
-# Simple Gallery
+# Simple Minter
 
 This examples shows a simple minter on Mintbase.
 
@@ -46,6 +46,8 @@ yarn
 yarn dev
 ```
 
+### Env variables
+
 Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
 
 ```bash
@@ -53,3 +55,7 @@ cp .env.example .env.local
 ```
 
 Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
+
+> Note: the main environment variables you'll need are:
+> - A developer key generated on your mintbase account
+> - Your store ID - this is the contract ID for which the tokens will be minted
