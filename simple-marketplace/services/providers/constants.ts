@@ -21,5 +21,5 @@ export const MAINNET_CONFIG = {
 };
 
 export const WalletKeys = {
-  AUTH_KEY: 'Mintbase.js_wallet_auth_key',
-}
+  AUTH_KEY: process.env.NEXT_PUBLIC_DEVELOPER_KEY,
+};

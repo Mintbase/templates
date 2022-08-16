@@ -14,12 +14,12 @@ const Store: NextPage = () => {
   const handleOpenBuyModal = (item: StoreThing) => {
     setSelectedItem(item);
     setShowBuyModal(true);
-  }
+  };
 
   const handleCloseBuyModal = () => {
     setSelectedItem({} as StoreThing);
     setShowBuyModal(false);
-  }
+  };
 
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
@@ -31,7 +31,9 @@ const Store: NextPage = () => {
         <Items showModal={handleOpenBuyModal} />
       </div>
       <div className="mx-24 mt-4">
-        {showBuyModal && <BuyModal closeModal={handleCloseBuyModal} item={selectedItem} />}
+        {!!showBuyModal && (
+          <BuyModal closeModal={handleCloseBuyModal} item={selectedItem} />
+        )}
       </div>
     </div>
   );

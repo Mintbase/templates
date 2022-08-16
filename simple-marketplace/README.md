@@ -54,3 +54,14 @@ cp .env.example .env.local
 
 Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
 Most importantly update the `NEXT_PUBLIC_STORES` to include which stores you want to show in the marketplace.
+
+
+## Extending
+
+This project is setup using Next.js + MintBase UI + Tailwind + Apollo + React Hook Form.
+You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
+
+## 🙋‍♀️  Need extra help?
+
+[Ask on our Telegram Channel](https://t.me/mintdev) <br/>
+[Create an Issue](https://github.com/Mintbase/examples/issues)
