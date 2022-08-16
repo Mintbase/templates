@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import {
   EControlStatus,
   IMAGE_TYPES,
@@ -9,9 +9,9 @@ import {
   MbMediaImport,
   MbText,
   MbTextArea,
-} from 'mintbase-ui'
-import { useFormContext } from 'react-hook-form'
-import { EInputType } from '../utils/types'
+} from "mintbase-ui";
+import { useFormContext } from "react-hook-form";
+import { EInputType } from "../utils/types";
 import { tags } from "../utils/constants";
 
 const MintForm = () => {
@@ -23,48 +23,48 @@ const MintForm = () => {
     setError,
     clearErrors,
     formState: { dirtyFields, errors },
-  } = useFormContext()
+  } = useFormContext();
 
   const uploadFile = (file: File) => {
-    setValue(EInputType.MAIN_IMAGE, file)
-    clearErrors(EInputType.MAIN_IMAGE)
-  }
+    setValue(EInputType.MAIN_IMAGE, file);
+    clearErrors(EInputType.MAIN_IMAGE);
+  };
 
   const removeFile = () => {
-    setValue(EInputType.MAIN_IMAGE, null)
+    setValue(EInputType.MAIN_IMAGE, null);
     setError(
       EInputType.MAIN_IMAGE,
       {
-        type: 'required',
-        message: 'No image',
+        type: "required",
+        message: "No image",
       },
       { shouldFocus: true }
-    )
-  }    
+    );
+  };
 
   const handleSelectCategory = (value: string) => {
-    const currentValue = getValues(EInputType.CATEGORY)
+    const currentValue = getValues(EInputType.CATEGORY);
     if (value === currentValue) {
-      setValue(EInputType.CATEGORY, null)
-      return
+      setValue(EInputType.CATEGORY, null);
+      return;
     }
-    setValue(EInputType.CATEGORY, value)
-  }
+    setValue(EInputType.CATEGORY, value);
+  };
 
   useEffect(() => {
     setError(
       EInputType.MAIN_IMAGE,
       {
-        type: 'required',
-        message: 'No image',
+        type: "required",
+        message: "No image",
       },
       { shouldFocus: true }
-    )
-  }, [])
-  
+    );
+  }, []);
+
   return (
     <>
-      <div className='mb-4'>
+      <div className="mb-4">
         <MbInput
           controlStatus={EControlStatus.NORMAL}
           label="Name"
@@ -72,11 +72,11 @@ const MintForm = () => {
           required
           {...register(EInputType.TITLE, {
             required: true,
-            minLength: { value: 1, message: '' },
+            minLength: { value: 1, message: "" },
           })}
         />
       </div>
-      <div className='mb-4'>
+      <div className="mb-4">
         <MbTextArea
           controlStatus={EControlStatus.NORMAL}
           label="Description"
@@ -86,15 +86,13 @@ const MintForm = () => {
           })}
         />
       </div>
-      <div className='mb-4'>
-        <MbText className="p-med-90 mb-4">
-          Image
-        </MbText>
+      <div className="mb-4">
+        <MbText className="p-med-90 mb-4">Image</MbText>
         <MbMediaImport
           {...register(EInputType.MAIN_IMAGE, {
             required: true,
             validate: (value) => {
-              return true
+              return true;
             },
           })}
           acceptedFormats={IMAGE_TYPES}
@@ -105,22 +103,20 @@ const MintForm = () => {
           uploadedFile={watch(EInputType.MAIN_IMAGE)}
         />
       </div>
-      <div className='mb-4'>
-        <MbText className="p-med-90 mb-4">
-          Amount of items to mint{' '}
-        </MbText>
+      <div className="mb-4">
+        <MbText className="p-med-90 mb-4">Amount of items to mint </MbText>
         <MbAmountInput
           maxAmount={50}
           onBlur={(e) => {
-            e.preventDefault()
-            setValue(EInputType.MINT_AMOUNT, e.target.value)
+            e.preventDefault();
+            setValue(EInputType.MINT_AMOUNT, e.target.value);
           }}
           onValueChange={(amount) => {
-            setValue(EInputType.MINT_AMOUNT, amount)
+            setValue(EInputType.MINT_AMOUNT, amount);
           }}
         />
       </div>
-      <div className='mb-4'>
+      <div className="mb-4">
         <MbText className="p-med-90 mb-4">Category</MbText>
         <div className="flex pt-4 gap-4 overflow-scroll w-full no-scrollbar">
           {Object.keys(tags).map((tag, index) => (
@@ -136,20 +132,19 @@ const MintForm = () => {
         </div>
       </div>
 
-      <div className='mb-4'>
+      <div className="mb-4">
         <MbInputTags
           label="Tags"
           maxTags={4}
           placeholder="Add up to 4 tags to improve discoverability"
           onTagsChange={(tags) => {
-            setValue(EInputType.TAGS, tags)
+            setValue(EInputType.TAGS, tags);
           }}
-          onMaxTags={() => console.log('mx')}
+          onMaxTags={() => console.log("mx")}
         />
       </div>
     </>
-        
   );
-}
+};
 
 export default MintForm;
