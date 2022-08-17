@@ -4,7 +4,7 @@ import { NearWalletProvider } from '../services/providers/NearWalletProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NearWalletProvider network={process.env.NETWORK || 'testnet'}>
+    <NearWalletProvider network={process.env.NEXT_PUBLIC_NETWORK || 'testnet'}>
       <Component {...pageProps} />
     </NearWalletProvider>
   )
