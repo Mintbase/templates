@@ -3,12 +3,12 @@ import { EState, MbButton, MbText } from 'mintbase-ui'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MetadataField } from 'mintbase'
 
-import { useWallet } from "../../../services/providers/WalletProvider"
+import { useWallet } from '../../../services/providers/WalletProvider'
 import { EInputType } from '../utils/types'
-import MintForm from './MintForm';
+import MintForm from './MintForm'
 
 const Main = () => {
-  const { wallet, isConnected, signIn} = useWallet()
+  const { wallet, isConnected, signIn } = useWallet()
   const [isMinting, setIsMinting] = useState(false)
 
   const store = process.env.NEXT_PUBLIC_STORE_ID || ''
@@ -28,12 +28,16 @@ const Main = () => {
       [EInputType.CALENDAR]: null,
       [EInputType.FOREVER_ROYALTIES]: null,
       [EInputType.SPLIT_REVENUE]: null,
-      [EInputType.CUSTOM_KEY_VALUE]: null,
+      [EInputType.CUSTOM_KEY_VALUE]: null
     },
-    mode: 'onSubmit',
+    mode: 'onSubmit'
   })
 
-  const { handleSubmit, getValues, formState: { errors } } = methods
+  const {
+    handleSubmit,
+    getValues,
+    formState: { errors }
+  } = methods
 
   const onSubmit = async (data: { [x: string]: any }) => {
     setIsMinting(true)
@@ -98,7 +102,7 @@ const Main = () => {
       extra,
       store,
       type: 'NEP171',
-      category,
+      category
     }
 
     wallet.minter.setMetadata(metadata, true)
@@ -109,7 +113,8 @@ const Main = () => {
     const { data: metadataId, error } = await wallet.minter.getMetadataId()
 
     if (error) {
-      // TODO: throw error
+      // TODO: handle error here
+      console.error(error)
       return
     }
 
@@ -126,11 +131,11 @@ const Main = () => {
           args: {
             contractAddress: store.toString(),
             amount: Number(mintAmount),
-            thingId: `${metadataId}:${store.toString()}`,
-          },
+            thingId: `${metadataId}:${store.toString()}`
+          }
         }),
         royaltyPercentage: royalties?.percentage || 0,
-        metadataId,
+        metadataId
       }
     )
     setIsMinting(false)
@@ -142,14 +147,9 @@ const Main = () => {
     <div className="w-full flex flex-col justify-center items-center">
       {!isConnected && (
         <div className="w-full flex flex-col justify-center items-center space-y-8">
-          <div className='flex flex-col justify-center items-center space-y-8'>
-            <MbText className="text-3xl border-gray-100">
-              Simple Minter
-            </MbText>
-            <MbText className="text-xl">
-              A simple NFT Minter on Mintbase 
-            </MbText>
-
+          <div className="flex flex-col justify-center items-center space-y-8">
+            <MbText className="text-3xl border-gray-100">Simple Minter</MbText>
+            <MbText className="text-xl">A simple NFT Minter on Mintbase</MbText>
           </div>
           <div>
             <MbButton onClick={signIn} label="Connect NEAR Wallet to Mint" />
@@ -158,15 +158,17 @@ const Main = () => {
       )}
 
       <div className="md:max-w-2xl w-full space-y-4">
-        {isConnected && (
+        {!!isConnected && (
           <div className="flex flex-col items-center justify-center mt-2">
-            <MbText className="text-3xl">
-              Mint your NFTs
-            </MbText>
-      
+            <MbText className="text-3xl">Mint your NFTs</MbText>
+
             <div className="w-full mt-4 space-y-4">
               <FormProvider {...methods}>
-                <form onSubmit={handleSubmit(onSubmit, (errors) => console.error(errors))}>
+                <form
+                  onSubmit={handleSubmit(onSubmit, (errors) =>
+                    console.error(errors)
+                  )}
+                >
                   <MintForm />
 
                   <div className="flex justify-center items-center mt-4">
@@ -190,7 +192,7 @@ const Main = () => {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Main;
+export default Main

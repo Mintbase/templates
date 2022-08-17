@@ -5,6 +5,12 @@
   </a>
 </p>
 
+
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mintbase/examples/issues)
+
+[![HitCount](http://hits.dwyl.com/Mintbase/examples.svg)](http://hits.dwyl.com/Mintbase/examples)
+
+
 ## Index
 
 - [Simple Login](./simple-login)

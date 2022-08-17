@@ -8,7 +8,7 @@ deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%
 demoUrl: https://examples-simple-minter.vercel.app/
 ---
 
-# Simple Gallery
+# Simple Minter
 
 This examples shows a simple minter on Mintbase.
 
