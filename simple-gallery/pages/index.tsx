@@ -1,40 +1,31 @@
-import { MbButton } from "mintbase-ui";
-import type { NextPage } from "next";
+import { MbButton } from 'mintbase-ui'
+import type { NextPage } from 'next'
+import { Gallery } from '../containers/Gallery/components/Gallery'
 import {
   Product,
-  LoadingProduct,
-} from "../containers/Gallery/components/Product";
-import useGalleryController, {
-  Product as TProduct,
-} from "../containers/Gallery/controllers/useShopController";
+  LoadingProduct
+} from '../containers/Gallery/components/Product'
 
-import { useWallet } from "../services/providers/NearWalletProvider";
+import { useWallet } from '../services/providers/NearWalletProvider'
 
 const Store: NextPage = () => {
-  const { isConnected, details, signIn, signOut } = useWallet();
-  const { products, loading } = useGalleryController();
+  const { isConnected, details, signIn, signOut } = useWallet()
+
+  const buttonLabel = isConnected
+    ? `Sign Out ${details.accountId}`
+    : ' Connect NEAR Wallet'
+
+  const buttonAction = isConnected ? signOut : signIn
 
   return (
     <div className="mx-24">
       <div className="flex items-center justify-center mt-12">
-        {isConnected && (
-          <MbButton onClick={signOut} label={`Sign Out ${details.accountId}`} />
-        )}
-        {!isConnected && (
-          <MbButton onClick={signIn} label="Connect NEAR Wallet" />
-        )}
+        <MbButton onClick={buttonAction} label={buttonLabel} />
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-4 my-12">
-        {loading ? (
-          <LoadingProduct />
-        ) : (
-          products.map((product: TProduct, index: number) => (
-            <Product key={index} product={product} />
-          ))
-        )}
-      </div>
-    </div>
-  );
-};
 
-export default Store;
+      {isConnected ? <Gallery /> : null}
+    </div>
+  )
+}
+
+export default Store
