@@ -1,10 +1,6 @@
 import { MbButton } from 'mintbase-ui'
 import type { NextPage } from 'next'
 import { Gallery } from '../containers/Gallery/components/Gallery'
-import {
-  Product,
-  LoadingProduct
-} from '../containers/Gallery/components/Product'
 
 import { useWallet } from '../services/providers/NearWalletProvider'
 

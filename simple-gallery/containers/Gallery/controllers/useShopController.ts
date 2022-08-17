@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client'
-import { type } from 'os'
 import { useState } from 'react'
 
 const GET_STORE = gql`
@@ -37,11 +36,13 @@ type Token = {
 const useGalleryController = () => {
   const [products, setProducts] = useState<Product[]>([])
 
-  const contractAddressEnv = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
+  const contractAddressEnv = process.env.NEXT_PUBLIC_STORE_ID
+
   let error = ' '
+
   if (typeof contractAddressEnv === 'undefined') {
     error =
-      'error:  the env variable NEXT_PUBLIC_CONTRACT_ADDRESS is not set or has a invalid value'
+      'error:  the env variable NEXT_PUBLIC_STORE_ID is not set or has a invalid value'
   }
 
   const { loading } = useQuery(GET_STORE, {
