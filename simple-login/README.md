@@ -92,7 +92,7 @@ NEXT_PUBLIC_USER_ID=mintbase_user_on_near
 ```
 ## Extending
 
-This project is setup using Next.js + MintBase UI + Tailwind + Apollo + React Hook Form.
+This project is setup using Next.js + MintBase UI + Tailwind.
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
 ## 🙋‍♀️  Need extra help?

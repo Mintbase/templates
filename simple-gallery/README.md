@@ -94,7 +94,7 @@ NEXT_PUBLIC_STORE_ID=hellovirtualworld.mintspace2.testnet
 ```
 ## Extending
 
-This project is setup using Next.js + MintBase UI + Tailwind + Apollo + React Hook Form.
+This project is setup using Next.js + MintBase UI + Tailwind + Apollo.
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
 ## 🙋‍♀️  Need extra help?
