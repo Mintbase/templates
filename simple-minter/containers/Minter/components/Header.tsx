@@ -11,7 +11,7 @@ const Header = () => {
         </h1>
       </div>
       {/** login/logout with wallet */}
-      <div className="flex items-center sm:mr-2">
+      <div className="flex items-center mr-2">
         {isConnected && (
           <MbButton onClick={signOut} label={`Sign Out ${details.accountId}`} />
         )}

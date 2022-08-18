@@ -24,13 +24,13 @@ const Store: NextPage = () => {
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
       <Header />
-      <div className="mx-24 mt-4">
+      <div className="md:mx-24 mt-4">
         <HeroSection />
       </div>
       <div className="flex w-full">
         <Items showModal={handleOpenBuyModal} />
       </div>
-      <div className="mx-24 mt-4">
+      <div className="mx-4 md:mx-24 md:mt-4">
         {showBuyModal && <BuyModal closeModal={handleCloseBuyModal} item={selectedItem} />}
       </div>
     </div>
