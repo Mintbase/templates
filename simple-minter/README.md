@@ -74,7 +74,6 @@ copy .env.example .env.local
 
 Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
 
-
 To get your `api key` visit :
 
 [Mintbase Developers Page for Mainnet](https://www.mintbase.io/developer):
