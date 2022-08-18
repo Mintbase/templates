@@ -1,16 +1,24 @@
-import { useState } from "react";
-import { MbTab, MbMenuWrapper, MbDropdownMenu, MbIcon, EIconName } from "mintbase-ui";
-import { Item, LoadingItem } from "./Item";
-import useStoreThingsController, { StoreThing } from "../controllers/useMarketplaceController";
-import useStoreController, { Store } from "../controllers/useStoresController";
+import { useState } from 'react'
+import {
+  MbTab,
+  MbMenuWrapper,
+  MbDropdownMenu,
+  MbIcon,
+  EIconName
+} from 'mintbase-ui'
+import { Item, LoadingItem } from './Item'
+import useStoreThingsController, {
+  StoreThing
+} from '../controllers/useMarketplaceController'
+import useStoreController, { Store } from '../controllers/useStoresController'
 
 const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
-  const [selectedTab, setSelectedTab] = useState('all');
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedStore, setSelectedStore] = useState('');
+  const [selectedTab, setSelectedTab] = useState('all')
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [selectedStore, setSelectedStore] = useState('')
 
-  const { things, loading } = useStoreThingsController();
-  const { stores, loading: loadingStores } = useStoreController();
+  const { things, loading } = useStoreThingsController()
+  const { stores, loading: loadingStores } = useStoreController()
 
   // show store names in the dropdown menu
   const storeTabs = stores.map((store: Store) => {
@@ -18,26 +26,26 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
       content: <span>{store.name}</span>,
       onClick: () => setSelectedStore(store.id)
     }
-  });
+  })
 
   // add 'all stores' to the beginning of the dropdown menu
   storeTabs.unshift({
     content: <span>All Stores</span>,
     onClick: () => setSelectedStore('')
-  });
+  })
 
   // filter things by store name selected in the dropdown menu
   const filteredThings = things.filter((thing: StoreThing) => {
-    return selectedStore === '' || thing.storeId === selectedStore;
-  });
+    return selectedStore === '' || thing.storeId === selectedStore
+  })
 
   return (
-    <div className='w-full ml-6 items-center mt-4'>
-      <div className='flex w-full ml-6 items-center mt-4'>
+    <div className="w-full ml-6 items-center mt-4">
+      <div className="flex w-full ml-6 items-center mt-4">
         <div onClick={() => setSelectedTab('all')}>
           <MbTab
             label={<span>All Items</span>}
-            isActive={selectedTab === 'all'} 
+            isActive={selectedTab === 'all'}
             isSmall
           />
         </div>
@@ -46,10 +54,13 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
             <MbTab
               label={
                 <div className="flex space-x-8 items-center">
-                  <span>{selectedStore === ''
-                    ? 'All Stores'
-                    : stores.find((store: Store) => store.id === selectedStore)?.name
-                  }</span>
+                  <span>
+                    {selectedStore === ''
+                      ? 'All Stores'
+                      : stores.find(
+                          (store: Store) => store.id === selectedStore
+                        )?.name}
+                  </span>
                   <div className="pointer-events-none">
                     <MbIcon
                       name={
@@ -69,12 +80,12 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
           </div>
           <MbDropdownMenu
             items={storeTabs}
-            isOpen={menuOpen} 
-            className="mt-2" 
+            isOpen={menuOpen}
+            className="mt-2"
           />
         </MbMenuWrapper>
       </div>
-      
+
       {/** grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 my-12">
         {loading ? (
@@ -86,7 +97,7 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Items;
+export default Items

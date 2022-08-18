@@ -9,7 +9,7 @@ export enum TransactionEnum {
   TRANSFER_STORE_OWNERSHIP = 'transfer-store-ownership',
   LIST = 'list',
   TAKE_OFFER = 'take-offer',
-  WITHDRAW_OFFER = 'withdraw-offer',
+  WITHDRAW_OFFER = 'withdraw-offer'
 }
 
 export interface HasuraThingMetadata {

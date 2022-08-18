@@ -1,13 +1,11 @@
-import { gql, useQuery, useLazyQuery } from "@apollo/client";
-import { useState, useEffect } from "react";
-import { parseYactoToNear } from "../../../lib/numbers";
-import { HasuraThing, ListThing, ThingProps } from "../utils/types";
+import { gql, useQuery, useLazyQuery } from '@apollo/client'
+import { useState, useEffect } from 'react'
+import { parseYactoToNear } from '../../../lib/numbers'
+import { HasuraThing, ListThing, ThingProps } from '../utils/types'
 
 export const GET_THING = gql`
   query getToken($id: String!) @cached {
-    thing(
-      where: { id: { _eq: $id } }
-    ) {
+    thing(where: { id: { _eq: $id } }) {
       id
       metaId
       metadata {
@@ -128,29 +126,34 @@ export const GET_COMBINED_THING_DATA = gql`
 `
 
 export type Thing = {
-  id: string;
-  name: string;
-};
+  id: string
+  name: string
+}
 
 const useThingController = (id: string) => {
-  const [thing, setThing] = useState<Thing>();
+  const [thing, setThing] = useState<Thing>()
 
   const { loading } = useQuery(GET_THING, {
     variables: {
       id
     },
     onCompleted: (data) => {
-      const _thing = data?.thing;
+      const _thing = data?.thing
 
-      setThing(_thing);
+      setThing(_thing)
     }
-  });
+  })
 
-  return { thing, loading };
-};
+  return { thing, loading }
+}
 
-const useListThingController = ({ id, price, tokensTotal, tokensCounter }: ThingProps) => {
-  const [listThing, setListThing] = useState<ListThing>(null);
+const useListThingController = ({
+  id,
+  price,
+  tokensTotal,
+  tokensCounter
+}: ThingProps) => {
+  const [listThing, setListThing] = useState<ListThing>(null)
 
   const [fetchCombinedThingData, { loading: isThingFetching }] = useLazyQuery(
     GET_COMBINED_THING_DATA,
@@ -163,8 +166,7 @@ const useListThingController = ({ id, price, tokensTotal, tokensCounter }: Thing
   }, [id])
 
   const updateThingData = async () => {
-    const { data }: { data: HasuraThing } =
-      await fetchCombinedThingData()
+    const { data }: { data: HasuraThing } = await fetchCombinedThingData()
 
     if (!data) return
     // list data
@@ -180,11 +182,9 @@ const useListThingController = ({ id, price, tokensTotal, tokensCounter }: Thing
       tokensListedAuctionCounter: mTokensListedAuctionCounter ?? 0,
       tokensTotal: tokensTotal ?? mTokensTotal,
       price: price ?? mPrice.toString(),
-      tokenId: list?.token?.id,
+      tokenId: list?.token?.id
     })
   }
-
-  
 
   return {
     listThing,
@@ -192,4 +192,4 @@ const useListThingController = ({ id, price, tokensTotal, tokensCounter }: Thing
   }
 }
 
-export { useThingController, useListThingController };
+export { useThingController, useListThingController }
