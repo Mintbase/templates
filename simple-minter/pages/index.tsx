@@ -1,8 +1,7 @@
-import type { NextPage } from 'next'
-import Header from '../containers/Minter/components/Header'
-import Main from '../containers/Minter/components/Main'
+import Header from '../containers/Minter/components/Header';
+import Main from '../containers/Minter/components/Main';
 
-const Minter: NextPage = () => {
+function Minter(): JSX.Element {
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
       <Header />
@@ -10,7 +9,7 @@ const Minter: NextPage = () => {
         <Main />
       </div>
     </div>
-  )
+  );
 }
 
-export default Minter
+export default Minter;

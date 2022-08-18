@@ -6,4 +6,4 @@ export const tags = {
   music: 'Music',
   photography: 'Photography',
   ticket: 'Ticket',
-}
+};

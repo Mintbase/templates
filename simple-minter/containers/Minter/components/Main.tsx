@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { EState, MbButton, MbText } from 'mintbase-ui'
-import { FormProvider, useForm } from 'react-hook-form'
-import { MetadataField } from 'mintbase'
+import { useState } from 'react';
+import { EState, MbButton, MbText } from 'mintbase-ui';
+import { FormProvider, useForm } from 'react-hook-form';
+import { MetadataField } from 'mintbase';
 
-import { useWallet } from '../../../services/providers/WalletProvider'
-import { EInputType } from '../utils/types'
-import MintForm from './MintForm'
+import { useWallet } from '../../../services/providers/WalletProvider';
+import { EInputType } from '../utils/types';
+import MintForm from './MintForm';
 
-const Main = () => {
-  const { wallet, isConnected, signIn } = useWallet()
-  const [isMinting, setIsMinting] = useState(false)
+function Main() {
+  const { wallet, isConnected, signIn } = useWallet();
+  const [isMinting, setIsMinting] = useState(false);
 
-  const store = process.env.NEXT_PUBLIC_STORE_ID || ''
+  const store = process.env.NEXT_PUBLIC_STORE_ID || '';
 
   const methods = useForm({
     defaultValues: {
@@ -28,73 +28,70 @@ const Main = () => {
       [EInputType.CALENDAR]: null,
       [EInputType.FOREVER_ROYALTIES]: null,
       [EInputType.SPLIT_REVENUE]: null,
-      [EInputType.CUSTOM_KEY_VALUE]: null
+      [EInputType.CUSTOM_KEY_VALUE]: null,
     },
-    mode: 'onSubmit'
-  })
+    mode: 'onSubmit',
+  });
 
   const {
     handleSubmit,
     getValues,
-    formState: { errors }
-  } = methods
+    formState: { errors },
+  } = methods;
 
   const onSubmit = async (data: { [x: string]: any }) => {
-    setIsMinting(true)
+    setIsMinting(true);
 
     try {
-      const file = getValues(EInputType.MAIN_IMAGE)
-      const { data: fileUploadResult, error: fileError } =
-        await wallet.minter.uploadField(MetadataField.Media, file)
+      const file = getValues(EInputType.MAIN_IMAGE);
+      const { error: fileError } = await wallet.minter.uploadField(MetadataField.Media, file);
       if (fileError) {
-        throw new Error(fileError)
+        throw new Error(fileError);
       }
     } catch (error) {
       // handle error
-      console.error(error)
+      console.error(error);
     }
 
     try {
-      const file = getValues(EInputType.FOREVER_MEDIA)
+      const file = getValues(EInputType.FOREVER_MEDIA);
       if (file) {
-        const { data: fileUploadResult, error: fileError } =
-          await wallet.minter.uploadField(MetadataField.Animation_url, file)
+        const { error: fileError } = await wallet.minter.uploadField(MetadataField.Animation_url, file);
         if (fileError) {
-          throw new Error(fileError)
+          throw new Error(fileError);
         }
       }
     } catch (error) {
       // handle error
-      console.error(error)
+      console.error(error);
     }
 
     try {
-      const file = getValues(EInputType.FOREVER_DOCUMENT)
+      const file = getValues(EInputType.FOREVER_DOCUMENT);
 
       if (file) {
-        const { data: fileUploadResult, error: fileError } =
-          await wallet.minter.uploadField(MetadataField.Document, file)
+        const { error: fileError } = await wallet.minter.uploadField(MetadataField.Document, file);
 
         if (fileError) {
-          throw new Error(fileError)
+          throw new Error(fileError);
         }
       }
     } catch (error) {
       // handle error
-      console.error(error)
+      console.error(error);
     }
 
-    let extra: any[] = []
+    const extra: any[] = [];
 
     try {
-      wallet.minter.setField(MetadataField.Tags, data[EInputType.TAGS])
+      wallet.minter.setField(MetadataField.Tags, data[EInputType.TAGS]);
     } catch (error) {
       // handle error here
-      console.error(error)
+      console.error(error);
     }
 
-    const mintAmount = data[EInputType.MINT_AMOUNT]
-    const category = data[EInputType.CATEGORY]
+    const mintAmount = data[EInputType.MINT_AMOUNT];
+    const category = data[EInputType.CATEGORY];
 
     const metadata = {
       title: data[EInputType.TITLE],
@@ -102,20 +99,20 @@ const Main = () => {
       extra,
       store,
       type: 'NEP171',
-      category
-    }
+      category,
+    };
 
-    wallet.minter.setMetadata(metadata, true)
+    wallet.minter.setMetadata(metadata, true);
 
-    const royalties = data[EInputType.FOREVER_ROYALTIES]
-    const splits = data[EInputType.SPLIT_REVENUE]
+    const royalties = data[EInputType.FOREVER_ROYALTIES];
+    const splits = data[EInputType.SPLIT_REVENUE];
 
-    const { data: metadataId, error } = await wallet.minter.getMetadataId()
+    const { data: metadataId, error } = await wallet.minter.getMetadataId();
 
     if (error) {
       // handle error here
-      console.error(error)
-      return
+      console.error(error);
+      return;
     }
 
     await wallet.mint(
@@ -131,17 +128,27 @@ const Main = () => {
           args: {
             contractAddress: store.toString(),
             amount: Number(mintAmount),
-            thingId: `${metadataId}:${store.toString()}`
-          }
+            thingId: `${metadataId}:${store.toString()}`,
+          },
         }),
         royaltyPercentage: royalties?.percentage || 0,
-        metadataId
-      }
-    )
-    setIsMinting(false)
+        metadataId,
+      },
+    );
+    setIsMinting(false);
+  };
+
+  const hasErrors = Object.keys(errors).length > 0;
+
+  let mintButtonState = EState.ACTIVE;
+
+  if (hasErrors) {
+    mintButtonState = EState.DISABLED;
   }
 
-  const hasErrors = Object.keys(errors).length > 0
+  if (isMinting) {
+    mintButtonState = EState.LOADING;
+  }
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
@@ -165,9 +172,7 @@ const Main = () => {
             <div className="w-full mt-4 space-y-4">
               <FormProvider {...methods}>
                 <form
-                  onSubmit={handleSubmit(onSubmit, (errors) =>
-                    console.error(errors)
-                  )}
+                  onSubmit={handleSubmit(onSubmit, (errorMsgs) => console.error(errorMsgs))}
                 >
                   <MintForm />
 
@@ -176,13 +181,7 @@ const Main = () => {
                       type="submit"
                       label="Mint Me"
                       disabled={hasErrors}
-                      state={
-                        hasErrors
-                          ? EState.DISABLED
-                          : isMinting
-                          ? EState.LOADING
-                          : EState.ACTIVE
-                      }
+                      state={mintButtonState}
                     />
                   </div>
                 </form>
@@ -192,7 +191,7 @@ const Main = () => {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Main
+export default Main;

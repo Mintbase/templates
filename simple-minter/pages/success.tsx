@@ -1,11 +1,10 @@
-import type { NextPage } from 'next'
-import { EState, MbButton } from 'mintbase-ui'
-import { useRouter } from 'next/router'
+import { EState, MbButton } from 'mintbase-ui';
+import { useRouter } from 'next/router';
 
-import Header from '../containers/Minter/components/Header'
+import Header from '../containers/Minter/components/Header';
 
-const SuccessPage: NextPage = () => {
-  const router = useRouter()
+function SuccessPage(): JSX.Element {
+  const router = useRouter();
 
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
@@ -26,7 +25,7 @@ const SuccessPage: NextPage = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
+                />
               </svg>
             </div>
             <div className="text-sm font-medium ml-3">Mint Successful.</div>
@@ -39,14 +38,14 @@ const SuccessPage: NextPage = () => {
               label="Mint Again"
               state={EState.ACTIVE}
               onClick={() => {
-                router.push('/')
+                router.push('/');
               }}
             />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SuccessPage
+export default SuccessPage;
