@@ -22,5 +22,4 @@ export const MAINNET_CONFIG = {
 
 export const WalletKeys = {
   AUTH_KEY: process.env.NEXT_PUBLIC_DEVELOPER_KEY,
-  TEST: process.env.NEXT_PUBLIC_DEVELOPER_KEY,
 };
