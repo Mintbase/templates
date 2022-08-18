@@ -1,12 +1,12 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { Chain, Network } from "mintbase";
-import { ApolloProvider } from "@apollo/client";
-import { getClient } from "../services/providers/apollo";
-import { WalletProvider } from "../services/providers/WalletProvider";
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import { Chain, Network } from 'mintbase'
+import { ApolloProvider } from '@apollo/client'
+import { getClient } from '../services/providers/apollo'
+import { WalletProvider } from '../services/providers/WalletProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || "";
+  const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || ''
 
   return (
     <WalletProvider
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </ApolloProvider>
     </WalletProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

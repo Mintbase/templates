@@ -1,5 +1,4 @@
 import Big from 'big.js'
-import math from 'mathjs'
 
 import { utils } from 'near-api-js'
 

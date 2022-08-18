@@ -1,25 +1,25 @@
-import type { NextPage } from "next";
-import { useState } from "react";
+import type { NextPage } from 'next'
+import { useState } from 'react'
 
-import Header from "../containers/Marketplace/components/Header";
-import HeroSection from "../containers/Marketplace/components/HeroSection";
-import Items from "../containers/Marketplace/components/Items";
-import BuyModal from "../containers/Marketplace/components/BuyModal";
-import { StoreThing } from "../containers/Marketplace/controllers/useMarketplaceController";
+import Header from '../containers/Marketplace/components/Header'
+import HeroSection from '../containers/Marketplace/components/HeroSection'
+import Items from '../containers/Marketplace/components/Items'
+import BuyModal from '../containers/Marketplace/components/BuyModal'
+import { StoreThing } from '../containers/Marketplace/controllers/useMarketplaceController'
 
 const Store: NextPage = () => {
-  const [showBuyModal, setShowBuyModal] = useState(false);
-  const [selectedItem, setSelectedItem] = useState({} as StoreThing);
+  const [showBuyModal, setShowBuyModal] = useState(false)
+  const [selectedItem, setSelectedItem] = useState({} as StoreThing)
 
   const handleOpenBuyModal = (item: StoreThing) => {
-    setSelectedItem(item);
-    setShowBuyModal(true);
-  };
+    setSelectedItem(item)
+    setShowBuyModal(true)
+  }
 
   const handleCloseBuyModal = () => {
-    setSelectedItem({} as StoreThing);
-    setShowBuyModal(false);
-  };
+    setSelectedItem({} as StoreThing)
+    setShowBuyModal(false)
+  }
 
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
@@ -36,7 +36,7 @@ const Store: NextPage = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Store;
+export default Store

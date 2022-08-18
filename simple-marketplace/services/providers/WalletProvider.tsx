@@ -4,7 +4,7 @@ import {
   ReactNode,
   useEffect,
   useState,
-  useContext,
+  useContext
 } from 'react'
 import { useRouter } from 'next/router'
 import { WalletKeys } from './constants'
@@ -48,15 +48,15 @@ export const WalletContext = createContext<{
     accountId: '',
     balance: '',
     allowance: '',
-    contractName: '',
+    contractName: ''
   },
   isConnected: false,
   loading: true,
   signIn: () => Promise.resolve(),
-  signOut: () => null,
+  signOut: () => null
 })
 
-export const WalletProvider = (props: IWalletProvider) => {  
+export const WalletProvider = (props: IWalletProvider) => {
   const { network, chain, apiKey, children } = props
 
   const [wallet, setWallet] = useState<Wallet | undefined>()
@@ -70,7 +70,7 @@ export const WalletProvider = (props: IWalletProvider) => {
     accountId: '',
     balance: '',
     allowance: '',
-    contractName: '',
+    contractName: ''
   })
 
   const router = useRouter()
@@ -95,7 +95,7 @@ export const WalletProvider = (props: IWalletProvider) => {
     const { data: walletData, error } = await new Wallet().init({
       networkName: network ?? Network.testnet,
       chain: chain ?? Chain.near,
-      apiKey: apiKey,
+      apiKey: apiKey
     })
 
     if (error) {
@@ -132,9 +132,9 @@ export const WalletProvider = (props: IWalletProvider) => {
     }
     await wallet.disconnect()
 
-    await router.replace("/", undefined, { shallow: true });
+    await router.replace('/', undefined, { shallow: true })
 
-    window.location.reload();
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -149,7 +149,7 @@ export const WalletProvider = (props: IWalletProvider) => {
         isConnected: connected,
         signIn: signIn,
         signOut: signOut,
-        loading: loading,
+        loading: loading
       }}
     >
       {children}
