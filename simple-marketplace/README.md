@@ -93,8 +93,6 @@ NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key
 NEXT_PUBLIC_NETWORK=testnet
 ```
 
-
-
 `NEXT_PUBLIC_STORE_ID` its your store id
 ```
 NEXT_PUBLIC_STORE_ID=hellovirtualworld.mintspace2.testnet
