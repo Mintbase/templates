@@ -8,7 +8,7 @@ function Home():JSX.Element {
 
   const buttonLabel = isConnected
     ? `Sign Out ${details.accountId}`
-    : ' Connect NEAR Wallet s';
+    : ' Connect NEAR Wallet';
 
   const buttonAction = isConnected ? signOut : signIn;
 

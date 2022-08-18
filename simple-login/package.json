@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "eslint:fix": "eslint --fix \"**/*.+(ts|tsx)\"",
-    "prepare": "cd ../ && husky install ./simple-login/.husky"
+    "prepare": "cd ../ && husky install ./simple-login/.husky",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "mintbase-ui": "^0.5.2",
