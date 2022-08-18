@@ -50,8 +50,8 @@ const Main = () => {
         throw new Error(fileError)
       }
     } catch (error) {
+      // handle error
       console.error(error)
-      // TODO: handle error
     }
 
     try {
@@ -64,8 +64,8 @@ const Main = () => {
         }
       }
     } catch (error) {
+      // handle error
       console.error(error)
-      // TODO: handle error
     }
 
     try {
@@ -80,8 +80,8 @@ const Main = () => {
         }
       }
     } catch (error) {
+      // handle error
       console.error(error)
-      // TODO: handle error
     }
 
     let extra: any[] = []
@@ -89,8 +89,8 @@ const Main = () => {
     try {
       wallet.minter.setField(MetadataField.Tags, data[EInputType.TAGS])
     } catch (error) {
+      // handle error here
       console.error(error)
-      // TODO: handle error here
     }
 
     const mintAmount = data[EInputType.MINT_AMOUNT]
@@ -113,7 +113,7 @@ const Main = () => {
     const { data: metadataId, error } = await wallet.minter.getMetadataId()
 
     if (error) {
-      // TODO: handle error here
+      // handle error here
       console.error(error)
       return
     }
