@@ -44,25 +44,31 @@ function Main() {
 
     try {
       const file = getValues(EInputType.MAIN_IMAGE);
-      const { error: fileError } = await wallet.minter.uploadField(MetadataField.Media, file);
+      const { data: fileUploadResult, error: fileError } = await wallet.minter.uploadField(MetadataField.Media, file);
+
+      console.log('data', fileUploadResult);
+
       if (fileError) {
         throw new Error(fileError);
       }
     } catch (error) {
-      // handle error
+      // handle error here
       console.error(error);
     }
 
     try {
       const file = getValues(EInputType.FOREVER_MEDIA);
       if (file) {
-        const { error: fileError } = await wallet.minter.uploadField(MetadataField.Animation_url, file);
+        const { data: fileUploadResult, error: fileError } = await wallet.minter.uploadField(MetadataField.Animation_url, file);
+
+        console.log('data', fileUploadResult);
+
         if (fileError) {
           throw new Error(fileError);
         }
       }
     } catch (error) {
-      // handle error
+      // handle error here
       console.error(error);
     }
 
@@ -70,14 +76,17 @@ function Main() {
       const file = getValues(EInputType.FOREVER_DOCUMENT);
 
       if (file) {
-        const { error: fileError } = await wallet.minter.uploadField(MetadataField.Document, file);
+        const { data: fileUploadResult, error: fileError } = await wallet.minter.uploadField(MetadataField.Document, file);
+
+        console.log('data', fileUploadResult);
 
         if (fileError) {
           throw new Error(fileError);
         }
       }
     } catch (error) {
-      // handle error
+      // handle error here
+
       console.error(error);
     }
 
@@ -110,8 +119,7 @@ function Main() {
     const { data: metadataId, error } = await wallet.minter.getMetadataId();
 
     if (error) {
-      // handle error here
-      console.error(error);
+      // TODO: throw error
       return;
     }
 
@@ -150,9 +158,10 @@ function Main() {
     mintButtonState = EState.LOADING;
   }
 
-  return (
-    <div className="w-full flex flex-col justify-center items-center">
-      {!isConnected && (
+  if (!isConnected) {
+    return (
+      <div className="w-full flex flex-col justify-center items-center">
+
         <div className="w-full flex flex-col justify-center items-center space-y-8">
           <div className="flex flex-col justify-center items-center space-y-8">
             <MbText className="text-3xl border-gray-100">Simple Minter</MbText>
@@ -162,33 +171,31 @@ function Main() {
             <MbButton onClick={signIn} label="Connect NEAR Wallet to Mint" />
           </div>
         </div>
-      )}
+      </div>
+    );
+  }
 
-      <div className="md:max-w-2xl w-full space-y-4">
-        {!!isConnected && (
-          <div className="flex flex-col items-center justify-center mt-2">
-            <MbText className="text-3xl">Mint your NFTs</MbText>
-
-            <div className="w-full mt-4 space-y-4">
-              <FormProvider {...methods}>
-                <form
-                  onSubmit={handleSubmit(onSubmit, (errorMsgs) => console.error(errorMsgs))}
-                >
-                  <MintForm />
-
-                  <div className="flex justify-center items-center mt-4">
-                    <MbButton
-                      type="submit"
-                      label="Mint Me"
-                      disabled={hasErrors}
-                      state={mintButtonState}
-                    />
-                  </div>
-                </form>
-              </FormProvider>
-            </div>
-          </div>
-        )}
+  return (
+    <div className="md:max-w-2xl w-full space-y-4">
+      <div className="flex flex-col items-center justify-center mt-2">
+        <MbText className="text-3xl">Mint your NFTs</MbText>
+        <div className="w-full mt-4 space-y-4">
+          <FormProvider {...methods}>
+            <form
+              onSubmit={handleSubmit(onSubmit, (errorMsgs) => console.error(errorMsgs))}
+            >
+              <MintForm />
+              <div className="flex justify-center items-center mt-4">
+                <MbButton
+                  type="submit"
+                  label="Mint Me"
+                  disabled={hasErrors}
+                  state={mintButtonState}
+                />
+              </div>
+            </form>
+          </FormProvider>
+        </div>
       </div>
     </div>
   );

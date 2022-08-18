@@ -90,7 +90,7 @@ function MintForm() {
         <MbMediaImport
           {...register(EInputType.MAIN_IMAGE, {
             required: true,
-            validate: (value) => value === true,
+            validate: () => true,
           })}
           acceptedFormats={IMAGE_TYPES}
           handleFileAdd={uploadFile}
