@@ -2,7 +2,10 @@
   "extends": [
     "airbnb",
     "airbnb-typescript",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,6 +19,7 @@
         "no-console": "off",
         "import/prefer-default-export": "off", // not considered a good practice
         "react/jsx-props-no-spreading": "off", // due to react hook form we have to ignore this rule
+        "react/react-in-jsx-scope": "off",
         "no-restricted-syntax": [
             "error",
             {
