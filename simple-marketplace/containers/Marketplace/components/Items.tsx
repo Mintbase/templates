@@ -1,43 +1,39 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   MbTab,
   MbMenuWrapper,
   MbDropdownMenu,
   MbIcon,
-  EIconName
-} from 'mintbase-ui'
-import { Item, LoadingItem } from './Item'
+  EIconName,
+} from 'mintbase-ui';
+import { Item, LoadingItem } from './Item';
 import useStoreThingsController, {
-  StoreThing
-} from '../controllers/useMarketplaceController'
-import useStoreController, { Store } from '../controllers/useStoresController'
+  StoreThing,
+} from '../controllers/useMarketplaceController';
+import useStoreController, { Store } from '../controllers/useStoresController';
 
-const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
-  const [selectedTab, setSelectedTab] = useState('all')
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [selectedStore, setSelectedStore] = useState('')
+function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
+  const [selectedTab, setSelectedTab] = useState('all');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedStore, setSelectedStore] = useState('');
 
-  const { things, loading } = useStoreThingsController()
-  const { stores, loading: loadingStores } = useStoreController()
+  const { things, loading } = useStoreThingsController();
+  const { stores, loading: loadingStores } = useStoreController();
 
   // show store names in the dropdown menu
-  const storeTabs = stores.map((store: Store) => {
-    return {
-      content: <span>{store.name}</span>,
-      onClick: () => setSelectedStore(store.id)
-    }
-  })
+  const storeTabs = stores.map((store: Store) => ({
+    content: <span>{store.name}</span>,
+    onClick: () => setSelectedStore(store.id),
+  }));
 
   // add 'all stores' to the beginning of the dropdown menu
   storeTabs.unshift({
     content: <span>All Stores</span>,
-    onClick: () => setSelectedStore('')
-  })
+    onClick: () => setSelectedStore(''),
+  });
 
   // filter things by store name selected in the dropdown menu
-  const filteredThings = things.filter((thing: StoreThing) => {
-    return selectedStore === '' || thing.storeId === selectedStore
-  })
+  const filteredThings = things.filter((thing: StoreThing) => selectedStore === '' || thing.storeId === selectedStore);
 
   return (
     <div className="w-full ml-6 items-center mt-4">
@@ -52,14 +48,14 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
         <MbMenuWrapper setIsOpen={setMenuOpen}>
           <div onClick={() => setMenuOpen(!menuOpen)}>
             <MbTab
-              label={
+              label={(
                 <div className="flex space-x-8 items-center">
                   <span>
                     {selectedStore === ''
                       ? 'All Stores'
                       : stores.find(
-                          (store: Store) => store.id === selectedStore
-                        )?.name}
+                        (store: Store) => store.id === selectedStore,
+                      )?.name}
                   </span>
                   <div className="pointer-events-none">
                     <MbIcon
@@ -74,7 +70,7 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
                     />
                   </div>
                 </div>
-              }
+              )}
               isSmall
             />
           </div>
@@ -97,7 +93,7 @@ const Items = ({ showModal }: { showModal: (item: StoreThing) => void }) => {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Items
+export default Items;

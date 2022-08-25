@@ -1,6 +1,6 @@
-import { MbText } from 'mintbase-ui'
+import { MbText } from 'mintbase-ui';
 
-const HeroSection = () => {
+function HeroSection() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center">
       <div className="items-center justify-center">
@@ -10,7 +10,7 @@ const HeroSection = () => {
         <MbText className="text-2xl">A simple marketplace on Mintbase</MbText>
       </div>
     </div>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;

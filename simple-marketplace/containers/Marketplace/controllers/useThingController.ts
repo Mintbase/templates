@@ -1,7 +1,7 @@
-import { gql, useQuery, useLazyQuery } from '@apollo/client'
-import { useState, useEffect } from 'react'
-import { parseYactoToNear } from '../../../lib/numbers'
-import { HasuraThing, ListThing, ThingProps } from '../utils/types'
+import { gql, useQuery, useLazyQuery } from '@apollo/client';
+import { useState, useEffect } from 'react';
+import { parseYactoToNear } from '../../../lib/numbers';
+import { HasuraThing, ListThing, ThingProps } from '../utils/types';
 
 export const GET_THING = gql`
   query getToken($id: String!) @cached {
@@ -25,7 +25,7 @@ export const GET_THING = gql`
       }
     }
   }
-`
+`;
 
 export const GET_TOKEN_LIST = gql`
   query getTokenList($ids: [String!]) {
@@ -38,7 +38,7 @@ export const GET_TOKEN_LIST = gql`
       }
     }
   }
-`
+`;
 
 export const GET_COMBINED_THING_DATA = gql`
   query CombinedThingData($thingId: String!) @cached(ttl: 120) {
@@ -123,73 +123,73 @@ export const GET_COMBINED_THING_DATA = gql`
       }
     }
   }
-`
+`;
 
 export type Thing = {
   id: string
   name: string
-}
+};
 
 const useThingController = (id: string) => {
-  const [thing, setThing] = useState<Thing>()
+  const [thing, setThing] = useState<Thing>();
 
   const { loading } = useQuery(GET_THING, {
     variables: {
-      id
+      id,
     },
     onCompleted: (data) => {
-      const _thing = data?.thing
+      const _thing = data?.thing;
 
-      setThing(_thing)
-    }
-  })
+      setThing(_thing);
+    },
+  });
 
-  return { thing, loading }
-}
+  return { thing, loading };
+};
 
 const useListThingController = ({
   id,
   price,
   tokensTotal,
-  tokensCounter
+  tokensCounter,
 }: ThingProps) => {
-  const [listThing, setListThing] = useState<ListThing>(null)
+  const [listThing, setListThing] = useState<ListThing>(null);
 
   const [fetchCombinedThingData, { loading: isThingFetching }] = useLazyQuery(
     GET_COMBINED_THING_DATA,
-    { variables: { thingId: id } }
-  )
+    { variables: { thingId: id } },
+  );
 
   // Combined graphql query
   useEffect(() => {
-    updateThingData()
-  }, [id])
+    updateThingData();
+  }, [id]);
 
   const updateThingData = async () => {
-    const { data }: { data: HasuraThing } = await fetchCombinedThingData()
+    const { data }: { data: HasuraThing } = await fetchCombinedThingData();
 
-    if (!data) return
+    if (!data) return;
     // list data
-    const [list] = data.list
+    const [list] = data.list;
 
-    const mTokensListedSaleCounter = data.simpleSaleCount.aggregate.count
-    const mTokensListedAuctionCounter = data.rollingAuctionCount.aggregate.count
-    const mTokensTotal = data.tokens_aggregate.aggregate.count
-    const mPrice = list ? parseYactoToNear(list.price) : '0'
+    const mTokensListedSaleCounter = data.simpleSaleCount.aggregate.count;
+    const mTokensListedAuctionCounter = data.rollingAuctionCount.aggregate.count;
+    const mTokensTotal = data.tokens_aggregate.aggregate.count;
+    const mPrice = list ? parseYactoToNear(list.price) : '0';
 
     setListThing({
       tokensListedSaleCounter: tokensCounter ?? mTokensListedSaleCounter,
       tokensListedAuctionCounter: mTokensListedAuctionCounter ?? 0,
       tokensTotal: tokensTotal ?? mTokensTotal,
       price: price ?? mPrice.toString(),
-      tokenId: list?.token?.id
-    })
-  }
+      tokenId: list?.token?.id,
+    });
+  };
 
   return {
     listThing,
-    isThingFetching
-  }
-}
+    isThingFetching,
+  };
+};
 
-export { useThingController, useListThingController }
+export { useThingController, useListThingController };

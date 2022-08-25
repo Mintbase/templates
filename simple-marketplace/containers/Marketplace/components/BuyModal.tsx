@@ -3,107 +3,107 @@ import {
   MbInfoCard,
   MbAmountInput,
   MbButton,
-  EState
-} from 'mintbase-ui'
-import { useState, useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { useLazyQuery } from '@apollo/client'
+  EState,
+} from 'mintbase-ui';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useLazyQuery } from '@apollo/client';
 
-import { StoreThing } from '../controllers/useMarketplaceController'
+import { StoreThing } from '../controllers/useMarketplaceController';
 import {
   GET_THING,
   GET_TOKEN_LIST,
-  useListThingController
-} from '../controllers/useThingController'
-import { bigToNear, nearToYocto } from '../../../lib/numbers'
-import { TransactionEnum } from '../utils/types'
-import { useWallet } from '../../../services/providers/WalletProvider'
+  useListThingController,
+} from '../controllers/useThingController';
+import { bigToNear, nearToYocto } from '../../../lib/numbers';
+import { TransactionEnum } from '../utils/types';
+import { useWallet } from '../../../services/providers/WalletProvider';
 
-const MED_GAS = '300000000000000'
+const MED_GAS = '300000000000000';
 
-const LoadingSaleCard = () => (
-  <div className="mb-4">
-    <div className="bg-gray-50 py-4 flex justify-center animate-pulse">
-      <div className="h-6 w-36 rounded bg-gray-600"></div>
-    </div>
-    <div className="p-4 animate-pulse">
-      <div className="mb-8">
-        <div className="h-16 w-full rounded bg-gray-600"></div>
-        <div className="h-16 w-full rounded bg-gray-600"></div>
+function LoadingSaleCard() {
+  return (
+    <div className="mb-4">
+      <div className="bg-gray-50 py-4 flex justify-center animate-pulse">
+        <div className="h-6 w-36 rounded bg-gray-600" />
       </div>
-      <div className="flex justify-center">
-        <div className="h-9 w-40 rounded bg-gray-600"></div>
+      <div className="p-4 animate-pulse">
+        <div className="mb-8">
+          <div className="h-16 w-full rounded bg-gray-600" />
+          <div className="h-16 w-full rounded bg-gray-600" />
+        </div>
+        <div className="flex justify-center">
+          <div className="h-9 w-40 rounded bg-gray-600" />
+        </div>
       </div>
     </div>
-  </div>
-)
+  );
+}
 
-const BuyModal = ({
+function BuyModal({
   closeModal,
-  item
+  item,
 }: {
   closeModal: () => void
   item: StoreThing
-}) => {
-  const { wallet, signIn } = useWallet()
-  const { thingId } = item
+}) {
+  const { wallet, signIn } = useWallet();
+  const { thingId } = item;
 
-  const [currentNearPrice, setCurrentNearPrice] = useState('0')
-  const [thingTokens, setThingTokens] = useState([])
-  const [prices, setPrices] = useState([])
-  const [tokens, setTokens] = useState([])
-  const [currentPrice, setCurrentPrice] = useState('0')
+  const [currentNearPrice, setCurrentNearPrice] = useState('0');
+  const [thingTokens, setThingTokens] = useState([]);
+  const [prices, setPrices] = useState([]);
+  const [tokens, setTokens] = useState([]);
+  const [currentPrice, setCurrentPrice] = useState('0');
 
-  const { watch, setValue, getValues } = useForm()
+  const { watch, setValue, getValues } = useForm();
 
-  const id = item.thingId
-  const { listThing, isThingFetching } = useListThingController({ id })
+  const id = item.thingId;
+  const { listThing, isThingFetching } = useListThingController({ id });
 
-  const price = listThing?.price
-  const amountAvailable = listThing?.tokensListedSaleCounter
-  const tokensTotal = listThing?.tokensTotal
-  const tokenId = listThing?.tokenId
+  const price = listThing?.price;
+  const amountAvailable = listThing?.tokensListedSaleCounter;
+  const tokensTotal = listThing?.tokensTotal;
+  const tokenId = listThing?.tokenId;
 
   const [getThing] = useLazyQuery(GET_THING, {
     variables: { id },
     onCompleted: (_data) => {
       if (_data) {
-        setThingTokens(_data.thing[0].tokens)
+        setThingTokens(_data.thing[0].tokens);
       }
-    }
-  })
+    },
+  });
 
   const [getTokenPrice] = useLazyQuery(GET_TOKEN_LIST, {
     variables: { ids: tokens },
     onCompleted: (_data) => {
       if (_data) {
         setPrices(
-          _data.list.map((elm: { price: any; token: { id: any } }) => {
-            return { price: elm.price, tokenId: elm.token.id }
-          })
-        )
+          _data.list.map((elm: { price: any; token: { id: any } }) => ({ price: elm.price, tokenId: elm.token.id })),
+        );
       }
-    }
-  })
+    },
+  });
 
-  const t = new Date()
-  t.setSeconds(t.getSeconds() - 60)
+  const t = new Date();
+  t.setSeconds(t.getSeconds() - 60);
 
   const getNearPrice = async () => {
     const nearPriceData = await fetch(
-      'https://api.binance.com/api/v3/ticker/price?symbol=NEARUSDT'
-    )
+      'https://api.binance.com/api/v3/ticker/price?symbol=NEARUSDT',
+    );
 
-    const final = await nearPriceData.json()
+    const final = await nearPriceData.json();
 
-    setCurrentNearPrice(final.price)
-  }
+    setCurrentNearPrice(final.price);
+  };
 
   const handleBuy = async () => {
-    if (amountAvailable < 1) return
+    if (amountAvailable < 1) return;
 
     if (getValues('amount') === 1) {
-      if (!tokenId) return
+      if (!tokenId) return;
 
       await wallet?.makeOffer(tokenId, nearToYocto(price.toString()), {
         callbackUrl: `${window.location.origin}/`,
@@ -111,16 +111,16 @@ const BuyModal = ({
           type: TransactionEnum.MAKE_OFFER,
           args: {
             thingId,
-            price: nearToYocto(price.toString())
-          }
-        })
-      })
+            price: nearToYocto(price.toString()),
+          },
+        }),
+      });
     } else {
-      const auxTokens = tokens.slice(0, getValues('amount'))
+      const auxTokens = tokens.slice(0, getValues('amount'));
 
       const auxPrices = prices
         .slice(0, getValues('amount'))
-        .map((elm: any) => nearToYocto(bigToNear(elm.price).toString()))
+        .map((elm: any) => nearToYocto(bigToNear(elm.price).toString()));
 
       wallet?.batchMakeOffer(auxTokens, auxPrices, {
         gas: MED_GAS,
@@ -129,42 +129,40 @@ const BuyModal = ({
           type: TransactionEnum.MAKE_OFFER,
           args: {
             thingId,
-            price: nearToYocto(price.toString())
-          }
-        })
-      })
+            price: nearToYocto(price.toString()),
+          },
+        }),
+      });
     }
-  }
+  };
 
   useEffect(() => {
     if (watch().amount > 1) {
-      const sum = prices.slice(0, watch().amount).reduce((prev, curr) => {
-        return (prev.price || prev) + curr.price
-      })
+      const sum = prices.slice(0, watch().amount).reduce((prev, curr) => (prev.price || prev) + curr.price);
 
-      setCurrentPrice(bigToNear(sum))
+      setCurrentPrice(bigToNear(sum));
     } else {
-      setCurrentPrice(price ?? '0')
+      setCurrentPrice(price ?? '0');
     }
-  }, [watch().amount, price])
+  }, [watch().amount, price]);
 
   useEffect(() => {
-    if (!thingId) return
-    getThing()
-  }, [thingId])
+    if (!thingId) return;
+    getThing();
+  }, [thingId]);
 
   useEffect(() => {
-    getTokenPrice()
-  }, [thingTokens])
+    getTokenPrice();
+  }, [thingTokens]);
 
   useEffect(() => {
-    getNearPrice()
-    setPrices([...prices, price])
-  }, [])
+    getNearPrice();
+    setPrices([...prices, price]);
+  }, []);
 
   useEffect(() => {
-    setTokens(thingTokens.map((token) => token.id))
-  }, [thingTokens])
+    setTokens(thingTokens.map((token) => token.id));
+  }, [thingTokens]);
 
   return (
     <div
@@ -177,7 +175,7 @@ const BuyModal = ({
         <div
           className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
           aria-hidden="true"
-        ></div>
+        />
         <span
           className="hidden sm:inline-block sm:align-middle sm:h-screen"
           aria-hidden="true"
@@ -229,11 +227,14 @@ const BuyModal = ({
                     <MbText className="p-med-90 text-gray-700">
                       <span className="p-med-130 text-black">
                         {amountAvailable}
-                      </span>{' '}
-                      of{' '}
+                      </span>
+                      {' '}
+                      of
+                      {' '}
                       <span className="p-med-130 text-black">
                         {tokensTotal}
-                      </span>{' '}
+                      </span>
+                      {' '}
                       Available
                     </MbText>
                   </div>
@@ -246,7 +247,7 @@ const BuyModal = ({
                             title: 'Price',
                             lowerLeftText: `~ ${(
                               Number(currentNearPrice) * Number(currentPrice)
-                            ).toFixed(2)} USD`
+                            ).toFixed(2)} USD`,
                           }}
                         />
                         <div className="mt-4">
@@ -256,7 +257,7 @@ const BuyModal = ({
                           <MbAmountInput
                             maxAmount={Math.min(amountAvailable, 5)}
                             onValueChange={(amount) => {
-                              setValue('amount', Number(amount))
+                              setValue('amount', Number(amount));
                             }}
                             disabled={amountAvailable === 1}
                           />
@@ -280,7 +281,7 @@ const BuyModal = ({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default BuyModal
+export default BuyModal;
