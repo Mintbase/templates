@@ -11,13 +11,12 @@ import { useLazyQuery } from '@apollo/client';
 
 import { StoreThing } from '../controllers/useMarketplaceController';
 import {
-  GET_THING,
-  GET_TOKEN_LIST,
   useListThingController,
 } from '../controllers/useThingController';
 import { bigToNear, nearToYocto } from '../../../lib/numbers';
 import { TransactionEnum } from '../utils/types';
 import { useWallet } from '../../../services/providers/WalletProvider';
+import { GET_THING, GET_TOKEN_LIST } from '../../../queries/marketplace.queries';
 
 const MED_GAS = '300000000000000';
 

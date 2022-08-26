@@ -12,38 +12,38 @@ import { useRouter } from 'next/router';
 import { WalletKeys } from './constants';
 
 interface IWalletProvider {
-  network: Network
-  chain: Chain
-  apiKey: string
-  children: ReactNode
+  network: Network;
+  chain: Chain;
+  apiKey: string;
+  children: ReactNode;
 }
 
 interface IWalletConsumer {
-  wallet: Wallet
+  wallet: Wallet;
   details: {
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
-  }
-  isConnected: boolean
-  loading: boolean
-  signIn: () => void
-  signOut: () => void
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
+  };
+  isConnected: boolean;
+  loading: boolean;
+  signIn: () => void;
+  signOut: () => void;
 }
 
 export const WalletContext = createContext<{
-  wallet: Wallet
+  wallet: Wallet;
   details: {
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
-  }
-  isConnected: boolean
-  loading: boolean
-  signIn:() => void
-  signOut: () => void
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
+  };
+  isConnected: boolean;
+  loading: boolean;
+  signIn:() => void;
+  signOut: () => void;
 }>({
       wallet: undefined,
       details: {
@@ -59,15 +59,18 @@ export const WalletContext = createContext<{
     });
 
 export function WalletProvider({
-  network = Network.testnet, chain, apiKey, children,
-}:IWalletProvider) {
+  network = Network.testnet,
+  chain,
+  apiKey,
+  children,
+}: IWalletProvider) {
   const [walletInfo, setWallet] = useState<Wallet | undefined>();
 
   const [details, setDetails] = useState<{
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
   }>({
     accountId: '',
     balance: '',
@@ -156,9 +159,7 @@ export function WalletProvider({
   }, [connected, details, loading, signIn, signOut, walletInfo]);
 
   return (
-    <WalletContext.Provider
-      value={walletContextData}
-    >
+    <WalletContext.Provider value={walletContextData}>
       {children}
     </WalletContext.Provider>
   );

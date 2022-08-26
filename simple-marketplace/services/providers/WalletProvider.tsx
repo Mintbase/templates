@@ -10,38 +10,38 @@ import { useRouter } from 'next/router';
 import { WalletKeys } from './constants';
 
 interface IWalletProvider {
-  network?: Network
-  chain?: Chain
-  apiKey: string
-  children?: ReactNode
+  network?: Network;
+  chain?: Chain;
+  apiKey: string;
+  children?: ReactNode;
 }
 
 interface IWalletConsumer {
-  wallet: Wallet
+  wallet: Wallet;
   details: {
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
-  }
-  isConnected: boolean
-  loading: boolean
-  signIn: () => void
-  signOut: () => void
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
+  };
+  isConnected: boolean;
+  loading: boolean;
+  signIn: () => void;
+  signOut: () => void;
 }
 
 export const WalletContext = createContext<{
-  wallet: Wallet
+  wallet: Wallet;
   details: {
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
-  }
-  isConnected: boolean
-  loading: boolean
-  signIn:() => void
-  signOut: () => void
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
+  };
+  isConnected: boolean;
+  loading: boolean;
+  signIn:() => void;
+  signOut: () => void;
 }>({
       wallet: undefined,
       details: {
@@ -64,10 +64,10 @@ export function WalletProvider(props: IWalletProvider) {
   const [wallet, setWallet] = useState<Wallet | undefined>();
 
   const [details, setDetails] = useState<{
-    accountId: string
-    balance: string
-    allowance: string
-    contractName: string
+    accountId: string;
+    balance: string;
+    allowance: string;
+    contractName: string;
   }>({
     accountId: '',
     balance: '',
@@ -87,8 +87,8 @@ export function WalletProvider(props: IWalletProvider) {
 
     if (
       accountId
-      && localStorage.getItem(nearKeystore)
-      && localStorage.getItem(WalletKeys.AUTH_KEY)
+			&& localStorage.getItem(nearKeystore)
+			&& localStorage.getItem(WalletKeys.AUTH_KEY)
     ) {
       localStorage.removeItem(WalletKeys.AUTH_KEY);
       localStorage.removeItem(nearKeystore);
@@ -146,12 +146,12 @@ export function WalletProvider(props: IWalletProvider) {
   return (
     <WalletContext.Provider
       value={{
-        wallet,
-        details,
-        isConnected: connected,
-        signIn,
-        signOut,
-        loading,
+			  wallet,
+			  details,
+			  isConnected: connected,
+			  signIn,
+			  signOut,
+			  loading,
       }}
     >
       {children}
