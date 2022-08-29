@@ -1,15 +1,23 @@
 import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
 
-const GET_STORES = gql`
-  query StoresQuery($ids: [stores_bool_exp!]) {
-    store(where: { _or: $ids }) {
+// const GET_STORES = gql`
+//   query StoresQuery($ids: [stores_bool_exp!]) {
+//     store(where: { _or: $ids }) {
+//       id
+//       name
+//     }
+//   }
+// `;
+
+export const v2MarketPlaceGetStoreData = gql`
+  query v2MarketPlaceGetStoreData($id: [String!]) @cached {
+    store: nft_contracts(where: { id: { _in: $id } }) {
       id
       name
     }
   }
 `;
-
 export type Store = {
   id: string
   name: string
@@ -18,20 +26,14 @@ export type Store = {
 const useStoreController = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
-  const selectedStores = process.env.NEXT_PUBLIC_STORE_ID
+  const selectedStores = process.env.NEXT_PUBLIC_STORES
     || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet';
-  const ids: { id: { _eq: string } }[] = [];
-  const storesArray = selectedStores?.split(',');
 
-  storesArray?.forEach((id) => {
-    ids.push({
-      id: { _eq: id },
-    });
-  });
+  console.log('ids', selectedStores);
 
-  const { loading } = useQuery(GET_STORES, {
+  const { loading } = useQuery(v2MarketPlaceGetStoreData, {
     variables: {
-      ids,
+      id: [selectedStores],
     },
     onCompleted: (data) => {
       const storesData = data?.store;

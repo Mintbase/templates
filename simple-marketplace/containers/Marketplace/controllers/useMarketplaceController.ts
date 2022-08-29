@@ -2,8 +2,8 @@ import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
 
 
-export const v2MarketPlaceGetStoreThings = gql`
-  query v2_omnisite_getStoreThings(
+export const v2MarketPlaceGetStoreNfts = gql`
+  query v2MarketPlaceGetStoreNfts(
     $offset: Int = 0
     $condition: mb_views_nft_metadata_unburned_bool_exp
   ) @cached {
@@ -39,10 +39,10 @@ export type StoreThing = {
 const useStoreThingsController = () => {
   const [things, setThings] = useState<StoreThing[]>([]);
 
-  const store = process.env.NEXT_PUBLIC_STORE_ID;
+  const stores = process.env.NEXT_PUBLIC_STORES;
 
   const { loading } = useQuery(v2MarketPlaceGetStoreThings, {
-    variables: { condition: { nft_contract_id: { _in: [store] } } },
+    variables: { condition: { nft_contract_id: { _in: [stores] } } },
     onCompleted: (data) => {
       const storeData = data?.mb_views_nft_metadata_unburned;
       setThings(storeData);
