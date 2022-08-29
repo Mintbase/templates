@@ -18,7 +18,7 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
   const [selectedStore, setSelectedStore] = useState('');
 
   const { things, loading } = useStoreThingsController();
-  const { stores, loading: loadingStores } = useStoreController();
+  const { stores } = useStoreController();
 
   // show store names in the dropdown menu
   const storeTabs = stores.map((store: Store) => ({
@@ -38,7 +38,12 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
   return (
     <div className="w-full ml-6 items-center mt-4">
       <div className="flex w-full ml-6 items-center mt-4">
-        <div onClick={() => setSelectedTab('all')}>
+        <div
+          onClick={() => setSelectedTab('all')}
+          onKeyDown={() => setSelectedTab('all')}
+          role="button"
+          tabIndex={0}
+        >
           <MbTab
             label={<span>All Items</span>}
             isActive={selectedTab === 'all'}
@@ -46,7 +51,12 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
           />
         </div>
         <MbMenuWrapper setIsOpen={setMenuOpen}>
-          <div onClick={() => setMenuOpen(!menuOpen)}>
+          <div
+            onClick={() => setMenuOpen(!menuOpen)}
+            onKeyDown={() => setMenuOpen(!menuOpen)}
+            role="button"
+            tabIndex={-1}
+          >
             <MbTab
               label={(
                 <div className="flex space-x-8 items-center">
@@ -87,8 +97,8 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
         {loading ? (
           <LoadingItem />
         ) : (
-          filteredThings.map((thing: StoreThing, index: number) => (
-            <Item key={index} item={thing} showModal={showModal} />
+          filteredThings.map((thing: StoreThing) => (
+            <Item key={thing.thingId} item={thing} showModal={showModal} />
           ))
         )}
       </div>

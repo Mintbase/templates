@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import { useState } from 'react';
 
 import Header from '../containers/Marketplace/components/Header';
@@ -7,7 +6,7 @@ import Items from '../containers/Marketplace/components/Items';
 import BuyModal from '../containers/Marketplace/components/BuyModal';
 import { StoreThing } from '../containers/Marketplace/controllers/useMarketplaceController';
 
-const Store: NextPage = () => {
+function Store():JSX.Element {
   const [showBuyModal, setShowBuyModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState({} as StoreThing);
 
@@ -37,6 +36,6 @@ const Store: NextPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Store;

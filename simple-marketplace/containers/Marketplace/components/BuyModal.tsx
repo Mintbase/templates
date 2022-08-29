@@ -7,7 +7,7 @@ import {
 } from 'mintbase-ui';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
 
 import { StoreThing } from '../controllers/useMarketplaceController';
 import {
@@ -65,14 +65,21 @@ function BuyModal({
   const tokensTotal = listThing?.tokensTotal;
   const tokenId = listThing?.tokenId;
 
-  const [getThing] = useLazyQuery(GET_THING, {
-    variables: { id },
-    onCompleted: (_data) => {
-      if (_data) {
-        setThingTokens(_data.thing[0].tokens);
+  const { error: thingError } = useQuery(
+    GET_THING,
+    id
+      ? {
+        variables: {
+          id,
+        },
+        onCompleted: (_data) => {
+          if (_data) {
+            setThingTokens(_data.thing[0].tokens);
+          }
+        },
       }
-    },
-  });
+      : { skip: true },
+  );
 
   const [getTokenPrice] = useLazyQuery(GET_TOKEN_LIST, {
     variables: { ids: tokens },
@@ -145,10 +152,10 @@ function BuyModal({
     }
   }, [watch().amount, price]);
 
-  useEffect(() => {
-    if (!thingId) return;
-    getThing();
-  }, [thingId]);
+  // useEffect(() => {
+  //   if (!thingId) return;
+  //   getThing();
+  // }, [thingId]);
 
   useEffect(() => {
     getTokenPrice();
@@ -214,12 +221,12 @@ function BuyModal({
                 </button>
               </div>
 
+              {!!isThingFetching && <LoadingSaleCard />}
+
               {!wallet.isConnected() ? (
                 <div className="mt-4">
                   <MbButton onClick={signIn} label="Connect NEAR Wallet" />
                 </div>
-              ) : isThingFetching ? (
-                <LoadingSaleCard />
               ) : (
                 <div className="mt-2">
                   <div className="bg-gray-50 py-4 text-center">

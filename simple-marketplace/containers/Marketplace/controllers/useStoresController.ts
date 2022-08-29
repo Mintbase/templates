@@ -18,12 +18,12 @@ export type Store = {
 const useStoreController = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
-  const _stores = process.env.NEXT_PUBLIC_STORES
+  const selectedStores = process.env.NEXT_PUBLIC_STORE_ID
     || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet';
   const ids: { id: { _eq: string } }[] = [];
-  const _arr = _stores?.split(',');
+  const storesArray = selectedStores?.split(',');
 
-  _arr?.forEach((id) => {
+  storesArray?.forEach((id) => {
     ids.push({
       id: { _eq: id },
     });
@@ -34,9 +34,9 @@ const useStoreController = () => {
       ids,
     },
     onCompleted: (data) => {
-      const _stores = data?.store;
+      const storesData = data?.store;
 
-      setStores(_stores);
+      setStores(storesData);
     },
   });
 

@@ -86,9 +86,7 @@ export function WalletProvider(props: IWalletProvider) {
     const nearKeystore = `near-api-js:keystore:${accountId}:${network}`;
 
     if (
-      accountId
-			&& localStorage.getItem(nearKeystore)
-			&& localStorage.getItem(WalletKeys.AUTH_KEY)
+      accountId && localStorage.getItem(nearKeystore) && localStorage.getItem(WalletKeys.AUTH_KEY)
     ) {
       localStorage.removeItem(WalletKeys.AUTH_KEY);
       localStorage.removeItem(nearKeystore);

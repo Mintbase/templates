@@ -20,6 +20,7 @@
         "import/prefer-default-export": "off", // not considered a good practice
         "react/jsx-props-no-spreading": "off", // due to react hook form we have to ignore this rule
         "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "off",
         "no-restricted-syntax": [
           "error",
           {
