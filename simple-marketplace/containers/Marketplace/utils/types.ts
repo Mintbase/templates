@@ -12,6 +12,26 @@ export enum TransactionEnum {
   WITHDRAW_OFFER = 'withdraw-offer',
 }
 
+export type BuyModalFieldNames = 'nearPrice' | 'nftTokens' | 'prices' | 'currentPrice' | 'tokenList';
+
+export enum ACTIONTYPES {
+  FIELD = 'field',
+  ERROR = 'error',
+}
+
+export interface BuyModalState {
+  currentPrice: string,
+  nftTokens: string[],
+  prices: string[],
+  tokens: string[],
+  error: string
+}
+
+export type ReducerActions = {
+  fieldName: BuyModalFieldNames,
+  type: ACTIONTYPES,
+  payload: any,
+};
 export interface HasuraThingMetadata {
   store?: {
     id?: string;

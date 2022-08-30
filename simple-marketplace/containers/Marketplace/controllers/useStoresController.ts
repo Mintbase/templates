@@ -29,7 +29,6 @@ const useStoreController = () => {
   const selectedStores = process.env.NEXT_PUBLIC_STORES
     || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet';
 
-  console.log('ids', selectedStores);
 
   const { loading } = useQuery(v2MarketPlaceGetStoreData, {
     variables: {

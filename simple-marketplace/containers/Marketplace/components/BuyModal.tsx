@@ -5,18 +5,28 @@ import {
   MbButton,
   EState,
 } from 'mintbase-ui';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLazyQuery, useQuery } from '@apollo/client';
 
 import { StoreThing } from '../controllers/useMarketplaceController';
-import {
-  useListThingController,
-} from '../controllers/useThingController';
+import { useListThingController } from '../controllers/useThingController';
 import { bigToNear, nearToYocto } from '../../../lib/numbers';
-import { TransactionEnum } from '../utils/types';
+import { ACTIONTYPES, TransactionEnum } from '../utils/types';
 import { useWallet } from '../../../services/providers/WalletProvider';
-import { GET_THING, GET_TOKEN_LIST } from '../../../queries/marketplace.queries';
+import {
+  GET_THING,
+  GET_TOKEN_LIST,
+  v2MarketPlaceGetToken,
+  v2MarketPlaceGetTokenListings,
+} from '../../../queries/marketplace.queries';
+import { buyModalReducer, initialState } from '../utils/buyModalReducer';
+import {
+  getNearPrice,
+  mapQueryObj,
+  useNearPrice,
+} from '../utils/BuyModal.utils';
+import { useTokenPrice } from '../hooks/useTokenPrice';
 
 const MED_GAS = '300000000000000';
 
@@ -43,67 +53,66 @@ function BuyModal({
   closeModal,
   item,
 }: {
-  closeModal: () => void
-  item: StoreThing
+  closeModal: () => void;
+  item: StoreThing;
 }) {
   const { wallet, signIn } = useWallet();
   const { thingId } = item;
+  const { nearPrice } = useNearPrice();
 
-  const [currentNearPrice, setCurrentNearPrice] = useState('0');
-  const [thingTokens, setThingTokens] = useState([]);
+  // const [thingTokens, setThingTokens] = useState([]);
   const [prices, setPrices] = useState([]);
-  const [tokens, setTokens] = useState([]);
+  // const [tokens, setTokens] = useState([]);
   const [currentPrice, setCurrentPrice] = useState('0');
+
+
+
+  // const [state, dispatch] = useReducer(reducer, initialState)
 
   const { watch, setValue, getValues } = useForm();
 
   const id = item.thingId;
-  const { listThing, isThingFetching } = useListThingController({ id });
+  const {
+    price,
+    amountAvailable,
+    tokensTotal,
+    tokenId,
+    isThingFetching,
+  } = useListThingController({ id });
 
-  const price = listThing?.price;
-  const amountAvailable = listThing?.tokensListedSaleCounter;
-  const tokensTotal = listThing?.tokensTotal;
-  const tokenId = listThing?.tokenId;
+  const [getTokenListData, { data: tokenList }] = useLazyQuery(
+    v2MarketPlaceGetTokenListings,
+  );
 
-  const { error: thingError } = useQuery(
-    GET_THING,
+  const { error: thingError, data: tokenData } = useQuery(
+    v2MarketPlaceGetToken,
     id
       ? {
         variables: {
           id,
         },
-        onCompleted: (_data) => {
-          if (_data) {
-            setThingTokens(_data.thing[0].tokens);
-          }
+        onCompleted: (tokenData) => {
+          const { queryOptions } = mapQueryObj(tokenData);
+          getTokenListData(queryOptions);
         },
       }
       : { skip: true },
   );
 
-  const [getTokenPrice] = useLazyQuery(GET_TOKEN_LIST, {
-    variables: { ids: tokens },
-    onCompleted: (_data) => {
-      if (_data) {
-        setPrices(
-          _data.list.map((elm: { price: any; token: { id: any } }) => ({ price: elm.price, tokenId: elm.token.id })),
-        );
-      }
-    },
-  });
+  if (tokenList) {
+    //           // setPrices(
+    //           //     _data.list.map((elm: { price: any; token: { id: any } }) => ({
+    //           //         price: elm.price,
+    //           //         tokenId: elm.token.id,
+    //           //     })),
+    //           // );
+    console.log(tokenList, ' tokenList');
+  }
+
+
 
   const t = new Date();
   t.setSeconds(t.getSeconds() - 60);
-
-  const getNearPrice = async () => {
-    const nearPriceData = await fetch(
-      'https://api.binance.com/api/v3/ticker/price?symbol=NEARUSDT',
-    );
-
-    const final = await nearPriceData.json();
-
-    setCurrentNearPrice(final.price);
-  };
 
   const handleBuy = async () => {
     if (amountAvailable < 1) return;
@@ -122,7 +131,7 @@ function BuyModal({
         }),
       });
     } else {
-      const auxTokens = tokens.slice(0, getValues('amount'));
+      const auxTokens = nftTokens.slice(0, getValues('amount'));
 
       const auxPrices = prices
         .slice(0, getValues('amount'))
@@ -144,7 +153,9 @@ function BuyModal({
 
   useEffect(() => {
     if (watch().amount > 1) {
-      const sum = prices.slice(0, watch().amount).reduce((prev, curr) => (prev.price || prev) + curr.price);
+      const sum = prices
+        .slice(0, watch().amount)
+        .reduce((prev, curr) => (prev.price || prev) + curr.price);
 
       setCurrentPrice(bigToNear(sum));
     } else {
@@ -157,18 +168,13 @@ function BuyModal({
   //   getThing();
   // }, [thingId]);
 
-  useEffect(() => {
-    getTokenPrice();
-  }, [thingTokens]);
+  // useEffect(() => {
+  //   getTokenPrice();
+  // }, [nftTokens]);
 
-  useEffect(() => {
-    getNearPrice();
-    setPrices([...prices, price]);
-  }, []);
-
-  useEffect(() => {
-    setTokens(thingTokens.map((token) => token.id));
-  }, [thingTokens]);
+  // useEffect(() => {
+  //   setTokens();
+  // }, [nftTokens]);
 
   return (
     <div
@@ -232,15 +238,8 @@ function BuyModal({
                   <div className="bg-gray-50 py-4 text-center">
                     <MbText className="p-med-90 text-gray-700">
                       <span className="p-med-130 text-black">
-                        {amountAvailable}
+                        {`${amountAvailable} of ${tokensTotal} `}
                       </span>
-                      {' '}
-                      of
-                      {' '}
-                      <span className="p-med-130 text-black">
-                        {tokensTotal}
-                      </span>
-                      {' '}
                       Available
                     </MbText>
                   </div>
@@ -252,7 +251,7 @@ function BuyModal({
                             description: `${Number(currentPrice).toFixed(2)} N`,
                             title: 'Price',
                             lowerLeftText: `~ ${(
-                              Number(currentNearPrice) * Number(currentPrice)
+                              Number(nearPrice) * Number(currentPrice)
                             ).toFixed(2)} USD`,
                           }}
                         />

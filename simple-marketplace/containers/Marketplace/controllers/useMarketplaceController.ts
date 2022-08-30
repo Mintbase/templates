@@ -41,7 +41,7 @@ const useStoreThingsController = () => {
 
   const stores = process.env.NEXT_PUBLIC_STORES;
 
-  const { loading } = useQuery(v2MarketPlaceGetStoreThings, {
+  const { loading } = useQuery(v2MarketPlaceGetStoreNfts, {
     variables: { condition: { nft_contract_id: { _in: [stores] } } },
     onCompleted: (data) => {
       const storeData = data?.mb_views_nft_metadata_unburned;
