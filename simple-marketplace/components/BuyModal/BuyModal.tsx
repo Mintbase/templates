@@ -47,7 +47,7 @@ function BuyModal({
     tokenId,
     tokenList,
     tokenData,
-    isThingFetching,
+    isTokenListLoading,
   } = useTokenListData({ id });
 
   console.log(tokenList, 'tokenList')
@@ -106,12 +106,14 @@ function BuyModal({
   }, [watch().amount, price]);
 
 
-  console.log(amountAvailable, 'amountAvailable')
+  console.log(isTokenListLoading, 'isTokenListLoading')
 
-  if (isThingFetching) {
+  if (isTokenListLoading) {
+    return(
     <BuyModalTemplate closeModal={closeModal}> 
       <LoadingSaleCard />
     </BuyModalTemplate>
+    )
   }
 
   const modalInfo = {
@@ -120,7 +122,7 @@ function BuyModal({
 
   return (
       <BuyModalTemplate closeModal={closeModal}> 
-              {wallet.isConnected() && !isThingFetching ? (
+              {wallet.isConnected() && !isTokenListLoading ? (
                   <BuyModalInfo data={modalInfo} handleBuy={handleBuy} setValue={setValue} />
               ) : (
                   <SignInButton signIn={signIn} />

@@ -33,13 +33,13 @@ const useTokenListData = ({
   }
 
 
-  const [getToken, { error: thingError, data: tokenData }] = useLazyQuery(v2MarketPlaceGetToken);
+  const [getToken, { error: thingError, loading: tokenLoading, data: tokenData }] = useLazyQuery(v2MarketPlaceGetToken);
 
-  const [getTokenListData, { data: tokenList }] = useLazyQuery(
+  const [getTokenListData, { data: tokenList, loading: tokenListLoading }] = useLazyQuery(
     v2MarketPlaceGetTokenListings,
   );
 
-  const { loading: isThingFetching } = useQuery(GET_METADATA_AND_STATS_FOR_REFERENCE, {
+  const { loading: isMetaDataLoading } = useQuery(GET_METADATA_AND_STATS_FOR_REFERENCE, {
     variables: { metadataId: id },
     onCompleted: (data) => {
       setListThing(data);
@@ -54,6 +54,11 @@ const useTokenListData = ({
     data: listThing,
   });
 
+
+  const isDataLoading = [isMetaDataLoading, tokenLoading, tokenListLoading];
+
+  const isTokenListLoading = isDataLoading.includes(true);
+
   return {
     price,
     amountAvailable,
@@ -61,7 +66,7 @@ const useTokenListData = ({
     tokenId,
     tokenList,
     tokenData,
-    isThingFetching,
+    isTokenListLoading,
   };
 };
 
