@@ -1,5 +1,5 @@
 import { MbButton } from 'mintbase-ui';
-import { StoreThing } from '../controllers/useMarketplaceController';
+import { StoreThing } from '../hooks/useStoreNfts';
 
 function Item({
   item,

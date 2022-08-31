@@ -1,15 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
 
-// const GET_STORES = gql`
-//   query StoresQuery($ids: [stores_bool_exp!]) {
-//     store(where: { _or: $ids }) {
-//       id
-//       name
-//     }
-//   }
-// `;
-
 export const v2MarketPlaceGetStoreData = gql`
   query v2MarketPlaceGetStoreData($id: [String!]) @cached {
     store: nft_contracts(where: { id: { _in: $id } }) {
@@ -23,7 +14,7 @@ export type Store = {
   name: string
 };
 
-const useStoreController = () => {
+const useStores = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
   const selectedStores = process.env.NEXT_PUBLIC_STORES
@@ -44,4 +35,4 @@ const useStoreController = () => {
   return { stores, loading };
 };
 
-export default useStoreController;
+export default useStores;

@@ -36,7 +36,7 @@ export type StoreThing = {
   title: string;
 };
 
-const useStoreThingsController = () => {
+const useStoreNfts = () => {
   const [things, setThings] = useState<StoreThing[]>([]);
 
   const stores = process.env.NEXT_PUBLIC_STORES;
@@ -52,4 +52,4 @@ const useStoreThingsController = () => {
   return { things, loading };
 };
 
-export default useStoreThingsController;
+export default useStoreNfts;

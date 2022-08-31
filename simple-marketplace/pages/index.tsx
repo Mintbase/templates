@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import Header from '../containers/Marketplace/components/Header';
-import HeroSection from '../containers/Marketplace/components/HeroSection';
-import Items from '../containers/Marketplace/components/Items';
-import BuyModal from '../containers/Marketplace/components/BuyModal';
-import { StoreThing } from '../containers/Marketplace/controllers/useMarketplaceController';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import Items from '../components/Items';
+import BuyModal from '../components/BuyModal/BuyModal';
+import { StoreThing } from '../hooks/useStoreNfts';
 
 function Store():JSX.Element {
   const [showBuyModal, setShowBuyModal] = useState(false);

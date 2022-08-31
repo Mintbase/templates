@@ -9,15 +9,16 @@ import {
 import { Item, LoadingItem } from './Item';
 import useStoreThingsController, {
   StoreThing,
-} from '../controllers/useMarketplaceController';
-import useStoreController, { Store } from '../controllers/useStoresController';
+} from '../hooks/useStoreNfts';
+import useStoreController, { Store } from '../hooks/useStores';
+import useStoreNfts from '../hooks/useStoreNfts';
 
 function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
   const [selectedTab, setSelectedTab] = useState('all');
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { things, loading } = useStoreThingsController();
+  const { things, loading } = useStoreNfts();
   const { stores } = useStoreController();
 
   // show store names in the dropdown menu

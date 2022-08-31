@@ -1,5 +1,5 @@
 import { MbButton } from 'mintbase-ui';
-import { useWallet } from '../../../services/providers/WalletProvider';
+import { useWallet } from '../services/providers/WalletProvider';
 
 function Header() {
   const {
