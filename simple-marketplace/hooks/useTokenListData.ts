@@ -49,7 +49,7 @@ const useTokenListData = ({
   });
 
   const {
-    price, amountAvailable, tokensTotal, tokenId,
+    price, prices, amountAvailable, tokensTotal, tokenId,
   } = updateThingData({
     data: listThing,
   });
@@ -61,6 +61,7 @@ const useTokenListData = ({
 
   return {
     price,
+    prices,
     amountAvailable,
     tokensTotal,
     tokenId,

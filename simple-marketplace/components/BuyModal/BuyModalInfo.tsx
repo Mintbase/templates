@@ -1,9 +1,63 @@
 import { EState, MbAmountInput, MbButton, MbInfoCard, MbText } from "mintbase-ui";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { bigToNear } from "../../lib/numbers";
 
-export const BuyModalInfo = ({ data, handleBuy, setValue }) => {
+export const BuyModalInfo = ({ data }) => {
 
-    const {amountAvailable , tokensTotal ,currentPrice, nearPrice } = data;
-    const isAvailable = amountAvailable > 0;
+  // const handleBuy = async () => {
+  //   if (amountAvailable < 1) return;
+
+  //   if (getValues('amount') === 1) {
+  //     if (!tokenId) return;
+
+  //     await wallet?.makeOffer(tokenId, nearToYocto(price.toString()), {
+  //       callbackUrl: `${window.location.origin}/`,
+  //       meta: JSON.stringify({
+  //         type: TransactionEnum.MAKE_OFFER,
+  //         args: {
+  //           thingId,
+  //           price: nearToYocto(price.toString()),
+  //         },
+  //       }),
+  //     });
+  //   } else {
+  //     const auxTokens = tokenList.slice(0, getValues('amount'));
+
+  //     const auxPrices = prices
+  //       .slice(0, getValues('amount'))
+  //       .map((elm: any) => nearToYocto(bigToNear(elm.price).toString()));
+
+  //     wallet?.batchMakeOffer(auxTokens, auxPrices, {
+  //       gas: MED_GAS,
+  //       callbackUrl: `${window.location.origin}/`,
+  //       meta: JSON.stringify({
+  //         type: TransactionEnum.MAKE_OFFER,
+  //         args: {
+  //           thingId,
+  //           price: nearToYocto(price.toString()),
+  //         },
+  //       }),
+  //     });
+  //   }
+  // };
+
+  const {amountAvailable , tokensTotal , nearPrice, prices , price} = data;
+  const isAvailable = amountAvailable > 0;
+
+  const [currentPrice, setCurrentPrice] = useState(0);
+
+
+
+  const setNewPrice = (val) => {
+    const sum = prices
+    .slice(0, val)
+    .reduce((prev, curr) => (prev.price || prev) + curr.price);
+
+    const totalAmount = bigToNear(sum.price) * val
+     setCurrentPrice(totalAmount)
+  }
+
 
     const message = isAvailable? `${amountAvailable} of ${tokensTotal} Available` : `NFT Not Available`
   return (
@@ -21,7 +75,7 @@ export const BuyModalInfo = ({ data, handleBuy, setValue }) => {
           <div className="mb-8">
             <MbInfoCard
               boxInfo={{
-                description: `${Number(currentPrice).toFixed(2)} N`,
+                description: `${currentPrice.toFixed(2)} N`,
                 title: "Price",
                 lowerLeftText: `~ ${(
                   Number(nearPrice) * Number(currentPrice)
@@ -32,8 +86,8 @@ export const BuyModalInfo = ({ data, handleBuy, setValue }) => {
               <MbText className="text-gray-700 mb-2">Quantity</MbText>
               <MbAmountInput
                 maxAmount={Math.min(amountAvailable, 5)}
-                onValueChange={(amount) => {
-                  setValue("amount", Number(amount));
+                onValueChange={(e) => {
+                  setNewPrice(e)
                 }}
                 disabled={amountAvailable === 1}
               />
@@ -43,7 +97,7 @@ export const BuyModalInfo = ({ data, handleBuy, setValue }) => {
           <MbButton
             label="Buy with NEAR"
             state={EState.ACTIVE}
-            onClick={handleBuy}
+            // onClick={handleBuy}
           />
         </div>
           </>
