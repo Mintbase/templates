@@ -20,7 +20,6 @@ const useStores = () => {
   const selectedStores = process.env.NEXT_PUBLIC_STORES
     || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet';
 
-
   const { loading } = useQuery(v2MarketPlaceGetStoreData, {
     variables: {
       id: [selectedStores],

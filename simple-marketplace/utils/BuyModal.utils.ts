@@ -1,26 +1,25 @@
-import { useEffect, useState } from "react";
+import { TokenData } from '../types/types';
 
 export interface QueryOptions {
-    skip?: boolean;
-    variables?: {
-        [key: string]: Object;
-    };
-    onCompleted?: (data: any) => void
+  skip?: boolean;
+  variables?: {
+    [key: string]: Object;
+  };
+  onCompleted?: (data: any) => void;
 }
 
+export const mapQueryObj = (data:TokenData[]) => {
+  let queryOptions: QueryOptions = { skip: true };
 
-export const mapQueryObj = (tokenData) => {
-    let queryOptions: QueryOptions = { skip: true };
+  if (data) {
+    const tokens = data.map((token: TokenData) => token.token_id);
 
-    if (tokenData) {
-        const tokens = tokenData.mb_views_nft_tokens.map((token) => token.token_id);
-
-        if (tokenData.mb_views_nft_tokens.length > 1) {
-            queryOptions = {
-                variables: { ids: tokens },
-            };
-        }
+    if (data.length > 1) {
+      queryOptions = {
+        variables: { ids: tokens },
+      };
     }
+  }
 
-    return { queryOptions };
+  return { queryOptions };
 };

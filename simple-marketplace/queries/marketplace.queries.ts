@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const v2MarketPlaceGetToken = gql`
 query v2MarketPlaceGetToken($id: String) {
-  mb_views_nft_tokens(where: {metadata_id: {_eq: $id}}) {
+ tokenData: mb_views_nft_tokens(where: {metadata_id: {_eq: $id}}) {
     media
     title
     metadata_id
@@ -87,8 +87,7 @@ export const METADATA_FRAGMENT = `
     extra: reference_blob(path: "$.extra")
     # TODO: Get the rest of these and remove the need to download bytes from reference services
   }
-`
-
+`;
 
 export const MINTERS_FRAGMENT = `
   minters: nft_tokens(
@@ -100,7 +99,7 @@ export const MINTERS_FRAGMENT = `
   ) {
     account: minter
   }
-`
+`;
 
 export const TOKEN_COUNT_FRAGMENT = `
   tokenCount: nft_tokens_aggregate(
@@ -112,7 +111,7 @@ export const TOKEN_COUNT_FRAGMENT = `
       count
     }
   }
-`
+`;
 
 export const GET_METADATA_AND_STATS_FOR_REFERENCE = gql`
   query v2_omnisite_GetMetadataAndStatsForReference(
@@ -171,8 +170,7 @@ export const GET_METADATA_AND_STATS_FOR_REFERENCE = gql`
       owner
     }
   }
-`
-
+`;
 
 const GET_COMBINED_THING_DATA = gql`
   query CombinedThingData($thingId: String!) @cached(ttl: 120) {

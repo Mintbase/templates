@@ -1,9 +1,12 @@
-import { MbButton } from "mintbase-ui";
+import { MbButton } from 'mintbase-ui';
+import { useWallet } from '../services/providers/WalletProvider';
 
-export const SignInButton = ({signIn}: {signIn: () => void}) => {
+export function SignInButton() {
+  const { signIn } = useWallet();
 
-  return (  <div className="mt-4">
-    <MbButton onClick={signIn} label="Connect NEAR Wallet" />
-  </div>
+  return (
+    <div className="mt-4">
+      <MbButton onClick={signIn} label="Connect NEAR Wallet" />
+    </div>
   );
 }

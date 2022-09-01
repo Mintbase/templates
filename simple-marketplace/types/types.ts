@@ -12,11 +12,31 @@ export enum TransactionEnum {
   WITHDRAW_OFFER = 'withdraw-offer',
 }
 
-export type BuyModalFieldNames = 'nearPrice' | 'nftTokens' | 'prices' | 'currentPrice' | 'tokenList';
+export interface TokenDetails {price: number, tokenId: string}
+export interface TokenDetailsVariant {price: number, token: { id: string }}
 
-export enum ACTIONTYPES {
-  FIELD = 'field',
-  ERROR = 'error',
+export interface TokenDataQuery {
+  tokenData: TokenData[]
+}
+export interface TokenData {
+  listings: TokenDetails[],
+  media: string,
+  metadata_id: string,
+  title: string,
+  nft_contract_id: string,
+  token_id:string,
+  listings_aggregate: { aggregate: { count: number } }
+}
+
+export interface TokenListData {
+  price: number,
+  prices: TokenDetails[],
+  amountAvailable: number,
+  tokensTotal: number,
+  tokenId:string,
+  tokenList: TokenDetailsVariant[],
+  tokenData: TokenData,
+  isTokenListLoading: boolean
 }
 
 export interface BuyModalState {
@@ -91,7 +111,7 @@ export interface ThingData {
 }
 
 export interface ThingProps {
-  id?: string;
+  metadataId?: string;
   tokenId?: string;
   title?: string;
   description?: string;

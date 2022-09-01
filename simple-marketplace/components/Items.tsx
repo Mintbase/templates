@@ -99,7 +99,7 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
           <LoadingItem />
         ) : (
           filteredThings.map((thing: StoreThing) => (
-            <Item key={thing.thingId} item={thing} showModal={showModal} />
+            <Item key={thing.metadataId} item={thing} showModal={showModal} />
           ))
         )}
       </div>

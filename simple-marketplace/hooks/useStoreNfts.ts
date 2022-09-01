@@ -1,7 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
 
-
 export const v2MarketPlaceGetStoreNfts = gql`
   query v2MarketPlaceGetStoreNfts(
     $offset: Int = 0
@@ -16,7 +15,7 @@ export const v2MarketPlaceGetStoreNfts = gql`
       listed: price
       media
       storeId: nft_contract_id
-      thingId: metadata_id
+      metadataId: metadata_id
       title
     }
     mb_views_nft_metadata_unburned_aggregate(where: $condition) {
@@ -32,7 +31,7 @@ export type StoreThing = {
   listed: boolean;
   media: string;
   storeId: string;
-  thingId: string;
+  metadataId: string;
   title: string;
 };
 
