@@ -14,7 +14,7 @@ export const mapQueryObj = (data:TokenData[]) => {
   if (data) {
     const tokens = data.map((token: TokenData) => token.token_id);
 
-    if (data.length > 1) {
+    if (data.length > 0) {
       queryOptions = {
         variables: { ids: tokens },
       };
