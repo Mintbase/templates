@@ -1,3 +1,9 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable function-paren-newline */
+  
+/* eslint-disable function-call-argument-newline */
+/* eslint-disable @typescript-eslint/comma-spacing */
+
 import { Wallet } from 'mintbase';
 import {
   EState, MbAmountInput, MbButton, MbInfoCard, MbText,
@@ -143,6 +149,14 @@ export function BuyModalInfo({ data }: BuyModalData) {
   // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
 
   const isAvailable = amountAvailable > 0 && wallet.constants.MARKET_ADDRESS === marketId;
+
+  console.log(
+    'isAvailable:',isAvailable , '\n',  
+    'amountAvailable > 0:',amountAvailable > 0,'\n',  
+    'wallet.constants.MARKET_ADDRESS: ', wallet.constants.MARKET_ADDRESS, '\n',  
+    'marketId: ', marketId, '\n',  
+    'wallet.constants.MARKET_ADDRESS === marketId', wallet.constants.MARKET_ADDRESS === marketId,'\n',  
+  );
 
   if (!isAvailable) {
     return (
