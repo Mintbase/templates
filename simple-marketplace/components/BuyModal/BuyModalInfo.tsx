@@ -1,6 +1,8 @@
+import { Wallet } from 'mintbase';
 import {
   EState, MbAmountInput, MbButton, MbInfoCard, MbText,
 } from 'mintbase-ui';
+
 /*
 Buy Modal Info:
 The component that handles the NFT Buy Information
@@ -9,24 +11,22 @@ The component that handles the NFT Buy Information
 import { useCallback, useState } from 'react';
 
 import { MED_GAS } from '../../config/constants';
+import { useNearPrice } from '../../hooks/useNearPrice';
 import { bigToNear, nearToYocto } from '../../lib/numbers';
 import { useWallet } from '../../services/providers/WalletProvider';
-import { TransactionEnum } from '../../types/types';
+import {
+  BuyModalData, PriceEl, TokenListData, TransactionEnum,
+} from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
-export function BuyModalInfo({ data }: BuyModalInfoProps) {
-  // props inherited from the Buy Modal component
-
+function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wallet }) {
   const {
-    amountAvailable, tokensTotal, nearPrice, prices, isTokenListLoading, price, tokenKey, marketId,
+    amountAvailable, prices, tokensTotal, isTokenListLoading, price, tokenKey,
   } = data;
 
-  const { wallet } = useWallet();
+  const { nearPrice } = useNearPrice();
 
-  // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
-
-  const isAvailable = amountAvailable > 0 && wallet.constants.MARKET_ADDRESS === marketId;
-
+  const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
 
   const [currentPrice, setCurrentPrice] = useState(0);
@@ -47,25 +47,6 @@ export function BuyModalInfo({ data }: BuyModalInfoProps) {
 
     });
   }, [currentPrice, tokenKey, wallet]);
-
-  // const multiBuy = async () => {
-  //   const nftPrice = nearToYocto(price.toString());
-  //   const finalPrice = new Array(amount);
-
-  //   finalPrice.fill(nftPrice);
-
-  //   wallet?.batchMakeOffer(tokenKey, finalPrice, {
-  //     gas: MED_GAS,
-  //     callbackUrl: `${window.location.origin}/`,
-  //     meta: JSON.stringify({
-  //       type: TransactionEnum.MAKE_OFFER,
-  //       args: {
-  //         tokenId: tokenKey,
-  //         price: nearToYocto(currentPrice.toString()),
-  //       },
-  //     }),
-  //   });
-  // };
 
   const multiBuy = useCallback(async () => {
     const nftPrice = nearToYocto(price.toString());
@@ -88,7 +69,6 @@ export function BuyModalInfo({ data }: BuyModalInfoProps) {
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
-    if (!isAvailable) return;
     const isSingleAmount = amount === 1;
 
     if (isSingleAmount) {
@@ -102,15 +82,14 @@ export function BuyModalInfo({ data }: BuyModalInfoProps) {
     setAmount(Number(val));
 
     const sum = prices
-      .slice(0, val)
-      .reduce((prev, curr) => (prev.price || prev) + curr.price);
+      .slice(0, Number(val))
+      .reduce((prev: PriceEl, curr: PriceEl) => prev.price + curr.price);
 
     const totalVal = bigToNear(sum.price) * Number(val);
 
     setCurrentPrice(totalVal);
   };
 
-  const message = isAvailable ? `${amountAvailable} of ${tokensTotal} Available` : 'NFT Not Available';
   return wallet.isConnected() && !isTokenListLoading ? (
     <div className="mt-2">
       <div className="bg-gray-50 py-4 text-center">
@@ -121,42 +100,68 @@ export function BuyModalInfo({ data }: BuyModalInfoProps) {
         </MbText>
       </div>
       <div className="py-2">
-        {isAvailable ? (
-          <>
-            <div className="mb-8">
-              <MbInfoCard
-                boxInfo={{
-                  description: `${currentPrice.toFixed(2)} N`,
-                  title: 'Price',
-                  lowerLeftText: `~ ${(
-                    Number(nearPrice) * Number(currentPrice)
-                  ).toFixed(2)} USD`,
-                }}
-              />
-              <div className="mt-4">
-                <MbText className="text-gray-700 mb-2">Quantity</MbText>
-                <MbAmountInput
-                  maxAmount={Math.min(amountAvailable, 5)}
-                  onValueChange={(e) => {
-                    setNewPrice(e);
-                  }}
-                  disabled={amountAvailable === 1}
-                />
-              </div>
-            </div>
-            <div className="text-center">
-              <MbButton
-                label="Buy with NEAR"
-                state={EState.ACTIVE}
-                onClick={handleBuy}
-              />
-            </div>
-          </>
-        ) : null}
+        <div className="mb-8">
+          <MbInfoCard
+            boxInfo={{
+              description: `${currentPrice.toFixed(2)} N`,
+              title: 'Price',
+              lowerLeftText: `~ ${(
+                Number(nearPrice) * Number(currentPrice)
+              ).toFixed(2)} USD`,
+            }}
+          />
+          <div className="mt-4">
+            <MbText className="text-gray-700 mb-2">Quantity</MbText>
+            <MbAmountInput
+              maxAmount={Math.min(amountAvailable, 5)}
+              onValueChange={(e) => {
+                setNewPrice(e);
+              }}
+              disabled={amountAvailable === 1}
+            />
+          </div>
+        </div>
+        <div className="text-center">
+          <MbButton
+            label="Buy with NEAR"
+            state={EState.ACTIVE}
+            onClick={handleBuy}
+          />
+        </div>
 
       </div>
     </div>
   ) : (
     <SignInButton />
   );
+}
+
+export function BuyModalInfo({ data }: BuyModalData) {
+  // props inherited from the Buy Modal component
+
+  const {
+    amountAvailable, marketId,
+  } = data;
+
+  const { wallet } = useWallet();
+
+  // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
+
+  const isAvailable = amountAvailable > 0 && wallet.constants.MARKET_ADDRESS === marketId;
+
+  if (!isAvailable) {
+    return (
+      <div className="mt-2">
+        <div className="bg-gray-50 py-4 text-center">
+          <MbText className="p-med-90 text-gray-700">
+            <span className="p-med-130 text-black">
+              NFT Not Available
+            </span>
+          </MbText>
+        </div>
+      </div>
+    );
+  }
+
+  return <AvailableNftComponent data={data} wallet={wallet} />;
 }

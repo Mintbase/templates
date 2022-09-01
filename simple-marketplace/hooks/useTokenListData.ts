@@ -7,16 +7,11 @@ import {
 } from '../queries/marketplace.queries';
 import { updateTokensData } from '../utils';
 import { mapQueryObj, QueryOptions } from '../utils/BuyModal.utils';
-import { ThingProps, TokenDataQuery } from '../types/types';
-
-export type Thing = {
-  metadataId: string;
-  name: string;
-};
+import { SelectedNft, TokenDataQuery, TokenListData } from '../types/types';
 
 const useTokenListData = ({
   metadataId,
-}: ThingProps) => {
+}: SelectedNft): TokenListData => {
   const [listData, setTokenListData] = useState<any>(null);
   const [getToken, { loading: tokenLoading, data: tokenData }] = useLazyQuery(v2MarketPlaceGetToken);
 
