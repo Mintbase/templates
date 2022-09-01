@@ -12,16 +12,16 @@ import { useCallback, useState } from 'react';
 
 import { MED_GAS } from '../../config/constants';
 import { useNearPrice } from '../../hooks/useNearPrice';
-import { bigToNear, nearToYocto } from '../../lib/numbers';
+import { nearToYocto } from '../../lib/numbers';
 import { useWallet } from '../../services/providers/WalletProvider';
 import {
-  BuyModalData, PriceEl, TokenListData, TransactionEnum,
+  BuyModalData, TokenListData, TransactionEnum,
 } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wallet }) {
   const {
-    amountAvailable, prices, tokensTotal, isTokenListLoading, price, tokenKey,
+    amountAvailable, tokensTotal, isTokenListLoading, price, tokenKey,
   } = data;
 
   const { nearPrice } = useNearPrice();
@@ -29,8 +29,8 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
   const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
 
-  const [currentPrice, setCurrentPrice] = useState(0);
-  const [amount, setAmount] = useState(0);
+  const [currentPrice, setCurrentPrice] = useState(price);
+  const [amount, setAmount] = useState(1);
 
   const singleBuy = useCallback(async () => {
     if (!tokenKey) return;
@@ -54,7 +54,7 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
 
     finalPrice.fill(nftPrice);
 
-    wallet?.batchMakeOffer(tokenKey, finalPrice, {
+    wallet?.batchMakeOffer([tokenKey], finalPrice, {
       gas: MED_GAS,
       callbackUrl: `${window.location.origin}/`,
       meta: JSON.stringify({
@@ -79,15 +79,10 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
   };
 
   const setNewPrice = (val:string) => {
-    setAmount(Number(val));
+    const value = Number(val);
 
-    const sum = prices
-      .slice(0, Number(val))
-      .reduce((prev: PriceEl, curr: PriceEl) => prev.price + curr.price);
-
-    const totalVal = bigToNear(sum.price) * Number(val);
-
-    setCurrentPrice(totalVal);
+    setAmount(value);
+    setCurrentPrice(price * value);
   };
 
   return wallet.isConnected() && !isTokenListLoading ? (
