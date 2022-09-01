@@ -10,7 +10,8 @@
     "eslint": "eslint \"**/*.+(ts|tsx)\"",
     "eslint:fix": "eslint --fix \"**/*.+(ts|tsx)\"",
     "prepare": "cd ../ && husky install ./simple-marketplace/.husky",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",

@@ -4,19 +4,19 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import Items from '../components/Items';
 import BuyModal from '../components/BuyModal/BuyModal';
-import { StoreThing } from '../hooks/useStoreNfts';
+import { SelectedNft } from '../types/types';
 
 function Store():JSX.Element {
   const [showBuyModal, setShowBuyModal] = useState(false);
-  const [selectedItem, setSelectedItem] = useState({} as StoreThing);
+  const [selectedItem, setSelectedItem] = useState({} as SelectedNft);
 
-  const handleOpenBuyModal = (item: StoreThing) => {
+  const handleOpenBuyModal = (item: SelectedNft) => {
     setSelectedItem(item);
     setShowBuyModal(true);
   };
 
   const handleCloseBuyModal = () => {
-    setSelectedItem({} as StoreThing);
+    setSelectedItem({} as SelectedNft);
     setShowBuyModal(false);
   };
 
