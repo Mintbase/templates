@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
+import { DEFAULT_STORES } from '../config/constants';
 import { v2MarketPlaceGetStoreData } from '../queries/marketplace.queries';
 import { Store } from '../types/types';
 
@@ -7,7 +8,7 @@ const useStores = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
   const selectedStores = process.env.NEXT_PUBLIC_STORES
-    || 'mufasa.mintspace2.testnet,nearcon2sponsorships.mintspace2.testnet,calvinttest.mintspace2.testnet';
+    || DEFAULT_STORES;
 
   const { loading } = useQuery(v2MarketPlaceGetStoreData, {
     variables: {
