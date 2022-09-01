@@ -47,11 +47,6 @@ export interface BuyModalState {
   error: string
 }
 
-export type ReducerActions = {
-  fieldName: BuyModalFieldNames,
-  type: ACTIONTYPES,
-  payload: any,
-};
 export interface HasuraThingMetadata {
   store?: {
     id?: string;
@@ -141,3 +136,21 @@ export interface SimpleSaleProps {
   tokenId?: string;
   loading: boolean;
 }
+
+export interface SelectedNft {
+  metadataId: string
+}
+
+export type Store = {
+  id: string
+  name: string
+};
+
+export type StoreNfts = {
+  createdAt: string;
+  listed: boolean;
+  media: string;
+  storeId: string;
+  metadataId: string;
+  title: string;
+};

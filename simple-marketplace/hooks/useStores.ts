@@ -1,18 +1,7 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { useState } from 'react';
-
-export const v2MarketPlaceGetStoreData = gql`
-  query v2MarketPlaceGetStoreData($id: [String!]) @cached {
-    store: nft_contracts(where: { id: { _in: $id } }) {
-      id
-      name
-    }
-  }
-`;
-export type Store = {
-  id: string
-  name: string
-};
+import { v2MarketPlaceGetStoreData } from '../queries/marketplace.queries';
+import { Store } from '../types/types';
 
 const useStores = () => {
   const [stores, setStores] = useState<Store[]>([]);

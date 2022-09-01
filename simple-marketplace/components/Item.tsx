@@ -1,16 +1,24 @@
 import { MbButton } from 'mintbase-ui';
-import { StoreThing } from '../hooks/useStoreNfts';
+import Image from 'next/image';
+import { StoreNfts } from '../types/types';
 
 function Item({
   item,
   showModal,
 }: {
-  item: StoreThing
-  showModal: (item: StoreThing) => void
+  item: StoreNfts
+  showModal: (item: StoreNfts) => void
 }) {
   return (
     <div className="bg-white rounded shadow-lg p-4 relative">
-      <img src={item.media} className="w-full h-72 object-cover" />
+      <div className="w-full h-72 mb-10 relative object-cover">
+        <Image
+          src={item.media}
+          alt={item.title}
+          layout="fill"
+        />
+
+      </div>
       <div className="">
         <div className="text-xl text-gray-800 font-bold">{item.title}</div>
         <div className="text-sm">{item.storeId}</div>
@@ -23,12 +31,12 @@ function Item({
 }
 
 function LoadingItem(): JSX.Element {
-  const products = Array(12).fill(null);
+  const products = Array.from(Array(12).keys());
 
   return (
     <>
-      {products.map((_, i) => (
-        <div key={i} className="flex items-center justify-center ">
+      {products.map((productKey) => (
+        <div key={productKey} className="flex items-center justify-center ">
           <div className="w-full h-64 bg-slate-900 animate-pulse" />
         </div>
       ))}

@@ -1,18 +1,18 @@
-import { StoreThing } from '../../hooks/useStoreNfts';
 import { useTokenListData } from '../../hooks/useTokenListData';
 
 import { LoadingSaleCard } from './LoadingSaleCard';
 import { BuyModalInfo } from './BuyModalInfo';
 import { BuyModalTemplate } from './BuyModalTemplate';
 import { useNearPrice } from '../../hooks/useNearPrice';
+import { SelectedNft } from '../../types/types';
 
 function BuyModal({
   closeModal,
   item,
 }: {
   closeModal: () => void;
-  item: StoreThing;
-}) {
+  item: SelectedNft;
+}): JSX.Element {
   const { metadataId } = item;
   const { nearPrice } = useNearPrice();
 
@@ -24,6 +24,8 @@ function BuyModal({
     tokenId,
     tokenList,
     tokenData,
+    tokenKey,
+    marketId,
     isTokenListLoading,
   } = useTokenListData({ metadataId });
 
@@ -36,7 +38,7 @@ function BuyModal({
   }
 
   const modalInfo = {
-    amountAvailable, tokensTotal, price, prices, nearPrice, tokenId, tokenList, tokenData, isTokenListLoading,
+    amountAvailable, tokensTotal, price, prices, nearPrice, tokenId, tokenList, tokenData, isTokenListLoading, metadataId, tokenKey, marketId,
   };
 
   return (

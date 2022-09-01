@@ -1,7 +1,7 @@
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { useState } from 'react';
 import {
-  GET_METADATA_AND_STATS_FOR_REFERENCE,
+  v2MarketPlaceGetMetadata,
   v2MarketPlaceGetToken,
   v2MarketPlaceGetTokenListings,
 } from '../queries/marketplace.queries';
@@ -17,7 +17,7 @@ export type Thing = {
 const useTokenListData = ({
   metadataId,
 }: ThingProps) => {
-  const [listThing, setListThing] = useState<any>(null);
+  const [listData, setTokenListData] = useState<any>(null);
   const [getToken, { loading: tokenLoading, data: tokenData }] = useLazyQuery(v2MarketPlaceGetToken);
 
   const [getTokenListData, { data: tokenList, loading: tokenListLoading }] = useLazyQuery(
@@ -38,19 +38,19 @@ const useTokenListData = ({
     tokenQueryOptions = { skip: true };
   }
 
-  const { loading: isMetaDataLoading } = useQuery(GET_METADATA_AND_STATS_FOR_REFERENCE, {
+  const { loading: isMetaDataLoading } = useQuery(v2MarketPlaceGetMetadata, {
     variables: { metadataId },
     onCompleted: (data) => {
-      setListThing(data);
+      setTokenListData(data);
       getToken(tokenQueryOptions);
     },
     onError: () => console.log('err'),
   });
 
   const {
-    price, prices, amountAvailable, tokensTotal, tokenId,
+    price, prices, amountAvailable, tokensTotal, tokenId, tokenKey, marketId,
   } = updateTokensData({
-    data: listThing,
+    data: listData,
   });
 
   const isDataLoading = [isMetaDataLoading, tokenLoading, tokenListLoading];
@@ -63,8 +63,10 @@ const useTokenListData = ({
     amountAvailable,
     tokensTotal,
     tokenId,
+    tokenKey,
     tokenList,
     tokenData,
+    marketId,
     isTokenListLoading,
   };
 };

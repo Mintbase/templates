@@ -1,7 +1,12 @@
 import {
   EState, MbAmountInput, MbButton, MbInfoCard, MbText,
 } from 'mintbase-ui';
-import { useState } from 'react';
+/*
+Buy Modal Info:
+The component that handles the NFT Buy Information
+*/
+
+import { useCallback, useState } from 'react';
 
 import { MED_GAS } from '../../config/constants';
 import { bigToNear, nearToYocto } from '../../lib/numbers';
@@ -10,52 +15,86 @@ import { TransactionEnum } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
 export function BuyModalInfo({ data }: BuyModalInfoProps) {
+  // props inherited from the Buy Modal component
+
   const {
-    amountAvailable, tokensTotal, tokenList, nearPrice, prices, metadataId, tokenId, isTokenListLoading, price,
+    amountAvailable, tokensTotal, nearPrice, prices, isTokenListLoading, price, tokenKey, marketId,
   } = data;
+
   const { wallet } = useWallet();
 
-  const isAvailable = amountAvailable > 0;
+  // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
+
+  const isAvailable = amountAvailable > 0 && wallet.constants.MARKET_ADDRESS === marketId;
+
+  // state to check the price x amount according to user interaction
 
   const [currentPrice, setCurrentPrice] = useState(0);
   const [amount, setAmount] = useState(0);
 
+  const singleBuy = useCallback(async () => {
+    if (!tokenKey) return;
+
+    await wallet?.makeOffer(tokenKey, nearToYocto(currentPrice.toString()), {
+      callbackUrl: `${window.location.origin}/`,
+      meta: JSON.stringify({
+        type: TransactionEnum.MAKE_OFFER,
+        args: {
+          tokenId: tokenKey,
+          price: nearToYocto(currentPrice.toString()),
+        },
+      }),
+
+    });
+  }, [currentPrice, tokenKey, wallet]);
+
+  // const multiBuy = async () => {
+  //   const nftPrice = nearToYocto(price.toString());
+  //   const finalPrice = new Array(amount);
+
+  //   finalPrice.fill(nftPrice);
+
+  //   wallet?.batchMakeOffer(tokenKey, finalPrice, {
+  //     gas: MED_GAS,
+  //     callbackUrl: `${window.location.origin}/`,
+  //     meta: JSON.stringify({
+  //       type: TransactionEnum.MAKE_OFFER,
+  //       args: {
+  //         tokenId: tokenKey,
+  //         price: nearToYocto(currentPrice.toString()),
+  //       },
+  //     }),
+  //   });
+  // };
+
+  const multiBuy = useCallback(async () => {
+    const nftPrice = nearToYocto(price.toString());
+    const finalPrice = new Array(amount);
+
+    finalPrice.fill(nftPrice);
+
+    wallet?.batchMakeOffer(tokenKey, finalPrice, {
+      gas: MED_GAS,
+      callbackUrl: `${window.location.origin}/`,
+      meta: JSON.stringify({
+        type: TransactionEnum.MAKE_OFFER,
+        args: {
+          tokenId: tokenKey,
+          price: nearToYocto(currentPrice.toString()),
+        },
+      }),
+    });
+  }, [amount, currentPrice, price, tokenKey, wallet]);
+
+  // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
-    if (amountAvailable < 1) return;
-    console.log(amount, tokenId, 'amount');
+    if (!isAvailable) return;
+    const isSingleAmount = amount === 1;
 
-    if (amount === 1) {
-      if (!tokenId) return;
-
-      await wallet?.makeOffer(tokenId, nearToYocto(currentPrice.toString()), {
-        callbackUrl: `${window.location.origin}/`,
-        meta: JSON.stringify({
-          type: TransactionEnum.MAKE_OFFER,
-          args: {
-            metadataId,
-            price: nearToYocto(currentPrice.toString()),
-          },
-        }),
-      });
+    if (isSingleAmount) {
+      await singleBuy();
     } else {
-      const auxTokens = tokenList.list.slice(0, amount);
-
-      const nftPrice = nearToYocto(price.toString());
-      const finalPrice = new Array(amount);
-
-      finalPrice.fill(nftPrice);
-
-      wallet?.batchMakeOffer(auxTokens, finalPrice, {
-        gas: MED_GAS,
-        callbackUrl: `${window.location.origin}/`,
-        meta: JSON.stringify({
-          type: TransactionEnum.MAKE_OFFER,
-          args: {
-            metadataId,
-            price: nearToYocto(currentPrice.toString()),
-          },
-        }),
-      });
+      await multiBuy();
     }
   };
 

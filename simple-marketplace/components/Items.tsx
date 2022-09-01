@@ -7,18 +7,17 @@ import {
   EIconName,
 } from 'mintbase-ui';
 import { Item, LoadingItem } from './Item';
-import useStoreThingsController, {
-  StoreThing,
-} from '../hooks/useStoreNfts';
-import useStoreController, { Store } from '../hooks/useStores';
-import useStoreNfts from '../hooks/useStoreNfts';
 
-function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
+import useStoreController from '../hooks/useStores';
+import useStoreNfts from '../hooks/useStoreNfts';
+import { Store, StoreNfts } from '../types/types';
+
+function Items({ showModal }: { showModal: (item: StoreNfts) => void }) {
   const [selectedTab, setSelectedTab] = useState('all');
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { things, loading } = useStoreNfts();
+  const { nfts, loading } = useStoreNfts();
   const { stores } = useStoreController();
 
   // show store names in the dropdown menu
@@ -34,7 +33,7 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
   });
 
   // filter things by store name selected in the dropdown menu
-  const filteredThings = things.filter((thing: StoreThing) => selectedStore === '' || thing.storeId === selectedStore);
+  const filteredThings = nfts.filter((nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore);
 
   return (
     <div className="w-full ml-6 items-center mt-4">
@@ -98,8 +97,8 @@ function Items({ showModal }: { showModal: (item: StoreThing) => void }) {
         {loading ? (
           <LoadingItem />
         ) : (
-          filteredThings.map((thing: StoreThing) => (
-            <Item key={thing.metadataId} item={thing} showModal={showModal} />
+          filteredThings.map((nft: StoreNfts) => (
+            <Item key={nft.metadataId} item={nft} showModal={showModal} />
           ))
         )}
       </div>
