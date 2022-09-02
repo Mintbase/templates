@@ -8,7 +8,7 @@ import {
 } from 'mintbase-ui';
 import { Item, LoadingItem } from './Item';
 
-import useStoreController from '../hooks/useStores';
+import { useStores } from '../hooks/useStores';
 import useStoreNfts from '../hooks/useStoreNfts';
 import { Store, StoreNfts } from '../types/types';
 
@@ -18,7 +18,7 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }) {
   const [selectedStore, setSelectedStore] = useState('');
 
   const { nfts, loading } = useStoreNfts();
-  const { stores } = useStoreController();
+  const { stores } = useStores();
 
   // show store names in the dropdown menu
   const storeTabs = stores.map((store: Store) => ({

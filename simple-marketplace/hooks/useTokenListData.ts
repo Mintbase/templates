@@ -1,3 +1,10 @@
+/*
+
+useTokenListData Hook
+Description:  This hook do a series of 3 query calls to get the information of the current NFT opened on the BuyModal.
+
+*/
+
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { useState } from 'react';
 import {

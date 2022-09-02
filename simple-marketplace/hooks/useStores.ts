@@ -1,10 +1,17 @@
+/*
+
+useStores Hook
+Description: Hook to get the stores set on the NEXT_PUBLIC_STORES env variable
+
+*/
+
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 import { DEFAULT_STORES } from '../config/constants';
 import { v2MarketPlaceGetStoreData } from '../queries/marketplace.queries';
 import { Store } from '../types/types';
 
-const useStores = () => {
+export const useStores = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
   const selectedStores = process.env.NEXT_PUBLIC_STORES

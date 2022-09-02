@@ -1,7 +1,10 @@
-import { Chain, Network, Wallet } from 'mintbase';
+/*
+  NEAR Wallet Provider
+*/
+
+import { Network, Wallet } from 'mintbase';
 import {
   createContext,
-  ReactNode,
   useEffect,
   useState,
   useContext,
@@ -9,28 +12,9 @@ import {
   useMemo,
 } from 'react';
 import { useRouter } from 'next/router';
-import { WalletKeys } from './constants';
 
-interface IWalletProvider {
-  network: Network;
-  chain: Chain;
-  apiKey: string;
-  children: ReactNode;
-}
-
-interface IWalletConsumer {
-  wallet: Wallet;
-  details: {
-    accountId: string;
-    balance: string;
-    allowance: string;
-    contractName: string;
-  };
-  isConnected: boolean;
-  loading: boolean;
-  signIn: () => void;
-  signOut: () => void;
-}
+import { IWalletConsumer, IWalletProvider } from '../../types/wallet.types';
+import { WalletKeys } from '../../config/constants';
 
 export const WalletContext = createContext<{
   wallet: Wallet;

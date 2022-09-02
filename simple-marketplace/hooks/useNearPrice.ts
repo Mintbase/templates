@@ -1,3 +1,10 @@
+/*
+
+useNearPrice Hook
+Description:  This hook fetchs the current nearPrice from BINANCE Api.
+
+*/
+
 import { useEffect, useState } from 'react';
 import { BINANCE_API } from '../config/constants';
 

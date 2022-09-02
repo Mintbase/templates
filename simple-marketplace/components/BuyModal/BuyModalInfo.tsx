@@ -1,9 +1,3 @@
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable function-paren-newline */
-  
-/* eslint-disable function-call-argument-newline */
-/* eslint-disable @typescript-eslint/comma-spacing */
-
 import { Wallet } from 'mintbase';
 import {
   EState, MbAmountInput, MbButton, MbInfoCard, MbText,
@@ -16,7 +10,7 @@ The component that handles the NFT Buy Information
 
 import { useCallback, useState } from 'react';
 
-import { MED_GAS } from '../../config/constants';
+import { DEFAULT_MARKET_ADDRESS, MED_GAS } from '../../config/constants';
 import { useNearPrice } from '../../hooks/useNearPrice';
 import { nearToYocto } from '../../lib/numbers';
 import { useWallet } from '../../services/providers/WalletProvider';
@@ -42,7 +36,7 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
     if (!tokenKey) return;
 
     await wallet?.makeOffer(tokenKey, nearToYocto(currentPrice.toString()), {
-      callbackUrl: `${window.location.origin}/`,
+      callbackUrl: `${window.location.origin}/wallet-callback`,
       meta: JSON.stringify({
         type: TransactionEnum.MAKE_OFFER,
         args: {
@@ -62,7 +56,7 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
 
     wallet?.batchMakeOffer([tokenKey], finalPrice, {
       gas: MED_GAS,
-      callbackUrl: `${window.location.origin}/`,
+      callbackUrl: `${window.location.origin}/wallet-callback`,
       meta: JSON.stringify({
         type: TransactionEnum.MAKE_OFFER,
         args: {
@@ -148,15 +142,8 @@ export function BuyModalInfo({ data }: BuyModalData) {
 
   // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
 
-  const isAvailable = amountAvailable > 0 && wallet.constants.MARKET_ADDRESS === marketId;
-
-  console.log(
-    'isAvailable:',isAvailable , '\n',  
-    'amountAvailable > 0:',amountAvailable > 0,'\n',  
-    'wallet.constants.MARKET_ADDRESS: ', wallet.constants.MARKET_ADDRESS, '\n',  
-    'marketId: ', marketId, '\n',  
-    'wallet.constants.MARKET_ADDRESS === marketId', wallet.constants.MARKET_ADDRESS === marketId,'\n',  
-  );
+  const marketAddress = wallet.constants.MARKET_ADDRESS || DEFAULT_MARKET_ADDRESS;
+  const isAvailable = amountAvailable > 0 && marketAddress === marketId;
 
   if (!isAvailable) {
     return (

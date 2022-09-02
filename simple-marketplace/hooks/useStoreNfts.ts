@@ -1,3 +1,10 @@
+/*
+
+useStoreNfts Hook
+Description: Hook to get the query of the current NFTS of the stores passed on the NEXT_PUBLIC_STORES env variable
+
+*/
+
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 import { DEFAULT_STORES } from '../config/constants';
