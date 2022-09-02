@@ -1,4 +1,5 @@
 import { EIconName, MbIcon, MbText } from 'mintbase-ui';
+import { BackHomeButton } from '../components/BackHomeButton';
 import { Container } from '../components/Container';
 
 export function SuccessPage(): JSX.Element {
@@ -12,12 +13,14 @@ export function SuccessPage(): JSX.Element {
           darkColor="success-100"
         />
 
-        <MbText className="h3-130 text-center font-bold dark:text-white text-black m-4">
+        <MbText className="h3-130 text-center font-bold text-black m-4">
           Success!
         </MbText>
-        <MbText className="p-big-90 text-center dark:text-gray-300 text-gray-700">
+        <MbText className="p-big-90 text-center text-gray-300 text-gray-700">
           Your transaction was successful.
         </MbText>
+
+        <BackHomeButton />
       </div>
     </Container>
   );
