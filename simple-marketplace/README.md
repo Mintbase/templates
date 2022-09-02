@@ -27,7 +27,7 @@ https://examples-simple-marketplace.vercel.app/
 
 [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/examples/tree/main/simple-marketplace)
 
-### One-Click Deploy
+## One-Click Deploy
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
 
@@ -107,7 +107,7 @@ NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
 
 ## Extending
 
-This project is setup using Next.js + MintBase UI + Tailwind + Apollo + React Hook Form.
+This project is setup using Next.js + MintBase UI + Tailwind + Apollo.
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
 ## 🙋‍♀️  Need extra help?
