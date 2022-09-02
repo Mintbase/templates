@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Head from 'next/head';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import Items from '../components/Items';
@@ -22,6 +23,9 @@ function Store():JSX.Element {
 
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
+      <Head>
+        <title>MintBase - Simple Marketplace Example</title>
+      </Head>
       <Header />
       <div className="md:mx-24 mt-4">
         <HeroSection />
