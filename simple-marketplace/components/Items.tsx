@@ -12,7 +12,7 @@ import { useStores } from '../hooks/useStores';
 import useStoreNfts from '../hooks/useStoreNfts';
 import { Store, StoreNfts } from '../types/types';
 
-function Items({ showModal }: { showModal: (item: StoreNfts) => void }) {
+function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Element {
   const [selectedTab, setSelectedTab] = useState('all');
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');

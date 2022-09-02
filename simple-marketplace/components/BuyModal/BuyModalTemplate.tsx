@@ -6,7 +6,7 @@ export function BuyModalTemplate({
 }: {
   closeModal: () => void;
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"

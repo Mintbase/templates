@@ -8,7 +8,7 @@ function Item({
 }: {
   item: StoreNfts
   showModal: (item: StoreNfts) => void
-}) {
+}): JSX.Element {
   return (
     <div className="bg-white rounded shadow-lg p-4 relative">
       <div className="w-full h-72 mb-10 relative object-cover">

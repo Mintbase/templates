@@ -1,6 +1,6 @@
 import { MbText } from 'mintbase-ui';
 
-function HeroSection() {
+function HeroSection(): JSX.Element {
   return (
     <div className="flex flex-1 flex-col items-center justify-center">
       <div className="items-center justify-center">

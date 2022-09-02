@@ -1,4 +1,4 @@
-export function LoadingSaleCard() {
+export function LoadingSaleCard(): JSX.Element {
   return (
     <div className="mb-4">
       <div className="bg-gray-50 py-4 flex justify-center animate-pulse">

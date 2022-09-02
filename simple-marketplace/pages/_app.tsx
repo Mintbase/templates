@@ -6,7 +6,7 @@ import { getClient } from '../services/providers/apollo';
 import { WalletProvider } from '../services/providers/WalletProvider';
 import { DEFAULT_NETWORK } from '../config/constants';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || '';
   const network = process.env.NEXT_PUBLIC_NETWORK as Network || DEFAULT_NETWORK;
 

@@ -1,7 +1,7 @@
 import { EIconName, MbIcon, MbText } from 'mintbase-ui';
 import { Container } from '../components/Container';
 
-export function SuccessPage() {
+export function SuccessPage(): JSX.Element {
   return (
     <Container>
       <div className="my-52 w-full flex flex-col items-center justify-center gap-12">

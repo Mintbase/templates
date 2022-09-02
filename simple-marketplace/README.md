@@ -20,7 +20,7 @@ https://examples-simple-marketplace.vercel.app/
 ## Requirements
 
  - [Setup a Near Wallet](https://wallet.testnet.near.org/)
- - [Setup a Mintbase store aka Smart Contract](https://www.youtube.com/watch?v=Ck2EPrtuxa8) and [NFTS](https://www.youtube.com/watch?v=6L_aAnJc3hM):
+ - [Setup a Mintbase store aka Smart Contract](https://www.youtube.com/watch?v=Ck2EPrtuxa8) and [Mint NFTS](https://www.youtube.com/watch?v=6L_aAnJc3hM):
  - [Get a Developer Key](https://testnet.mintbase.io/developer)
 
 ## Try on CodeSandbox

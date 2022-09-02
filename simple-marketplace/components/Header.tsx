@@ -1,7 +1,7 @@
 import { MbButton } from 'mintbase-ui';
 import { useWallet } from '../services/providers/WalletProvider';
 
-function Header() {
+function Header(): JSX.Element {
   const {
     isConnected, details, signIn, signOut,
   } = useWallet();

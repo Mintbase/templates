@@ -19,7 +19,7 @@ import {
 } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
-function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wallet }) {
+function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wallet }): JSX.Element {
   const {
     amountAvailable, tokensTotal, isTokenListLoading, price, tokenKey,
   } = data;
@@ -131,7 +131,7 @@ function AvailableNftComponent({ data, wallet }:{ data: TokenListData, wallet:Wa
   );
 }
 
-export function BuyModalInfo({ data }: BuyModalData) {
+export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
   // props inherited from the Buy Modal component
 
   const {
