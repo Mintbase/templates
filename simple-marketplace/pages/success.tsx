@@ -22,3 +22,5 @@ export function SuccessPage() {
     </Container>
   );
 }
+
+export default SuccessPage;

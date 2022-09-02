@@ -11,7 +11,7 @@
     "eslint:fix": "eslint --fix \"**/*.+(ts|tsx)\"",
     "prepare": "cd ../ && husky install ./simple-marketplace/.husky",
     "pre-commit": "lint-staged",
-    "type-check": "tsc"
+    "ts-lint": "tsc --noEmit --incremental"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
