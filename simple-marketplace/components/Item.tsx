@@ -1,6 +1,7 @@
 import { MbButton } from 'mintbase-ui';
 import Image from 'next/image';
 import { StoreNfts } from '../types/types';
+import { parseMedia } from '../utils';
 
 function Item({
   item,
@@ -9,15 +10,18 @@ function Item({
   item: StoreNfts
   showModal: (item: StoreNfts) => void
 }): JSX.Element {
+  const { mediaUrl } = parseMedia(item.media, item.base_uri);
+
   return (
     <div className="bg-white rounded shadow-lg p-4 relative">
       <div className="w-full h-72 mb-10 relative object-cover">
-        <Image
-          src={item.media}
-          alt={item.title}
-          layout="fill"
-        />
-
+        {mediaUrl ? (
+          <Image
+            src={mediaUrl}
+            alt={item.title}
+            layout="fill"
+          />
+        ) : null }
       </div>
       <div className="">
         <div className="text-xl text-gray-800 font-bold">{item.title}</div>

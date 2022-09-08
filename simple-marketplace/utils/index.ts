@@ -29,3 +29,12 @@ export const updateTokensData = ({
     marketId: listings.market_id,
   };
 };
+
+export const parseMedia = (media: string, baseUri: string) => {
+  if (!media) {
+    return null;
+  }
+  const mediaUrl = media.indexOf('http') > -1 ? media : `${baseUri}/${media}`;
+
+  return { mediaUrl };
+};

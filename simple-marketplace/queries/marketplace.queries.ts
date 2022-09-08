@@ -73,6 +73,7 @@ export const v2MarketPlaceGetStoreNfts = gql`
       storeId: nft_contract_id
       metadataId: metadata_id
       title
+      base_uri
     }
     mb_views_nft_metadata_unburned_aggregate(where: $condition) {
       aggregate {

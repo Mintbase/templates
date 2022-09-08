@@ -17,9 +17,11 @@ export const useStores = () => {
   const selectedStores = process.env.NEXT_PUBLIC_STORES
     || DEFAULT_STORES;
 
+  const formatedselectedStores = selectedStores.split(/[ ,]+/);
+
   const { loading } = useQuery(v2MarketPlaceGetStoreData, {
     variables: {
-      id: [selectedStores],
+      id: formatedselectedStores,
     },
     onCompleted: (data) => {
       const storesData = data?.store;

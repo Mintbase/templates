@@ -1,11 +1,13 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { Network } from 'mintbase';
+import { NETWORK_CONFIG } from '../../config/constants';
 
 const getClient = ({ network }: { network: string }) => {
   const client = new ApolloClient({
     uri:
-      network === 'mainnet'
-        ? 'https://mintbase-mainnet.hasura.app/v1/graphql'
-        : 'https://mintbase-testnet.hasura.app/v1/graphql',
+      network === Network.mainnet
+        ? NETWORK_CONFIG.mainnet
+        : NETWORK_CONFIG.testnet,
     cache: new InMemoryCache(),
   });
 
