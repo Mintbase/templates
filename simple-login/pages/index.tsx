@@ -16,7 +16,7 @@ function Home():JSX.Element {
   return (
     <div className="h-screen w-screen flex items-center justify-center">
        <Head>
-        <title>MintBase - Simple Login Example</title>
+        <title>Mintbase - Simple Login Example</title>
       </Head>
       <MbButton onClick={buttonAction} label={buttonLabel} />
     </div>
