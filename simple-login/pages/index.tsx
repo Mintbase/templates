@@ -1,4 +1,5 @@
 import { MbButton } from 'mintbase-ui';
+import Head from 'next/head';
 import { useWallet } from '../services/providers/NearWalletProvider';
 
 function Home():JSX.Element {
@@ -14,6 +15,9 @@ function Home():JSX.Element {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
+       <Head>
+        <title>MintBase - Simple Login Example</title>
+      </Head>
       <MbButton onClick={buttonAction} label={buttonLabel} />
     </div>
   );
