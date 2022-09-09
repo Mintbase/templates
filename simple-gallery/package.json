@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "eslint": "eslint \"**/*.+(ts|tsx)\"",
+    "eslint:fix": "eslint --fix \"**/*.+(ts|tsx)\"",
+    "prepare": "cd ../ && husky install ./simple-gallery/.husky",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
