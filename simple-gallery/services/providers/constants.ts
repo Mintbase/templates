@@ -5,9 +5,9 @@ export const TESTNET_CONFIG = {
   helperUrl: 'https://helper.testnet.near.org',
   explorerUrl: 'https://explorer.testnet.near.org',
   headers: {
-    'Content-Type': 'application/json'
-  }
-}
+    'Content-Type': 'application/json',
+  },
+};
 
 export const MAINNET_CONFIG = {
   networkId: 'mainnet',
@@ -16,6 +16,6 @@ export const MAINNET_CONFIG = {
   helperUrl: 'https://helper.mainnet.near.org',
   explorerUrl: 'https://explorer.mainnet.near.org',
   headers: {
-    'Content-Type': 'application/json'
-  }
-}
+    'Content-Type': 'application/json',
+  },
+};

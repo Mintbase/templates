@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const v2MarketPlaceGetStoreNfts = gql`
   query v2MarketPlaceGetStoreNfts(

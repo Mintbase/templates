@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import { StoreNfts } from '../types/types';
 
-const NftCard = ({ nft, key }: { nft: StoreNfts; key: string }) => {
-  console.log(nft, 'nft')
-
-  return ( 
-    <div className="bg-white rounded shadow-lg p-4 relative">
+const NftCard = ({ nft, key }: { nft: StoreNfts; key: string }) => (
+  <div className="bg-white rounded shadow-lg p-4 relative" key={key}>
     <div className="w-full h-72 mb-10 relative object-cover">
       {nft.media ? (
         <Image
@@ -19,23 +16,22 @@ const NftCard = ({ nft, key }: { nft: StoreNfts; key: string }) => {
       <div className="text-xl text-gray-800 font-bold">{nft.title}</div>
       <div className="text-sm">{nft.storeId}</div>
     </div>
-  
-  </div>
-  )
-}
 
-const LoadingProduct = (): JSX.Element => {
-  const products = Array(12).fill(null)
+  </div>
+);
+
+function LoadingNfts(): JSX.Element {
+  const nfts = Array.from(Array(12).keys());
 
   return (
     <>
-      {products.map((_, i) => (
-        <div key={i} className="flex items-center justify-center">
-          <div className="w-64 h-64 bg-slate-900 animate-pulse"></div>
+      {nfts.map((nftKey) => (
+        <div key={nftKey} className="flex items-center justify-center ">
+          <div className="w-full h-64 bg-slate-900 animate-pulse" />
         </div>
       ))}
     </>
-  )
+  );
 }
 
-export { NftCard, LoadingProduct }
+export { NftCard, LoadingNfts };
