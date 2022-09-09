@@ -57,17 +57,6 @@ yarn
 yarn dev
 ```
 
-Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
-
-```bash
-cp .env.example .env.local
-```
-
-Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
-Most importantly update the `NEXT_PUBLIC_STORES` to include which stores you want to show in the marketplace.
-
-
-
 ## Set ENV variables
 
 Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
@@ -81,9 +70,6 @@ if you use windows without powershell or cygwin:
 ```bash
 copy .env.example .env.local
 ```
-
-
-Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
 
 
 To get your `api key` visit :
