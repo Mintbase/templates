@@ -6,8 +6,6 @@ import { StoreNfts } from '../types/types';
 export const Gallery = (): JSX.Element => {
   const { nfts, loading, error } = useStoreNfts();
 
-  console.log(nfts, error, error.length, error.length > 0, 'nfts');
-
   if (error.length > 0) {
     return (
       <>
@@ -22,8 +20,8 @@ export const Gallery = (): JSX.Element => {
       {loading ? (
         <LoadingNfts />
       ) : (
-        nfts?.map((nft: StoreNfts) => (
-          <NftCard key={nft.title} nft={nft} />
+        nfts?.map((nft: StoreNfts, i:number) => (
+          <NftCard key={`${nft.title}-${i}`} nft={nft} />
         ))
       )}
     </div>
