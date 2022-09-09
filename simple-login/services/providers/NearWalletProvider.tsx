@@ -1,93 +1,95 @@
-import { WalletConnection, connect, keyStores } from "near-api-js";
-import { useRouter } from "next/router";
+import { WalletConnection, connect, keyStores } from 'near-api-js';
+import { useRouter } from 'next/router';
 import {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
-} from "react";
+} from 'react';
 
-import { MAINNET_CONFIG, TESTNET_CONFIG } from "./constants";
+import { MAINNET_CONFIG, TESTNET_CONFIG } from './constants';
 
 interface IWalletProvider {
-  network?: "testnet" | "mainnet" | string;
-  chain?: string;
-  contractAddress?: string;
-  children?: ReactNode;
+  network: 'testnet' | 'mainnet' | string
+  contractAddress: string
+  children: ReactNode
 }
 
 export const WalletContext = createContext<{
-  wallet: WalletConnection | undefined;
+  wallet: WalletConnection | undefined
   details: {
-    accountId: string;
-    balance: string;
-    contractName: string;
-  };
-  isConnected: boolean;
-  loading: boolean;
-  signIn: () => Promise<void>;
-  signOut: () => Promise<void>;
+    accountId: string
+    balance: string
+    contractName: string
+  }
+  isConnected: boolean
+  loading: boolean
+  signIn:() => Promise<void>
+  signOut: () => Promise<void>
 }>({
-  wallet: undefined,
-  details: {
-    accountId: "",
-    balance: "",
-    contractName: "",
-  },
-  isConnected: false,
-  loading: true,
-  signIn: () => Promise.resolve(),
-  signOut: () => Promise.resolve(),
-});
+      wallet: undefined,
+      details: {
+        accountId: '',
+        balance: '',
+        contractName: '',
+      },
+      isConnected: false,
+      loading: true,
+      signIn: () => Promise.resolve(),
+      signOut: () => Promise.resolve(),
+    });
 
 interface IWalletConsumer {
-  wallet: WalletConnection | undefined;
-  isConnected: boolean;
+  wallet: WalletConnection | undefined
+  isConnected: boolean
   details: {
-    accountId: string;
-    balance: string;
-    contractName: string;
-  };
-  loading: boolean;
-  signIn: () => Promise<void>;
-  signOut: () => Promise<void>;
+    accountId: string
+    balance: string
+    contractName: string
+  }
+  loading: boolean
+  signIn: () => Promise<void>
+  signOut: () => Promise<void>
 }
 
-export const NearWalletProvider = (props: IWalletProvider) => {
-  const { network = "testnet", contractAddress, children } = props;
-
+export function NearWalletProvider({ network = 'testnet', contractAddress, children }: IWalletProvider) {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
 
-  const [wallet, setWallet] = useState<WalletConnection | undefined>();
+  const [walletInfo, setWallet] = useState<WalletConnection | undefined>();
   const [connected, setConnected] = useState(false);
 
   const [details, setDetails] = useState<{
-    accountId: string;
-    balance: string;
-    contractName: string;
+    accountId: string
+    balance: string
+    contractName: string
   }>({
-    accountId: "",
-    balance: "",
-    contractName: contractAddress || "",
+    accountId: '',
+    balance: '',
+    contractName: contractAddress || '',
   });
 
-  const init = async () => {
+  const init = useCallback(async () => {
     const near = await connect(
-      network === "mainnet"
+      network === 'mainnet'
         ? {
-            ...MAINNET_CONFIG,
-            keyStore: new keyStores.BrowserLocalStorageKeyStore(),
-          }
+          ...MAINNET_CONFIG,
+          keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+        }
         : {
-            ...TESTNET_CONFIG,
-            keyStore: new keyStores.BrowserLocalStorageKeyStore(),
-          }
+          ...TESTNET_CONFIG,
+          keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+        },
     );
 
-    const wallet = new WalletConnection(near, `${process.env.APP_NAME}-${network}`);
+    const wallet = new WalletConnection(
+      near,
+      `${process.env.NEXT_PUBLIC_USER_ID}-${network}`,
+    );
 
     setWallet(wallet);
 
@@ -103,51 +105,57 @@ export const NearWalletProvider = (props: IWalletProvider) => {
       setDetails({
         accountId: account.accountId,
         balance: accountBalance.available,
-        contractName: contractAddress || "",
+        contractName: contractAddress || '',
       });
     }
 
     setLoading(false);
-  };
+  }, [contractAddress, network]);
 
-  const signIn = async () => {
-    if (!wallet) {
+  const signIn = useCallback(async () => {
+    if (!walletInfo) {
       return;
     }
 
-    wallet.requestSignIn({ contractId: contractAddress });
-  };
+    walletInfo.requestSignIn({ contractId: contractAddress });
+  }, [contractAddress, walletInfo]);
 
-  const signOut = async () => {
-    if (!wallet) {
+  const signOut = useCallback(async () => {
+    if (!walletInfo) {
       return;
     }
 
-    wallet.signOut();
+    walletInfo.signOut();
 
-    await router.replace("/", undefined, { shallow: true });
+    await router.replace('/', undefined, { shallow: true });
 
     window.location.reload();
-  };
+  }, [router, walletInfo]);
 
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
+
+  const walletContextData = useMemo(() => {
+    const obj = {
+      wallet: walletInfo,
+      details,
+      isConnected: connected,
+      signIn,
+      signOut,
+      loading,
+    };
+
+    return obj;
+  }, [connected, details, loading, signIn, signOut, walletInfo]);
 
   return (
     <WalletContext.Provider
-      value={{
-        wallet,
-        details,
-        isConnected: connected,
-        signIn: signIn,
-        signOut: signOut,
-        loading: loading,
-      }}
+      value={walletContextData}
     >
       {children}
     </WalletContext.Provider>
   );
-};
+}
 
 export const useWallet = () => useContext<IWalletConsumer>(WalletContext);
