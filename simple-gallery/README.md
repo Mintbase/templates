@@ -58,12 +58,13 @@ Once that's done, copy the `.env.example` file in this directory to `.env.local`
 cp .env.example .env.local
 ```
 
-Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
 
 
 ## Set ENV variables
 
 Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
+
+
 
 ```bash
 cp .env.example .env.local
@@ -75,8 +76,14 @@ if you use windows without powershell or cygwin:
 copy .env.example .env.local
 ```
 
+To get your `api key` visit :
 
-Then open `.env.local` and set the environment variables to match the ones for your Google Optimize account.
+[Mintbase Developers Page for Mainnet](https://www.mintbase.io/developer):
+[Mintbase Developers Page for testnet](https://testnet.mintbase.io/developer):
+
+```
+NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key
+
 
 `NEXT_PUBLIC_NETWORK` could be `testnet` or `mainnet`
 ```
