@@ -1,11 +1,11 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { NearWalletProvider } from "../services/providers/NearWalletProvider";
-import { ApolloProvider } from "@apollo/client";
-import { getClient } from "../services/providers/apollo";
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import { NearWalletProvider } from '../services/providers/NearWalletProvider'
+import { ApolloProvider } from '@apollo/client'
+import { getClient } from '../services/providers/apollo'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const network = process.env.NEXT_PUBLIC_NETWORK || "testnet";
+  const network = process.env.NEXT_PUBLIC_NETWORK || 'testnet'
 
   return (
     <NearWalletProvider network={network}>
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </ApolloProvider>
     </NearWalletProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
