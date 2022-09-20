@@ -31,10 +31,13 @@ export const updateTokensData = ({
 };
 
 export const parseMedia = (media: string, baseUri: string) => {
+
+  let  mediaUrl = media?.indexOf('http') > -1 ? media : `${baseUri}/${media}`;
+
   if (!media) {
-    return null;
+    mediaUrl = null;
   }
-  const mediaUrl = media.indexOf('http') > -1 ? media : `${baseUri}/${media}`;
+ 
 
   return { mediaUrl };
 };
