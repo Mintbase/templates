@@ -21,10 +21,10 @@ function Item({
             alt={item.title}
             layout="fill"
           />
-        ) : null }
+        ) : <div className="w-full h-72 mb-10 flex justify-center items-center"> No Nft Media Available</div> }
       </div>
-      <div className="">
-        <div className="text-xl text-gray-800 font-bold">{item.title}</div>
+      <div>
+        <div className="text-xl text-gray-800 font-bold">{item.title ?? 'No Nft Title'}</div>
         <div className="text-sm">{item.storeId}</div>
       </div>
       <div className="flex items-center mt-2 justify-end">
