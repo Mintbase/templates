@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       chain={Chain.near as Chain}
       apiKey={mjsKey}
     >
-      <ApolloProvider client={getClient({ network: Network.testnet })}>
+      <ApolloProvider client={getClient({ network: network as Network })}>
         <Component {...pageProps} />
       </ApolloProvider>
     </WalletProvider>

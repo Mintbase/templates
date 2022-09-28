@@ -1,5 +1,4 @@
 import { useTokenListData } from '../../hooks/useTokenListData';
-
 import { LoadingSaleCard } from './LoadingSaleCard';
 import { BuyModalInfo } from './BuyModalInfo';
 import { BuyModalTemplate } from './BuyModalTemplate';

@@ -384,9 +384,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-arm64@12.1.6":
-  "integrity" "sha512-P0EXU12BMSdNj1F7vdkP/VrYDuCNwBExtRPDYawgSUakzi6qP0iKJpya2BuLvNzXx+XPU49GFuDC5X+SvY0mOw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.1.6.tgz"
+"@next/swc-darwin-x64@12.1.6":
+  "integrity" "sha512-9FptMnbgHJK3dRDzfTpexs9S2hGpzOQxSQbe8omz6Pcl7rnEp9x4uSEKY51ho85JCjL4d0tDLBcXEJZKKLzxNg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.1.6.tgz"
   "version" "12.1.6"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -2334,10 +2334,10 @@
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz"
   "version" "1.2.6"
 
-"mintbase-ui@^0.5.2":
-  "integrity" "sha512-KgUAx1lwJ3rtJledwLTwpyqKntYyxGJyqcSS3gj8tvCxy1+xVM3ShVzs394ivAeFHHensiAh+HTxtJt3d332Og=="
-  "resolved" "https://registry.npmjs.org/mintbase-ui/-/mintbase-ui-0.5.2.tgz"
-  "version" "0.5.2"
+"mintbase-ui@^0.8.2":
+  "integrity" "sha512-y9cpizQ4SswZz50e/RY8AvGtHTN3evhul1SQfJ5W9THBalmtDaEpZxsblV25AAPYuSUHc/MGKKzjJKx+nXoYoQ=="
+  "resolved" "https://registry.npmjs.org/mintbase-ui/-/mintbase-ui-0.8.2.tgz"
+  "version" "0.8.2"
   dependencies:
     "@types/lodash" "^4.14.182"
     "lodash" "^4.17.21"
@@ -2347,10 +2347,10 @@
     "type-fest" "^2.13.1"
     "uuidv4" "^6.2.13"
 
-"mintbase@^0.7.0":
-  "integrity" "sha512-BBB4k9mJelApwXTfCruvDrR4+uHIAA/QvegawHZDj/SoiL+NuBYnP7xKLeYBVC3X9J4wrnapihHhJnN7T7iTgA=="
-  "resolved" "https://registry.npmjs.org/mintbase/-/mintbase-0.7.0.tgz"
-  "version" "0.7.0"
+"mintbase@^0.8.1":
+  "integrity" "sha512-2H9EQas20Mt93TjZ5WnS/77e9dK46FHDwvVyrATaOJJFU9zXmef1GhZV40Nbd26KWtOmbEmelWB1gY1hbUy5RA=="
+  "resolved" "https://registry.npmjs.org/mintbase/-/mintbase-0.8.1.tgz"
+  "version" "0.8.1"
   dependencies:
     "@types/retry" "^0.12.1"
     "bn.js" "^5.2.0"

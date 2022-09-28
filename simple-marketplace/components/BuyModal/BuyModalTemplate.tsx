@@ -37,7 +37,7 @@ export function BuyModalTemplate({
                 </h3>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center p-2 rounded-md hover:border-2 hover:border-primary text-gray-400 hover:text-primary focus:outline focus:text-gray-500 transition duration-150 ease-in-out"
+                  className="inline-flex items-center justify-center p-2 rounded-md hover:border-primary text-gray-400 hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => closeModal()}
                   aria-label="Close"
                 >

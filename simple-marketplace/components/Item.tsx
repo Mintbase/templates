@@ -1,14 +1,15 @@
-import { MbButton } from 'mintbase-ui';
-import Image from 'next/image';
-import { StoreNfts } from '../types/types';
-import { parseMedia } from '../utils';
+import { MbButton } from "mintbase-ui";
+import Image from "next/image";
+import { StoreNfts } from "../types/types";
+import { parseMedia } from "../utils";
+import { getCachedImage } from "../utils/getCachedImages";
 
 function Item({
   item,
   showModal,
 }: {
-  item: StoreNfts
-  showModal: (item: StoreNfts) => void
+  item: StoreNfts;
+  showModal: (item: StoreNfts) => void;
 }): JSX.Element {
   const { mediaUrl } = parseMedia(item.media, item.base_uri);
 
@@ -17,14 +18,21 @@ function Item({
       <div className="w-full h-72 mb-10 relative object-cover">
         {mediaUrl ? (
           <Image
-            src={mediaUrl}
+            src={getCachedImage(mediaUrl)}
             alt={item.title}
             layout="fill"
           />
-        ) : <div className="w-full h-72 mb-10 flex justify-center items-center"> No Nft Media Available</div> }
+        ) : (
+          <div className="w-full h-72 mb-10 flex justify-center items-center">
+            {" "}
+            No Nft Media Available
+          </div>
+        )}
       </div>
       <div>
-        <div className="text-xl text-gray-800 font-bold">{item.title ?? 'No Nft Title'}</div>
+        <div className="text-xl text-gray-800 font-bold">
+          {item.title ?? "No Nft Title"}
+        </div>
         <div className="text-sm">{item.storeId}</div>
       </div>
       <div className="flex items-center mt-2 justify-end">

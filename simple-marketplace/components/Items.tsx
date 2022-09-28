@@ -36,8 +36,8 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
   const filteredThings = nfts.filter((nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore);
 
   return (
-    <div className="w-full ml-6 items-center mt-4">
-      <div className="flex w-full ml-6 items-center mt-4">
+    <div className="w-full items-center p-12">
+      <div className="flex w-full gap-4 items-center">
         <div
           onClick={() => setSelectedTab('all')}
           onKeyDown={() => setSelectedTab('all')}
