@@ -66,6 +66,7 @@ export const v2MarketPlaceGetStoreNfts = gql`
       where: $condition
       offset: $offset
       order_by: { minted_timestamp: desc }
+      limit: 10
     ) {
       createdAt: minted_timestamp
       listed: price
