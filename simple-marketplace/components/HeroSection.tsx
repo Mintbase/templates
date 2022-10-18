@@ -7,7 +7,7 @@ function HeroSection(): JSX.Element {
         <MbText className="text-3xl uppercase p-4 border-gray-100">
           Simple Marketplace
         </MbText>
-        <MbText className="text-2xl">A simple marketplace on Mintbase</MbText>
+        <MbText className="text-xl text-center">A simple marketplace on Mintbase</MbText>
       </div>
     </div>
   );

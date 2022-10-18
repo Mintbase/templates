@@ -19,7 +19,12 @@ const useStoreNfts = () => {
   const formatedStores = stores.split(/[ ,]+/);
 
   const { loading } = useQuery(v2MarketPlaceGetStoreNfts, {
-    variables: { condition: { nft_contract_id: { _in: formatedStores } } },
+    variables: {
+      condition: {
+        nft_contract_id: { _in: formatedStores },
+        price: { _is_null: false },
+      },
+    },
     onCompleted: (data) => {
       const storeData = data?.mb_views_nft_metadata_unburned;
       setNfts(storeData);
