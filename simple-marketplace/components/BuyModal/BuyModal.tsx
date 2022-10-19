@@ -50,8 +50,6 @@ function BuyModal({
     nftContractId,
   };
 
-  console.log(modalInfo);
-
   return (
     <BuyModalTemplate closeModal={closeModal}>
       <BuyModalInfo data={modalInfo} />
