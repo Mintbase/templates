@@ -16,15 +16,13 @@ import { updateTokensData } from '../utils';
 import { mapQueryObj, QueryOptions } from '../utils/BuyModal.utils';
 import { SelectedNft, TokenDataQuery, TokenListData } from '../types/types';
 
-const useTokenListData = ({
-  metadataId,
-}: SelectedNft): TokenListData => {
+const useTokenListData = ({ metadataId }: SelectedNft): TokenListData => {
   const [listData, setTokenListData] = useState<any>(null);
-  const [getToken, { loading: tokenLoading, data: tokenData }] = useLazyQuery(v2MarketPlaceGetToken);
-
-  const [getTokenListData, { data: tokenList, loading: tokenListLoading }] = useLazyQuery(
-    v2MarketPlaceGetTokenListings,
+  const [getToken, { loading: tokenLoading, data: tokenData }] = useLazyQuery(
+    v2MarketPlaceGetToken,
   );
+
+  const [getTokenListData, { data: tokenList, loading: tokenListLoading }] = useLazyQuery(v2MarketPlaceGetTokenListings);
 
   let tokenQueryOptions: QueryOptions = {
     variables: {
@@ -50,7 +48,14 @@ const useTokenListData = ({
   });
 
   const {
-    price, prices, amountAvailable, tokensTotal, tokenId, tokenKey, marketId,
+    price,
+    prices,
+    amountAvailable,
+    tokensTotal,
+    tokenId,
+    nftContractId,
+    tokenKey,
+    marketId,
   } = updateTokensData({
     data: listData,
   });
@@ -67,6 +72,7 @@ const useTokenListData = ({
     tokenId,
     tokenKey,
     tokenList,
+    nftContractId,
     tokenData,
     marketId,
     isTokenListLoading,

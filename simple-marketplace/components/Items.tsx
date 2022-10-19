@@ -37,7 +37,7 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
 
   return (
     <div className="w-full items-center p-12">
-      <div className="flex w-full gap-4 items-center">
+      <div className="flex w-full gap-4 items-center justify-end">
         <div
           onClick={() => setSelectedTab('all')}
           onKeyDown={() => setSelectedTab('all')}
@@ -45,7 +45,7 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
           tabIndex={0}
         >
           <MbTab
-            label={<span>All Items</span>}
+            label={<span />}
             isActive={selectedTab === 'all'}
             isSmall
           />

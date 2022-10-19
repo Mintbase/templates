@@ -25,7 +25,7 @@ export const updateTokensData = ({
     price: price ? parseYactoToNear(price) : 0,
     tokenId: listings.token.id,
     prices: prices.length > 0 ? prices : [],
-    tokenKey: `${listings.token.id}:${listings.token.nft_contract_id}`,
+    nftContractId: listings.token.nft_contract_id,
     marketId: listings.market_id,
   };
 };
