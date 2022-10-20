@@ -180,13 +180,8 @@ function AvailableNftComponent({
 
 export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
   // props inherited from the Buy Modal component
-
   const { amountAvailable } = data;
-
   const { wallet } = useWallet();
-
-  // check if the market Address is equal to the marketId from the NFT Listing Query and if the amountAvailable of the NFT is higher than 0.
-
   const isAvailable = amountAvailable > 0;
 
   if (!isAvailable) {
