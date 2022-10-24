@@ -24,6 +24,7 @@ function BuyModal({
     tokenKey,
     marketId,
     isTokenListLoading,
+    nftContractId,
   } = useTokenListData({ metadataId });
 
   if (isTokenListLoading) {
@@ -35,14 +36,24 @@ function BuyModal({
   }
 
   const modalInfo = {
-    amountAvailable, tokensTotal, price, prices, tokenId, tokenList, tokenData, isTokenListLoading, metadataId, tokenKey, marketId,
+    amountAvailable,
+    tokensTotal,
+    price,
+    prices,
+    tokenId,
+    tokenList,
+    tokenData,
+    isTokenListLoading,
+    metadataId,
+    tokenKey,
+    marketId,
+    nftContractId,
   };
 
   return (
     <BuyModalTemplate closeModal={closeModal}>
       <BuyModalInfo data={modalInfo} />
     </BuyModalTemplate>
-
   );
 }
 

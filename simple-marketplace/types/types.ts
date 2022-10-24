@@ -40,6 +40,7 @@ export interface TokenListData {
   isTokenListLoading: boolean,
   marketId?: string
   tokenKey?: string
+  nftContractId?: string
 }
 
 export interface SelectedNft {

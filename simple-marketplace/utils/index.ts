@@ -25,19 +25,17 @@ export const updateTokensData = ({
     price: price ? parseYactoToNear(price) : 0,
     tokenId: listings.token.id,
     prices: prices.length > 0 ? prices : [],
-    tokenKey: `${listings.token.id}:${listings.token.nft_contract_id}`,
+    nftContractId: listings.token.nft_contract_id,
     marketId: listings.market_id,
   };
 };
 
 export const parseMedia = (media: string, baseUri: string) => {
-
-  let  mediaUrl = media?.indexOf('http') > -1 ? media : `${baseUri}/${media}`;
+  let mediaUrl = media?.indexOf('http') > -1 ? media : `${baseUri}/${media}`;
 
   if (!media) {
     mediaUrl = null;
   }
- 
 
   return { mediaUrl };
 };
