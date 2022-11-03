@@ -2,7 +2,7 @@ import { Network } from 'mintbase';
 
 export const BINANCE_API = 'https://api.binance.com/api/v3/ticker/price?symbol=NEARUSDT';
 export const MED_GAS = '300000000000000';
-export const DEFAULT_STORES = 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet';
+export const DEFAULT_STORES = 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet';
 export const DEFAULT_MARKET_ADDRESS = 'market.mintspace2.testnet';
 export const DEFAULT_NETWORK = Network.testnet;
 
@@ -13,6 +13,8 @@ export const TESTNET_CONFIG = {
   helperUrl: 'https://helper.testnet.near.org',
   explorerUrl: 'https://explorer.testnet.near.org',
   market: 'market.mintspace2.testnet',
+  // Change this referral to your account to test it out on purchase and see market fees go right
+  // to you selling from any one elses store.
   referral: 'unlock.testnet',
   headers: {
     'Content-Type': 'application/json',
