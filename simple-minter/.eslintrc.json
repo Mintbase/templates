@@ -9,7 +9,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["./simple-minter/tsconfig.json"]
+    "project": ["tsconfig.json"]
   },
   "overrides": [
     {
