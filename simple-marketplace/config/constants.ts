@@ -13,8 +13,8 @@ export const TESTNET_CONFIG = {
   helperUrl: 'https://helper.testnet.near.org',
   explorerUrl: 'https://explorer.testnet.near.org',
   market: 'market.mintspace2.testnet',
-  // Change this referral to your account to test it out on purchase and see market fees go right
-  // to you selling from any one elses store.
+  // Change this referral address below to your account to test it out on purchase and see market fees go right
+  // to you selling from any one elses store
   referral: 'unlock.testnet',
   headers: {
     'Content-Type': 'application/json',
