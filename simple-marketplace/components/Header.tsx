@@ -1,14 +1,16 @@
-import { MbButton } from 'mintbase-ui'
-import { useWallet } from '@mintbase-js/react'
+import { MbButton } from 'mintbase-ui';
+import { useWallet } from '@mintbase-js/react';
 
 function Header(): JSX.Element {
-  const { isConnected, connect, disconnect, activeAccountId } = useWallet()
+  const {
+    isConnected, connect, disconnect, activeAccountId,
+  } = useWallet();
 
   const buttonLabel = isConnected
     ? `Sign Out ${activeAccountId}`
-    : ' Connect NEAR Wallet'
+    : ' Connect NEAR Wallet';
 
-  const buttonAction = isConnected ? disconnect : connect
+  const buttonAction = isConnected ? disconnect : connect;
 
   return (
     <nav className="flex justify-between w-full bg-white sticky top-0 z-40 lg:border-b border-solid border-gray-150">
@@ -20,7 +22,7 @@ function Header(): JSX.Element {
         <MbButton onClick={buttonAction} label={buttonLabel} />
       </div>
     </nav>
-  )
+  );
 }
 
-export default Header
+export default Header;

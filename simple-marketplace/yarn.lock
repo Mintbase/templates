@@ -470,7 +470,7 @@
     "bn.js" "^5.2.0"
     "is-mobile" "^3.1.1"
 
-"@near-wallet-selector/modal-ui@^7.0.3", "@near-wallet-selector/modal-ui@^7.1.0":
+"@near-wallet-selector/modal-ui@^7.0.3", "@near-wallet-selector/modal-ui@^7.1.0", "@near-wallet-selector/modal-ui@^7.2.0":
   "integrity" "sha512-gnlaVGMyU07pS7UBB5Aalu9oqONGPy7fnksSWBJKRveNmuqkseChZJgh13cSRT1wt0/0ltGo5x7CyOCFOf0O9A=="
   "resolved" "https://registry.npmjs.org/@near-wallet-selector/modal-ui/-/modal-ui-7.2.0.tgz"
   "version" "7.2.0"

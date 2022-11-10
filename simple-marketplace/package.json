@@ -17,6 +17,7 @@
     "@apollo/client": "^3.6.9",
     "@mintbase-js/react": "^0.0.4-rc13",
     "@mintbase-js/sdk": "^0.0.4-rc13",
+    "@near-wallet-selector/modal-ui": "^7.2.0",
     "big.js": "^6.2.1",
     "graphql": "^16.5.0",
     "lodash": "^4.17.21",

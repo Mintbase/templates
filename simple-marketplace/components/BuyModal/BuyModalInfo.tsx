@@ -4,25 +4,25 @@ import {
   MbButton,
   MbInfoCard,
   MbText,
-} from 'mintbase-ui'
+} from 'mintbase-ui';
 
 /*
 Buy Modal Info:
 The component that handles the NFT Buy Information
 */
 
-import { useCallback, useState } from 'react'
-import { TESTNET_CONFIG, MED_GAS } from '../../config/constants'
+import { useCallback, useState } from 'react';
+import { useWallet } from '@mintbase-js/react';
+import { execute } from '@mintbase-js/sdk';
+import { TESTNET_CONFIG } from '../../config/constants';
 
-import { useNearPrice } from '../../hooks/useNearPrice'
-import { nearToYocto } from '../../lib/numbers'
-import { useWallet } from '@mintbase-js/react'
-import { execute } from '@mintbase-js/sdk'
-import { BuyModalData, TokenListData, TransactionEnum } from '../../types/types'
-import { SignInButton } from '../SignInButton'
+import { useNearPrice } from '../../hooks/useNearPrice';
+import { nearToYocto } from '../../lib/numbers';
+import { BuyModalData, TokenListData } from '../../types/types';
+import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
-  const { wallet, activeAccountId, isConnected } = useWallet()
+  const { wallet, activeAccountId, isConnected } = useWallet();
   const {
     amountAvailable,
     tokensTotal,
@@ -32,15 +32,15 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     tokenId,
     nftContractId,
     marketId,
-  } = data
+  } = data;
 
-  const { nearPrice } = useNearPrice()
+  const { nearPrice } = useNearPrice();
 
-  const message = `${amountAvailable} of ${tokensTotal} Available`
+  const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
 
-  const [currentPrice, setCurrentPrice] = useState(price)
-  const [amount, setAmount] = useState(1)
+  const [currentPrice, setCurrentPrice] = useState(price);
+  const [amount, setAmount] = useState(1);
 
   const singleBuy = useCallback(async () => {
     await execute(
@@ -57,15 +57,15 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
         },
         deposit: nearToYocto(currentPrice.toString()),
       },
-      { wallet }
-    )
-  }, [currentPrice, tokenKey, wallet])
+      { wallet },
+    );
+  }, [currentPrice, tokenKey, wallet]);
 
   const multiBuy = useCallback(async () => {
-    const nftPrice = nearToYocto(price.toString())
-    const finalPrice = new Array(amount)
+    const nftPrice = nearToYocto(price.toString());
+    const finalPrice = new Array(amount);
 
-    await finalPrice.fill(nftPrice)
+    await finalPrice.fill(nftPrice);
 
     // wallet?.batchMakeOffer([tokenKey], finalPrice, {
     //   gas: MED_GAS,
@@ -78,25 +78,25 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     //     },
     //   }),
     // })
-  }, [amount, currentPrice, price, tokenKey, wallet])
+  }, [amount, currentPrice, price, tokenKey, wallet]);
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
-    const isSingleAmount = amount === 1
+    const isSingleAmount = amount === 1;
 
     if (isSingleAmount) {
-      await singleBuy()
+      await singleBuy();
     } else {
-      await multiBuy()
+      await multiBuy();
     }
-  }
+  };
 
   const setNewPrice = (val: string) => {
-    const value = Number(val)
+    const value = Number(val);
 
-    setAmount(value)
-    setCurrentPrice(price * value)
-  }
+    setAmount(value);
+    setCurrentPrice(price * value);
+  };
 
   return isConnected && !isTokenListLoading ? (
     <div className="mt-2">
@@ -121,7 +121,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
             <MbAmountInput
               maxAmount={Math.min(amountAvailable, 1)}
               onValueChange={(e) => {
-                setNewPrice(e)
+                setNewPrice(e);
               }}
               disabled={amountAvailable === 1}
             />
@@ -138,14 +138,14 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     </div>
   ) : (
     <SignInButton />
-  )
+  );
 }
 
 export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
   // props inherited from the Buy Modal component
-  const { amountAvailable } = data
+  const { amountAvailable } = data;
 
-  const isAvailable = amountAvailable > 0
+  const isAvailable = amountAvailable > 0;
 
   if (!isAvailable) {
     return (
@@ -156,8 +156,8 @@ export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
           </MbText>
         </div>
       </div>
-    )
+    );
   }
 
-  return <AvailableNftComponent data={data} />
+  return <AvailableNftComponent data={data} />;
 }
