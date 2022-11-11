@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
-    "@mintbase-js/react": "0.0.4-rc14",
-    "@mintbase-js/sdk": "0.0.4-rc14",
+    "@mintbase-js/react": "0.0.4-rc15",
+    "@mintbase-js/sdk": "0.0.4-rc15",
     "@near-wallet-selector/modal-ui": "^7.2.0",
     "big.js": "^6.2.1",
     "graphql": "^16.5.0",

@@ -23,7 +23,7 @@ import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
   const {
-    wallet, activeAccountId, isConnected, selector,
+    activeAccountId, isConnected, selector,
   } = useWallet();
   const {
     amountAvailable,
@@ -61,7 +61,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
       },
       { wallet: await selector.wallet() },
     );
-  }, [currentPrice, tokenKey, wallet]);
+  }, [currentPrice, tokenKey]);
 
   const multiBuy = useCallback(async () => {
     const nftPrice = nearToYocto(price.toString());
@@ -80,7 +80,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     //     },
     //   }),
     // })
-  }, [amount, currentPrice, price, tokenKey, wallet]);
+  }, [amount, currentPrice, price, tokenKey]);
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
