@@ -22,7 +22,9 @@ import { BuyModalData, TokenListData } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
-  const { wallet, activeAccountId, isConnected } = useWallet();
+  const {
+    wallet, activeAccountId, isConnected, selector,
+  } = useWallet();
   const {
     amountAvailable,
     tokensTotal,
@@ -57,7 +59,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
         },
         deposit: nearToYocto(currentPrice.toString()),
       },
-      { wallet },
+      { wallet: await selector.wallet() },
     );
   }, [currentPrice, tokenKey, wallet]);
 

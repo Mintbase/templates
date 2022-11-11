@@ -424,10 +424,10 @@
     "near-api-js" "^0.44.2"
     "rxjs" "^7.5.7"
 
-"@mintbase-js/react@^0.0.4-rc13":
-  "integrity" "sha512-mo8EkdItMS27rqYPdVVSYQ7NgOdpIxwlKEYFgX+KAolzosVp9OnxAYdLVWPV0cFXbToCPp1J04fy5m2+Ysedlg=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/react/-/react-0.0.4-rc13.tgz"
-  "version" "0.0.4-rc13"
+"@mintbase-js/react@0.0.4-rc14":
+  "integrity" "sha512-mobBSZr3/Y2fBiYGdwjprEL36g9D6/qLiquoKcfSb6OercImHtotjp9+8Kbz6HSJC7pxmge0fM805B1p4qlVBw=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/react/-/react-0.0.4-rc14.tgz"
+  "version" "0.0.4-rc14"
   dependencies:
     "@mintbase-js/auth" "*"
     "@mintbase-js/sdk" "*"
@@ -435,10 +435,10 @@
     "@near-wallet-selector/modal-ui" "^7.0.3"
     "near-api-js" "^0.44.2"
 
-"@mintbase-js/sdk@*", "@mintbase-js/sdk@^0.0.4-rc13":
-  "integrity" "sha512-Kmm+cHnKftOUx6yqm7X47VylDD55hPGGcpBh3oQDu21sRobE9s32jm6Ik3a3Z1/80WUooz6bDSD4tP0dNVN49Q=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/sdk/-/sdk-0.0.4-rc13.tgz"
-  "version" "0.0.4-rc13"
+"@mintbase-js/sdk@*", "@mintbase-js/sdk@0.0.4-rc14":
+  "integrity" "sha512-ykmm6brw/sGPOc8PoC70uyLbk0endyqqs27b1sSZdUHVyjD2x5XzHEZYYrMpFJJcY61NWec7U574sd9br87JUw=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/sdk/-/sdk-0.0.4-rc14.tgz"
+  "version" "0.0.4-rc14"
   dependencies:
     "near-api-js" "^0.44.2"
 
