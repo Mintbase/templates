@@ -519,10 +519,10 @@
     "@near-wallet-selector/welldone-wallet" "^7.2.0"
     "rxjs" "^7.5.7"
 
-"@mintbase-js/data@*", "@mintbase-js/data@0.0.5-alpha.0":
-  "integrity" "sha512-iDG9BGBpVP57ESyVvmo3yDSiOcsKHMOsgnDDyrsgbwU6vCOaCrFlZv1hv4uyBBnqZbowZvBGk/3zbWInzNDRJg=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.0.5-alpha.0.tgz"
-  "version" "0.0.5-alpha.0"
+"@mintbase-js/data@*", "@mintbase-js/data@^0.1.0-alpha-14":
+  "integrity" "sha512-XFayCoIBbG25MLmNM1qmpGHrBTtO4jLUMNmJBfzUrz/ZbRgPVxR4yT3EVnLoFeXSLWVHGzcMIVz7JEfOSxrrgA=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.1.0-alpha-14.tgz"
+  "version" "0.1.0-alpha-14"
   dependencies:
     "graphql-request" "^5.0.0"
 
@@ -738,9 +738,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-x64@12.1.6":
-  "integrity" "sha512-9FptMnbgHJK3dRDzfTpexs9S2hGpzOQxSQbe8omz6Pcl7rnEp9x4uSEKY51ho85JCjL4d0tDLBcXEJZKKLzxNg=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.1.6.tgz"
+"@next/swc-darwin-arm64@12.1.6":
+  "integrity" "sha512-P0EXU12BMSdNj1F7vdkP/VrYDuCNwBExtRPDYawgSUakzi6qP0iKJpya2BuLvNzXx+XPU49GFuDC5X+SvY0mOw=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.1.6.tgz"
   "version" "12.1.6"
 
 "@nightlylabs/connect-near@0.0.14":
