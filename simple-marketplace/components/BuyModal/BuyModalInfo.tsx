@@ -1,5 +1,5 @@
 import { useWallet } from '@mintbase-js/react';
-import { execute, GAS_CONSTANTS } from '@mintbase-js/sdk';
+import { buy, execute } from '@mintbase-js/sdk';
 import {
   EState,
   MbAmountInput,
@@ -7,6 +7,7 @@ import {
   MbInfoCard,
   MbText,
 } from 'mintbase-ui';
+import { useRouter } from 'next/router';
 
 /*
 Buy Modal Info:
@@ -36,6 +37,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
 
   const { nearPrice } = useNearPrice();
   const { selector, isConnected } = useWallet();
+  const router = useRouter();
 
   const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
@@ -59,20 +61,21 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     const wallet = await selector.wallet();
 
     await execute(
-      {
-        methodName: 'buy',
-        gas: GAS_CONSTANTS.DEFAULT_GAS,
-        deposit: nearToYocto(currentPrice.toString()),
-        callbackUrl: callback,
-        args: {
-          nft_contract_id: nftContractId,
-          token_id: tokenId,
-          referrer_id:
-            process.env.NEXT_PUBLIC_REFERRAL_ID || TESTNET_CONFIG.referral,
-        },
-        contractAddress: marketId,
-      },
       { wallet },
+      {
+        ...buy({
+          nftContractId,
+          tokenId,
+          referrerId:
+            process.env.NEXT_PUBLIC_REFERRAL_ID || TESTNET_CONFIG.referral,
+          marketId,
+          price: nearToYocto(currentPrice.toString()),
+        }),
+      },
+    );
+
+    router.push(
+      callback,
     );
   }, [currentPrice, tokenKey]);
 
