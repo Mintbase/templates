@@ -7,7 +7,10 @@ import {
   MbTab,
 } from 'mintbase-ui';
 import { useEffect, useState } from 'react';
-import { StoreNftsData, StoreNftsResult } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
+import {
+  StoreNftsData,
+  StoreNftsResult,
+} from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import { Item } from './Item';
 
 import { DEFAULT_STORES } from '../config/constants';
@@ -40,17 +43,10 @@ function Items({
     onClick: () => setSelectedStore(''),
   });
 
-  // filter things by store name selected in the dropdown menu
-  // const filteredThings = nfts().filter(
-  //   (nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore,
-  // );
-
   useEffect(() => {
+    // gets store nfts from mintbase-js/data package
     const getNfts = async () => {
-      const finalNfts = await storeNfts(
-        formatedStores,
-        true,
-      );
+      const finalNfts = await storeNfts(formatedStores, true);
 
       setData(finalNfts.data);
     };
@@ -58,6 +54,7 @@ function Items({
     getNfts();
   }, [formatedStores]);
 
+  // filter things by store name selected in the dropdown menu
   const filteredNfts: StoreNftsData[] = data?.mb_views_nft_metadata_unburned?.filter(
     (nft) => selectedStore === '' || nft.nft_contract_id === selectedStore,
   );
@@ -116,15 +113,9 @@ function Items({
             <Item key={nft.metadataId} item={nft} showModal={showModal} />
           ))
         )} */}
-        {filteredNfts?.map(
-          (nft) => (
-            <Item
-              key={nft.metadata_id}
-              item={nft}
-              showModal={showModal}
-            />
-          ),
-        )}
+        {filteredNfts?.map((nft) => (
+          <Item key={nft.metadata_id} item={nft} showModal={showModal} />
+        ))}
       </div>
     </div>
   );

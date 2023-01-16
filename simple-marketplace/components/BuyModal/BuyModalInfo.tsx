@@ -1,3 +1,4 @@
+import { nearPrice } from '@mintbase-js/data';
 import { useWallet } from '@mintbase-js/react';
 import { buy, execute } from '@mintbase-js/sdk';
 import {
@@ -14,12 +15,9 @@ Buy Modal Info:
 The component that handles the NFT Buy Information
 */
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TESTNET_CONFIG } from '../../config/constants';
-
-import { useNearPrice } from '../../hooks/useNearPrice';
 import { nearToYocto } from '../../lib/numbers';
-
 import { BuyModalData, TokenListData, TransactionEnum } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
@@ -35,7 +33,6 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     marketId,
   } = data;
 
-  const { nearPrice } = useNearPrice();
   const { selector, isConnected } = useWallet();
   const router = useRouter();
 
@@ -44,6 +41,8 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
 
   const [currentPrice, setCurrentPrice] = useState(price);
   const [amount, setAmount] = useState(1);
+
+  const [nearPriceData, setNearPriceData] = useState(null);
 
   const singleBuy = useCallback(async () => {
     const callback = `${
@@ -74,9 +73,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
       },
     );
 
-    router.push(
-      callback,
-    );
+    router.push(callback);
   }, [currentPrice, tokenKey]);
 
   // handler function to call the wallet methods to proceed the buy.
@@ -95,6 +92,19 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
     setCurrentPrice(price * value);
   };
 
+  useEffect(() => {
+    // gets store nfts from mintbase-js/data package
+    const getNearPrice = async () => {
+      const currentNearPrice = await nearPrice();
+
+      setNearPriceData(
+        typeof currentNearPrice === 'string' ? currentNearPrice : 0,
+      );
+    };
+
+    getNearPrice();
+  }, []);
+
   return isConnected && !isTokenListLoading ? (
     <div className="mt-2">
       <div className="bg-gray-50 py-4 text-center">
@@ -109,7 +119,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
               description: `${currentPrice.toFixed(2)} N`,
               title: 'Price',
               lowerLeftText: `~ ${(
-                Number(nearPrice) * Number(currentPrice)
+                Number(nearPriceData) * Number(currentPrice)
               ).toFixed(2)} USD`,
             }}
           />
