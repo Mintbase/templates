@@ -95,11 +95,9 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
   useEffect(() => {
     // gets store nfts from mintbase-js/data package
     const getNearPrice = async () => {
-      const currentNearPrice = await nearPrice();
+      const { data: priceData, error } = await nearPrice();
 
-      setNearPriceData(
-        typeof currentNearPrice === 'string' ? currentNearPrice : 0,
-      );
+      setNearPriceData(error ? '0' : priceData);
     };
 
     getNearPrice();

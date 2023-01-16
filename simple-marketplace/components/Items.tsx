@@ -31,13 +31,13 @@ function Items({
   const formatedStores = defaultStores.split(/[ ,]+/);
 
   // show store names in the dropdown menu
-  const storeTabs = stores.map((store: Store) => ({
+  const storeTabs = stores?.map((store: Store) => ({
     content: <span>{store.name}</span>,
     onClick: () => setSelectedStore(store.id),
   }));
 
   // add 'all stores' to the beginning of the dropdown menu
-  storeTabs.unshift({
+  storeTabs?.unshift({
     content: <span>All Stores</span>,
     onClick: () => setSelectedStore(''),
   });
@@ -82,7 +82,7 @@ function Items({
                   <span>
                     {selectedStore === ''
                       ? 'All Stores'
-                      : stores.find(
+                      : stores?.find(
                         (store: Store) => store.id === selectedStore,
                       )?.name}
                   </span>
