@@ -1,4 +1,8 @@
-import { storeNfts } from '@mintbase-js/data';
+import { storeData, storeNfts } from '@mintbase-js/data';
+import {
+  StoreNftsData,
+  StoreNftsResult,
+} from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import {
   EIconName,
   MbDropdownMenu,
@@ -7,14 +11,9 @@ import {
   MbTab,
 } from 'mintbase-ui';
 import { useEffect, useState } from 'react';
-import {
-  StoreNftsData,
-  StoreNftsResult,
-} from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import { Item } from './Item';
 
 import { DEFAULT_STORES } from '../config/constants';
-import { useStores } from '../hooks/useStores';
 import { SelectedNft, Store } from '../types/types';
 
 function Items({
@@ -25,7 +24,7 @@ function Items({
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
   const [data, setData] = useState<StoreNftsResult>(null);
-  const { stores } = useStores();
+  const [stores, setStores] = useState([]);
 
   const defaultStores = process.env.NEXT_PUBLIC_STORES || DEFAULT_STORES;
 
@@ -45,14 +44,22 @@ function Items({
 
   useEffect(() => {
     // gets store nfts from mintbase-js/data package
-    const getNfts = async () => {
+    const getStoreNfts = async () => {
       const finalNfts = await storeNfts(formatedStores, true);
 
       setData(finalNfts.data);
     };
 
-    getNfts();
-  }, [formatedStores]);
+    // gets store data from mintbase-js/data package
+    const getStoreData = async () => {
+      const finalStores = await storeData(formatedStores);
+
+      setStores(finalStores?.data?.nft_contracts);
+    };
+
+    getStoreNfts();
+    getStoreData();
+  }, []);
 
   // filter things by store name selected in the dropdown menu
   const filteredNfts: StoreNftsData[] = data?.mb_views_nft_metadata_unburned?.filter(
