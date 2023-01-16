@@ -519,10 +519,10 @@
     "@near-wallet-selector/welldone-wallet" "^7.2.0"
     "rxjs" "^7.5.7"
 
-"@mintbase-js/data@*", "@mintbase-js/data@0.1.0-alpha.60":
-  "integrity" "sha512-0MkDHvRirUpsupxiL0STN4KmS6Wan5evmmUqRXzE9FA8kF+cJRy//vK0sWct0gD4VrIyQF3umecEPY9cW9g81g=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.1.0-alpha.60.tgz"
-  "version" "0.1.0-alpha.60"
+"@mintbase-js/data@*", "@mintbase-js/data@0.1.0-alpha.61":
+  "integrity" "sha512-/tw2Csd8ELvounFsrkpCvvdaDsIHcEP/Q0eiP2FuRAICdGDun50M960uNmWU04i7dtXmDBEYeJb63PjELChQsw=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.1.0-alpha.61.tgz"
+  "version" "0.1.0-alpha.61"
   dependencies:
     "graphql-request" "^5.0.0"
 
