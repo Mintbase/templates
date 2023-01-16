@@ -1,4 +1,6 @@
+import { StoreNftsData } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import { EIconName, MbThingCard } from 'mintbase-ui';
+import { SelectedNft } from '../types/types';
 import { parseMedia } from '../utils';
 import { getCachedImage } from '../utils/getCachedImages';
 
@@ -6,24 +8,8 @@ function Item({
   item,
   showModal,
 }: {
-  item: {
-    minted_timestamp: string
-    price: number
-    media: string
-    nft_contract_id: string
-    metadata_id: string
-    title: string
-    base_uri: string
-  };
-  showModal: (item: {
-    minted_timestamp: string;
-    price: number;
-    media: string;
-    nft_contract_id: string;
-    metadata_id: string;
-    title: string;
-    base_uri: string;
-  }) => void;
+  item: StoreNftsData
+  showModal: (item: SelectedNft) => void
 }): JSX.Element {
   console.log(item);
   const { mediaUrl } = parseMedia(item.media, item.base_uri);
@@ -51,7 +37,7 @@ function Item({
           midLeftText: item.title,
           midRightText: '',
           botRightIcon: EIconName.NONE,
-          onCenterElementClick: () => showModal(item),
+          onCenterElementClick: () => showModal({ metadataId: item.metadata_id }),
         }}
       />
       {/* <div className="bg-white rounded shadow-lg p-4 relative"> */}

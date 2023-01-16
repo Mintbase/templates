@@ -7,31 +7,21 @@ import {
   MbTab,
 } from 'mintbase-ui';
 import { useEffect, useState } from 'react';
+import { StoreNftsData, StoreNftsResult } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import { Item } from './Item';
 
 import { DEFAULT_STORES } from '../config/constants';
 import { useStores } from '../hooks/useStores';
-import { Store } from '../types/types';
+import { SelectedNft, Store } from '../types/types';
 
 function Items({
   showModal,
 }: {
-  // showModal: (item: {
-  //   minted_timestamp: string
-  //   price: number
-  //   media: string
-  //   nft_contract_id: string
-  //   metadata_id: string
-  //   title: string
-  //   base_uri: string
-  // }) => void
-  showModal: any
+  showModal: (item: SelectedNft) => void
 }): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
-  const [nfts, setNfts] = useState(null);
-  console.log('....');
-
+  const [data, setData] = useState<StoreNftsResult>(null);
   const { stores } = useStores();
 
   const defaultStores = process.env.NEXT_PUBLIC_STORES || DEFAULT_STORES;
@@ -58,34 +48,18 @@ function Items({
   useEffect(() => {
     const getNfts = async () => {
       const finalNfts = await storeNfts(
-        selectedStore || formatedStores,
+        formatedStores,
         true,
       );
 
-      setNfts(finalNfts);
+      setData(finalNfts.data);
     };
 
     getNfts();
-  }, []);
+  }, [formatedStores]);
 
-  const filteredNfts: {
-    minted_timestamp: string
-    price: number
-    media: string
-    nft_contract_id: string
-    metadata_id: string
-    title: string
-    base_uri: string
-  }[] = nfts?.data?.mb_views_nft_metadata_unburned?.filter(
-    (nft: {
-      minted_timestamp: string
-      price: number
-      media: string
-      nft_contract_id: string
-      metadata_id: string
-      title: string
-      base_uri: string
-    }) => selectedStore === '' || nft.nft_contract_id === selectedStore,
+  const filteredNfts: StoreNftsData[] = data?.mb_views_nft_metadata_unburned?.filter(
+    (nft) => selectedStore === '' || nft.nft_contract_id === selectedStore,
   );
 
   return (
