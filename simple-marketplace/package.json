@@ -16,7 +16,7 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@mintbase-js/auth": "0.1.0-alpha.0",
-    "@mintbase-js/data": "^0.1.0-alpha-14",
+    "@mintbase-js/data": "0.1.0-alpha.60",
     "@mintbase-js/react": "^0.1.0-alpha.0",
     "@mintbase-js/sdk": "^0.1.0-alpha.0",
     "@mintbase-js/storage": "0.1.0-alpha.0",

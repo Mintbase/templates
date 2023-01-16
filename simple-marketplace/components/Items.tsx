@@ -1,24 +1,42 @@
-import { useState } from 'react';
+import { storeNfts } from '@mintbase-js/data';
 import {
-  MbTab,
-  MbMenuWrapper,
+  EIconName,
   MbDropdownMenu,
   MbIcon,
-  EIconName,
+  MbMenuWrapper,
+  MbTab,
 } from 'mintbase-ui';
-import { Item, LoadingItem } from './Item';
+import { useEffect, useState } from 'react';
+import { Item } from './Item';
 
+import { DEFAULT_STORES } from '../config/constants';
 import { useStores } from '../hooks/useStores';
-import useStoreNfts from '../hooks/useStoreNfts';
-import { Store, StoreNfts } from '../types/types';
+import { Store } from '../types/types';
 
-function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Element {
-  const [selectedTab, setSelectedTab] = useState('all');
+function Items({
+  showModal,
+}: {
+  // showModal: (item: {
+  //   minted_timestamp: string
+  //   price: number
+  //   media: string
+  //   nft_contract_id: string
+  //   metadata_id: string
+  //   title: string
+  //   base_uri: string
+  // }) => void
+  showModal: any
+}): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
+  const [nfts, setNfts] = useState(null);
+  console.log('....');
 
-  const { nfts, loading } = useStoreNfts();
   const { stores } = useStores();
+
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || DEFAULT_STORES;
+
+  const formatedStores = defaultStores.split(/[ ,]+/);
 
   // show store names in the dropdown menu
   const storeTabs = stores.map((store: Store) => ({
@@ -33,23 +51,46 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
   });
 
   // filter things by store name selected in the dropdown menu
-  const filteredThings = nfts.filter((nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore);
+  // const filteredThings = nfts().filter(
+  //   (nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore,
+  // );
+
+  useEffect(() => {
+    const getNfts = async () => {
+      const finalNfts = await storeNfts(
+        selectedStore || formatedStores,
+        true,
+      );
+
+      setNfts(finalNfts);
+    };
+
+    getNfts();
+  }, []);
+
+  const filteredNfts: {
+    minted_timestamp: string
+    price: number
+    media: string
+    nft_contract_id: string
+    metadata_id: string
+    title: string
+    base_uri: string
+  }[] = nfts?.data?.mb_views_nft_metadata_unburned?.filter(
+    (nft: {
+      minted_timestamp: string
+      price: number
+      media: string
+      nft_contract_id: string
+      metadata_id: string
+      title: string
+      base_uri: string
+    }) => selectedStore === '' || nft.nft_contract_id === selectedStore,
+  );
 
   return (
     <div className="w-full items-center p-12">
       <div className="flex w-full gap-4 items-center justify-end">
-        <div
-          onClick={() => setSelectedTab('all')}
-          onKeyDown={() => setSelectedTab('all')}
-          role="button"
-          tabIndex={0}
-        >
-          <MbTab
-            label={<span />}
-            isActive={selectedTab === 'all'}
-            isSmall
-          />
-        </div>
         <MbMenuWrapper setIsOpen={setMenuOpen}>
           <div
             onClick={() => setMenuOpen(!menuOpen)}
@@ -94,12 +135,21 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
 
       {/** grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 my-12">
-        {loading ? (
+        {/* {loading ? (
           <LoadingItem />
         ) : (
           filteredThings.map((nft: StoreNfts) => (
             <Item key={nft.metadataId} item={nft} showModal={showModal} />
           ))
+        )} */}
+        {filteredNfts?.map(
+          (nft) => (
+            <Item
+              key={nft.metadata_id}
+              item={nft}
+              showModal={showModal}
+            />
+          ),
         )}
       </div>
     </div>

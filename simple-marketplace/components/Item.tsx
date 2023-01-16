@@ -1,5 +1,4 @@
 import { EIconName, MbThingCard } from 'mintbase-ui';
-import { StoreNfts } from '../types/types';
 import { parseMedia } from '../utils';
 import { getCachedImage } from '../utils/getCachedImages';
 
@@ -7,9 +6,26 @@ function Item({
   item,
   showModal,
 }: {
-  item: StoreNfts;
-  showModal: (item: StoreNfts) => void;
+  item: {
+    minted_timestamp: string
+    price: number
+    media: string
+    nft_contract_id: string
+    metadata_id: string
+    title: string
+    base_uri: string
+  };
+  showModal: (item: {
+    minted_timestamp: string;
+    price: number;
+    media: string;
+    nft_contract_id: string;
+    metadata_id: string;
+    title: string;
+    base_uri: string;
+  }) => void;
 }): JSX.Element {
+  console.log(item);
   const { mediaUrl } = parseMedia(item.media, item.base_uri);
 
   return (
