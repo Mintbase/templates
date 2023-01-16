@@ -8,6 +8,7 @@ import { DESCRIPTION, MAIN_IMAGE, TITLE } from "../constants";
 
 export default function Minter() {
   const { selector, activeAccountId } = useWallet();
+
   const methods = useForm({
     defaultValues: {
       [TITLE]: "",
@@ -18,12 +19,16 @@ export default function Minter() {
   const { getValues, handleSubmit } = methods;
 
   const onSubmit = async (data: { [x: string]: any }) => {
-    const file = getValues(MAIN_IMAGE);
     const wallet = await selector.wallet();
-    const referenceJson = await uploadReferenceData(file, data);
-    if (activeAccountId != undefined && referenceJson != undefined) {
-      await handleMinting(referenceJson, activeAccountId, wallet);
+    const file = getValues(MAIN_IMAGE);
+
+    if (file == null || activeAccountId == null) {
+      console.error("Error uploading file")
+      return
     }
+
+    const reference = await handleUpload(file, data);
+    await handleMint(reference, activeAccountId, wallet);
   };
 
   return (
@@ -49,6 +54,32 @@ export default function Minter() {
   );
 }
 
+async function handleUpload(file: File, data: { [x: string]: any }): Promise<string> {
+  const reference = await uploadFile(file);
+
+  const metadata = {
+    title: data[TITLE],
+    description: data[DESCRIPTION],
+    media: reference?.id
+  };
+
+  const jsonFile = getFileFromObject(metadata)
+  const referenceJson = await uploadFile(jsonFile)
+  return referenceJson.id
+}
+
+async function handleMint(reference: string, activeAccountId: string, wallet: any) {
+
+  if (reference) {
+    const mintCall = mint({
+      reference: reference,
+      ownerId: activeAccountId,
+    })
+
+    await execute({ wallet }, mintCall)
+  }
+}
+
 function getFileFromObject(metadata: {
   title: string;
   description: string;
@@ -58,46 +89,4 @@ function getFileFromObject(metadata: {
   return new File([str], "file", {
     type: "application/json;charset=utf-8",
   });
-}
-
-async function uploadReferenceData(
-  file: any,
-  data: { [x: string]: any }
-): Promise<string | undefined> {
-  try {
-    if (file != null) {
-      //uploads image to permanent storage
-      const reference = await uploadFile(file);
-      console.log("Successfully uploaded image with ref:", reference.id);
-
-      // makes a json file containing metadata incluiding permanently hosted file
-      // and uploads once more to permanent storage
-      // this will be the final reference metadata
-
-      const metadata = {
-        title: data[TITLE],
-        description: data[DESCRIPTION],
-        media: `http://arweave.com/${reference.id}`,
-      };
-
-      const jsonFile = getFileFromObject(metadata);
-      const referenceJson = await uploadFile(jsonFile);
-      return referenceJson.id;
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function handleMinting(
-  referenceJson: string,
-  activeAccountId: string,
-  wallet: any
-) {
-  const mintCall = mint({
-    nftContractId: "webtest.mintbase1.near",
-    reference: referenceJson,
-    ownerId: activeAccountId,
-  });
-  await execute({ wallet }, mintCall);
 }
