@@ -89,7 +89,7 @@ NEXT_PUBLIC_NETWORK=testnet
 NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
 ```
 
-`AFFILIATE_ACCOUNT` is your near account where your should get your market fee
+`NEXT_PUBLIC_AFFILIATE_ACCOUNT` is your near account where your should get your market fee
 
 ```
 NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
