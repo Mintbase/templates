@@ -1,5 +1,4 @@
-import { metadataByMetadataId } from '@mintbase-js/data';
-import { useEffect, useState } from 'react';
+import { useMetadataByMetadataId } from '../../hooks/useMetadatabyMetadataId';
 import { SelectedNft } from '../../types/types';
 import { BuyModalInfo } from './BuyModalInfo';
 import { BuyModalTemplate } from './BuyModalTemplate';
@@ -11,19 +10,9 @@ function BuyModal({
   closeModal: () => void;
   item: SelectedNft;
 }): JSX.Element {
-  const [modalInfo, setModalInfo] = useState(null);
   const { metadataId } = item;
 
-  useEffect(() => {
-    // gets store nfts from mintbase-js/data package
-    const getMetadata = async () => {
-      const metadata = await metadataByMetadataId(metadataId);
-
-      setModalInfo(metadata.data);
-    };
-
-    getMetadata();
-  }, []);
+  const modalInfo = useMetadataByMetadataId({ metadataId });
 
   // if (isTokenListLoading) {
   //   return (
