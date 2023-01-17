@@ -1,5 +1,5 @@
 
-import { EIconName, MbButton, MbIcon, MbText } from 'mintbase-ui'
+import { EIconName, MbIcon, MbText } from 'mintbase-ui'
 import { useRouter } from 'next/router'
 
 const SuccessPage = () => {
