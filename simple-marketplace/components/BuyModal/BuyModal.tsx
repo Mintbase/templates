@@ -1,8 +1,8 @@
-import { useTokenListData } from '../../hooks/useTokenListData';
-import { LoadingSaleCard } from './LoadingSaleCard';
+import { metadataByMetadataId } from '@mintbase-js/data';
+import { useEffect, useState } from 'react';
+import { SelectedNft } from '../../types/types';
 import { BuyModalInfo } from './BuyModalInfo';
 import { BuyModalTemplate } from './BuyModalTemplate';
-import { SelectedNft } from '../../types/types';
 
 function BuyModal({
   closeModal,
@@ -11,44 +11,42 @@ function BuyModal({
   closeModal: () => void;
   item: SelectedNft;
 }): JSX.Element {
+  const [modalInfo, setModalInfo] = useState(null);
   const { metadataId } = item;
 
-  const {
-    price,
-    prices,
-    amountAvailable,
-    tokensTotal,
-    tokenId,
-    tokenList,
-    tokenData,
-    tokenKey,
-    marketId,
-    isTokenListLoading,
-    nftContractId,
-  } = useTokenListData({ metadataId });
+  useEffect(() => {
+    // gets store nfts from mintbase-js/data package
+    const getMetadata = async () => {
+      const metadata = await metadataByMetadataId(metadataId);
 
-  if (isTokenListLoading) {
-    return (
-      <BuyModalTemplate closeModal={closeModal}>
-        <LoadingSaleCard />
-      </BuyModalTemplate>
-    );
-  }
+      setModalInfo(metadata.data);
+    };
 
-  const modalInfo = {
-    amountAvailable,
-    tokensTotal,
-    price,
-    prices,
-    tokenId,
-    tokenList,
-    tokenData,
-    isTokenListLoading,
-    metadataId,
-    tokenKey,
-    marketId,
-    nftContractId,
-  };
+    getMetadata();
+  }, []);
+
+  // if (isTokenListLoading) {
+  //   return (
+  //     <BuyModalTemplate closeModal={closeModal}>
+  //       <LoadingSaleCard />
+  //     </BuyModalTemplate>
+  //   );
+  // }
+
+  // const modalInfo = {
+  //   amountAvailable,
+  //   tokensTotal,
+  //   price,
+  //   prices,
+  //   tokenId,
+  //   tokenList,
+  //   tokenData,
+  //   isTokenListLoading,
+  //   metadataId,
+  //   tokenKey,
+  //   marketId,
+  //   nftContractId,
+  // };
 
   return (
     <BuyModalTemplate closeModal={closeModal}>
