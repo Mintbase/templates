@@ -76,7 +76,7 @@ function AvailableNftComponent({
               nft_contract_id: nftContractId,
               token_id: tokenId,
               referrer_id:
-                process.env.NEXT_PUBLIC_REFERRAL_ID || TESTNET_CONFIG.referral,
+                process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || TESTNET_CONFIG.referral,
             },
             deposit: nearToYocto(currentPrice.toString()),
           },
