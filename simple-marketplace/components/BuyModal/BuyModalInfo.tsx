@@ -63,7 +63,7 @@ function AvailableNftComponent({ data }: { data: TokenListData }): JSX.Element {
       { wallet },
       {
         ...buy({
-          nftContractId,
+          contractAddress: nftContractId,
           tokenId,
           referrerId:
             process.env.NEXT_PUBLIC_REFERRAL_ID || TESTNET_CONFIG.referral,

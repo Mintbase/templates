@@ -60,6 +60,12 @@ const useTokenListData = ({ metadataId }: SelectedNft): TokenListData => {
     data: listData,
   });
 
+  //   const { isLoading, error, data } = useQuery('repoData', () =>
+  //   storeData().then(res =>
+  //     res.json()
+  //   )
+  // )
+
   const isDataLoading = [isMetaDataLoading, tokenLoading, tokenListLoading];
 
   const isTokenListLoading = isDataLoading.includes(true);

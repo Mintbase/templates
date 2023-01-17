@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
-    "@mintbase-js/auth": "0.1.0-alpha.0",
+    "@mintbase-js/auth": "^0.1.0-alpha.15",
     "@mintbase-js/data": "0.1.0-alpha.63",
-    "@mintbase-js/react": "^0.1.0-alpha.0",
-    "@mintbase-js/sdk": "^0.1.0-alpha.0",
-    "@mintbase-js/storage": "0.1.0-alpha.0",
+    "@mintbase-js/react": "^0.1.0-alpha.15",
+    "@mintbase-js/sdk": "^0.1.0-alpha-15",
+    "@mintbase-js/storage": "^0.1.0-alpha.15",
     "@near-wallet-selector/modal-ui": "^7.3.0",
     "big.js": "^6.2.1",
     "graphql": "^16.5.0",
@@ -28,7 +28,8 @@
     "near-api-js": "^0.44.2",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-query": "^3.39.2"
   },
   "devDependencies": {
     "@types/node": "17.0.40",
