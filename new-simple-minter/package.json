@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mintbase-js/react": "v0.1.0-alpha-15",
-    "@mintbase-js/sdk": "v0.1.0-alpha-15",
+    "@mintbase-js/sdk": "^0.1.0-alpha-15",
     "@mintbase-js/storage": "v0.1.0-alpha-15",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",

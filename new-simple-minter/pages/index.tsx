@@ -2,9 +2,8 @@ import { useWallet } from "@mintbase-js/react";
 import { NearWalletConnector } from "../components/NearWalletSelector";
 import Minter from "../components/Minter";
 import { mbjs } from "@mintbase-js/sdk";
-import { MbText } from "mintbase-ui";
 import Head from "next/head";
-
+import { MbText } from "mintbase-ui";
 
 export default function Home() {
   const { isConnected } = useWallet();
@@ -13,14 +12,15 @@ export default function Home() {
     network: process.env.NEXT_PUBLIC_NEAR_NETWORK,
     callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL,
     contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  })
+  });
 
-  if (isConnected) return (
-    <main className="flex flex-col items-center justify-center mt-2">
-      <NearWalletConnector />
-      <Minter />
-    </main>
-  )
+  if (isConnected)
+    return (
+      <main className="flex flex-col items-center justify-center mt-2">
+        <NearWalletConnector />
+        <Minter />
+      </main>
+    );
 
   return (
     <>
@@ -33,8 +33,10 @@ export default function Home() {
             <div className="w-full flex flex-col justify-center items-center">
               <div className="w-full flex flex-col justify-center items-center space-y-8">
                 <div className="flex flex-col justify-center items-center space-y-8">
-                  <MbText className="text-3xl h1-30">Simple Minter</MbText>
-                  <MbText className="text-xl">A simple NFT Minter on Mintbase</MbText>
+                  <MbText className="h1-90">Simple Minter</MbText>
+                  <MbText className="p-big-90">
+                    A simple NFT Minter on Mintbase
+                  </MbText>
                 </div>
                 <div>
                   <NearWalletConnector />
@@ -45,6 +47,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
-
