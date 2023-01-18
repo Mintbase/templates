@@ -1,6 +1,4 @@
-import {
-  StoreNftsData,
-} from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
+import { StoreNftsData } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import {
   EIconName,
   MbDropdownMenu,
@@ -9,7 +7,7 @@ import {
   MbTab,
 } from 'mintbase-ui';
 import { useState } from 'react';
-import { Item } from './Item';
+import { Item, LoadingItem } from './Item';
 import { useStoreInfo } from '../hooks/useStoreInfo';
 import { SelectedNft, Store } from '../types/types';
 
@@ -21,7 +19,7 @@ function Items({
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { data, stores } = useStoreInfo();
+  const { data, stores, loading } = useStoreInfo();
 
   // show store names in the dropdown menu
   const storeTabs = stores?.map((store: Store) => ({
@@ -36,7 +34,7 @@ function Items({
   });
 
   // filter things by store name selected in the dropdown menu
-  const filteredNfts: StoreNftsData[] = data?.mb_views_nft_metadata_unburned?.filter(
+  const filteredNfts: StoreNftsData[] = data?.filter(
     (nft) => selectedStore === '' || nft.nft_contract_id === selectedStore,
   );
 
@@ -87,16 +85,13 @@ function Items({
 
       {/** grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 my-12">
-        {/* {loading ? (
+        {loading ? (
           <LoadingItem />
         ) : (
-          filteredThings.map((nft: StoreNfts) => (
-            <Item key={nft.metadataId} item={nft} showModal={showModal} />
+          filteredNfts?.map((nft) => (
+            <Item key={nft.metadata_id} item={nft} showModal={showModal} />
           ))
-        )} */}
-        {filteredNfts?.map((nft) => (
-          <Item key={nft.metadata_id} item={nft} showModal={showModal} />
-        ))}
+        )}
       </div>
     </div>
   );

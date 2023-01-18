@@ -6,26 +6,22 @@ Description: This hook calls metadataByMetadataById method from @mintbase-js/dat
 */
 
 import { metadataByMetadataId } from '@mintbase-js/data';
-import { MetadataByMetadataIdQueryResult } from '@mintbase-js/data/lib/api/metadataByMetadataId/metadataByMetadataId.types';
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { parseYactoToNear } from '../lib/numbers';
 import { SelectedNft, TokenListData } from '../types/types';
 
-const useMetadataByMetadataId = ({ metadataId }: SelectedNft): Partial<TokenListData> => {
-  const [data, setData] = useState<MetadataByMetadataIdQueryResult>(null);
+const useMetadataByMetadataId = ({
+  metadataId,
+}: SelectedNft): Partial<TokenListData> => {
+  const {
+    isLoading,
+    data: metadata,
+  } = useQuery('metadataByMetadataId', () => metadataByMetadataId(metadataId), {
+    retry: false,
+    staleTime: Infinity,
+  });
 
-  useEffect(() => {
-    // gets store nfts from mintbase-js/data package
-    const getMetadata = async () => {
-      const metadata = await metadataByMetadataId(metadataId);
-
-      setData(metadata.data);
-    };
-
-    getMetadata();
-  }, []);
-
-  const firstListing = data?.listings[0];
+  const firstListing = metadata?.data?.listings[0];
 
   if (!firstListing || firstListing === null) {
     return {
@@ -38,20 +34,20 @@ const useMetadataByMetadataId = ({ metadataId }: SelectedNft): Partial<TokenList
 
   const { price } = firstListing;
 
-  const prices = data?.listings.map((elm) => ({
+  const prices = metadata?.data?.listings.map((elm) => ({
     price: elm.price,
     tokenId: elm.token.token_id,
   }));
 
   return {
-    amountAvailable: data?.simpleSaleCount.aggregate.count,
-    tokensTotal: data?.tokenCount.aggregate.count,
+    amountAvailable: metadata?.data?.simpleSaleCount.aggregate.count,
+    tokensTotal: metadata?.data?.tokenCount.aggregate.count,
     price: price ? parseYactoToNear(price) : 0,
     tokenId: firstListing.token.token_id,
     prices: prices.length > 0 ? prices : [],
     nftContractId: firstListing.token.nft_contract_id,
     marketId: firstListing.market_id,
-    isTokenListLoading: false,
+    isTokenListLoading: isLoading,
   };
 };
 

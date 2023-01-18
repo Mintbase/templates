@@ -6,38 +6,38 @@ Description: This hook calls storeData and storeNfts methods from @mintbase-js/d
 */
 
 import { storeData, storeNfts } from '@mintbase-js/data';
-import { StoreNftsResult } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { DEFAULT_STORES } from '../config/constants';
 
 const useStoreInfo = () => {
-  const [data, setData] = useState<StoreNftsResult>(null);
-  const [stores, setStores] = useState([]);
-
   const defaultStores = process.env.NEXT_PUBLIC_STORES || DEFAULT_STORES;
 
   const formatedStores = defaultStores.split(/[ ,]+/);
 
-  useEffect(() => {
-    // gets store nfts from mintbase-js/data package
-    const getStoreNfts = async () => {
-      const finalNfts = await storeNfts(formatedStores, true);
+  const {
+    isLoading,
+    error,
+    data: dataStore,
+  } = useQuery('storeData', () => storeData(formatedStores), {
+    retry: false,
+    staleTime: Infinity,
+  });
 
-      setData(finalNfts.data);
-    };
+  const {
+    isLoading: nftsLoading,
+    error: nftsError,
+    data: dataNfts,
+  } = useQuery('storeNfts', () => storeNfts(formatedStores), {
+    retry: false,
+    staleTime: Infinity,
+  });
 
-    // gets store data from mintbase-js/data package
-    const getStoreData = async () => {
-      const finalStores = await storeData(formatedStores);
-
-      setStores(finalStores?.data?.nft_contracts);
-    };
-
-    getStoreNfts();
-    getStoreData();
-  }, []);
-
-  return { data, stores };
+  return {
+    data: dataNfts?.data?.mb_views_nft_metadata_unburned,
+    stores: dataStore?.data?.nft_contracts,
+    loading: isLoading || nftsLoading,
+    error: error || nftsError,
+  };
 };
 
 export { useStoreInfo };

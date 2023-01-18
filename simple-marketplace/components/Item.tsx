@@ -11,7 +11,6 @@ function Item({
   item: StoreNftsData
   showModal: (item: SelectedNft) => void
 }): JSX.Element {
-  console.log(item);
   const { mediaUrl } = parseMedia(item.media, item.base_uri);
 
   return (
