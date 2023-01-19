@@ -1,3 +1,4 @@
+import { FinalExecutionOutcome } from '@mintbase-js/auth';
 import { useWallet } from '@mintbase-js/react';
 import { buy, execute } from '@mintbase-js/sdk';
 import {
@@ -7,6 +8,7 @@ import {
   MbInfoCard,
   MbText,
 } from 'mintbase-ui';
+import { useRouter } from 'next/router';
 
 /*
 Buy Modal Info:
@@ -44,23 +46,12 @@ function AvailableNftComponent({
   const [amount, setAmount] = useState(1);
 
   const nearPrice = useNearPrice();
+  const router = useRouter();
 
   const singleBuy = useCallback(async () => {
-    const callback = `${
-      window.location.origin
-    }/wallet-callback?transactionHashes=${''}&signMeta=${encodeURIComponent(
-      JSON.stringify({
-        type: TransactionEnum.MAKE_OFFER,
-        args: {
-          tokenId,
-          price: nearToYocto(currentPrice.toString()),
-        },
-      }),
-    )}`;
-
     const wallet = await selector.wallet();
 
-    await execute(
+    const receipt = await execute(
       { wallet },
       {
         ...buy({
@@ -71,9 +62,22 @@ function AvailableNftComponent({
           marketId,
           price: nearToYocto(currentPrice.toString()),
         }),
-        callbackUrl: callback,
       },
-    );
+    ) as FinalExecutionOutcome;
+
+    const callback = `${
+      window.location.origin
+    }/wallet-callback?transactionHashes=${receipt?.transaction_outcome?.id}&signMeta=${encodeURIComponent(
+      JSON.stringify({
+        type: TransactionEnum.MAKE_OFFER,
+        args: {
+          tokenId,
+          price: nearToYocto(currentPrice.toString()),
+        },
+      }),
+    )}`;
+
+    router.push(callback);
   }, [currentPrice]);
 
   // handler function to call the wallet methods to proceed the buy.
