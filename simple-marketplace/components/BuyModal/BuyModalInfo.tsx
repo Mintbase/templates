@@ -7,7 +7,6 @@ import {
   MbInfoCard,
   MbText,
 } from 'mintbase-ui';
-import { useRouter } from 'next/router';
 
 /*
 Buy Modal Info:
@@ -37,7 +36,6 @@ function AvailableNftComponent({
   } = data;
 
   const { selector, isConnected } = useWallet();
-  const router = useRouter();
 
   const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
@@ -73,10 +71,9 @@ function AvailableNftComponent({
           marketId,
           price: nearToYocto(currentPrice.toString()),
         }),
+        callbackUrl: callback,
       },
     );
-
-    router.push(callback);
   }, [currentPrice]);
 
   // handler function to call the wallet methods to proceed the buy.
