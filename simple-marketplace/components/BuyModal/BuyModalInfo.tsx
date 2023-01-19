@@ -13,7 +13,7 @@ The component that handles the NFT Buy Information
 */
 
 import { useCallback, useState } from 'react';
-import { TESTNET_CONFIG, MED_GAS } from '../../config/constants';
+import { MAINNET_CONFIG, MED_GAS } from '../../config/constants';
 import { useNearPrice } from '../../hooks/useNearPrice';
 import { nearToYocto } from '../../lib/numbers';
 import { useWallet } from '../../services/providers/WalletProvider';
@@ -75,7 +75,7 @@ function AvailableNftComponent({
               nft_contract_id: nftContractId,
               token_id: tokenId,
               referrer_id:
-                process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || TESTNET_CONFIG.referral,
+                process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || MAINNET_CONFIG.affiliate,
             },
             deposit: nearToYocto(currentPrice.toString()),
           },
