@@ -79,7 +79,6 @@ export function WalletProvider({
       localStorage.removeItem(WalletKeys.AUTH_KEY);
       localStorage.removeItem(nearKeystore);
     }
-
     const { data: walletData, error } = await new Wallet().init({
       networkName: network ?? Network.testnet,
       chain,
