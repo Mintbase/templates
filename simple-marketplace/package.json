@@ -14,7 +14,6 @@
     "ts-lint": "tsc --noEmit --incremental"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
     "@mintbase-js/auth": "^0.1.0-alpha.15",
     "@mintbase-js/data": "0.1.0-alpha.64",
     "@mintbase-js/react": "^0.1.0-alpha.15",

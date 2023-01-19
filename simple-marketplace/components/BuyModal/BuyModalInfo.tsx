@@ -33,6 +33,7 @@ function AvailableNftComponent({
     price,
     tokenId,
     tokensTotal,
+    isTokenListLoading,
   } = data;
 
   const { selector, isConnected } = useWallet();
@@ -94,7 +95,7 @@ function AvailableNftComponent({
     setCurrentPrice(price * value);
   };
 
-  return isConnected /* && !isTokenListLoading */ ? (
+  return isConnected && !isTokenListLoading ? (
     <div className="mt-2">
       <div className="bg-gray-50 py-4 text-center">
         <MbText className="p-med-90 text-gray-700">

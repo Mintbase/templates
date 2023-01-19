@@ -8,8 +8,9 @@ import {
 } from 'mintbase-ui';
 import { useState } from 'react';
 import { Item, LoadingItem } from './Item';
-import { useStoreInfo } from '../hooks/useStoreInfo';
+import { useStoreData } from '../hooks/useStoreData';
 import { SelectedNft, Store } from '../types/types';
+import { useStoreNfts } from '../hooks/useStoreNfts';
 
 function Items({
   showModal,
@@ -19,7 +20,8 @@ function Items({
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { data, stores, loading } = useStoreInfo();
+  const { nftsData, loading } = useStoreNfts();
+  const { stores } = useStoreData();
 
   // show store names in the dropdown menu
   const storeTabs = stores?.map((store: Store) => ({
@@ -34,7 +36,7 @@ function Items({
   });
 
   // filter things by store name selected in the dropdown menu
-  const filteredNfts: StoreNftsData[] = data?.filter(
+  const filteredNfts: StoreNftsData[] = nftsData?.filter(
     (nft) => selectedStore === '' || nft.nft_contract_id === selectedStore,
   );
 

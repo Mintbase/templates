@@ -5,22 +5,15 @@ Description: This hook calls metadataByMetadataById method from @mintbase-js/dat
 
 */
 
-import { metadataByMetadataId } from '@mintbase-js/data';
+import { metadataByMetadataId, ParsedDataReturn } from '@mintbase-js/data';
+import { MetadataByMetadataIdQueryResult } from '@mintbase-js/data/lib/api/metadataByMetadataId/metadataByMetadataId.types';
 import { useQuery } from 'react-query';
 import { parseYactoToNear } from '../lib/numbers';
 import { SelectedNft, TokenListData } from '../types/types';
 
-const useMetadataByMetadataId = ({
-  metadataId,
-}: SelectedNft): Partial<TokenListData> => {
-  const {
-    isLoading,
-    data: metadata,
-  } = useQuery('metadataByMetadataId', () => metadataByMetadataId(metadataId), {
-    retry: false,
-    staleTime: Infinity,
-  });
-
+const mapMetadata = (
+  metadata: ParsedDataReturn<MetadataByMetadataIdQueryResult>,
+): Partial<TokenListData> => {
   const firstListing = metadata?.data?.listings[0];
 
   if (!firstListing || firstListing === null) {
@@ -47,8 +40,22 @@ const useMetadataByMetadataId = ({
     prices: prices.length > 0 ? prices : [],
     nftContractId: firstListing.token.nft_contract_id,
     marketId: firstListing.market_id,
-    isTokenListLoading: isLoading,
   };
+};
+
+const useMetadataByMetadataId = ({
+  metadataId,
+}: SelectedNft): Partial<TokenListData> => {
+  const {
+    isLoading,
+    data: metadata,
+  } = useQuery('metadataByMetadataId', () => metadataByMetadataId(metadataId), {
+    retry: false,
+    refetchOnWindowFocus: false,
+    select: mapMetadata,
+  });
+
+  return { ...metadata, isTokenListLoading: isLoading };
 };
 
 export { useMetadataByMetadataId };
