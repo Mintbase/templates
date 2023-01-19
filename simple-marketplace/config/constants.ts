@@ -13,9 +13,7 @@ export const TESTNET_CONFIG = {
   helperUrl: 'https://helper.testnet.near.org',
   explorerUrl: 'https://explorer.testnet.near.org',
   market: 'market.mintspace2.testnet',
-
   // Change this referral address below to your account to test it out on purchase from other stores you add and see market fees go right to you.
-
   referral: 'unlock.testnet',
   headers: {
     'Content-Type': 'application/json',
@@ -29,6 +27,7 @@ export const MAINNET_CONFIG = {
   helperUrl: 'https://helper.mainnet.near.org',
   explorerUrl: 'https://explorer.mainnet.near.org',
   market: 'simple.market.mintbase1.near',
+  // Change this referral address below to your account to test it out on purchase from other stores you add and see market fees go right to you.
   referral: 'nate.near',
   headers: {
     'Content-Type': 'application/json',
