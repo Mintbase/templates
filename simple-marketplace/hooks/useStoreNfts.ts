@@ -23,7 +23,7 @@ const useStoreNfts = (store?: string) => {
     isLoading,
     error,
     data,
-  } = useQuery(['storeNfts', store], () => storeNfts(store || formatedStores), {
+  } = useQuery(['storeNfts', store], () => storeNfts(store || formatedStores, true), {
     retry: false,
     refetchOnWindowFocus: false,
     select: mapStoreNfts,
