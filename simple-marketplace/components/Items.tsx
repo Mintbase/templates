@@ -1,4 +1,3 @@
-import { StoreNftsData } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import {
   EIconName,
   MbDropdownMenu,
@@ -7,10 +6,10 @@ import {
   MbTab,
 } from 'mintbase-ui';
 import { useState } from 'react';
-import { Item, LoadingItem } from './Item';
 import { useStoreData } from '../hooks/useStoreData';
-import { SelectedNft, Store } from '../types/types';
 import { useStoreNfts } from '../hooks/useStoreNfts';
+import { SelectedNft, Store } from '../types/types';
+import { Item, LoadingItem } from './Item';
 
 function Items({
   showModal,
@@ -20,7 +19,7 @@ function Items({
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { nftsData, loading } = useStoreNfts();
+  const { nftsData, loading } = useStoreNfts(selectedStore);
   const { stores } = useStoreData();
 
   // show store names in the dropdown menu
@@ -34,11 +33,6 @@ function Items({
     content: <span>All Stores</span>,
     onClick: () => setSelectedStore(''),
   });
-
-  // filter things by store name selected in the dropdown menu
-  const filteredNfts: StoreNftsData[] = nftsData?.filter(
-    (nft) => selectedStore === '' || nft.nft_contract_id === selectedStore,
-  );
 
   return (
     <div className="w-full items-center p-12">
@@ -90,7 +84,7 @@ function Items({
         {loading ? (
           <LoadingItem />
         ) : (
-          filteredNfts?.map((nft) => (
+          nftsData?.map((nft) => (
             <Item key={nft.metadata_id} item={nft} showModal={showModal} />
           ))
         )}
