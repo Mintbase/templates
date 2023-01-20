@@ -1,4 +1,6 @@
-import { Wallet } from 'mintbase';
+import { FinalExecutionOutcome } from '@mintbase-js/auth';
+import { useWallet } from '@mintbase-js/react';
+import { buy, execute } from '@mintbase-js/sdk';
 import {
   EState,
   MbAmountInput,
@@ -6,6 +8,7 @@ import {
   MbInfoCard,
   MbText,
 } from 'mintbase-ui';
+import { useRouter } from 'next/router';
 
 /*
 Buy Modal Info:
@@ -13,36 +16,28 @@ The component that handles the NFT Buy Information
 */
 
 import { useCallback, useState } from 'react';
-import { MAINNET_CONFIG, MED_GAS } from '../../config/constants';
+import { MAINNET_CONFIG } from '../../config/constants';
 import { useNearPrice } from '../../hooks/useNearPrice';
 import { nearToYocto } from '../../lib/numbers';
-import { useWallet } from '../../services/providers/WalletProvider';
-import {
-  BuyModalData,
-  TokenListData,
-  TransactionEnum,
-} from '../../types/types';
+import { TokenListData, TransactionEnum } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({
   data,
-  wallet,
 }: {
-  data: TokenListData;
-  wallet: Wallet;
+  data: Partial<TokenListData>
 }): JSX.Element {
   const {
     amountAvailable,
+    marketId,
+    nftContractId,
+    price,
+    tokenId,
     tokensTotal,
     isTokenListLoading,
-    price,
-    tokenKey,
-    tokenId,
-    nftContractId,
-    marketId,
   } = data;
 
-  const { nearPrice } = useNearPrice();
+  const { selector, isConnected } = useWallet();
 
   const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
@@ -50,72 +45,39 @@ function AvailableNftComponent({
   const [currentPrice, setCurrentPrice] = useState(price);
   const [amount, setAmount] = useState(1);
 
+  const nearPrice = useNearPrice();
+  const router = useRouter();
+
   const singleBuy = useCallback(async () => {
-    // TODO: remove this commented block eventually
-    // await wallet?.makeOffer(tokenKey, nearToYocto(currentPrice.toString()), {
-    //   callbackUrl: `${window.location.origin}/wallet-callback`,
-    //   meta: JSON.stringify({
-    //     type: TransactionEnum.MAKE_OFFER,
-    //     args: {
-    //       tokenId: tokenKey,
-    //       price: nearToYocto(currentPrice.toString()),
-    //     },
-    //   }),
-    // });
+    const wallet = await selector.wallet();
 
-    const txns = [
+    const receipt = await execute(
+      { wallet },
       {
-        receiverId: marketId,
-        functionCalls: [
-          {
-            methodName: 'buy',
-            receiverId: marketId,
-            gas: '200000000000000',
-            args: {
-              nft_contract_id: nftContractId,
-              token_id: tokenId,
-              referrer_id:
-                process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || MAINNET_CONFIG.affiliate,
-            },
-            deposit: nearToYocto(currentPrice.toString()),
-          },
-        ],
-      },
-    ];
-
-    await wallet.executeMultipleTransactions({
-      transactions: txns as never,
-      options: {
-        callbackUrl: `${window.location.origin}/wallet-callback`,
-        meta: JSON.stringify({
-          type: 'make-offer',
-          args: {
-            tokenId,
-            price: nearToYocto(currentPrice.toString()),
-          },
+        ...buy({
+          contractAddress: nftContractId,
+          tokenId,
+          referrerId: process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || MAINNET_CONFIG.affiliate,
+          marketId,
+          price: nearToYocto(currentPrice.toString()),
         }),
       },
-    });
-  }, [currentPrice, tokenKey, wallet]);
+    ) as FinalExecutionOutcome;
 
-  const multiBuy = useCallback(async () => {
-    const nftPrice = nearToYocto(price.toString());
-    const finalPrice = new Array(amount);
-
-    finalPrice.fill(nftPrice);
-
-    wallet?.batchMakeOffer([tokenKey], finalPrice, {
-      gas: MED_GAS,
-      callbackUrl: `${window.location.origin}/wallet-callback`,
-      meta: JSON.stringify({
+    const callback = `${
+      window.location.origin
+    }/wallet-callback?transactionHashes=${receipt?.transaction_outcome?.id}&signMeta=${encodeURIComponent(
+      JSON.stringify({
         type: TransactionEnum.MAKE_OFFER,
         args: {
-          tokenId: tokenKey,
+          tokenId,
           price: nearToYocto(currentPrice.toString()),
         },
       }),
-    });
-  }, [amount, currentPrice, price, tokenKey, wallet]);
+    )}`;
+
+    router.push(callback);
+  }, [currentPrice]);
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
@@ -123,8 +85,6 @@ function AvailableNftComponent({
 
     if (isSingleAmount) {
       await singleBuy();
-    } else {
-      await multiBuy();
     }
   };
 
@@ -135,7 +95,7 @@ function AvailableNftComponent({
     setCurrentPrice(price * value);
   };
 
-  return wallet.isConnected() && !isTokenListLoading ? (
+  return isConnected && !isTokenListLoading ? (
     <div className="mt-2">
       <div className="bg-gray-50 py-4 text-center">
         <MbText className="p-med-90 text-gray-700">
@@ -178,13 +138,12 @@ function AvailableNftComponent({
   );
 }
 
-export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
-  // props inherited from the Buy Modal component
-  const { amountAvailable } = data;
-  const { wallet } = useWallet();
-  const isAvailable = amountAvailable > 0;
-
-  if (!isAvailable) {
+export function BuyModalInfo({
+  data,
+}: {
+  data: Partial<TokenListData>
+}): JSX.Element {
+  if (!(data?.amountAvailable > 0)) {
     return (
       <div className="mt-2">
         <div className="bg-gray-50 py-4 text-center">
@@ -196,5 +155,5 @@ export function BuyModalInfo({ data }: BuyModalData): JSX.Element {
     );
   }
 
-  return <AvailableNftComponent data={data} wallet={wallet} />;
+  return <AvailableNftComponent data={data} />;
 }

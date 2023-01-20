@@ -1,27 +1,28 @@
 /*
 
 useNearPrice Hook
-Description:  This hook fetchs the current nearPrice from BINANCE Api.
+Description: This hook calls nearPrice method from @mintbase-js/data to get the current price of NEAR in USD.
 
 */
 
+import { nearPrice } from '@mintbase-js/data';
 import { useEffect, useState } from 'react';
-import { BINANCE_API } from '../config/constants';
 
-export const useNearPrice = () => {
-  const [price, setPrice] = useState<string>('0');
+const useNearPrice = (): string => {
+  const [nearPriceData, setNearPriceData] = useState<string>('0');
 
   useEffect(() => {
-    const nearPriceData = async () => {
-      const req = await fetch(
-        BINANCE_API,
-      );
+    // gets store nfts from mintbase-js/data package
+    const getNearPrice = async () => {
+      const { data: priceData, error } = await nearPrice();
 
-      const res = await req.json();
-      setPrice(res.price);
+      setNearPriceData(error ? '0' : priceData);
     };
-    nearPriceData();
+
+    getNearPrice();
   }, []);
 
-  return { nearPrice: price };
+  return nearPriceData;
 };
+
+export { useNearPrice };

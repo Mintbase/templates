@@ -1,36 +1,35 @@
 /*
+
 useStoreNfts Hook
-Description: Hook to get the query of the current NFTS of the stores passed on the NEXT_PUBLIC_STORES env variable
+Description: This hook calls storeNfts method from @mintbase-js/data to get store nfts to render on Items.
 
 */
 
-import { useQuery } from '@apollo/client';
-import { useState } from 'react';
+import { ParsedDataReturn, storeNfts } from '@mintbase-js/data';
+import { StoreNftsResult } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
+import { useQuery } from 'react-query';
 import { MAINNET_CONFIG } from '../config/constants';
-import { v2MarketPlaceGetStoreNfts } from '../queries/marketplace.queries';
-import { StoreNfts } from '../types/types';
 
-const useStoreNfts = () => {
-  const [nfts, setNfts] = useState<StoreNfts[]>([]);
+const mapStoreNfts = (data: ParsedDataReturn<StoreNftsResult>) => ({
+  nftsData: data?.data?.mb_views_nft_metadata_unburned,
+});
 
-  const stores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
+const useStoreNfts = (store?: string) => {
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
 
-  const formatedStores = stores.split(/[ ,]+/);
+  const formatedStores = defaultStores.split(/[ ,]+/);
 
-  const { loading } = useQuery(v2MarketPlaceGetStoreNfts, {
-    variables: {
-      condition: {
-        nft_contract_id: { _in: formatedStores },
-        price: { _is_null: false },
-      },
-    },
-    onCompleted: (data) => {
-      const storeData = data?.mb_views_nft_metadata_unburned;
-      setNfts(storeData);
-    },
+  const {
+    isLoading,
+    error,
+    data,
+  } = useQuery(['storeNfts', store], () => storeNfts(store || formatedStores, true), {
+    retry: false,
+    refetchOnWindowFocus: false,
+    select: mapStoreNfts,
   });
 
-  return { nfts, loading };
+  return { ...data, error, loading: isLoading };
 };
 
-export default useStoreNfts;
+export { useStoreNfts };

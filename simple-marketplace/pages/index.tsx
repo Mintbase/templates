@@ -35,7 +35,7 @@ function Store(): JSX.Element {
         <MbText>1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your own NEAR account</MbText>
         <MbText>2. On purchase, see your account pop up on the leaderboard</MbText>
         <MbText>3. Check your wallet balance to see funds go up!</MbText>
-        <div className="mt-4">
+        <div className="mt-4 flex">
           <a target="_blank" rel="noreferrer" href="https://mintbase.xyz/leaderboard">
             <MbButton
               label="See Leaderboard"

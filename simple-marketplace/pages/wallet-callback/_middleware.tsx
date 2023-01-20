@@ -8,8 +8,6 @@ export function middleware(req: NextRequest) {
   let success = false;
   let failed = false;
 
-  console.log('wallet-callback', url.toString());
-
   url.searchParams.forEach((_, key) => {
     if (successTransactionParams.includes(key)) {
       success = true;

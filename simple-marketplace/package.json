@@ -14,16 +14,21 @@
     "ts-lint": "tsc --noEmit --incremental"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@mintbase-js/auth": "0.1.0-alpha.67",
+    "@mintbase-js/data": "0.1.0-alpha.68",
+    "@mintbase-js/react": "0.1.0-alpha.68",
+    "@mintbase-js/sdk": "0.1.0-alpha.68",
+    "@mintbase-js/storage": "0.1.0-alpha.68",
+    "@near-wallet-selector/modal-ui": "^7.3.0",
     "big.js": "^6.2.1",
     "graphql": "^16.5.0",
     "lodash": "^4.17.21",
-    "mintbase": "^0.8.1",
     "mintbase-ui": "^0.8.2",
     "near-api-js": "^0.44.2",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-query": "^3.39.2"
   },
   "devDependencies": {
     "@types/node": "17.0.40",

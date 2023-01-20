@@ -1,24 +1,25 @@
-import '../styles/globals.css';
+import { WalletContextProvider } from '@mintbase-js/react';
+import { mbjs } from '@mintbase-js/sdk';
 import type { AppProps } from 'next/app';
-import { Chain, Network } from 'mintbase';
-import { ApolloProvider } from '@apollo/client';
-import { getClient } from '../services/providers/apollo';
-import { WalletProvider } from '../services/providers/WalletProvider';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query';
 import { DEFAULT_NETWORK } from '../config/constants';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || '';
-  const network = process.env.NEXT_PUBLIC_NETWORK as Network || DEFAULT_NETWORK;
+  const network = process.env.NEXT_PUBLIC_NETWORK || DEFAULT_NETWORK;
+  mbjs.config({ network });
+  // Create a client
+  const queryClient = new QueryClient();
+
   return (
-    <WalletProvider
-      network={network}
-      chain={Chain.near as Chain}
-      apiKey={mjsKey}
-    >
-      <ApolloProvider client={getClient({ network: network as Network })}>
+    <WalletContextProvider>
+      <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-      </ApolloProvider>
-    </WalletProvider>
+      </QueryClientProvider>
+    </WalletContextProvider>
   );
 }
 

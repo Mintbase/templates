@@ -1,55 +1,42 @@
-import { useState } from 'react';
 import {
-  MbTab,
-  MbMenuWrapper,
+  EIconName,
   MbDropdownMenu,
   MbIcon,
-  EIconName,
+  MbMenuWrapper,
+  MbTab,
 } from 'mintbase-ui';
+import { useState } from 'react';
+import { useStoreData } from '../hooks/useStoreData';
+import { useStoreNfts } from '../hooks/useStoreNfts';
+import { SelectedNft, Store } from '../types/types';
 import { Item, LoadingItem } from './Item';
 
-import { useStores } from '../hooks/useStores';
-import useStoreNfts from '../hooks/useStoreNfts';
-import { Store, StoreNfts } from '../types/types';
-
-function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Element {
-  const [selectedTab, setSelectedTab] = useState('all');
+function Items({
+  showModal,
+}: {
+  showModal: (item: SelectedNft) => void
+}): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState('');
 
-  const { nfts, loading } = useStoreNfts();
-  const { stores } = useStores();
+  const { nftsData, loading } = useStoreNfts(selectedStore);
+  const { stores } = useStoreData();
 
   // show store names in the dropdown menu
-  const storeTabs = stores.map((store: Store) => ({
+  const storeTabs = stores?.map((store: Store) => ({
     content: <span>{store.name}</span>,
     onClick: () => setSelectedStore(store.id),
   }));
 
   // add 'all stores' to the beginning of the dropdown menu
-  storeTabs.unshift({
+  storeTabs?.unshift({
     content: <span>All Stores</span>,
     onClick: () => setSelectedStore(''),
   });
 
-  // filter things by store name selected in the dropdown menu
-  const filteredThings = nfts.filter((nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore);
-
   return (
     <div className="w-full items-center p-12">
       <div className="flex w-full gap-4 items-center justify-end">
-        <div
-          onClick={() => setSelectedTab('all')}
-          onKeyDown={() => setSelectedTab('all')}
-          role="button"
-          tabIndex={0}
-        >
-          <MbTab
-            label={<span />}
-            isActive={selectedTab === 'all'}
-            isSmall
-          />
-        </div>
         <MbMenuWrapper setIsOpen={setMenuOpen}>
           <div
             onClick={() => setMenuOpen(!menuOpen)}
@@ -63,7 +50,7 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
                   <span>
                     {selectedStore === ''
                       ? 'All Stores'
-                      : stores.find(
+                      : stores?.find(
                         (store: Store) => store.id === selectedStore,
                       )?.name}
                   </span>
@@ -97,8 +84,8 @@ function Items({ showModal }: { showModal: (item: StoreNfts) => void }): JSX.Ele
         {loading ? (
           <LoadingItem />
         ) : (
-          filteredThings.map((nft: StoreNfts) => (
-            <Item key={nft.metadataId} item={nft} showModal={showModal} />
+          nftsData?.map((nft) => (
+            <Item key={nft.metadata_id} item={nft} showModal={showModal} />
           ))
         )}
       </div>
