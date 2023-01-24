@@ -12,7 +12,6 @@ const useNearPrice = (): string => {
   const [nearPriceData, setNearPriceData] = useState<string>('0');
 
   useEffect(() => {
-    // gets store nfts from mintbase-js/data package
     const getNearPrice = async () => {
       const { data: priceData, error } = await nearPrice();
 
