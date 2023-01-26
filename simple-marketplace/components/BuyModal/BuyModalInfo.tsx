@@ -51,22 +51,26 @@ function AvailableNftComponent({
   const singleBuy = useCallback(async () => {
     const wallet = await selector.wallet();
 
-    const receipt = await execute(
+    const receipt = (await execute(
       { wallet },
       {
         ...buy({
           contractAddress: nftContractId,
           tokenId,
-          referrerId: process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT || MAINNET_CONFIG.affiliate,
+          affiliateAccount:
+            process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT
+            || MAINNET_CONFIG.affiliate,
           marketId,
           price: nearToYocto(currentPrice.toString()),
         }),
       },
-    ) as FinalExecutionOutcome;
+    )) as FinalExecutionOutcome;
 
     const callback = `${
       window.location.origin
-    }/wallet-callback?transactionHashes=${receipt?.transaction_outcome?.id}&signMeta=${encodeURIComponent(
+    }/wallet-callback?transactionHashes=${
+      receipt?.transaction_outcome?.id
+    }&signMeta=${encodeURIComponent(
       JSON.stringify({
         type: TransactionEnum.MAKE_OFFER,
         args: {
