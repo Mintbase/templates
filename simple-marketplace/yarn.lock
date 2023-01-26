@@ -399,14 +399,6 @@
     "sha1" "^1.1.1"
     "uuid4" "2.0.3"
 
-"@here-wallet/core@^1.3.1":
-  "integrity" "sha512-OK7AlskPpGRdAnGruy8dWcvPCl8JL+hmBCKr1QRESPNwA4Tn3InhTL8xyxGrCjFA1gQ9XUGGTQvdI9ae3FDQ9Q=="
-  "resolved" "https://registry.npmjs.org/@here-wallet/core/-/core-1.3.1.tgz"
-  "version" "1.3.1"
-  dependencies:
-    "sha1" "^1.1.1"
-    "uuid4" "2.0.3"
-
 "@humanwhocodes/config-array@^0.9.2":
   "integrity" "sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw=="
   "resolved" "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.9.5.tgz"
@@ -491,12 +483,12 @@
     "nanoid" "3.3.4"
     "query-string" "^7.1.1"
 
-"@mintbase-js/auth@*", "@mintbase-js/auth@0.1.0-alpha.67":
-  "integrity" "sha512-N3PbjTcbYQtQP6YtYmFDR8iNwMiQfPv63RCOtRQfLrt1x/BEUGs0HALbRfl/QfDBt0tiuT5aZKZNM1BHalnMGA=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/auth/-/auth-0.1.0-alpha.67.tgz"
-  "version" "0.1.0-alpha.67"
+"@mintbase-js/auth@^0.1.0-alpha-16":
+  "integrity" "sha512-rR6k5Is6gi5VhXJzZPnGD9qq6qXTiR6kD9MmqzN03wj5LwO1HqBFu0Ju9Ntrvtz3NnmOcPBlKGaHn7buda2D5A=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/auth/-/auth-0.1.0-alpha-16.tgz"
+  "version" "0.1.0-alpha-16"
   dependencies:
-    "@mintbase-js/sdk" "*"
+    "@mintbase-js/sdk" "^0.1.0-alpha-16"
     "@near-wallet-selector/coin98-wallet" "^7.2.0"
     "@near-wallet-selector/core" "^7.1.0"
     "@near-wallet-selector/default-wallets" "^7.2.0"
@@ -517,39 +509,38 @@
     "@near-wallet-selector/welldone-wallet" "^7.2.0"
     "rxjs" "^7.5.7"
 
-"@mintbase-js/data@*", "@mintbase-js/data@0.1.0-alpha.68":
-  "integrity" "sha512-b42LbbgWK+li8BanW8ZDA7vgNAURBEGQRmykFra3DxWsLcbV79IEK1MxiTPkeGwt9ohHjBJ4clJA3Vb4CN/esA=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.1.0-alpha.68.tgz"
-  "version" "0.1.0-alpha.68"
+"@mintbase-js/data@^0.1.0-alpha-16":
+  "integrity" "sha512-5GisQZB5VJsBl00NI6DuvU6YJ638RUM07Y4vaqp7/FA1QtlOoYRLVKLpi/OmdJSa0rBJz/i8AZVAkkMJ6P32gg=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/data/-/data-0.1.0-alpha-16.tgz"
+  "version" "0.1.0-alpha-16"
   dependencies:
     "graphql-request" "^5.0.0"
 
-"@mintbase-js/react@0.1.0-alpha.68":
-  "integrity" "sha512-52FguuVl3qogENLrhTBo7fchuXq7ogTIi3JczPyrb30KSSYGAjoQ7Joc+/+GXdMKVFCHOgtnuJvdRSXcbiI4Dg=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/react/-/react-0.1.0-alpha.68.tgz"
-  "version" "0.1.0-alpha.68"
+"@mintbase-js/react@^0.1.0-alpha-16":
+  "integrity" "sha512-En+Y+H1a2N3HHSPT0LlzhdkX5y24vqM+WlAjiNRa0Kbx2rs0i7rU5TTVEoe4vcQXcFAEZQmOaSSdVuXKKsmauw=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/react/-/react-0.1.0-alpha-16.tgz"
+  "version" "0.1.0-alpha-16"
   dependencies:
-    "@mintbase-js/auth" "*"
-    "@mintbase-js/data" "*"
-    "@mintbase-js/sdk" "*"
+    "@mintbase-js/auth" "^0.1.0-alpha-16"
+    "@mintbase-js/data" "^0.1.0-alpha-16"
+    "@mintbase-js/sdk" "^0.1.0-alpha-16"
     "@near-wallet-selector/core" "^7.0.3"
     "@near-wallet-selector/modal-ui" "^7.0.3"
     "near-api-js" "^0.44.2"
 
-"@mintbase-js/sdk@*", "@mintbase-js/sdk@0.1.0-alpha.68":
-  "integrity" "sha512-Yo+ViBBIDJzOdbhzdxF8Bp6JXDiG1D8Ptd93EsuWacgYAQYehiv/+xUZDZyrZpG27idgHIYowaRB/kIbbCRLDQ=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/sdk/-/sdk-0.1.0-alpha.68.tgz"
-  "version" "0.1.0-alpha.68"
+"@mintbase-js/sdk@^0.1.0-alpha-16":
+  "integrity" "sha512-L2hN+BqJd4ANi2QiBx7awT/WavX7NE5FCDlm4F2N6pU/T77tuIPzyDEBwvjYsDrV4jcYNDweiisdUjK/Bff2tQ=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/sdk/-/sdk-0.1.0-alpha-16.tgz"
+  "version" "0.1.0-alpha-16"
   dependencies:
-    "@here-wallet/core" "^1.3.1"
     "near-api-js" "^0.44.2"
 
-"@mintbase-js/storage@0.1.0-alpha.68":
-  "integrity" "sha512-TQT3q0F6Lx++vq0zVSz1sKRZJuW0CnZWpxBzn3WPh9pWt2mbFXPmEy2UsjPrC4lZwyqx5emJ390PfSsyPWpumg=="
-  "resolved" "https://registry.npmjs.org/@mintbase-js/storage/-/storage-0.1.0-alpha.68.tgz"
-  "version" "0.1.0-alpha.68"
+"@mintbase-js/storage@^0.1.0-alpha-16":
+  "integrity" "sha512-ETVzgW/04u8mlvFUplEGmXQf97ajsOPSpkecCxDy1NRvLUcgclGTH1+MhRq/wc7LfXXpZHEtH4ulajb65knRow=="
+  "resolved" "https://registry.npmjs.org/@mintbase-js/storage/-/storage-0.1.0-alpha-16.tgz"
+  "version" "0.1.0-alpha-16"
   dependencies:
-    "@mintbase-js/sdk" "*"
+    "@mintbase-js/sdk" "^0.1.0-alpha-16"
     "near-api-js" "^0.44.2"
     "superagent" "^8.0.3"
 

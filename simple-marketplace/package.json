@@ -14,11 +14,11 @@
     "ts-lint": "tsc --noEmit --incremental"
   },
   "dependencies": {
-    "@mintbase-js/auth": "0.1.0-alpha.67",
-    "@mintbase-js/data": "0.1.0-alpha.68",
-    "@mintbase-js/react": "0.1.0-alpha.68",
-    "@mintbase-js/sdk": "0.1.0-alpha.68",
-    "@mintbase-js/storage": "0.1.0-alpha.68",
+    "@mintbase-js/auth": "^0.1.0-alpha-16",
+    "@mintbase-js/data": "^0.1.0-alpha-16",
+    "@mintbase-js/react": "^0.1.0-alpha-16",
+    "@mintbase-js/sdk": "^0.1.0-alpha-16",
+    "@mintbase-js/storage": "^0.1.0-alpha-16",
     "@near-wallet-selector/modal-ui": "^7.3.0",
     "big.js": "^6.2.1",
     "graphql": "^16.5.0",
