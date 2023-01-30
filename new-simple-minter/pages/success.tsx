@@ -6,7 +6,7 @@ const SuccessPage = () => {
     let router = useRouter()
     setTimeout(() => {
         router.push('/')
-    }, 1500)
+    }, 2500)
     return (
         <div className="my-52 w-full flex flex-col items-center justify-center gap-12">
             <MbIcon

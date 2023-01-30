@@ -2,7 +2,7 @@ import { useWallet } from "@mintbase-js/react";
 import MintForm from "../components/MintForm";
 import { FormProvider, useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
-import { uploadFile } from "@mintbase-js/storage";
+import {uploadReference } from "@mintbase-js/storage";
 import { mint, execute } from "@mintbase-js/sdk";
 import { DESCRIPTION, MAIN_IMAGE, TITLE } from "../constants";
 
@@ -55,16 +55,14 @@ export default function Minter() {
 }
 
 async function handleUpload(file: File, data: { [x: string]: any }): Promise<string> {
-  const reference = await uploadFile(file);
-
   const metadata = {
     title: data[TITLE],
     description: data[DESCRIPTION],
-    media: reference?.id
+    media: file
   };
 
-  const jsonFile = getFileFromObject(metadata)
-  const referenceJson = await uploadFile(jsonFile)
+  const referenceJson = await uploadReference(metadata)
+  console.log("Successfully minted with referece:", referenceJson.id)
   return referenceJson.id
 }
 
@@ -78,15 +76,4 @@ async function handleMint(reference: string, activeAccountId: string, wallet: an
 
     await execute({ wallet }, mintCall)
   }
-}
-
-function getFileFromObject(metadata: {
-  title: string;
-  description: string;
-  media: string;
-}): File {
-  const str = JSON.stringify(metadata);
-  return new File([str], "file", {
-    type: "application/json;charset=utf-8",
-  });
 }
