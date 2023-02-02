@@ -1,5 +1,5 @@
 import { useWallet } from "@mintbase-js/react";
-import MintForm from "../components/MintForm";
+import MintForm from "./MintForm";
 import { FormProvider, useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
 import {uploadReference } from "@mintbase-js/storage";
