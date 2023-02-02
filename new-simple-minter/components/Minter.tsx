@@ -62,7 +62,7 @@ async function handleUpload(file: File, data: { [x: string]: any }): Promise<str
   };
 
   const referenceJson = await uploadReference(metadata)
-  console.log("Successfully minted with referece:", referenceJson.id)
+  console.log("Successfully uploaded with referece:", referenceJson.id)
   return referenceJson.id
 }
 
@@ -72,6 +72,14 @@ async function handleMint(reference: string, activeAccountId: string, wallet: an
     const mintCall = mint({
       reference: reference,
       ownerId: activeAccountId,
+      options: {
+        royaltyPercentage: 0.1,
+        splits: {
+        'example1.testnet': 0.4,
+        'example2.testnet': 0.3,
+        'example3.testnet': 0.3,
+      }
+    }
     })
 
     await execute({ wallet }, mintCall)
