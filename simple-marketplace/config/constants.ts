@@ -18,7 +18,7 @@ export const TESTNET_CONFIG = {
     'Content-Type': 'application/json',
   },
   // change this to your website domain and post-transaction page
-  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/success` : 'https://testnet.mintbase.xyz/success',
+  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/wallet-callback` : 'https://testnet.mintbase.xyz/success',
 };
 
 export const MAINNET_CONFIG = {
@@ -34,7 +34,7 @@ export const MAINNET_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
   },
-  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/success` : 'https://www.mintbase.xyz/success',
+  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/wallet-callback` : 'https://www.mintbase.xyz/success',
 
 };
 
