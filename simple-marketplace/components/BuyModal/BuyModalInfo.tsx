@@ -56,24 +56,24 @@ function AvailableNftComponent({
     },
   }
 
-  const singleBuy = useCallback(async () => {
+  const singleBuy = async () => {
     const wallet = await selector.wallet()
 
     const receipt = (await execute(
-      { wallet, callbackArgs: callback },
+      { wallet, callbackArgs: callback},
       {
         ...buy({
           contractAddress: nftContractId,
-          tokenId,
+          tokenId: tokenId,
           affiliateAccount:
             process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
             MAINNET_CONFIG.affiliate,
-          marketId,
+          marketId: marketId,
           price: nearToYocto(currentPrice.toString()),
         }),
       }
     )) as FinalExecutionOutcome
-  }, [currentPrice])
+  }
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {

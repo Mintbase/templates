@@ -2,7 +2,7 @@ export const BINANCE_API = 'https://api.binance.com/api/v3/ticker/price?symbol=N
 export const MED_GAS = '300000000000000';
 export const DEFAULT_STORES = 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet';
 export const DEFAULT_MARKET_ADDRESS = 'market.mintspace2.testnet';
-export const DEFAULT_NETWORK = 'testnet';
+export const DEFAULT_NETWORK = 'mainnet';
 
 export const TESTNET_CONFIG = {
   networkId: 'testnet',
