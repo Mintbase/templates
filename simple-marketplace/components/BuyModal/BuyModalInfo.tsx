@@ -1,26 +1,25 @@
-import { FinalExecutionOutcome } from '@mintbase-js/auth'
-import { useWallet } from '@mintbase-js/react'
-import { buy, execute, TransactionSuccessEnum } from '@mintbase-js/sdk'
+import { FinalExecutionOutcome } from '@mintbase-js/auth';
+import { useWallet } from '@mintbase-js/react';
+import { buy, execute, TransactionSuccessEnum } from '@mintbase-js/sdk';
 import {
   EState,
   MbAmountInput,
   MbButton,
   MbInfoCard,
   MbText,
-} from 'mintbase-ui'
-import { useRouter } from 'next/router'
+} from 'mintbase-ui';
 
 /*
 Buy Modal Info:
 The component that handles the NFT Buy Information
 */
 
-import { useCallback, useState } from 'react'
-import { MAINNET_CONFIG } from '../../config/constants'
-import { useNearPrice } from '../../hooks/useNearPrice'
-import { nearToYocto } from '../../lib/numbers'
-import { TokenListData, TransactionEnum } from '../../types/types'
-import { SignInButton } from '../SignInButton'
+import { useState } from 'react';
+import { MAINNET_CONFIG } from '../../config/constants';
+import { useNearPrice } from '../../hooks/useNearPrice';
+import { nearToYocto } from '../../lib/numbers';
+import { TokenListData } from '../../types/types';
+import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({
   data,
@@ -35,18 +34,17 @@ function AvailableNftComponent({
     tokenId,
     tokensTotal,
     isTokenListLoading,
-  } = data
+  } = data;
 
-  const { selector, isConnected } = useWallet()
+  const { selector, isConnected } = useWallet();
 
-  const message = `${amountAvailable} of ${tokensTotal} Available`
+  const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
 
-  const [currentPrice, setCurrentPrice] = useState(price)
-  const [amount, setAmount] = useState(1)
+  const [currentPrice, setCurrentPrice] = useState(price);
+  const [amount, setAmount] = useState(1);
 
-  const nearPrice = useNearPrice()
-  const router = useRouter()
+  const nearPrice = useNearPrice();
 
   const callback = {
     type: TransactionSuccessEnum.MAKE_OFFER,
@@ -54,42 +52,42 @@ function AvailableNftComponent({
       tokenId,
       price: nearToYocto(currentPrice.toString()),
     },
-  }
+  };
 
   const singleBuy = async () => {
-    const wallet = await selector.wallet()
+    const wallet = await selector.wallet();
 
-    const receipt = (await execute(
-      { wallet, callbackArgs: callback},
+    await execute(
+      { wallet, callbackArgs: callback },
       {
         ...buy({
           contractAddress: nftContractId,
-          tokenId: tokenId,
+          tokenId,
           affiliateAccount:
-            process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
-            MAINNET_CONFIG.affiliate,
-          marketId: marketId,
+            process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT
+            || MAINNET_CONFIG.affiliate,
+          marketId,
           price: nearToYocto(currentPrice.toString()),
         }),
-      }
-    )) as FinalExecutionOutcome
-  }
+      },
+    ) as FinalExecutionOutcome;
+  };
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
-    const isSingleAmount = amount === 1
+    const isSingleAmount = amount === 1;
 
     if (isSingleAmount) {
-      await singleBuy()
+      await singleBuy();
     }
-  }
+  };
 
   const setNewPrice = (val: string) => {
-    const value = Number(val)
+    const value = Number(val);
 
-    setAmount(value)
-    setCurrentPrice(price * value)
-  }
+    setAmount(value);
+    setCurrentPrice(price * value);
+  };
 
   return isConnected && !isTokenListLoading ? (
     <div className="mt-2">
@@ -114,7 +112,7 @@ function AvailableNftComponent({
             <MbAmountInput
               maxAmount={Math.min(amountAvailable, 1)}
               onValueChange={(e) => {
-                setNewPrice(e)
+                setNewPrice(e);
               }}
               disabled={amountAvailable === 1}
             />
@@ -131,7 +129,7 @@ function AvailableNftComponent({
     </div>
   ) : (
     <SignInButton />
-  )
+  );
 }
 
 export function BuyModalInfo({
@@ -148,8 +146,8 @@ export function BuyModalInfo({
           </MbText>
         </div>
       </div>
-    )
+    );
   }
 
-  return <AvailableNftComponent data={data} />
+  return <AvailableNftComponent data={data} />;
 }
