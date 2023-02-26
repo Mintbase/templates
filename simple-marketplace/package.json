@@ -9,7 +9,6 @@
     "lint": "next lint",
     "eslint": "eslint \"**/*.+(ts|tsx)\"",
     "eslint:fix": "eslint --fix \"**/*.+(ts|tsx)\"",
-    "prepare": "cd ../ && husky install ./simple-marketplace/.husky",
     "pre-commit": "tsc && lint-staged",
     "ts-lint": "tsc --noEmit --incremental"
   },
