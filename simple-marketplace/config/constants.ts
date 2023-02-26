@@ -2,7 +2,7 @@ export const BINANCE_API = 'https://api.binance.com/api/v3/ticker/price?symbol=N
 export const MED_GAS = '300000000000000';
 export const DEFAULT_STORES = 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet';
 export const DEFAULT_MARKET_ADDRESS = 'market.mintspace2.testnet';
-export const DEFAULT_NETWORK = 'mainnet';
+export const DEFAULT_NETWORK = 'testnet';
 
 export const TESTNET_CONFIG = {
   networkId: 'testnet',
@@ -17,7 +17,9 @@ export const TESTNET_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
   },
-};
+  // change this to your website domain and post-transaction page
+  callbackUrl: typeof window !== 'undefined'? `https://${window?.location.host}/wallet-callback` : 'https://testnet.mintbase.xyz/success',
+}
 
 export const MAINNET_CONFIG = {
   networkId: 'mainnet',
@@ -32,6 +34,8 @@ export const MAINNET_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
   },
+  callbackUrl: typeof window !== 'undefined'? `https://${window?.location.host}/wallet-callback` : 'https://www.mintbase.xyz/success',
+
 };
 
 export const WalletKeys = {

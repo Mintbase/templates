@@ -5,12 +5,12 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import { DEFAULT_NETWORK } from '../config/constants';
+import { DEFAULT_NETWORK, MAINNET_CONFIG } from '../config/constants';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const network = process.env.NEXT_PUBLIC_NETWORK || DEFAULT_NETWORK;
-  mbjs.config({ network });
+  mbjs.config({ network, callbackUrl: MAINNET_CONFIG.callbackUrl });
   // Create a client
   const queryClient = new QueryClient();
 
