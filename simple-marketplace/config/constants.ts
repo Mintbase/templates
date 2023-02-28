@@ -2,7 +2,7 @@ export const BINANCE_API = 'https://api.binance.com/api/v3/ticker/price?symbol=N
 export const MED_GAS = '300000000000000';
 export const DEFAULT_STORES = 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet';
 export const DEFAULT_MARKET_ADDRESS = 'market.mintspace2.testnet';
-export const DEFAULT_NETWORK = 'mainnet';
+export const DEFAULT_NETWORK = 'testnet';
 
 export const TESTNET_CONFIG = {
   networkId: 'testnet',
@@ -11,12 +11,14 @@ export const TESTNET_CONFIG = {
   helperUrl: 'https://helper.testnet.near.org',
   explorerUrl: 'https://explorer.testnet.near.org',
   market: 'market.mintspace2.testnet',
-  stores: 'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet',
+  stores: 'yeets.mintspace2.testnet,creativelicense2.testnet,ailand.mintspace2.testnet',
   // Change this referral address below to your account to test it out on purchase from other stores you add and see market fees go right to you.
   affiliate: 'unlock.testnet',
   headers: {
     'Content-Type': 'application/json',
   },
+  // change this to your website domain and post-transaction page
+  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/wallet-callback` : 'https://testnet.mintbase.xyz/success',
 };
 
 export const MAINNET_CONFIG = {
@@ -32,6 +34,8 @@ export const MAINNET_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
   },
+  callbackUrl: typeof window !== 'undefined' ? `http://${window?.location.host}/wallet-callback` : 'https://www.mintbase.xyz/success',
+
 };
 
 export const WalletKeys = {

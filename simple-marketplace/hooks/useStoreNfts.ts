@@ -8,14 +8,17 @@ Description: This hook calls storeNfts method from @mintbase-js/data to get stor
 import { ParsedDataReturn, storeNfts } from '@mintbase-js/data';
 import { StoreNftsResult } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
 import { useQuery } from 'react-query';
-import { MAINNET_CONFIG } from '../config/constants';
+import { mbjs, NEAR_NETWORKS } from '@mintbase-js/sdk';
+import { MAINNET_CONFIG, TESTNET_CONFIG } from '../config/constants';
 
 const mapStoreNfts = (data: ParsedDataReturn<StoreNftsResult>) => ({
   nftsData: data?.data?.mb_views_nft_metadata_unburned,
 });
 
 const useStoreNfts = (store?: string) => {
-  const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
+  const stores = mbjs.keys?.network === NEAR_NETWORKS.TESTNET ? TESTNET_CONFIG.stores : MAINNET_CONFIG.stores;
+
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || stores;
 
   const formatedStores = defaultStores.split(/[ ,]+/);
 

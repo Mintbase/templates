@@ -2,7 +2,7 @@ import { useWallet } from "@mintbase-js/react";
 import MintForm from "./MintForm";
 import { FormProvider, useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
-import {uploadReference } from "@mintbase-js/storage";
+import { uploadReference } from "@mintbase-js/storage";
 import { mint, execute } from "@mintbase-js/sdk";
 import { DESCRIPTION, MAIN_IMAGE, TITLE } from "../constants";
 
@@ -68,18 +68,19 @@ async function handleUpload(file: File, data: { [x: string]: any }): Promise<str
 
 async function handleMint(reference: string, activeAccountId: string, wallet: any) {
 
+
   if (reference) {
     const mintCall = mint({
-      reference: reference,
+      metadata: { reference: reference },
       ownerId: activeAccountId,
       options: {
         royaltyPercentage: 0.1,
         splits: {
-        'example1.testnet': 0.4,
-        'example2.testnet': 0.3,
-        'example3.testnet': 0.3,
+          'example1.testnet': 0.4,
+          'example2.testnet': 0.3,
+          'example3.testnet': 0.3,
+        }
       }
-    }
     })
 
     await execute({ wallet }, mintCall)

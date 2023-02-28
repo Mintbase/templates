@@ -7,15 +7,20 @@ Description: This hook calls storeData method from @mintbase-js/data to get stor
 
 import { ParsedDataReturn, storeData } from '@mintbase-js/data';
 import { StoreDataResults } from '@mintbase-js/data/lib/api/storeData/storeData.types';
+import { mbjs, NEAR_NETWORKS } from '@mintbase-js/sdk';
 import { useQuery } from 'react-query';
-import { MAINNET_CONFIG } from '../config/constants';
+import { MAINNET_CONFIG, TESTNET_CONFIG } from '../config/constants';
 
 const mapStoreData = (data: ParsedDataReturn<StoreDataResults>) => ({
   stores: data?.data?.nft_contracts,
 });
 
 const useStoreData = () => {
-  const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
+  const stores = mbjs.keys?.network === NEAR_NETWORKS.TESTNET
+    ? TESTNET_CONFIG.stores
+    : MAINNET_CONFIG.stores;
+
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || stores;
 
   const formatedStores = defaultStores.split(/[ ,]+/);
 

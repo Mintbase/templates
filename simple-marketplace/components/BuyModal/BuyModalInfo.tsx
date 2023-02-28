@@ -1,6 +1,6 @@
 import { FinalExecutionOutcome } from '@mintbase-js/auth';
 import { useWallet } from '@mintbase-js/react';
-import { buy, execute } from '@mintbase-js/sdk';
+import { buy, execute, TransactionSuccessEnum } from '@mintbase-js/sdk';
 import {
   EState,
   MbAmountInput,
@@ -8,18 +8,17 @@ import {
   MbInfoCard,
   MbText,
 } from 'mintbase-ui';
-import { useRouter } from 'next/router';
 
 /*
 Buy Modal Info:
 The component that handles the NFT Buy Information
 */
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { MAINNET_CONFIG } from '../../config/constants';
 import { useNearPrice } from '../../hooks/useNearPrice';
 import { nearToYocto } from '../../lib/numbers';
-import { TokenListData, TransactionEnum } from '../../types/types';
+import { TokenListData } from '../../types/types';
 import { SignInButton } from '../SignInButton';
 
 function AvailableNftComponent({
@@ -46,13 +45,20 @@ function AvailableNftComponent({
   const [amount, setAmount] = useState(1);
 
   const nearPrice = useNearPrice();
-  const router = useRouter();
 
-  const singleBuy = useCallback(async () => {
+  const callback = {
+    type: TransactionSuccessEnum.MAKE_OFFER,
+    args: {
+      tokenId,
+      price: nearToYocto(currentPrice.toString()),
+    },
+  };
+
+  const singleBuy = async () => {
     const wallet = await selector.wallet();
 
-    const receipt = (await execute(
-      { wallet },
+    await execute(
+      { wallet, callbackArgs: callback },
       {
         ...buy({
           contractAddress: nftContractId,
@@ -64,24 +70,8 @@ function AvailableNftComponent({
           price: nearToYocto(currentPrice.toString()),
         }),
       },
-    )) as FinalExecutionOutcome;
-
-    const callback = `${
-      window.location.origin
-    }/wallet-callback?transactionHashes=${
-      receipt?.transaction_outcome?.id
-    }&signMeta=${encodeURIComponent(
-      JSON.stringify({
-        type: TransactionEnum.MAKE_OFFER,
-        args: {
-          tokenId,
-          price: nearToYocto(currentPrice.toString()),
-        },
-      }),
-    )}`;
-
-    router.push(callback);
-  }, [currentPrice]);
+    ) as FinalExecutionOutcome;
+  };
 
   // handler function to call the wallet methods to proceed the buy.
   const handleBuy = async () => {
