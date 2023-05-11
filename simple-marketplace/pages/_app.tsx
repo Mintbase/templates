@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   // Create a client
   const queryClient = new QueryClient();
 
+  // We suggest passing the contract address and network in the provider to address potential inconsistencies between server and browser loads
   return (
     <QueryClientProvider client={queryClient}>
       <WalletContextProvider contractAddress="mintspace2.testnet" network="testnet">
