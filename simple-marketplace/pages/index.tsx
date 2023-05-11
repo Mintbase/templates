@@ -6,6 +6,7 @@ import {
   MbText,
 } from 'mintbase-ui';
 import Head from 'next/head';
+import { mbjs } from '@mintbase-js/sdk';
 import Header from '../components/Header';
 import Items from '../components/Items';
 import BuyModal from '../components/BuyModal/BuyModal';
@@ -14,6 +15,8 @@ import { SelectedNft } from '../types/types';
 function Store(): JSX.Element {
   const [showBuyModal, setShowBuyModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState({} as SelectedNft);
+
+  console.log(mbjs.keys, 'mbjs');
 
   const handleOpenBuyModal = (item: SelectedNft) => {
     setSelectedItem(item);
