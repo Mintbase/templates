@@ -5,12 +5,18 @@ import '../styles/globals.css'
 import { mbjs } from '@mintbase-js/sdk';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  const network = 'mainnet';
-  mbjs.config({ network, contractAddress: 'mintbase1.near' });
-  // Create a client
+  const network = process.env.NEXT_PUBLIC_NEAR_NETWORK || 'mainnet';
+  const callbackUrl = process.env.NEXT_PUBLIC_CALLBACK_URL;
+  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || 'mintbase1.near';
+  
+  mbjs.config({
+    network: network,
+    callbackUrl: callbackUrl,
+    contractAddress: contractAddress,
+  });
 
   return (
-      <WalletContextProvider contractAddress="mintbase1.near" network="mainnet">
+      <WalletContextProvider contractAddress={contractAddress} network={network === 'mainnet' ? 'mainnet' : 'testnet'}>
         <Component {...pageProps} />
       </WalletContextProvider>
   );

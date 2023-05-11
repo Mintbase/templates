@@ -71,14 +71,11 @@ async function handleMint(reference: string, activeAccountId: string, wallet: an
 
   if (reference) {
     const mintCall = mint({
-      metadata: { reference: reference },
-      ownerId: activeAccountId,
-        amount: 0.1,
-        royalties: {
-          'example1.testnet': 0.4,
-          'example2.testnet': 0.3,
-          'example3.testnet': 0.3,
-        }
+      noMedia: true,
+      metadata: {
+        reference: reference
+      },
+      ownerId: activeAccountId
     })
 
     await execute({ wallet }, mintCall)
