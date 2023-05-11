@@ -1,11 +1,15 @@
 import { WalletContextProvider } from '@mintbase-js/react';
-import { MINTBASE_CONTRACTS, NEAR_NETWORKS, Network, mbjs } from '@mintbase-js/sdk';
+import {
+  MINTBASE_CONTRACTS, NEAR_NETWORKS, Network, mbjs,
+} from '@mintbase-js/sdk';
 import type { AppProps } from 'next/app';
 import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
+
 import { MAINNET_CONFIG } from '../config/constants';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
