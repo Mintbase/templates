@@ -45,7 +45,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            **examplese** ⬆️ PUSH
+            **examples** ⬆️ PUSH
             Branch:  [${{github.head_ref}}](https://github.com/mintbase/examples/tree/${{github.head_ref}})
             Pull Request: [#${{ steps.find_pr.outputs.pull_request_number }} ${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})
             Commit: [${{ steps.commit_info.outputs.commit_message }}](${{ steps.commit_info.outputs.commit_url }})
