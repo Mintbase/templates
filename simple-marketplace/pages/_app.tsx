@@ -13,7 +13,7 @@ import { MAINNET_CONFIG } from '../config/constants';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const network = process.env.NEAR_NETWORK as Network || NEAR_NETWORKS.TESTNET;
+  const network = process.env.NEXT_PUBLIC_NEAR_NETWORK as Network || NEAR_NETWORKS.TESTNET;
   mbjs.config({ network, callbackUrl: MAINNET_CONFIG.callbackUrl, contractAddress: MINTBASE_CONTRACTS[network] });
   // Create a client
   const queryClient = new QueryClient();
