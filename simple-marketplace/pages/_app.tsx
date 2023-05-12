@@ -1,25 +1,31 @@
 import { WalletContextProvider } from '@mintbase-js/react';
-import { mbjs } from '@mintbase-js/sdk';
+import {
+  MINTBASE_CONTRACTS, NEAR_NETWORKS, Network, mbjs,
+} from '@mintbase-js/sdk';
 import type { AppProps } from 'next/app';
 import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import { DEFAULT_NETWORK, MAINNET_CONFIG } from '../config/constants';
+
+import { MAINNET_CONFIG } from '../config/constants';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const network = process.env.NEXT_PUBLIC_NETWORK || DEFAULT_NETWORK;
-  mbjs.config({ network, callbackUrl: MAINNET_CONFIG.callbackUrl });
+  const network = process.env.NEXT_PUBLIC_NEAR_NETWORK as Network || NEAR_NETWORKS.TESTNET;
+  mbjs.config({ network, callbackUrl: MAINNET_CONFIG.callbackUrl, contractAddress: MINTBASE_CONTRACTS[network] });
   // Create a client
   const queryClient = new QueryClient();
 
+  // We suggest passing the contract address and network in the provider to address potential inconsistencies between server and browser loads
   return (
-    <WalletContextProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <WalletContextProvider contractAddress={MINTBASE_CONTRACTS[network]} network={network}>
         <Component {...pageProps} />
-      </QueryClientProvider>
-    </WalletContextProvider>
+      </WalletContextProvider>
+    </QueryClientProvider>
+
   );
 }
 

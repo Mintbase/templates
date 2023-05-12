@@ -8,11 +8,7 @@ import { MbText } from "mintbase-ui";
 export default function Home() {
   const { isConnected } = useWallet();
 
-  mbjs.config({
-    network: process.env.NEXT_PUBLIC_NEAR_NETWORK,
-    callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL,
-    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  });
+  console.log(mbjs.keys , 'keys')
 
   if (isConnected)
     return (

@@ -9,22 +9,19 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["./tsconfig.json"]
+    "project": ["./simple-minter/tsconfig.json"]
   },
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
         "max-len": "off",
         "no-console": "off",
         "import/prefer-default-export": "off", // not considered a good practice
         "react/jsx-props-no-spreading": "off", // due to react hook form we have to ignore this rule
         "react/react-in-jsx-scope": "off",
-        "react/require-default-props": "off",
-        "react/function-component-definition": "off",
+        "indent": "off",
+        "@typescript-eslint/indent": "warn",
         "no-restricted-syntax": [
           "error",
           {
