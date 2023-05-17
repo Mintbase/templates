@@ -7,7 +7,7 @@ import {  NEAR_NETWORKS, Network, mbjs } from '@mintbase-js/sdk';
 function App({ Component, pageProps }: AppProps): JSX.Element {
 
   // On mbjs.config and WalletContextProvider you could set the value straight as NEAR_NETWORKS.MAINNET or NEAR_NETWORKS.TESTNET
-  const network = process.env.NEXT_PUBLIC_NEAR_NETWORK as Network || NEAR_NETWORKS.MAINNET;
+  const network = process.env.NEXT_PUBLIC_NETWORK as Network || NEAR_NETWORKS.MAINNET;
 
   // the post-transaction page url
   const localCallback = typeof window !== 'undefined' ? `http://${window?.location.host}/success`: 'http://localhost:3000/success'
