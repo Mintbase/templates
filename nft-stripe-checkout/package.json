@@ -1,0 +1,38 @@
+{
+  "name": "engine-nft-checkout",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mintbase-js/data": "0.5.0-beta.2",
+    "@mintbase-js/react": "0.5.0-beta.2",
+    "@mintbase-js/rpc": "0.5.0-beta.2",
+    "@mintbase-js/sdk": "0.5.0-beta.2",
+    "@mintbase-js/storage": "0.5.0-beta.2",
+    "@near-js/accounts": "^0.1.4",
+    "@stripe/react-stripe-js": "^2.3.1",
+    "@stripe/stripe-js": "^2.1.10",
+    "ethers": "^5",
+    "near-api-js": "^2.1.4",
+    "next": "^14",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "stripe": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
