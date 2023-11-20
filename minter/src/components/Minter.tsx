@@ -8,6 +8,14 @@ import { mint, execute } from "@mintbase-js/sdk";
 import { DESCRIPTION, MAIN_IMAGE, TITLE } from "@/constants";
 import useMintImage from "@/data/useMint";
 import { Button } from "./ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Minter() {
   const { selector, activeAccountId } = useMbWallet();
@@ -39,25 +47,26 @@ export default function Minter() {
   };
 
   return (
-    <div className="md:max-w-2xl w-full space-y-4">
-      <div className="flex flex-col items-center justify-center mt-2">
-        <h1 className="text-3xl">Mint your NFT</h1>
-        <div className="w-full mt-4 space-y-4">
-          <FormProvider {...methods}>
-            <form
-              onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
-                console.error(errorMsgs)
-              )}
-            >
-              <MintForm />
-              <div className="flex justify-center items-center mt-4">
-                <Button type="submit"  >Mint Me </Button>
-              </div>
-            </form>
-          </FormProvider>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Mint your NFT</CardTitle>
+        <CardDescription>Fill the fields</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <FormProvider {...methods}>
+          <form
+            onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
+              console.error(errorMsgs)
+            )}
+          >
+            <MintForm />
+          </form>
+        </FormProvider>
+      </CardContent>
+      <CardFooter className="justify-center items-center">
+        <Button type="submit">Mint Me </Button>
+      </CardFooter>
+    </Card>
   );
 }
 

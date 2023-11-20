@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useEffect } from 'react';
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useEffect } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-import { useFormContext } from 'react-hook-form';
-import { MAIN_IMAGE , TITLE, DESCRIPTION} from '@/constants';
-import { Label } from "@/components/ui/label"
-
+import { useFormContext } from "react-hook-form";
+import { MAIN_IMAGE, TITLE, DESCRIPTION } from "@/constants";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 function MintForm() {
-
-  const {
-    register,
-    watch,
-    setValue,
-    setError,
-    clearErrors,
-  } = useFormContext();
+  const { register, watch, setValue, setError, clearErrors } = useFormContext();
 
   const uploadFile = (file: File) => {
     setValue(MAIN_IMAGE, file);
@@ -28,10 +28,10 @@ function MintForm() {
     setError(
       MAIN_IMAGE,
       {
-        type: 'required',
-        message: 'No image',
+        type: "required",
+        message: "No image",
       },
-      { shouldFocus: true },
+      { shouldFocus: true }
     );
   };
 
@@ -39,17 +39,17 @@ function MintForm() {
     setError(
       MAIN_IMAGE,
       {
-        type: 'required',
-        message: 'No image',
+        type: "required",
+        message: "No image",
       },
-      { shouldFocus: true },
+      { shouldFocus: true }
     );
   }, [setError]);
 
   return (
     <>
       <div className="mb-4">
-              <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">Name</Label>
 
         <Input
           id="name"
@@ -57,35 +57,34 @@ function MintForm() {
           required
           {...register(TITLE, {
             required: true,
-            minLength: { value: 1, message: '' },
+            minLength: { value: 1, message: "" },
           })}
         />
       </div>
       <div className="mb-4">
-
-             <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Description</Label>
         <Textarea
-                 id="description"
-
+          id="description"
           placeholder="Token description"
           {...register(DESCRIPTION, {
             required: true,
           })}
-        >Description</Textarea>
+        >
+          Description
+        </Textarea>
       </div>
       <div className="mb-4">
-
-         <Label htmlFor="picture">Picture</Label>
-      <Input
-         {...register(MAIN_IMAGE, {
+        <Label htmlFor="picture">Picture</Label>
+        <Input
+          {...register(MAIN_IMAGE, {
             required: true,
             validate: () => true,
           })}
-        id="media"
-        type="file"
-        accept="image/png, image/jpeg"
-        className="file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 file:border file:border-solid file:border-blue-700 file:rounded-md border-blue-600"
-      />
+          id="media"
+          type="file"
+          accept="image/png, image/jpeg"
+          className="file:bg-black file:text-white file:border file:border-solid file:border-grey-700 file:rounded-md "
+        />
         {/* <MbMediaImport
           {...register(MAIN_IMAGE, {
             required: true,
