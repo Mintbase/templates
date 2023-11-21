@@ -1,15 +1,17 @@
+"use client"
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useMbWallet } from "@mintbase-js/react";
-import { uploadReference } from "@mintbase-js/storage";
-import { MintbaseWalletSetup } from "@/app/layout";
 
 import { TITLE, DESCRIPTION } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { mint, execute } from "@mintbase-js/sdk";
 import { formSchema } from "./formSchema";
+import { MintbaseWalletSetup } from "@/config/setup";
+import { uploadReference } from "@mintbase-js/storage";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();

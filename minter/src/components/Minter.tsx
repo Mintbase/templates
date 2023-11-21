@@ -19,13 +19,13 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import useMintImage from "@/data/useMinter";
-import { getImageData } from "@/data/utils";
+import useMintImage from "@/hooks/useMint";
+import { getImageData } from "@/hooks/utils";
 
 export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
 
-  return (
+  return ( 
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>

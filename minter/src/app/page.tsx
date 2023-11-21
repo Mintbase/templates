@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import { useMbWallet } from "@mintbase-js/react";
 import { NearWalletConnector } from "@/components/NearWalletSelector";
@@ -9,7 +8,6 @@ import Minter from "@/components/Minter";
 
 export default function Home() {
   const { isConnected } = useMbWallet();
-
 
   if (isConnected)
     return (
@@ -37,6 +35,7 @@ export default function Home() {
                 </div>
                 <div>
                   <NearWalletConnector />
+                  <Minter />
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
-import * as z from "zod";
+"use client";
 
+import * as z from "zod";
 
 const formSchema = z.object({
   title: z.string().min(2, {

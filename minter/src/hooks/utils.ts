@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeEvent } from "react";
 
 export function getImageData(event: ChangeEvent<HTMLInputElement>) {
