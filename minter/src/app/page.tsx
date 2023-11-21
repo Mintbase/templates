@@ -35,7 +35,6 @@ export default function Home() {
                 </div>
                 <div>
                   <NearWalletConnector />
-                  <Minter />
                 </div>
               </div>
             </div>
