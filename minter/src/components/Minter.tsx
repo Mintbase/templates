@@ -1,105 +1,103 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
-import MintForm from "./MintForm";
-import { FormProvider, useForm } from "react-hook-form";
-import { uploadReference } from "@mintbase-js/storage";
-import { mint, execute } from "@mintbase-js/sdk";
-import { DESCRIPTION, MAIN_IMAGE, TITLE } from "@/constants";
-import useMintImage from "@/data/useMint";
 import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import useMintImage from "@/data/useMinter";
+import { getImageData } from "@/data/utils";
+
 export default function Minter() {
-  const { selector, activeAccountId } = useMbWallet();
-
-  const methods = useForm({
-    defaultValues: {
-      [TITLE]: "",
-      [DESCRIPTION]: "",
-      [MAIN_IMAGE]: null,
-    },
-  });
-  const { getValues, handleSubmit } = methods;
-  const file = getValues(MAIN_IMAGE);
-  const { mintImage } = useMintImage();
-
-  const onSubmit = async (data: { [x: string]: any }) => {
-    const wallet = await selector.wallet();
-
-    if (file == null || activeAccountId == null) {
-      console.error("Error uploading file");
-      return;
-    }
-
-    const res = await mintImage(file);
-
-    console.log(res, "res");
-
-    return res;
-  };
+  const { form, onSubmit, preview, setPreview } = useMintImage();
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Mint your NFT</CardTitle>
-        <CardDescription>Fill the fields</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <FormProvider {...methods}>
-          <form
-            onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
-              console.error(errorMsgs)
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Mint your NFT</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input placeholder="Title" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="h-2"></div>
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea placeholder="Description" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="h-2"></div>
+            {preview && (
+              <img
+                src={preview as string}
+                alt="Selected Preview"
+                style={{
+                  maxWidth: "330px",
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                }}
+              />
             )}
-          >
-            <MintForm />
-          </form>
-        </FormProvider>
-      </CardContent>
-      <CardFooter className="justify-center items-center">
-        <Button type="submit">Mint Me </Button>
-      </CardFooter>
-    </Card>
+            <FormField
+              control={form.control}
+              name="media"
+              render={({ field: { onChange, value, ...rest } }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      id="picture"
+                      type="file"
+                      {...rest}
+                      onChange={(event) => {
+                        const { files, displayUrl } = getImageData(event);
+                        setPreview(displayUrl);
+                        onChange(files);
+                      }}
+                      className="file:bg-black file:text-white file:border file:border-solid file:border-grey-700 file:rounded-md"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </CardContent>
+          <CardFooter className="justify-center items-center">
+            <Button type="submit">Mint Me </Button>
+          </CardFooter>
+        </Card>
+      </form>
+    </Form>
   );
-}
-
-async function handleUpload(
-  file: File,
-  data: { [x: string]: any }
-): Promise<string> {
-  const metadata = {
-    title: data[TITLE],
-    description: data[DESCRIPTION],
-    media: file,
-  };
-
-  const referenceJson = await uploadReference(metadata);
-  console.log("Successfully uploaded with referece:", referenceJson.id);
-  return referenceJson.id;
-}
-
-async function handleMint(
-  reference: string,
-  activeAccountId: string,
-  wallet: any
-) {
-  if (reference) {
-    const mintCall = mint({
-      noMedia: true,
-      metadata: {
-        reference: reference,
-      },
-      contractAddress: process.env.CONTRACT_ADDRESS,
-      ownerId: activeAccountId,
-    });
-
-    await execute({ wallet }, mintCall);
-  }
 }
