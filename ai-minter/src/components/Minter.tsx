@@ -23,26 +23,37 @@ import useMintImage from "@/hooks/useMint";
 import { getImageData } from "@/hooks/utils";
 import { useState } from "react";
 
+const Spinner = () => {
+  return (
+    <div className="lds-ellipsis">
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  );
+};
+
 export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
-  const [prediction, setPrediction] = useState(null);
+  const [promptResult, setPrediction] = useState<any>(null);
   const [error, setError] = useState(null);
 
-  const sleep = (ms:number) => new Promise((r) => setTimeout(r, ms));
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
   const handlePrompt = async (e: any) => {
     e.preventDefault();
 
-        const promptValue = form.getValues("description");
-    console.log(promptValue, 'promptValue')
+    const promptValue = form.getValues("description");
     const response = await fetch("/api/predictions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        input: {prompt: promptValue},
-        version: "50f96fcd1980e7dcaba18e757acbac05e7f2ad4fbcb4a75f86a13c4086df26d0"
+        input: { prompt: promptValue },
+        version:
+          "50f96fcd1980e7dcaba18e757acbac05e7f2ad4fbcb4a75f86a13c4086df26d0",
       }),
     });
     let prediction = await response.json();
@@ -51,8 +62,14 @@ export default function Minter() {
       return;
     }
 
-   console.log(prediction, 'prediction')
+    console.log(prediction, "prediction");
     setPrediction(prediction);
+
+    if( prediction.status === "succeeded") {
+      form.setValue('media', prediction?.output[24])
+
+      console.log(form.getValues("media"), 'form.getValues("description")')
+    }
 
     while (
       prediction.status !== "succeeded" &&
@@ -65,12 +82,26 @@ export default function Minter() {
         setError(prediction.detail);
         return;
       }
-      console.log({prediction})
+      console.log({ prediction });
       setPrediction(prediction);
     }
   };
 
-  return ( 
+  const handleSubmit = async () => {
+
+          form.setValue('media', promptResult?.output[24])
+
+          await onSubmit(form.getValues())
+          console.log(form.getValues())
+
+  }
+
+  console.log(
+     promptResult?.status !== null &&
+              promptResult?.status == "succeeded", promptResult?.output
+  )
+
+  return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>
@@ -98,51 +129,40 @@ export default function Minter() {
                 <FormItem>
                   <FormControl>
                     <Input placeholder="Prompt" {...field} />
-
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-                   <Button onClick={handlePrompt} type="submit">prompt </Button>
 
             <div className="h-2"></div>
-            {preview && (
-              <img
-                src={preview as string}
-                alt="Selected Preview"
-                style={{
-                  maxWidth: "330px",
-                  marginTop: "10px",
-                  marginBottom: "10px",
-                }}
-              />
-            )}
-            <FormField
-              control={form.control}
-              name="media"
-              render={({ field: { onChange, value, ...rest } }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      id="picture"
-                      type="file"
-                      {...rest}
-                      onChange={(event) => {
-                        const { files, displayUrl } = getImageData(event);
-                        setPreview(displayUrl);
-                        onChange(files);
-                      }}
-                      className="file:bg-black file:text-white file:border file:border-solid file:border-grey-700 file:rounded-md"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+
+            {promptResult?.status !== undefined &&
+              promptResult?.status !== "succeeded" && (
+                <div className="container mx-auto px-4 md:px-8 flex flex-col items-center justify-center space-y-4">
+                  <Spinner />
+                  <h1 className="text-xl sm:text-2xl font-semibold mb-4 text-white text-center">
+                    {promptResult?.status}
+                  </h1>
+                </div>
               )}
-            />
+
+            {promptResult?.status !== null &&
+              promptResult?.status == "succeeded" && (
+                <img src={promptResult?.output[25]} />
+              )}
           </CardContent>
-          <CardFooter className="justify-center items-center">
-            <Button type="submit">Mint Me </Button>
+          <CardFooter className="justify-center items-center gap-2">
+            <Button onClick={handlePrompt} type="submit">
+              prompt{" "}
+            </Button>{" "}
+            <Button
+              type="submit"
+              onClick={handleSubmit}
+              disabled={promptResult?.status !== "succeeded"}
+            >
+              Mint Me{" "}
+            </Button>
           </CardFooter>
         </Card>
       </form>

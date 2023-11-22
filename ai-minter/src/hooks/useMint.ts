@@ -9,9 +9,9 @@ import { TITLE, DESCRIPTION } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { mint, execute } from "@mintbase-js/sdk";
+import { uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup } from "@/config/setup";
-import { uploadReference } from "@mintbase-js/storage";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -26,30 +26,43 @@ const useMintImage = () => {
     }
   };
 
+  const getImageAsBlob = async (url: string): Promise<Blob | null> => {
+    try {
+        // Fetch the image
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch image. Status code: ${response.status}`);
+        }
+
+        // Convert the image to a Blob
+        const imageBlob = await response.blob();
+
+        console.log(url, imageBlob, 'blob')
+        // Create a File object from the Blob
+        const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
+
+        return imageFile;
+    } catch (error: any) {
+        console.error(`Error: ${error?.message}`);
+        return null;
+    }
+};
+
   const onSubmit = async (data: { [x: string]: any }) => {
+    console.log(data, 'data')
+
     const wallet = await getWallet();
-    const uploadRef = await handleUpload(data.media, data);
-    await handleMint(uploadRef, activeAccountId as string, wallet);
+    const image = await getImageAsBlob(data?.media)
+
+    console.log(image, 'image')
+    const reference = await uploadReference(image)
+    await handleMint(reference, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
   });
-
-  async function handleUpload(
-    file: File,
-    data: { [x: string]: any }
-  ): Promise<string> {
-    const metadata = {
-      title: data[TITLE],
-      description: data[DESCRIPTION],
-      media: file,
-    };
-
-    const referenceJson = await uploadReference(metadata);
-    console.log("Successfully uploaded with reference:", referenceJson.id);
-    return referenceJson.id;
-  }
 
   async function handleMint(
     reference: string,
@@ -60,7 +73,7 @@ const useMintImage = () => {
       const mintCall = mint({
         noMedia: true,
         metadata: {
-          reference: reference,
+          reference:reference
         },
         contractAddress: MintbaseWalletSetup.contractAddress,
         ownerId: activeAccountId,
