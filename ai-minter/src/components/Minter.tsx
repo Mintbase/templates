@@ -17,12 +17,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 import useMintImage from "@/hooks/useMint";
-import { getImageData } from "@/hooks/utils";
 import Image from "next/image";
 import { useState } from "react";
+import { Input } from "./ui/input";
+import { models } from "../data/models"
 
 const Spinner = () => {
   return (
@@ -59,6 +66,7 @@ export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
   const [promptResult, setPrediction] = useState<PromptResult | null>(null);
   const [error, setError] = useState<string | undefined>();
+  const [model, setModel] = useState<string | undefined>();
 
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -73,8 +81,7 @@ export default function Minter() {
       },
       body: JSON.stringify({
         input: { prompt: promptValue },
-        version:
-          "ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
+        version: model,
       }),
     });
     let prediction = await response.json() as PromptResult;
@@ -122,6 +129,11 @@ export default function Minter() {
               promptResult?.status == "succeeded", promptResult?.output
   )
 
+  function handleModelChange(value: string): void {
+    setModel(value);
+    console.log(value, "model hash")
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -155,6 +167,18 @@ export default function Minter() {
                 </FormItem>
               )}
             />
+            <div className="h-2"></div>
+            <Select onValueChange={handleModelChange}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a model"/>
+              </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="selectitem test">SelectItem test</SelectItem>
+                    {models.map( (model) => {
+                      return <SelectItem key={model.label} value={model.version}>{model.label}</SelectItem>
+                    })}
+              </SelectContent>
+            </Select>
 
             <div className="h-2"></div>
 
