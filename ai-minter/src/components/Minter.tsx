@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import useMintImage from "@/hooks/useMint";
 import { getImageData } from "@/hooks/utils";
+import Image from "next/image";
 import { useState } from "react";
 
 const Spinner = () => {
@@ -34,10 +35,30 @@ const Spinner = () => {
   );
 };
 
+type PromptResult = {
+  error: string,
+  id: string,
+  input: {
+    prompt: string,
+  },
+  logs: string,
+  metrics: {
+    predict_time: number,
+  }
+  model: string,
+  output: string[],
+  status: string,
+  urls: {
+    cancel: string,
+    get: string,
+  },
+  version: string,
+}
+
 export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
-  const [promptResult, setPrediction] = useState<any>(null);
-  const [error, setError] = useState(null);
+  const [promptResult, setPrediction] = useState<PromptResult | null>(null);
+  const [error, setError] = useState<string | undefined>();
 
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -53,12 +74,12 @@ export default function Minter() {
       body: JSON.stringify({
         input: { prompt: promptValue },
         version:
-          "50f96fcd1980e7dcaba18e757acbac05e7f2ad4fbcb4a75f86a13c4086df26d0",
+          "ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
       }),
     });
-    let prediction = await response.json();
+    let prediction = await response.json() as PromptResult;
     if (response.status !== 201) {
-      setError(prediction.detail);
+      setError(prediction.error);
       return;
     }
 
@@ -66,7 +87,7 @@ export default function Minter() {
     setPrediction(prediction);
 
     if( prediction.status === "succeeded") {
-      form.setValue('media', prediction?.output[24])
+      form.setValue('media', prediction?.output[prediction.output.length-1])
 
       console.log(form.getValues("media"), 'form.getValues("description")')
     }
@@ -77,9 +98,9 @@ export default function Minter() {
     ) {
       await sleep(1000);
       const response = await fetch("/api/predictions/" + prediction.id);
-      prediction = await response.json();
+      prediction = await response.json() as PromptResult;
       if (response.status !== 200) {
-        setError(prediction.detail);
+        setError(prediction.error);
         return;
       }
       console.log({ prediction });
@@ -89,10 +110,10 @@ export default function Minter() {
 
   const handleSubmit = async () => {
 
-          form.setValue('media', promptResult?.output[24])
+          form.setValue('media', promptResult?.output[promptResult.output.length-1] || '');
 
-          await onSubmit(form.getValues())
-          console.log(form.getValues())
+          await onSubmit(form.getValues());
+          console.log(form.getValues());
 
   }
 
@@ -149,7 +170,7 @@ export default function Minter() {
 
             {promptResult?.status !== null &&
               promptResult?.status == "succeeded" && (
-                <img src={promptResult?.output[25]} />
+                <Image src={promptResult?.output[promptResult.output.length-1]} alt={"Result generated from prompt"} width={300} height={250}/>
               )}
           </CardContent>
           <CardFooter className="justify-center items-center gap-2">

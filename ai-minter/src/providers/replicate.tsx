@@ -38,42 +38,6 @@ export const ReplicateProvider: React.FC<ReplicateProviderProps> = ({
     const prediction = await runPrediction({ input, version }, 2000);
     return prediction;
   };
-  const [prediction, setPrediction] = useState(null);
-  const [error, setError] = useState(null);
-
-    const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    const response = await fetch("/api/predictions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: e.target.prompt.value,
-      }),
-    });
-    let prediction = await response.json();
-    if (response.status !== 201) {
-      setError(prediction.detail);
-      return;
-    }
-    setPrediction(prediction);
-
-    while (
-      prediction.status !== "succeeded" &&
-      prediction.status !== "failed"
-    ) {
-      await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
-      prediction = await response.json();
-      if (response.status !== 200) {
-        setError(prediction.detail);
-        return;
-      }
-      console.log({prediction})
-      setPrediction(prediction);
-    }
-  };
 
   const runPrediction = async (
     request: RequestProps,

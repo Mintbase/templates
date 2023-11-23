@@ -51,13 +51,11 @@ const useMintImage = () => {
 
   const onSubmit = async (data: { [x: string]: any }) => {
     console.log(data, 'data')
-
     const wallet = await getWallet();
-    const image = await getImageAsBlob(data?.media)
+    const reference = await uploadReference({media: data?.media})
+    console.log("arweave link: https://arweave.net/" + reference.id);
 
-    console.log(image, 'image')
-    const reference = await uploadReference(image)
-    await handleMint(reference, activeAccountId as string, wallet);
+    await handleMint(reference.id, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,8 +76,9 @@ const useMintImage = () => {
         contractAddress: MintbaseWalletSetup.contractAddress,
         ownerId: activeAccountId,
       });
-
-      await execute({ wallet }, mintCall);
+      console.log(mintCall, "mintCall")
+      const res = await execute({ wallet }, mintCall);
+      console.log("result: ", res);
     }
   }
 
