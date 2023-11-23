@@ -6,11 +6,11 @@ export async function POST(req: Request) {
   const body = await req.json();
   const { messages } = body;
 
-  const response = await fetch("http://wallet.mintbase.xyz/api/ai/v1/router/chat", {
+  const response = await fetch("https://mintbase-wallet-pfzniywya-mintbase.vercel.app/api/ai/v1/router/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer <TOKEN>`,
+      "Authorization": `Bearer ${process.env.MB_API_KEY}`,
     },
     body: JSON.stringify({
       model: "openai/gpt-4-1106-preview",
