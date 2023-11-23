@@ -1,17 +1,19 @@
 "use client";
 
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import {
+  Elements,
   PaymentElement,
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
-import React, { useEffect, useState } from "react";
-import { useMbWallet } from "@mintbase-js/react";
 import { ConnectWallet } from "@/components/connect-wallet";
 import { WalletProvider } from "@/components/providers/wallet-provider";
+import { constants } from "@/lib/constants";
+import { useMbWallet } from "@mintbase-js/react";
+import { mint } from "@mintbase-js/sdk";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -27,13 +29,24 @@ function PurchasePage() {
   const { activeAccountId } = useMbWallet();
 
   const onClick = async () => {
-    const resp = await fetch("/api/stripe-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        buyerWalletAddress: activeAccountId,
-      }),
-    });
+    const resp = await fetch(
+      "https://stripe2near-z3w7d7dnea-ew.a.run.app/payment-intent",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          priceUsd: 1000,
+          action: mint({
+            metadata: {
+              reference: "NiztQFL98n8MgYKSu7FL3vdUnU_eUlM3fsQ0o3JEQCY",
+              media: "eUdPgtRlT9Ua8ZHsGuNi1P8TUfVJaGUTH42NB1i1s4E",
+            },
+            ownerId: activeAccountId!,
+            contractAddress: constants.tokenContractAddress,
+          }),
+        }),
+      }
+    );
     if (resp.ok) {
       const json = await resp.json();
       setClientSecret(json.clientSecret);
@@ -49,25 +62,13 @@ function PurchasePage() {
     <main className="flex flex-col gap-y-8 items-center p-12">
       <ConnectWallet />
       <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12">
-        {/* <MediaRenderer
-            className="rounded-lg"
-            src={
-              contractMetadata.image ||
-              "ipfs://QmciR3WLJsf2BgzTSjbG5zCxsrEQ8PqsHK7JWGWsDSNo46/nft.png"
-            }
-          />
-
-          <div className="flex flex-col gap-2">
-            <h2 className="text-xl font-extrabold">{contractMetadata.name}</h2>
-            <p className="text-gray-500">
-              {contractMetadata.description || "A description of your NFT."}
-            </p>
-          </div> */}
-
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-extrabold">{"Token Title"}</h2>
           <p className="text-gray-500">{"A description of your NFT."}</p>
-          <img className="w-36" src="https://arweave.net/eUdPgtRlT9Ua8ZHsGuNi1P8TUfVJaGUTH42NB1i1s4E" />
+          <img
+            className="w-36"
+            src="https://arweave.net/eUdPgtRlT9Ua8ZHsGuNi1P8TUfVJaGUTH42NB1i1s4E"
+          />
         </div>
 
         {!clientSecret ? (
@@ -99,6 +100,7 @@ const CreditCardForm = () => {
   const stripe = useStripe();
   const [isLoading, setIsLoading] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+  const { activeAccountId } = useMbWallet();
 
   const onClick = async () => {
     if (!stripe || !elements) {
@@ -148,6 +150,10 @@ const CreditCardForm = () => {
           ? "Please wait..."
           : "Pay now"}
       </button>
+
+      <a
+        href={`https://testnet.mintbase.xyz/human/${activeAccountId}/owned`}
+      >See colletion</a>
     </>
   );
 };
