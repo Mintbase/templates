@@ -6,7 +6,7 @@ export async function POST(req: Request) {
   const body = await req.json();
   const { messages } = body;
 
-  const response = await fetch("https://mintbase-wallet-pfzniywya-mintbase.vercel.app/api/ai/v1/router/chat", {
+  const response = await fetch("https://mintbase-wallet-jl7sxv687-mintbase.vercel.app/api/ai/v1/router/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
