@@ -28,31 +28,34 @@ const useMintImage = () => {
 
   const getImageAsBlob = async (url: string): Promise<Blob | null> => {
     try {
-        // Fetch the image
-        const response = await fetch(url);
+      // Fetch the image
+      const response = await fetch(url);
 
-        if (!response.ok) {
-            throw new Error(`Failed to fetch image. Status code: ${response.status}`);
-        }
+      if (!response.ok) {
+        throw new Error(`Failed to fetch image. Status code: ${response.status}`);
+      }
 
-        // Convert the image to a Blob
-        const imageBlob = await response.blob();
+      // Convert the image to a Blob
+      const imageBlob = await response.blob();
 
-        console.log(url, imageBlob, 'blob')
-        // Create a File object from the Blob
-        const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
+      console.log(url, imageBlob, 'blob')
+      // Create a File object from the Blob
+      const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
 
-        return imageFile;
+      return imageFile;
     } catch (error: any) {
-        console.error(`Error: ${error?.message}`);
-        return null;
+      console.error(`Error: ${error?.message}`);
+      return null;
     }
-};
+  };
 
   const onSubmit = async (data: { [x: string]: any }) => {
     console.log(data, 'data')
     const wallet = await getWallet();
-    const reference = await uploadReference({media: data?.media})
+    const reference = await uploadReference({ 
+      title: data?.title, 
+      media: data?.media 
+    })
     console.log("arweave link: https://arweave.net/" + reference.id);
 
     await handleMint(reference.id, activeAccountId as string, wallet);
@@ -71,7 +74,7 @@ const useMintImage = () => {
       const mintCall = mint({
         noMedia: true,
         metadata: {
-          reference:reference
+          reference: reference
         },
         contractAddress: MintbaseWalletSetup.contractAddress,
         ownerId: activeAccountId,
