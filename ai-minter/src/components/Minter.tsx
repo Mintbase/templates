@@ -90,13 +90,10 @@ export default function Minter() {
       return;
     }
 
-    console.log(prediction, "prediction");
     setPrediction(prediction);
 
     if( prediction.status === "succeeded") {
       form.setValue('media', prediction?.output[prediction.output.length-1])
-
-      console.log(form.getValues("media"), 'form.getValues("description")')
     }
 
     while (
@@ -110,28 +107,18 @@ export default function Minter() {
         setError(prediction.error);
         return;
       }
-      console.log({ prediction });
       setPrediction(prediction);
     }
   };
 
   const handleSubmit = async () => {
-
           form.setValue('media', promptResult?.output[promptResult.output.length-1] || '');
-
           await onSubmit(form.getValues());
-          console.log(form.getValues());
-
   }
 
-  console.log(
-     promptResult?.status !== null &&
-              promptResult?.status == "succeeded", promptResult?.output
-  )
 
   function handleModelChange(value: string): void {
     setModel(value);
-    console.log(value, "model hash")
   }
 
   return (

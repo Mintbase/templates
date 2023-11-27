@@ -38,7 +38,6 @@ const useMintImage = () => {
       // Convert the image to a Blob
       const imageBlob = await response.blob();
 
-      console.log(url, imageBlob, 'blob')
       // Create a File object from the Blob
       const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
 
@@ -50,13 +49,11 @@ const useMintImage = () => {
   };
 
   const onSubmit = async (data: { [x: string]: any }) => {
-    console.log(data, 'data')
     const wallet = await getWallet();
     const reference = await uploadReference({ 
       title: data?.title, 
       media: data?.media 
     })
-    console.log("arweave link: https://arweave.net/" + reference.id);
 
     await handleMint(reference.id, activeAccountId as string, wallet);
   };
@@ -79,9 +76,7 @@ const useMintImage = () => {
         contractAddress: MintbaseWalletSetup.contractAddress,
         ownerId: activeAccountId,
       });
-      console.log(mintCall, "mintCall")
       const res = await execute({ wallet }, mintCall);
-      console.log("result: ", res);
     }
   }
 
