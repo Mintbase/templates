@@ -2,6 +2,7 @@
 
 import { useLatestBlogs } from "@/hooks/useLatestBlogs";
 import BlogCard from "./blog-card";
+import { MINTBASE_CONTRACTS } from "@mintbase-js/sdk";
 
 const LatestBlogs = () => {
   const { contracts } = useLatestBlogs();
@@ -14,7 +15,7 @@ const LatestBlogs = () => {
           ({ nft_contract_id: id, nft_contract_owner_id: owner }, index) => (
             <BlogCard
               key={`${id}-${index}`}
-              title={id.replace(".mintspace2.testnet", "")}
+              title={id.replace(`.${MINTBASE_CONTRACTS.testnet}`, "")}
               subtitle={id}
               owner={owner}
             />

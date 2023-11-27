@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 
 import { useUserBlogs } from "@/hooks/useUserBlogs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { execute, mint } from "@mintbase-js/sdk";
+import { MINTBASE_CONTRACTS, execute, mint } from "@mintbase-js/sdk";
 import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import * as z from "zod";
@@ -163,7 +163,7 @@ export function CreatePostDialog() {
                       <SelectContent>
                         {blogs?.map(({ id }, index) => (
                           <SelectItem key={`${id}-${index}`} value={id}>
-                            {id?.replace(".mintspace2.testnet", "")}
+                            {id.replace(`.${MINTBASE_CONTRACTS.testnet}`, "")}
                           </SelectItem>
                         ))}
                       </SelectContent>

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { checkStoreName } from "@mintbase-js/data";
 import { useMbWallet } from "@mintbase-js/react";
-import { deployContract, execute } from "@mintbase-js/sdk";
+import { MINTBASE_CONTRACTS, deployContract, execute } from "@mintbase-js/sdk";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
@@ -20,8 +20,6 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
-
-const mintbaseContract = "mintspace2.testnet";
 
 const formSchema = z.object({
   name: z
@@ -53,7 +51,7 @@ export function CreateBlogDialog() {
       const deployArgs = deployContract({
         name: data.name,
         ownerId: activeAccountId,
-        factoryContractId: mintbaseContract,
+        factoryContractId: MINTBASE_CONTRACTS.testnet,
         metadata: {
           symbol: "",
         },
@@ -110,7 +108,7 @@ export function CreateBlogDialog() {
             />
             <p className="text-xs text-muted-foreground mt-2">
               Your contract will be: {form.watch("name")?.toLowerCase()}.
-              {mintbaseContract}
+              {MINTBASE_CONTRACTS.testnet}
             </p>
 
             <DialogFooter className="mt-6">
