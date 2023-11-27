@@ -26,7 +26,7 @@ export default function Home() {
 function PurchasePage() {
   const [clientSecret, setClientSecret] = useState("");
 
-  const { activeAccountId } = useMbWallet();
+  const { activeAccountId, isConnected } = useMbWallet();
 
   const onClick = async () => {
     const resp = await fetch(
@@ -35,7 +35,7 @@ function PurchasePage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          priceUsd: 1000,
+          priceUsd: constants.priceUsd,
           action: mint({
             metadata: {
               reference: "NiztQFL98n8MgYKSu7FL3vdUnU_eUlM3fsQ0o3JEQCY",
@@ -60,7 +60,6 @@ function PurchasePage() {
 
   return (
     <main className="flex flex-col gap-y-8 items-center p-12">
-      <ConnectWallet />
       <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-extrabold">{"Token Title"}</h2>
@@ -90,6 +89,21 @@ function PurchasePage() {
             <CreditCardForm />
           </Elements>
         )}
+
+        <div className="flex gap-2">
+          <ConnectWallet />
+
+          {isConnected && (
+            <a
+              className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg disabled:bg-gray-400 disabled:opacity-50 text-center"
+              href={`https://${
+                constants.network === "testnet" ? "testnet." : ""
+              }mintbase.xyz/human/${activeAccountId}/owned`}
+            >
+              See collection
+            </a>
+          )}
+        </div>
       </div>
     </main>
   );
@@ -100,7 +114,6 @@ const CreditCardForm = () => {
   const stripe = useStripe();
   const [isLoading, setIsLoading] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
-  const { activeAccountId } = useMbWallet();
 
   const onClick = async () => {
     if (!stripe || !elements) {
@@ -150,10 +163,6 @@ const CreditCardForm = () => {
           ? "Please wait..."
           : "Pay now"}
       </button>
-
-      <a
-        href={`https://testnet.mintbase.xyz/human/${activeAccountId}/owned`}
-      >See colletion</a>
     </>
   );
 };

@@ -8,6 +8,4 @@
 
 
 1. Deploy a mintbase contract
-3. Setup a NEAR account
-4. Create a Stripe account
-5. Set env vars for NEAR and Stripe
+2. Add `mintbus.testnet` as a minter to that contract
