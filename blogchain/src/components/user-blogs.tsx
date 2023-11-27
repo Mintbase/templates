@@ -1,6 +1,7 @@
 import { useUserBlogs } from "@/hooks/useUserBlogs";
 import { useMbWallet } from "@mintbase-js/react";
 import BlogCard from "./blog-card";
+import { MINTBASE_CONTRACTS } from "@mintbase-js/sdk";
 
 const UserBlogs = () => {
   const { activeAccountId } = useMbWallet();
@@ -14,7 +15,7 @@ const UserBlogs = () => {
       {blogs?.map(({ id }, index) => (
         <BlogCard
           key={`${id}-${index}`}
-          title={id.replace(".mintspace2.testnet", "")}
+          title={id.replace(`.${MINTBASE_CONTRACTS.testnet}`, "")}
           subtitle={id}
           owner={accountId}
         />
