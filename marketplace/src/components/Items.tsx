@@ -73,7 +73,7 @@ function Items({
             />
           </div>
           <MbDropdownMenu
-            items={storeTabs}
+            items={storeTabs || []}
             isOpen={menuOpen}
             className="mt-2"
           />
