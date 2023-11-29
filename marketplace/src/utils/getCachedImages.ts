@@ -1,8 +1,8 @@
 export const getCachedImage = (
   image: string,
   useThumbnail?: boolean,
-): string => {
-  let url: string = null;
+): string | null => {
+  let url = null;
   const checkCache = typeof process.env.NEXT_PUBLIC_IMAGE_CACHE_MEDIA_URL === 'string';
   const checkThumbnailCache = typeof process.env.NEXT_PUBLIC_IMAGE_CACHE_THUMBNAIL_URL === 'string';
   const checkImage = typeof image === 'string';
