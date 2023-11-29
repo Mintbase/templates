@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 import "../styles.css";
 import "./globals.css";
 
-import Header from "@/components/Header";
 import { MintbaseWalletContextProvider } from "@mintbase-js/react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
