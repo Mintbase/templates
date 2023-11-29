@@ -25,7 +25,7 @@ import { getImageData } from "@/hooks/utils";
 export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
 
-  return (
+  return ( 
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>
@@ -52,7 +52,7 @@ export default function Minter() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Prompt" {...field} />{" "}
+                    <Textarea placeholder="Description" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
