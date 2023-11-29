@@ -2,12 +2,9 @@
 import { useMbWallet } from "@mintbase-js/react";
 import { MbButton } from "mintbase-ui";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const Header = () => {
-  const { isConnected, selector, connect, activeAccountId, disconnect } =
-    useMbWallet();
-  const router = useRouter();
+  const { isConnected, connect, activeAccountId, disconnect } = useMbWallet();
 
   const buttonLabel = isConnected
     ? `Sign Out ${activeAccountId}`
