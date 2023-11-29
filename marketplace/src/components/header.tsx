@@ -1,21 +1,19 @@
 "use client";
 import { useMbWallet } from "@mintbase-js/react";
+import { MbButton } from "mintbase-ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Header = () => {
-  const { isConnected, selector, connect, activeAccountId } = useMbWallet();
+  const { isConnected, selector, connect, activeAccountId, disconnect } =
+    useMbWallet();
   const router = useRouter();
 
-  const handleSignout = async () => {
-    const wallet = await selector.wallet();
-    router.push("/");
-    return wallet.signOut();
-  };
+  const buttonLabel = isConnected
+    ? `Sign Out ${activeAccountId}`
+    : " Connect NEAR Wallet";
 
-  const handleSignIn = async () => {
-    return connect();
-  };
+  const buttonAction = isConnected ? disconnect : connect;
 
   return (
     <div className="flex justify-between items-center bg-white p-4 sticky top-0 border-b z-30">
@@ -23,24 +21,7 @@ const Header = () => {
         <div className="text-black font-bold">MARKET</div>
       </Link>
       <div>
-        {isConnected ? (
-          <div className="flex gap-4 items-center">
-            <div className="hidden sm:block">{activeAccountId}</div>
-            <button
-              className="bg-black text-white rounded p-3"
-              onClick={handleSignout}
-            >
-              Disconnect
-            </button>
-          </div>
-        ) : (
-          <button
-            className="bg-black text-white rounded p-3"
-            onClick={handleSignIn}
-          >
-            Connect
-          </button>
-        )}
+        <MbButton onClick={buttonAction} label={buttonLabel} />
       </div>
     </div>
   );

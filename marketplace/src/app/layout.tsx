@@ -1,13 +1,13 @@
 "use client";
 
-import { Inter } from "next/font/google";
-import "./globals.css";
 import "@near-wallet-selector/modal-ui/styles.css";
+import { Inter } from "next/font/google";
 import "../styles.css";
+import "./globals.css";
 
+import Header from "@/components/Header";
 import { MintbaseWalletContextProvider } from "@mintbase-js/react";
-import Header from "@/components/header";
-import Head from "next/head";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,17 +22,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const queryClient = new QueryClient();
+
   return (
-    <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
-      <Head>
-        <title>Mintbase - Simple Marketplace Example</title>
-      </Head>
-      <html lang="en">
-        <body className={inter.className}>
-          <Header />
-          <div className="min-h-screen">{children}</div>
-        </body>
-      </html>
-    </MintbaseWalletContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
+        <html lang="en">
+          <body className={inter.className}>
+            <Header />
+            <div className="min-h-screen">{children}</div>
+          </body>
+        </html>
+      </MintbaseWalletContextProvider>
+    </QueryClientProvider>
   );
 }
