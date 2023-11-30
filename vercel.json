@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/blogchain",
+      "destination": "https:/examples-blogchain.vercel.app"
+    }
+  ]
+}
