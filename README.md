@@ -2,7 +2,7 @@
 
 - This is the main templates repository for [Mintbase.js](https://github.com/mintbase/mintbase-js)
 
-## Projects
+## Templates
 
 - [Starter](./starter/next-js/)
 - [Starter React Vite](./starter/react-vite/)
