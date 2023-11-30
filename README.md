@@ -1,6 +1,6 @@
 # Mintbase.js Templates
 
-- This is the main templates repository for [Mintbase.js](https://github.com/mintbase/mintbase-js) templates
+- This is the main templates repository for [Mintbase.js](https://github.com/mintbase/mintbase-js)
 
 ## Projects
 
