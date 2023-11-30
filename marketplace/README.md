@@ -1,81 +1,106 @@
+---
+name: Simple Marketplace
+slug: simple-marketplace
+description: Simple Marketplace on MintBase
+framework: Next.js
+css: Tailwind
+deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-marketplace
+demoUrl: https://examples-simple-marketplace.vercel.app/
+---
 
-# Mintbase Starter
+# Simple Marketplace
 
-This is a simple-login project that uses [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) as Provider to showcase Mintbase Wallet usage.
-It uses Next.js 14.
+This examples shows a simple marketplace.
 
+## Demo
 
+https://examples-simple-marketplace.vercel.app/
+
+## Requirements
+
+- [Setup a Near Wallet](https://wallet.testnet.near.org/)
+- [Setup a Mintbase store aka Smart Contract](https://www.youtube.com/watch?v=Ck2EPrtuxa8) and [Mint NFTS](https://www.youtube.com/watch?v=6L_aAnJc3hM):
+- [Get a Developer Key](https://testnet.mintbase.io/developer)
+
+## Try on CodeSandbox
+
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/examples/tree/main/simple-marketplace)
+
+## One-Click Deploy
+
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Fexamples%2Ftree%2Fmain%2Fsimple-marketplace)
 
 ## Getting Started
-First run install 
-```bash
 
-npm  install
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+
+```bash
+npx create-next-app --example https://github.com/Mintbase/examples/tree/main/simple-marketplace
+# or
+yarn create next-app --example https://github.com/Mintbase/examples/tree/main/simple-marketplace
+```
+
+Run Next.js in development mode:
+
+```bash
+npm install
+npm run dev
 
 # or
+
 yarn
-
-# or
-
-pnpm install
-
+yarn dev
 ```
 
-  
+## Set ENV variables
 
-Second, run the development server:
+Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
 
 ```bash
-
-npm  run  dev
-
-# or
-yarn  dev
-
-# or
-
-pnpm  dev
-
+cp .env.example .env.local
 ```
 
-  
+if you use windows without powershell or cygwin:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+copy .env.example .env.local
+```
 
-  
+To get your `api key` visit :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Mintbase Developers Page for Mainnet](https://www.mintbase.io/developer):  
+[Mintbase Developers Page for testnet](https://testnet.mintbase.io/developer):
 
-  
+```
+NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`NEXT_PUBLIC_NETWORK` could be `testnet` or `mainnet`
 
-  
+```
+NEXT_PUBLIC_NETWORK=testnet
+```
 
-## Learn More
+`NEXT_PUBLIC_STORES` its your stores ids
 
-  
+```
+NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
+```
 
-To learn more about Next.js, take a look at the following resources:
+`NEXT_PUBLIC_AFFILIATE_ACCOUNT` is your near account where your should get your market fee
 
-  
+```
+NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+## Extending
 
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is setup using Next.js + MintBase UI + Tailwind + Apollo.
+You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
-  
+## 🙋‍♀️ Need extra help?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-  
-
-## Deploy on Vercel
-
-  
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-  
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Ask on our Telegram Channel](https://t.me/mintdev) <br/>
+[Create an Issue](https://github.com/Mintbase/examples/issues)
