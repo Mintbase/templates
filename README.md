@@ -7,15 +7,15 @@
   
 | Template | Demo |
 |--|--|
-| [Starter](./starter/next-js/) | [Demo](https://mintbase-starter.vercel.app) |
-| [Starter React Vite](./starter/react-vite/)| [Demo](https://starter-react-vite.vercel.app) |
-| [AI Chat](./ai-chat) | [Demo](https://ai-chat-template-mintbase.vercel.app) |
-| [AI Minter](./ai-minter/) | [Demo](https://ai-minter.vercel.app/) |
-| [Blogchain](./blogchain/) | [Demo](https://blogchain-template.vercel.app) |
-| [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.vercel.app/) |
-| [Minter](./minter/) | [Demo](https://minter-template.vercel.app/) |
-| [Marketplace](./marketplace/) | [Demo](https://marketplace-template.vercel.app) |
-| [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.vercel.app) | [Token Drop](./simple-token-drop) | [Demo](https://token-drop-template.vercel.app) |
+| [Starter](./starter/next-js/) | [Demo](https://starter.mintbase.xyz/) |
+| [Starter React Vite](./starter/react-vite/)| [Demo](https://starter-react-vite.mintbase.xyz/) |
+| [AI Chat](./ai-chat) | [Demo](https://ai-chat.mintbase.xyz/) |
+| [AI Minter](./ai-minter/) | [Demo](https://ai-minter.mintbase.xyz/) |
+| [Blogchain](./blogchain/) | [Demo](https://blogchain.mintbase.xyz) |
+| [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.mintbase.xyz/) |
+| [Minter](./minter/) | [Demo](https://minter.mintbase.xyz/) |
+| [Marketplace](./marketplace/) | [Demo](https://marketplace-template.mintbase.xyz/) |
+| [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.mintbase.xyz/) | [Token Drop](./simple-token-drop) | [Demo](https://token-drop-template.mintbase.xyz/) |
 
 
 ## Contributing
