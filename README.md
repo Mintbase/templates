@@ -1,11 +1,11 @@
-# Templates
+# Mintbase.js Templates
 
-- This is the main templates repository for Mintbase.js templates
+- This is the main templates repository for [Mintbase.js](https://github.com/mintbase/mintbase-js) templates
 
 ## Projects
 
 - [Starter](./starter/next-js/)
-- [Starter React Vite](./starter/next-js/)
+- [Starter React Vite](./starter/react-vite/)
 - [AI Chat](./ai-chat)
 - [AI Minter](./ai-minter)
 - [Blogchain](./blogchain/)
