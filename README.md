@@ -22,7 +22,7 @@
 
  
 - [Starter](https://mintbase-starter.vercel.app)
-- [Starter React Vite](https://mintbase-starter.vercel.app)
+- [Starter React Vite](https://starter-react-vite.vercel.app)
 - [AI Chat](https://ai-chat-template-mintbase.vercel.app)
 - [AI Minter](https://ai-minter.vercel.app/)
 - [Blogchain](https://blogchain-template.vercel.app)
