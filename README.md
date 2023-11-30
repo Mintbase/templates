@@ -4,36 +4,19 @@
 
 ## Templates
 
-- [Starter](./starter/next-js/)
-- [Starter React Vite](./starter/react-vite/)
-- [AI Chat](./ai-chat)
-- [AI Minter](./ai-minter)
-- [Blogchain](./blogchain/)
-- [Contract Deployer](./contract-deployer)
-- [Minter](./minter)
-- [Marketplace](./marketplace)
-- [NFT Stripe Checkout](./nft-stripe-checkout)
-- [Token Drop](./simple-token-drop)
-
   
-  
+| Template | Demo |
+|--|--|
+| [Starter](./starter/next-js/) | [Demo](https://mintbase-starter.vercel.app) |
+| [Starter React Vite](./starter/react-vite/)| [Demo](https://starter-react-vite.vercel.app) |
+| [AI Chat](./ai-chat) | [Demo](https://ai-chat-template-mintbase.vercel.app) |
+| [AI Minter](./ai-minter/) | [Demo](https://ai-minter.vercel.app/) |
+| [Blogchain](./blogchain/) | [Demo](https://blogchain-template.vercel.app) |
+| [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.vercel.app/) |
+| [Minter](./minter/) | [Demo](https://minter-template.vercel.app/) |
+| [Marketplace](./marketplace/) | [Demo](https://marketplace-template.vercel.app) |
+| [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.vercel.app) | [Token Drop](./simple-token-drop) | [Demo](https://token-drop-template.vercel.app) |
 
-## Demos
-
- 
-- [Starter](https://mintbase-starter.vercel.app)
-- [Starter React Vite](https://starter-react-vite.vercel.app)
-- [AI Chat](https://ai-chat-template-mintbase.vercel.app)
-- [AI Minter](https://ai-minter.vercel.app/)
-- [Blogchain](https://blogchain-template.vercel.app)
-- [Contract Deployer](https://contract-deployer-template.vercel.app/)
-- [Minter](https://minter-template.vercel.app/)
-- [Marketplace](https://marketplace-template.vercel.app)
-- [NFT Stripe Checkout](https://nft-stripe-checkout.vercel.app)
-- [Token Drop](https://token-drop-template.vercel.app)
-
-  
-  
 
 ## Contributing
 
@@ -62,9 +45,9 @@ This is the branch for development used by the team and/or other contributors fr
 Except main and dev branch other branches are work in progress by the team or related to the open PR(s).
 
 ### Criteria
- 1. A new template to be accepted, need not to current exist
- 2. It should have an original code (not be copied)
- 3. New implementations of already existing template ( in other technologies ) are welcomed.
+ 1. For a template to be accepted, it does not need to currently exist.
+ 2. It should feature original code and not be copied from existing sources.
+ 3. We welcome new implementations of templates in different technologies, even if they are based on existing templates.
 
 
 ## Troubleshooting
