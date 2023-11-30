@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/blogchain",
-      "destination": "https:/examples-blogchain.vercel.app"
+      "destination": "https://examples-blogchain.vercel.app"
     }
   ]
 }
