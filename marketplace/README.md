@@ -1,7 +1,7 @@
 
 # Marketplace
 
-This is a simple-login project that uses [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) as Provider to showcase Mintbase Wallet usage.
+This is a simple-marketplace project that uses [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) as Provider to showcase Mintbase Wallet usage.
 It uses Next.js 14.
 
 **DEMO:** https://marketplace-template.mintbase.xyz/
