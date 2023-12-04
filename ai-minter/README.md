@@ -9,14 +9,7 @@ This is a simple AI minter example built on top of **Next.js 14** using some of 
 
 - [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
 
-  
-## AI Chat
-
 **DEMO:** https://ai-minter.mintbase.xyz/
-
-
-
-
 
 ### Setup
 on the file *config/setup.ts* you have the object
