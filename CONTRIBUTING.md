@@ -1,4 +1,3 @@
-
 ## Contributing
 
 You can send us your dapp project using Mintbase.js and be showcased here.
