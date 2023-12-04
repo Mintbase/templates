@@ -1,6 +1,6 @@
-## AI Chat
+## Simple Token Drop
 
-**DEMO:** https://ai-chat.mintbase.xyz/
+**DEMO:** https://token-drop-template.mintbase.xyz/
 
 
 ## Get in touch
