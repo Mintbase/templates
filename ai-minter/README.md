@@ -9,7 +9,8 @@ This is a simple AI minter example built on top of **Next.js 14** using some of 
 
 - [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
 
-  
+**DEMO:** https://ai-minter.mintbase.xyz/
+
 ### Setup
 on the file *config/setup.ts* you have the object
 
@@ -37,3 +38,10 @@ pnpm dev
 
 This project is setup using Next.js + @mintbase/js +  shadcn ui + react hook form
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
+
+
+
+## Get in touch
+
+- Support: [Join the Telegram](https://tg.me/mintdev)
+- Twitter: [@mintbase](https://twitter.com/mintbase)
