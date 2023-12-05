@@ -1,5 +1,8 @@
 # Simple Token Drop
 
+**DEMO:** https://token-drop-template.mintbase.xyz/
+
+
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can seamlessly connect their wallets and initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
 
 ## Run the project
@@ -149,6 +152,12 @@ const handleClientMint = async () => {
     }
 
 ```
+
+
+## Get in touch
+
+- Support: [Join the Telegram](https://tg.me/mintdev)
+- Twitter: [@mintbase](https://twitter.com/mintbase)
 
 
 
