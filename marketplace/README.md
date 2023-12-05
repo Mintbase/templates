@@ -1,82 +1,65 @@
+## Simple Marketplace
 
-# Marketplace
-
-This is a simple-marketplace project that uses [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) as Provider to showcase Mintbase Wallet usage.
-It uses Next.js 14.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/templates/tree/main/marketplace) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/templates/tree/main/marketplace)
 
 **DEMO:** https://marketplace-template.mintbase.xyz/
 
+This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
 
-## Getting Started
-First run install 
-```bash
 
-npm  install
+- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute contract calls
+- [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
+- [@mintbase.js/data](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data) to fetch indexer data
 
-# or
-yarn
+### Setup
 
-# or
-
+install dependencies
+```
 pnpm install
-
+```
+and 
+run the project
+```
+pnpm dev
 ```
 
-  
+## Set ENV variables
 
-Second, run the development server:
+Once that's done, copy the `.env.example` file in this directory to `.env.local` (which will be ignored by Git):
 
 ```bash
-
-npm  run  dev
-
-# or
-yarn  dev
-
-# or
-
-pnpm  dev
-
+cp .env.example .env.local
 ```
 
-  
+if you use windows without powershell or cygwin:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+copy .env.example .env.local
+```
 
-  
+To get your `api key` visit :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Mintbase Developers Page for Mainnet](https://www.mintbase.xyz/developer):  
+[Mintbase Developers Page for testnet](https://testnet.mintbase.xyz/developer):
 
-  
+```
+NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`NEXT_PUBLIC_NETWORK` could be `testnet` or `mainnet`
 
-  
+```
+NEXT_PUBLIC_NETWORK=testnet
+```
 
-## Learn More
+`NEXT_PUBLIC_STORES` is your store's ids
 
-  
+```
+NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
+```
 
-To learn more about Next.js, take a look at the following resources:
+`NEXT_PUBLIC_AFFILIATE_ACCOUNT` is your near account where your should get your market fee
 
-  
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-  
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-  
-
-## Deploy on Vercel
-
-  
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-  
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
+```
