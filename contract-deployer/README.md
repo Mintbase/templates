@@ -1,7 +1,7 @@
 
 ## Contract Deployer
 
-**DEMO:** https://templates.mintbase.xyz/contract-deployer
+**DEMO:** https://contract-deployer-template.mintbase.xyz/
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/templates/tree/main/contract-deployer) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/templates/tree/main/contract-deployer)
 
