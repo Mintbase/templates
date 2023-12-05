@@ -1,7 +1,7 @@
 
 ## Minter
 
-**DEMO:** https://examples.mintbase.xyz/minter
+**DEMO:** https://minter.mintbase.xyz/
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/examples/tree/main/minter) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/examples/tree/main/minter)
 

@@ -26,11 +26,3 @@ run the project
 ```
 pnpm dev
 ```
-
-
-## Extending
-
-This project is setup using Next.js + @mintbase/js +  shadcn ui + react hook form
-You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
-
-## 🙋‍♀️ Need extra help?
