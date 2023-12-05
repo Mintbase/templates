@@ -51,7 +51,7 @@ NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key
 NEXT_PUBLIC_NETWORK=testnet
 ```
 
-`NEXT_PUBLIC_STORES` its your stores ids
+`NEXT_PUBLIC_STORES` is your store's ids
 
 ```
 NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
