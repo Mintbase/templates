@@ -6,6 +6,7 @@
 
 This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
 
+
 - [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute contract calls
 - [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
 - [@mintbase.js/data](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data) to fetch indexer data
@@ -38,8 +39,8 @@ copy .env.example .env.local
 
 To get your `api key` visit :
 
-[Mintbase Developers Page for Mainnet](https://www.mintbase.io/developer):  
-[Mintbase Developers Page for testnet](https://testnet.mintbase.io/developer):
+[Mintbase Developers Page for Mainnet](https://www.mintbase.xyz/developer):  
+[Mintbase Developers Page for testnet](https://testnet.mintbase.xyz/developer):
 
 ```
 NEXT_PUBLIC_DEVELOPER_KEY=your_mintbase_api_key

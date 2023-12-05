@@ -1,6 +1,5 @@
-import { FinalExecutionOutcome } from "@mintbase-js/auth";
 import { useMbWallet } from "@mintbase-js/react";
-import { TransactionSuccessEnum, buy, execute } from "@mintbase-js/sdk";
+import { FinalExecutionOutcome, TransactionSuccessEnum, buy, execute } from "@mintbase-js/sdk";
 import {
   EState,
   MbAmountInput,
