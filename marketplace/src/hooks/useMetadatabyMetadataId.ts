@@ -10,6 +10,7 @@ import { MetadataByMetadataIdQueryResult } from "@mintbase-js/data/lib/api/metad
 import { useQuery } from "react-query";
 import { SelectedNft, TokenListData } from "../types/types";
 import { parseYactoToNear } from "@/utils/numbers";
+import { Network } from "@mintbase-js/sdk";
 
 const mapMetadata = (
   metadata: ParsedDataReturn<MetadataByMetadataIdQueryResult>
@@ -48,7 +49,11 @@ const useMetadataByMetadataId = ({
 }: SelectedNft): Partial<TokenListData> => {
   const { isLoading, data: metadata } = useQuery(
     "metadataByMetadataId",
-    () => metadataByMetadataId(metadataId),
+    () =>
+      metadataByMetadataId(
+        metadataId,
+        (process?.env?.NEXT_PUBLIC_NETWORK as Network) || "testnet"
+      ),
     {
       retry: false,
       refetchOnWindowFocus: false,
