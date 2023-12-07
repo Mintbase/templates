@@ -2,6 +2,7 @@
 
 AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Mintbase Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.
 
+[Demo](https://ai-chat.mintbase.xyz)
 
 ## Setup
 

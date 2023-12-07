@@ -3,6 +3,7 @@
 
 NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe. It uses the Mintbase Wallet for user authentication.
 
+[Demo](https://nft-stripe-checkout.mintbase.xyz)
 
 ## Getting Started
 
