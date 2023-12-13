@@ -30,7 +30,7 @@ export default function Minter() {
     return (
         <>
             <div className="text-center">
-                <h1 className="text-black text-2xl font-medium">Simple Token Drop</h1>
+                <h1 className="text-black text-2xl font-medium">Claim free token!</h1>
                 <div className="mt-4">
                     <img
                         src="https://24njbleuvrkggjnr6s3pk473n4jc3buhmy3gnrtfms7jueolq6gq.arweave.net/1xqQrJSsVGMlsfS29XP7bxIthodmNmbGZWS-mhHLh40"
