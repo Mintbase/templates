@@ -5,8 +5,13 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { checkStoreName } from "@mintbase-js/data";
 import { useMbWallet } from "@mintbase-js/react";
-import { MINTBASE_CONTRACTS, deployContract, execute } from "@mintbase-js/sdk";
-import { Plus } from "lucide-react";
+import {
+  MINTBASE_CONTRACTS,
+  NEAR_NETWORKS,
+  deployContract,
+  execute,
+} from "@mintbase-js/sdk";
+import { Network, Plus } from "lucide-react";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import * as z from "zod";
@@ -43,7 +48,10 @@ export function CreateBlogDialog() {
 
   const handleDeployContract = async (data: FieldValues): Promise<void> => {
     if (!activeAccountId) return;
-    const { data: checkStore } = await checkStoreName(data.name);
+    const { data: checkStore } = await checkStoreName(
+      data.name,
+      NEAR_NETWORKS.TESTNET
+    );
 
     if (checkStore?.nft_contracts.length === 0) {
       setError("");
