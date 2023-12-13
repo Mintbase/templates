@@ -3,7 +3,7 @@
 **DEMO:** https://token-drop-template.mintbase.xyz/
 
 
-This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can seamlessly connect their wallets and initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
+This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can connect or create a wallet to initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
 
 ## Run the project
     pnpm i
@@ -12,7 +12,7 @@ This example illustrates the creation of a straightforward minting landing page 
 
 ## Project Walkthrough
 
-The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one handles a wallet conneciton and uses that to mint.
+The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
 ## Autoimport mint
 
@@ -92,66 +92,34 @@ export const serverMint = async (): Promise<void> => {
 ```
 
 
-## Client side wallet connection minting
+## Client side minting through mintbase wallet deeplink
 
 
-### Step 1: Add wallet connection to your app
-
-[Follow this guide to add wallet connection to your app](https://docs.mintbase.xyz/dev/getting-started/add-wallet-connection-to-your-react-app)
-
-### Step 2: Handle Wallet Connection
-
-This component adds buttons for connecting and disconnecting the wallet based on data returned from the wallet hook
-
+This function triggers the client-side minting process using a Deeplink. It retrieves mint parameters
+using the mintArgs function, constructs transaction arguments, and redirects to the Mintbase wallet
+for transaction signing.
+     
 ```typescript
-export const NearWalletConnector = () => {
-  const { isConnected, selector, connect, activeAccountId } = useMbWallet();
-
-  const handleSignout = async () => {
-    const wallet = await selector.wallet();
-    return wallet.signOut();
-  };
-
-  const handleSignIn = async () => {
-    return connect();
-  };
-
-  if (!isConnected) {
-    return <button className="bg-black text-white rounded p-3 hover:bg-[#e1e1e1] w-44" onClick={handleSignIn}>Connect </button>;
-  }
-
-  return (
-
-    <button className="bg-black text-white rounded p-3 hover:bg-[#e1e1e1] w-44" onClick={handleSignout}> Disconnect </button>
-
-  );
-};
-```
-
-### Step 3: Execute mint
-
-Get the current wallet state and use that to execute the mint with the previously described args from the mintbase-js/sdk.
-
-The wallet connection is passed into the execute function as well as a callback url which indicates where the wallet will redirect to once the transaction is successful.
-
-```typescript
-
-const { activeAccountId, selector, isConnected } = useMbWallet();
-
-
-const handleClientMint = async () => {
+ 
+    const handleClientMint = async () => {
+        // Set loading state to true during transaction processing
         setTxLoading(true);
-        if (!selector.wallet || !activeAccountId) {
-            console.error("Failed to mint trigger mint")
-            return
-        }
 
-        const wallet = await selector.wallet();
-        await execute({ wallet: wallet, callbackUrl: CALLBACK_URL }, await mintArgs(activeAccountId))
+        // Retrieve mint parameters using mintArgs function
+        const mintParams = await mintArgs("");
 
+        // Create an action object for the mint, specifying type and parameters
+        const action = { type: "FunctionCall", params: mintParams }
+
+        // Create transaction arguments in JSON format with receiverId and actions array
+        const txArgs = JSON.stringify({ receiverId: "1.minsta.mintbus.near", actions: [action] })
+
+        // Redirect to the Mintbase wallet for transaction signing
+        router.push(`https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=[${txArgs}]`)
     }
 
-```
+``````
+
 
 
 ## Get in touch
