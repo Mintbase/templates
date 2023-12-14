@@ -21,7 +21,6 @@ export default function RootLayout({
     <MintbaseWalletContextProvider
       contractAddress="hellovirtualworld.mintspace2.testnet"
       network="testnet"
-      callbackUrl="http://localhost:3000"
     >
       <QueryClientProvider client={queryClient}>
         <html lang="en">
