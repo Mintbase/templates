@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Minter from "./Minter";
 
 export const metadata: Metadata = {
-  title: "Mintbase Simple Airdrop Example",
-  description: "Simple Airdrop with Next.js 14",
+  title: "Mintbase Airdrop",
+  description: "Claim a free nft",
 };
 
 export default function Home() {
