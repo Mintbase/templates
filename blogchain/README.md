@@ -1,13 +1,23 @@
+# Blogchain
 
-## Blogchain
+<img src="https://i.imgur.com/kkobnAH.png" alt="cover_image" width="250"/>
 
-**DEMO:** https://blogchain.mintbase.xyz/
+Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into smart contracts and posts into NFTs.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/examples/tree/main/blogchain) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/examples/tree/main/blogchain)
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://blogchain.mintbase.xyz/)
+[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/examples/tree/main/blogchain)
 
+**Tooling:**
 
-Welcome to Blogchain: the decentralized writer's blog. 
-Transform your blogs into smart contracts and posts into NFTs. 
+[![Use Case](https://img.shields.io/badge/Use%20Case-Token%20Drops-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-Mb--js%3A%20SDK%2C%20Mb--js%3A%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+
+**Author:**
+
+[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+
+## Project Walkthrough
 
 This example was built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
 
@@ -19,7 +29,6 @@ This example was built on top of **Next.js 14** using some of [@mintbase-js](htt
 [Mintbase Docs - Deploy Contract](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract)
 [Mintbase Docs - Mint NFT](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/mint)
 [Mintbase Docs - Upload Data to Arweave](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/storage)
-
 
 ### Setup
 install dependencies

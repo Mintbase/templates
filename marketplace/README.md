@@ -1,15 +1,26 @@
-## Simple Marketplace
+# Simple Marketplace
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/templates/tree/main/marketplace) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/templates/tree/main/marketplace)
+<img src="https://i.imgur.com/kkobnAH.png" alt="cover_image" width="250"/>
 
-**DEMO:** https://marketplace-template.mintbase.xyz/
+This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
 
-This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://marketplace-template.mintbase.xyz/)
+[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/templates/tree/main/marketplace)
 
 
-- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute contract calls
-- [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
-- [@mintbase.js/data](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data) to fetch indexer data
+**Tooling:**
+
+[![Use Case](https://img.shields.io/badge/Use%20Case-NFT%20Markeplace,%20Affiliate%20Marketing-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase--js/sdk,%20@mintbase--js/react,%20@mintbase--js/data-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+
+**Author:**
+
+[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+
+
+## Project Walkthrough
+
 
 ### Setup
 
@@ -63,3 +74,6 @@ NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
 ```
 NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
 ```
+
+
+

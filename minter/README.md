@@ -1,20 +1,23 @@
+# Minter
 
-## Minter
-
-**DEMO:** https://minter.mintbase.xyz/
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/examples/tree/main/minter) [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/Mintbase/examples/tree/main/minter)
-
+<img src="https://i.imgur.com/kkobnAH.png" alt="cover_image" width="250"/>
 
 This is a simple minter example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
 
-- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute call when minting
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
+[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/examples/tree/main/minter)
 
-- [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
+**Tooling:**
 
-- [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
+[![Use Case](https://img.shields.io/badge/Use%20Case-Minting-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase--js/sdk,%20@mintbase--js/react,%20@mintbase--js/storage-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
 
-  
+**Author:**
+
+[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+
+## Project Walkthrough
 ### Setup
 on the file *layout.tsx* you have the object
 
