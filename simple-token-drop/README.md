@@ -1,6 +1,8 @@
 # Simple Token Drop
 
+
 <img src="https://i.imgur.com/kkobnAH.png" alt="cover_image" width="250"/>
+
 
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can connect or create a wallet to initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
 
@@ -24,7 +26,9 @@ This example illustrates the creation of a straightforward minting landing page 
 
 ## Project Walkthrough
 
+
 <img src="https://i.imgur.com/5uKkFpr.png" alt="detail_image" width="500"/>
+
 
 The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
