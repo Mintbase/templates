@@ -22,31 +22,43 @@
 
 ## Contributing
 
-  
-
-You can send us your dapp project using Mintbase.js and be showcased here.
-
-All you have to do is open a P/R with the project inside a folder.
-
-We use Next.js 14 as the standard framework, but other frameworks/libs using mintbase.js are welcomed.
-
-  
-
-### Branching
-
- **Main branch**
-
-This is the default branch and will be equal the latest official release.
-
- **Other branches**
-
-Except main and dev branch other branches are work in progress by the team or related to the open PR(s).
+We are currently accepting templates to showcase usecases of web3 projects on Near Protocol.
 
 ### Criteria
  1. For a template to be accepted, it does not need to currently exist.
  2. It should feature original code and not be copied from existing sources.
  3. We welcome new implementations of templates in different technologies, even if they are based on existing templates.
+ 4. The template must respect the README format in order to be indexed by our system
 
+
+
+ ## README Template
+
+``````
+Project Name
+
+<img src="https://your-cover-image-url.png" alt="cover_image" width="250"/>
+
+Brief project description goes here. Mention the purpose, key features, or anything that provides context.
+
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://your-live-app/)
+
+[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://your-link-to-deploy-on-vercel/)
+
+**Tooling:**
+
+[![Use Case](https://img.shields.io/badge/Use%20Case-{Use%20Case%20One,%20Use%20Case%20Two}-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-Tool%20One,Tool%20Two-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+
+
+Project Walkthrough
+
+<img src="https://optional-detail-image.png" alt="detail_image" width="500"/>
+
+
+Explain the project structure, key components, or any significant details. Provide step-by-step instructions for running the project locally.
+``````
 
 ## Troubleshooting
 
