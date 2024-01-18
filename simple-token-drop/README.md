@@ -1,6 +1,5 @@
 # Simple Token Drop
-## Description
-This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can connect or create a wallet to initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
+This example illustrates the creation of a straightforward minting landing page with pre-defined metadata.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://token-drop-template.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop)
@@ -17,6 +16,9 @@ This example illustrates the creation of a straightforward minting landing page 
 
 
 ## Project Walkthrough
+
+ Users can connect or create a wallet to initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
+
 The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
 ## Run the project

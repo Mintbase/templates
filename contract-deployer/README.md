@@ -1,6 +1,5 @@
 
 # Contract Deployer
-## Description
 A Simple example of a Contract Deployer built on Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://contract-deployer-template.mintbase.xyz/)

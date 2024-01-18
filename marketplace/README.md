@@ -1,6 +1,4 @@
 # Marketplace
-## Description
-
 This is a simple marketplace example built on top of **Next.js 14** 
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://marketplace-template.mintbase.xyz/)
