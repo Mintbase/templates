@@ -1,7 +1,19 @@
+# AI Minter
+## Description
+This example illustrates an dapp where users can do Mints with AI Image Generator tools
 
-## AI Minter
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-minter)
 
-This is a simple AI minter example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
+**Tooling:**
+
+[![Use Case](https://img.shields.io/badge/Use%20Case-AI%20Image%20Generation-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/react%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
+
+**Author:**
+
+[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase)  [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 - [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute call when minting
 
@@ -9,9 +21,8 @@ This is a simple AI minter example built on top of **Next.js 14** using some of 
 
 - [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
 
-**DEMO:** https://ai-minter.mintbase.xyz/
 
-### Setup
+## Project Walkthrough
 on the file *config/setup.ts* you have the object
 
 ```ts
@@ -45,3 +56,7 @@ You can use this project as a reference to build your own, and use or remove any
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
+
+
+<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="0" />
