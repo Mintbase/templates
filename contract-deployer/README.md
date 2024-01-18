@@ -27,7 +27,6 @@ This is a simple contract deployer example built on top of **Next.js 14** using 
   
 ### Setup
 
-```ts
 install dependencies
 ```
 pnpm install
@@ -36,6 +35,7 @@ pnpm install
 run the project
 ```
 pnpm dev
+
 ```
 
 
@@ -45,4 +45,8 @@ pnpm dev
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
 <img src="https://i.imgur.com/vVplCLr.jpg" alt="cover_image" width="0" />
+<<<<<<< HEAD
 <img src="https://i.imgur.com/0hv9PBh.jpg" alt="detail_image" width="0" />
+=======
+<img src="https://i.imgur.com/0hv9PBh.jpg" alt="detail_image" width="0" />
+>>>>>>> main
