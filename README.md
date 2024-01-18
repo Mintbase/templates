@@ -35,9 +35,10 @@ We are currently accepting templates to showcase usecases of web3 projects on Ne
  ## README Template
 
 ``````
-Project Name
+# Project Name
 
-<img src="https://your-cover-image-url.png" alt="cover_image" width="250"/>
+
+## Description
 
 Brief project description goes here. Mention the purpose, key features, or anything that provides context.
 
@@ -65,3 +66,7 @@ Explain the project structure, key components, or any significant details. Provi
 Have feedback or perhaps need a hand?
 
 **Reach out on our  [Telegram](https://t.me/mintdev)  public developer support channel.**
+
+<img src="https://i.imgur.com/s9HSENw.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/zLtJSTw.jpg" alt="detail_image" width="0" />
+
