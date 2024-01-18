@@ -1,5 +1,6 @@
 
 # Contract Deployer
+<img src="https://i.imgur.com/vVplCLr.jpg" alt="cover_image" width="0" />
 A Simple example of a Contract Deployer built on Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://contract-deployer-template.mintbase.xyz/)
@@ -44,9 +45,4 @@ pnpm dev
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/vVplCLr.jpg" alt="cover_image" width="0" />
-<<<<<<< HEAD
 <img src="https://i.imgur.com/0hv9PBh.jpg" alt="detail_image" width="0" />
-=======
-<img src="https://i.imgur.com/0hv9PBh.jpg" alt="detail_image" width="0" />
->>>>>>> main

@@ -1,5 +1,5 @@
 # Minter
-
+<img src="https://i.imgur.com/6GKIiUQ.jpg" alt="cover_image" width="0" />
 This is a simple minter example built on top of **Next.js 14** 
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
@@ -54,5 +54,4 @@ You can use this project as a reference to build your own, and use or remove any
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/6GKIiUQ.jpg" alt="cover_image" width="0" />
 <img src="https://i.imgur.com/hz6lPHP.jpg" alt="detail_image" width="0" />
