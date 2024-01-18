@@ -1,5 +1,5 @@
 # Starter
-## Description
+
 This is a simple-login project with support to Next.js 14 and React Vite
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
