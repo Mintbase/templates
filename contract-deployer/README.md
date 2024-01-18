@@ -28,7 +28,6 @@ This is a simple contract deployer example built on top of **Next.js 14** using 
   
 ### Setup
 
-```ts
 install dependencies
 ```
 pnpm install
@@ -37,6 +36,7 @@ pnpm install
 run the project
 ```
 pnpm dev
+
 ```
 
 
