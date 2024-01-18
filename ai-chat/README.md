@@ -133,4 +133,4 @@ export function ConnectWallet() {
 
 
 <img src="https://i.imgur.com/JVWw82o.jpg" alt="cover_image" width="0"/>
-<img src="https://i.imgur.com/PnXxMd1.jpg" alt="detail_image" width="500"/>
+<img src="https://i.imgur.com/PnXxMd1.jpg" alt="detail_image" width="0"/>
