@@ -130,8 +130,6 @@ for transaction signing.
 
 ``````
 
-
-
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)

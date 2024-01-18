@@ -1,30 +1,22 @@
 # AI Chat
-
-AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Mintbase Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.
-
-<img src="https://i.imgur.com/JVWw82o.jpg" alt="cover_image"/>
-
 ## Description
 AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Mintbase Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.
-[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)]([https://token-drop-template.mintbase.xyz/](https://ai-chat.mintbase.xyz))
-[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://ai-chat.mintbase.xyz/)
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)]([https://ai-chat.mintbase.xyz/](https://ai-chat.mintbase.xyz))
+[![Deploy](https://img.shields.io/badge/Deploy-on%Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-chat)
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Token%20Drops-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-Mb--js%3A%20SDK%2C%20Mb--js%3A%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
-[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-AI%20Chat-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/rpc%2C%20@mintbase.js/react%2C%20@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu)[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 
 
 ## Project Walkthrough
-
-<img src="https://i.imgur.com/PnXxMd1.jpg" alt="detail_image" width="500"/>
-
 
 To get started with the project, you need to install the dependencies first. Run the following command in your terminal:
 
@@ -138,3 +130,7 @@ export function ConnectWallet() {
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
+
+
+<img src="https://i.imgur.com/JVWw82o.jpg" alt="cover_image" width="0"/>
+<img src="https://i.imgur.com/PnXxMd1.jpg" alt="detail_image" width="500"/>
