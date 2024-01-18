@@ -1,35 +1,22 @@
 # Simple Token Drop
-
-
-<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="250"/>
-
 ## Description
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata. Users can connect or create a wallet to initiate the minting process. Additionally, an option is available to generate an account that will be automatically imported into the Mintbase wallet, complete with the corresponding NFT.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://token-drop-template.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://token-drop-template.mintbase.xyz/)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop)
 
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Token%20Drops-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-Mb--js%3A%20SDK%2C%20Mb--js%3A%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
-[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/Surge_Code?style=social&logo=twitter)](https://twitter.com/Surge_Code)[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
-
-
-
-
+[![Author](https://img.shields.io/twitter/follow/Surge_Code?style=social&logo=twitter)](https://twitter.com/Surge_Code)  [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 
 ## Project Walkthrough
-
-
-<img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="500"/>
-
-
 The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
 ## Run the project
@@ -149,6 +136,9 @@ for transaction signing.
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
+
+<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="0"/>
+<img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="0"  />
 
 
 
