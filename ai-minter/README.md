@@ -57,6 +57,6 @@ You can use this project as a reference to build your own, and use or remove any
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
+<img src="https://i.imgur.com/s9HSENw.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/zLtJSTw.jpg" alt="cover_image" width="0" />
 
-<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="0" />
-<img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="0" />
