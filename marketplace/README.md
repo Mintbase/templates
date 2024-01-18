@@ -1,26 +1,24 @@
-# Simple Marketplace
+# Marketplace
+## Description
 
-<img src="https://i.imgur.com/kkobnAH.png" alt="cover_image" width="250"/>
-
-This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
+This is a simple marketplace example built on top of **Next.js 14** 
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://marketplace-template.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Mintbase/templates/tree/main/marketplace)
-
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fmarketplace)
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-NFT%20Markeplace,%20Affiliate%20Marketing-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase--js/sdk,%20@mintbase--js/react,%20@mintbase--js/data-blue)](#)
-[![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Contract%20Deployer-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/react%2C%20@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
-
+[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 ## Project Walkthrough
 
+This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
 
 ### Setup
 
@@ -75,5 +73,10 @@ NEXT_PUBLIC_STORES=latium.mintspace2.testnet,mufasa.mintspace2.testnet
 NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
 ```
 
+## Get in touch
 
+- Support: [Join the Telegram](https://tg.me/mintdev)
+- Twitter: [@mintbase](https://twitter.com/mintbase)
 
+<img src="https://i.imgur.com/HGEn9P3.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/DpSDDVp.jpg" alt="detail_image" width="0" />

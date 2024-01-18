@@ -12,7 +12,7 @@ AI-Chat is a Next.js project that provides a chat interface with AI capabilities
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu)[![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 
 
