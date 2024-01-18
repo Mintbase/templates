@@ -1,4 +1,5 @@
 # Blogchain
+## Description
 Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into smart contracts and posts into NFTs.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://blogchain.mintbase.xyz/)

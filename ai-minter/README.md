@@ -1,5 +1,5 @@
 # AI Minter
-
+## Description
 This example illustrates an dapp where users can do Mints with AI Image Generator tools
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
