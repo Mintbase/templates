@@ -1,5 +1,5 @@
 # Starter
-
+<img src="https://i.imgur.com/R5EvMkV.jpg" alt="cover_image" width="0" />
 This is a simple-login project with support to Next.js 14 and React Vite
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
@@ -58,5 +58,4 @@ pnpm  dev
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/R5EvMkV.jpg" alt="cover_image" width="0" />
 <img src="https://i.imgur.com/dLGlS7m.jpg" alt="detail_image" width="0" />

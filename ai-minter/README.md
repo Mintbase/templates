@@ -1,5 +1,5 @@
 # AI Minter
-
+<img src="https://i.imgur.com/zLtJSTw.jpg" alt="cover_image" width="0" />
 This example illustrates an dapp where users can do Mints with AI Image Generator tools
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
@@ -58,5 +58,4 @@ You can use this project as a reference to build your own, and use or remove any
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
 <img src="https://i.imgur.com/s9HSENw.jpg" alt="detail_image" width="0" />
-<img src="https://i.imgur.com/zLtJSTw.jpg" alt="cover_image" width="0" />
 

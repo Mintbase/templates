@@ -1,4 +1,5 @@
 # Simple Token Drop
+<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="0" />
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://token-drop-template.mintbase.xyz/)
@@ -137,5 +138,4 @@ for transaction signing.
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/5K5NgUA.jpg" alt="cover_image" width="0" />
 <img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="0" />

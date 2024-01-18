@@ -1,5 +1,5 @@
 # NFT Stripe Checkout
-
+<img src="https://i.imgur.com/GtbrjcA.jpg" alt="cover_image" width="0" />
 NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://nft-stripe-checkout.mintbase.xyz)
@@ -164,6 +164,4 @@ const CreditCardForm = () => {
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-
-<img src="https://i.imgur.com/GtbrjcA.jpg" alt="cover_image" width="0" />
 <img src="https://i.imgur.com/gFggmyO.jpg" alt="detail_image" width="0" />
