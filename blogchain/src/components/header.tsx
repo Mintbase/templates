@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-
+import DarkModeToggle from "./DarkModeToggle";
 const Header = () => {
   const { isConnected, selector, connect, activeAccountId } = useMbWallet();
   const router = useRouter();
@@ -30,7 +30,8 @@ const Header = () => {
         <img src="/blogchain.png" className="w-8 h-8" />
         <div className="text-black font-bold hidden sm:block">BLOGCHAIN</div>
       </Link>
-      <div>
+      <div className="flex gap-4">
+        <DarkModeToggle />
         {isConnected ? (
           <DropdownMenu>
             <DropdownMenuTrigger>
