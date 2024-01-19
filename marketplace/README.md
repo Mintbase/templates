@@ -1,6 +1,6 @@
 # Marketplace
 <img src="https://i.imgur.com/HGEn9P3.jpg" alt="cover_image" width="0" />
-This is a simple marketplace example built on top of **Next.js 14** 
+This is a simple marketplace example built on top of Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://marketplace-template.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fmarketplace)
@@ -77,4 +77,4 @@ NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/DpSDDVp.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/DPWBh8C.png" alt="detail_image" width="0" />

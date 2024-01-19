@@ -138,4 +138,4 @@ for transaction signing.
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/vxGeXer.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/qTQhBet.png" alt="detail_image" width="0" />

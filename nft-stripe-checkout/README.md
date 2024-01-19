@@ -164,4 +164,4 @@ const CreditCardForm = () => {
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/gFggmyO.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/Q9lXgvg.png" alt="detail_image" width="0" />
