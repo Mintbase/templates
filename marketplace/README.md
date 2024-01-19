@@ -77,4 +77,4 @@ NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/DpSDDVp.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/DPWBh8C.png" alt="detail_image" width="0" />

@@ -133,4 +133,4 @@ export function ConnectWallet() {
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
 
-<img src="https://i.imgur.com/PnXxMd1.jpg" alt="detail_image" width="500"/>
+<img src="https://i.imgur.com/3aH1Lur.png" alt="detail_image" width="500"/>

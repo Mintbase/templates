@@ -45,4 +45,4 @@ pnpm dev
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
 
-<img src="https://i.imgur.com/B3Y4hbw.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/RKTNOxn.png" alt="detail_image" width="0" />

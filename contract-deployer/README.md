@@ -45,4 +45,4 @@ pnpm dev
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/0hv9PBh.jpg" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/6amZQIl.png" alt="detail_image" width="0" />
