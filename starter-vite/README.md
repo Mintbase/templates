@@ -1,6 +1,6 @@
-# Starter
-<img src="https://i.imgur.com/R5EvMkV.jpg" alt="cover_image" width="0" />
-This is a simple-login project with support to Next.js 14 and React Vite
+# Mintbase Starter Vite
+<img src="https://i.imgur.com/bHpvyk6.png" alt="cover_image" width="0" />
+This is a simple-login project with support to Vite
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter)

@@ -1,5 +1,5 @@
 # Minter
-<img src="https://i.imgur.com/6GKIiUQ.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/QDJPsAA.png" alt="cover_image" width="0" />
 This is a simple minter example built on top of Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
@@ -8,7 +8,7 @@ This is a simple minter example built on top of Next.js 14
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/react%2C%20@mintbase.js/storage%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
