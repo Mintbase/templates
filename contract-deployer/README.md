@@ -20,7 +20,20 @@ A Simple example of a Contract Deployer built on Next.js 14
 
 This is a simple contract deployer example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
 
-- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute deploy contract call
+- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute deploy contract call as described in the docs:
+
+```      
+const deployArgs = deployContract({
+  name: data.name,
+  ownerId: activeAccountId,
+  factoryContractId: MINTBASE_CONTRACTS.testnet,
+  metadata: {
+    symbol: data.symbol,
+  },
+});
+
+await execute({ wallet }, deployArgs);
+```
 
 - [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
 
@@ -36,9 +49,9 @@ pnpm install
 run the project
 ```
 pnpm dev
-
 ```
 
+Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration settings located in the contract-deployer/src/config/setup.ts file.
 
 ## Get in touch
 
