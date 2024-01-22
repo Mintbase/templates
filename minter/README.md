@@ -1,5 +1,5 @@
 # Minter
-<img src="https://i.imgur.com/6GKIiUQ.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/QDJPsAA.png" alt="cover_image" width="0" />
 This is a simple minter example built on top of Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
