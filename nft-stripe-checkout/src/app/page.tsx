@@ -60,7 +60,7 @@ function PurchasePage() {
 
   return (
     <main className="flex flex-col gap-y-8 items-center p-4 md:p-12">
-      <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12 items-center">
+      <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12 items-center drop-shadow-md">
         <div className="flex flex-col gap-2 items-center">
           <h2 className="text-xl font-extrabold">{"Token Title"}</h2>
           <p className="text-gray-500">{"A description of your NFT."}</p>
