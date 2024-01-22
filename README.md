@@ -52,18 +52,22 @@ Explore the technologies used in building the current templates:
 
 1. Clone the repository: `https://github.com/Mintbase/templates`
 2. Start a new branch for your template
-3. Create your template within the branch
-4. Open a pull request
-5. Ensure deployment works seamlessly
+3. Create a new folder for your template within the branch
+4. Add a README.MD following the guidelines below
+5. Open a pull request
+6. Ensure deployment works seamlessly
 
 ### Template Acceptance Criteria
 
 For a greater chance of having your template accepted, it should meet the following criteria:
 
-1. **Originality:** The template should feature original code and not be copied from existing sources.
-2. **Code Quality:** The code should be clean and easy to understand.
-3. **README Format:** The template must respect the README format to be indexed by our system.
-4. **Usefulness:** The example should either serve as a good platform to start a project or represent a use case/solve a problem.
+**Originality:** The template should feature original code and not be copied from existing sources. **Creating something new and unique is highly valued**; original contributions take precedence over duplicating existing content with minor modifications.
+
+**Code Quality:** The code should be clean and easy to understand.
+
+**README Format:** The template must respect the README format to be indexed by our system.
+
+**Usefulness:** The example should either serve as a good platform to start a project or represent a use case/solve a problem.
 
 
  ## README Template
