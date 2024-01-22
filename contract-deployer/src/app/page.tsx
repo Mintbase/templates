@@ -19,7 +19,7 @@ export default function Home() {
           target="_blank"
           className="mb-4"
         >
-          <Button variant="secondary">See owned contracts</Button>
+          <Button variant="secondary">See contracts</Button>
         </a>
         <ContractDeployer />
       </main>
