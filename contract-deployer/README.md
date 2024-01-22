@@ -18,11 +18,34 @@ A Simple example of a Contract Deployer built on Next.js 14
 
 ## Project Walkthrough
 
-This is a simple contract deployer example built on top of [mintbase nextjs starter](https://github.com/Mintbase/templates/tree/main/starter-next):
+This is a simple contract deployer example built on top of [mintbase nextjs starter](https://github.com/Mintbase/templates/tree/main/starter-next).
 
-- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute deploy contract call as described in the docs:
+To initiate the contract deployment process, the user is required to connect their wallet. Following the wallet connection, the user can proceed to select the desired contract name and its corresponding symbol. It's important to note that the deployment fee for a contract is 3.7 NEAR.
 
-```      
+## Run the project
+    pnpm i
+
+    pnpm run dev
+
+## Deploy Contract
+
+#### Step 1: check if the contract name already exists
+
+Using [@mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data/api/checkstorename) checkStoreName method we can check if the store already exists.
+
+```typescript
+const { data: checkStore } = await checkStoreName(data.name);
+
+if (checkStore?.nft_contracts.length === 0) {
+  (...)
+}
+```
+
+#### Step 2: if contract name doesn't exist execute the deploy contract action with the instantiated wallet
+
+Create deploy contract args using [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract) deployContract method.
+
+```typescript
 const deployArgs = deployContract({
   name: data.name,
   ownerId: activeAccountId,
@@ -31,24 +54,12 @@ const deployArgs = deployContract({
     symbol: data.symbol,
   },
 });
-
-await execute({ wallet }, deployArgs);
 ```
 
-- [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
+We can then execute the deploy contract by passing in the serverWallet as the sender
 
-[Mintbase Docs - Deploy Contract](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract)
-  
-### Setup
-
-install dependencies
-```
-pnpm install
-```
-
-run the project
-```
-pnpm dev
+```typescript
+  await execute({ wallet }, deployArgs);
 ```
 
 Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration settings located in the contract-deployer/src/config/setup.ts file.
