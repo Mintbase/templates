@@ -62,7 +62,7 @@ We can then execute the deploy contract by passing in the serverWallet as the se
   await execute({ wallet }, deployArgs);
 ```
 
-Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration settings located in the contract-deployer/src/config/setup.ts file.
+Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration settings located in the contract-deployer/src/config/setup.ts file and every 'testnet' instance.
 
 ## Get in touch
 
