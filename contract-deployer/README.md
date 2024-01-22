@@ -1,6 +1,6 @@
 
 # Contract Deployer
-<img src="https://i.imgur.com/vVplCLr.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/CkxzRfq.png" alt="cover_image" width="0" />
 A Simple example of a Contract Deployer built on Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://contract-deployer-template.mintbase.xyz/)
@@ -9,7 +9,7 @@ A Simple example of a Contract Deployer built on Next.js 14
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Contract%20Deployer-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/react%2C%20@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**

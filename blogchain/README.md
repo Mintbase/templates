@@ -1,5 +1,5 @@
 # Blogchain
-<img src="https://i.imgur.com/1pQJhXy.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/oAVyr9o.png" alt="cover_image" width="0" />
 Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into smart contracts and posts into NFTs.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://blogchain.mintbase.xyz/)
@@ -8,7 +8,7 @@ Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Blog-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20@mintbase.js/react%2C%20@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/data%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
