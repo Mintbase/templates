@@ -18,7 +18,7 @@ A Simple example of a Contract Deployer built on Next.js 14
 
 ## Project Walkthrough
 
-This is a simple contract deployer example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
+This is a simple contract deployer example built on top of [mintbase nextjs starter](https://github.com/Mintbase/templates/tree/main/starter-next):
 
 - [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute deploy contract call as described in the docs:
 
