@@ -1,6 +1,4 @@
-```
 # AI-CHAT
-
 
 ## Description
 
@@ -12,10 +10,17 @@ AI-Chat is a Next.js project that provides a chat interface with AI capabilities
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-{Use%20Case%20One,%20Use%20Case%20Two}-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-Tool%20One,Tool%20Two-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-chat,ask-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-materialUI,reduxToolkit,mintbaseJS-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
 
+## Tools
+
+List and describe the tools mentioned in the badge. Provide links to their documentation or relevant resources.
+
+- **Material-UI:** https://mui.com/material-ui/
+- **Redux-toolkit:** https://redux-toolkit.js.org/
+- **Mintabse-js:** https://www.npmjs.com/package/mintbase
 
 ## Project Walkthrough
 
@@ -42,9 +47,11 @@ Then, open http://localhost:3000 with your browser to see the result.
 
 Please create a file name `.env.local` with a variable `MB_API_KEY=`
 
-```
-
 ## Code Examples
+
+### Redux
+
+This project uses Redux-toolkit as a state management liberary, the store is located in `/src/store`.
 
 ### Chat Component
 
