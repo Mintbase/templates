@@ -8,7 +8,7 @@ NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for 
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-NFT%20Stripe%20Checkout-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2C@mintbase.js/rpc%2C@mintbase.js/data%2C@Stripe%2CArweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2C@mintbase.js/rpc%2C@mintbase.js/data%2C@Stripe%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**

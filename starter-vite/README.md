@@ -1,4 +1,4 @@
-# Mintbase Starter Vite
+# Starter Vite
 <img src="https://i.imgur.com/bHpvyk6.png" alt="cover_image" width="0" />
 This is a simple-login project with support to Vite
 
@@ -8,7 +8,7 @@ This is a simple-login project with support to Vite
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Starter-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2C%20Mintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
