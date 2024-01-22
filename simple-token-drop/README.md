@@ -8,7 +8,7 @@ This example illustrates the creation of a straightforward minting landing page 
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Token%20Drops-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
