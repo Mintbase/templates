@@ -18,27 +18,51 @@ A Simple example of a Contract Deployer built on Next.js 14
 
 ## Project Walkthrough
 
-This is a simple contract deployer example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages:
+This is a simple contract deployer example built on top of [mintbase nextjs starter](https://github.com/Mintbase/templates/tree/main/starter-next).
 
-- [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute deploy contract call
+To initiate the contract deployment process, the user is required to connect their wallet. Following the wallet connection, the user can proceed to select the desired contract name and its corresponding symbol. It's important to note that the deployment fee for a contract is 3.7 NEAR.
 
-- [@mintbase.js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react) to provide the wallet connection
+## Run the project
+    pnpm i
 
-[Mintbase Docs - Deploy Contract](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract)
-  
-### Setup
+    pnpm run dev
 
-install dependencies
+## Deploy Contract
+
+#### Step 1: check if the contract name already exists
+
+Using [@mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data/api/checkstorename) checkStoreName method we can check if the store already exists.
+
+```typescript
+const { data: checkStore } = await checkStoreName(data.name);
+
+if (checkStore?.nft_contracts.length === 0) {
+  (...)
+}
 ```
-pnpm install
+
+#### Step 2: if contract name doesn't exist execute the deploy contract action with the instantiated wallet
+
+Create deploy contract args using [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract) deployContract method.
+
+```typescript
+const deployArgs = deployContract({
+  name: data.name,
+  ownerId: activeAccountId,
+  factoryContractId: MINTBASE_CONTRACTS.testnet,
+  metadata: {
+    symbol: data.symbol,
+  },
+});
 ```
 
-run the project
-```
-pnpm dev
+We can then execute the deploy contract by passing in the serverWallet as the sender
 
+```typescript
+  await execute({ wallet }, deployArgs);
 ```
 
+Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration settings located in the contract-deployer/src/config/setup.ts file and every 'testnet' instance.
 
 ## Get in touch
 
