@@ -5,14 +5,22 @@ import { NearWalletConnector } from "@/components/NearWalletSelector";
 
 import Head from "next/head";
 import ContractDeployer from "@/components/ContractDeployer";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  const { isConnected } = useMbWallet();
+  const { isConnected, activeAccountId } = useMbWallet();
 
   if (isConnected)
     return (
       <main className="flex flex-col items-center justify-center mt-2 ">
         <NearWalletConnector />
+        <a
+          href={`https://testnet.mintbase.xyz/human/${activeAccountId}/contracts`}
+          target="_blank"
+          className="mb-4"
+        >
+          <Button variant="secondary">See contracts</Button>
+        </a>
         <ContractDeployer />
       </main>
     );
