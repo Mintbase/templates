@@ -1,6 +1,6 @@
 # Mintbase.js Templates
-
-Mintbase templates are a compilation of web3 project examples on Near Protocol, providing developers with starter projects and practical use cases. We invite diverse projects to submit demonstrations featuring their technology or developed using ours. Explore demos of existing templates, along with contribution guidelines and documentation to kickstart your journey below!
+<img src='https://raw.githubusercontent.com/Mintbase/templates-landing/main/public/thumbnail.png?token=GHSAT0AAAAAACMVILMBRC5JY3YTYZ6TAZSIZNQBKQQ' ></img>
+[Mintbase templates](http://templates.mintbase.xyz) are a compilation of web3 project examples on Near Protocol, providing developers with starter projects and practical use cases. We invite diverse projects to submit demonstrations featuring their technology or developed using ours. Explore demos of existing templates, along with contribution guidelines and documentation to kickstart your journey below!
 
 ## Templates
 
@@ -76,9 +76,14 @@ For a greater chance of having your template accepted, it should meet the follow
 # Project Name
 
 
+Add a thumbnail to your project <img src="https://i.imgur.com/s9HSENw.jpg" alt="cover_image" width="0" />
+
 ## Description
 
-Brief project description goes here. Mention the purpose, key features, or anything that provides context.
+The first sentence of the description is captured as the intro for the project and will be displayed on the mintbase landing page, use this to grab attention and get someone to click on your template.
+
+Complete project description goes here. Explain the purpose, key features, or anything that provides context from both a business and technical perspective. This section should cover the 'what' and 'why' about the template, catering to users who may be deploying it for their business or developers looking to expand on it. 
+
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://your-live-app/)
 
@@ -91,12 +96,18 @@ Brief project description goes here. Mention the purpose, key features, or anyth
 [![Framework](https://img.shields.io/badge/Framework-NextJS%2014-blue)](#)
 
 
-Project Walkthrough
+## Project Walkthrough
 
 <img src="https://optional-detail-image.png" alt="detail_image" width="500"/>
 
 
 Explain the project structure, key components, or any significant details. Provide step-by-step instructions for running the project locally.
+
+## Deployment 
+
+Deployment instructions. We include a link to deploy on vercel in every template because it makes it very easy for non developers to spin off their own tempaltes. This section is also a good place to speak about how to configure the project and environment variables.
+
+It should be doable for someone that has no coding experience.
 ``````
 
 ## Troubleshooting
@@ -105,6 +116,6 @@ Have feedback or perhaps need a hand?
 
 **Reach out on our  [Telegram](https://t.me/mintdev)  public developer support channel.**
 
-<img src="https://i.imgur.com/s9HSENw.jpg" alt="cover_image" width="0" />
+
 <img src="https://i.imgur.com/zLtJSTw.jpg" alt="detail_image" width="0" />
 
