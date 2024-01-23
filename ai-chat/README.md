@@ -7,7 +7,7 @@ AI-Chat is a Next.js project that provides a chat interface with AI capabilities
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-AI-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-AI%2CMinter-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/rpc%2C@mintbase.js/react%2C@mintbase.js/data%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
