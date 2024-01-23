@@ -117,7 +117,9 @@ We can then execute the mint nft method
 Using [mintbase GraphQL Indexer](https://docs.mintbase.xyz/dev/mintbase-graph) we can fetch the nfts from a specific smart contract - to filter by blog post we use 'blogpost' as an extra field as explained in the previous step.
 
 ```typescript
-export const GET_BLOG_POSTS = `query GET_BLOG_POSTS($contractId: String!) {
+export const GET_BLOG_POSTS =
+`
+query GET_BLOG_POSTS($contractId: String!) {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}, _and: {nft_contract_id: {_eq: $contractId}}}
     ) {
@@ -134,7 +136,9 @@ export const GET_BLOG_POSTS = `query GET_BLOG_POSTS($contractId: String!) {
 #### Get user blog posts (nfts)
 
 ```typescript
-export const GET_USER_POSTS = `query GET_USER_POSTS($accountId: String!) {
+export const GET_USER_POSTS =
+`
+query GET_USER_POSTS($accountId: String!) {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}, _and: {nft_contract_owner_id: {_eq: $accountId}}}
     ) {
@@ -151,7 +155,9 @@ export const GET_USER_POSTS = `query GET_USER_POSTS($accountId: String!) {
 #### Get user blogs (smart contracts)
 
 ```typescript
-export const GET_USER_BLOGS = `query GET_USER_BLOGS($accountId: String!) {
+export const GET_USER_BLOGS =
+`
+query GET_USER_BLOGS($accountId: String!) {
     nft_contracts(where: {owner_id: {_eq: $accountId}}) {
       id
     }
@@ -162,7 +168,9 @@ export const GET_USER_BLOGS = `query GET_USER_BLOGS($accountId: String!) {
 #### Get latest blogs (smart contracts)
 
 ```typescript
-export const GET_LATEST_UPDATED_BLOGS = `query GET_LATEST_UPDATED_BLOGS {
+export const GET_LATEST_UPDATED_BLOGS =
+`
+query GET_LATEST_UPDATED_BLOGS {
   mb_views_nft_metadata(
     where: {extra: {_eq: "blogpost"}}
     distinct_on: nft_contract_id
@@ -178,7 +186,9 @@ export const GET_LATEST_UPDATED_BLOGS = `query GET_LATEST_UPDATED_BLOGS {
 #### Get latest blog posts (nfts)
 
 ```typescript
-export const GET_LATEST_POSTS = `query GET_LATEST_POSTS {
+export const GET_LATEST_POSTS =
+`
+query GET_LATEST_POSTS {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}}
       limit: 10
@@ -198,7 +208,9 @@ export const GET_LATEST_POSTS = `query GET_LATEST_POSTS {
 #### Get blog post (nft) data
 
 ```typescript
-export const GET_POST_METADATA = `query GET_POST_METADATA($metadataId: String!) {
+export const GET_POST_METADATA =
+`
+query GET_POST_METADATA($metadataId: String!) {
     mb_views_nft_tokens(where: {metadata_id: {_eq: $metadataId}}) {
       metadata_id
       title
