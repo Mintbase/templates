@@ -47,6 +47,10 @@ const OpeningBox: React.FC = () => {
           Get started by asking any question, and let our AI chat assistant
           assist you effortlessly.
         </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          You will need Open AI api key in order to receive reponse from the
+          assistant.
+        </Typography>
       </Box>
     </Paper>
   );
