@@ -56,7 +56,7 @@ const deployArgs = deployContract({
 });
 ```
 
-We can then execute the deploy contract by passing in the serverWallet as the sender
+We can then execute the deploy contract
 
 ```typescript
   await execute({ wallet }, deployArgs);
