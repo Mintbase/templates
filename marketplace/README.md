@@ -7,7 +7,7 @@ This is a simple marketplace example built on top of Next.js 14
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Contract%20Deployer-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Marketplace-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/data%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
