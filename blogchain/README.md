@@ -114,7 +114,7 @@ We can then execute the mint nft method
 
 #### Get blog posts (nfts) from a blog (smart contract)
 
-Using [mintbase GraphQL Indexer](https://docs.mintbase.xyz/dev/mintbase-graph) we can fetch the nfts from a specific smart contract - to filter by blog post we use 'blogpost' as an extra field as explained in the previous step.
+Using [Mintbase GraphQL Indexer](https://docs.mintbase.xyz/dev/mintbase-graph) we can fetch the nfts from a specific smart contract - to filter by blog post we use 'blogpost' as an extra field as explained in the previous step.
 
 ```typescript
 export const GET_BLOG_POSTS =
