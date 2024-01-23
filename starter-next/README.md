@@ -1,6 +1,6 @@
-# Starter
-<img src="https://i.imgur.com/R5EvMkV.jpg" alt="cover_image" width="0" />
-This is a simple-login project with support to Next.js 14 and React Vite
+# Starter Next
+<img src="https://i.imgur.com/bHpvyk6.png" alt="cover_image" width="0" />
+This is a simple-login project with support to Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter)
@@ -8,7 +8,7 @@ This is a simple-login project with support to Next.js 14 and React Vite
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Starter-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2C%20Arweave%2C%20Mintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2C%20Mintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
