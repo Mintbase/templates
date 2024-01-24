@@ -1,3 +1,12 @@
+/**
+ * @file useMint.ts
+ * @title Minting Hook for Images
+ * @description Provides a React hook `useMintImage` for handling the minting process of images on the Mintbase platform.
+ * This includes form handling, file uploading, and interacting with the Mintbase blockchain to mint the image as an NFT.
+ * It utilizes the `@mintbase-js/react` and `@mintbase-js/storage` packages for wallet integration and file storage, respectively.
+ * The hook returns an object containing the form handlers and a preview state for the image to be minted.
+ */
+
 "use client"
 
 import { useState } from "react";
@@ -5,13 +14,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useMbWallet } from "@mintbase-js/react";
 
-import { TITLE, DESCRIPTION } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { mint, execute } from "@mintbase-js/sdk";
+import { uploadFile } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
-import { MintbaseWalletSetup } from "@/config/setup";
-import { uploadReference } from "@mintbase-js/storage";
+import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -26,30 +33,17 @@ const useMintImage = () => {
     }
   };
 
+
   const onSubmit = async (data: { [x: string]: any }) => {
     const wallet = await getWallet();
-    const uploadRef = await handleUpload(data.media, data);
-    await handleMint(uploadRef, activeAccountId as string, wallet);
+    const file = await uploadFile(data?.media)
+
+    await handleMint(file.id, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
   });
-
-  async function handleUpload(
-    file: File,
-    data: { [x: string]: any }
-  ): Promise<string> {
-    const metadata = {
-      title: data[TITLE],
-      description: data[DESCRIPTION],
-      media: file,
-    };
-
-    const referenceJson = await uploadReference(metadata);
-    console.log("Successfully uploaded with reference:", referenceJson.id);
-    return referenceJson.id;
-  }
 
   async function handleMint(
     reference: string,
@@ -57,16 +51,24 @@ const useMintImage = () => {
     wallet: any
   ) {
     if (reference) {
-      const mintCall = mint({
-        noMedia: true,
-        metadata: {
-          reference: reference,
-        },
-        contractAddress: MintbaseWalletSetup.contractAddress,
-        ownerId: activeAccountId,
+      await wallet.signAndSendTransaction({
+        signerId: activeAccountId,
+        receiverId: proxyAddress,
+        actions: [
+          {
+            type: "FunctionCall",
+            params: {
+              methodName: "mint",
+              args: {
+                metadata: JSON.stringify({ media: reference }),
+                nft_contract_id: MintbaseWalletSetup.contractAddress,
+              },
+              gas: "200000000000000",
+              deposit: "10000000000000000000000",
+            },
+          },
+        ],
       });
-
-      await execute({ wallet }, mintCall);
     }
   }
 

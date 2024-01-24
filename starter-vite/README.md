@@ -31,15 +31,10 @@ It uses React Vite.
 
 ### Install
 
-
-
 First run install
 
 
 ```bash
-
-
-
 npm install
 
 yarn
@@ -77,13 +72,11 @@ on the file `starter-next/src/app/layout.tsx` , theres this `const`:
 
 
 ```typescript
-
 	const MintbaseWalletSetup = {
 		contractAddress: process.env.VITE_CONTRACT_ADDRESS,
 		network: process.env.VITE_NETWORK,
 		callbackUrl: process.env.VITE_CALLBACK_URL,
 	};
-
 ```
 
 - this object accepts all the properties listed on the package [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react)

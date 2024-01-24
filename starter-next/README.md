@@ -56,12 +56,7 @@ It uses Next.js 14.
 
 First run install
 
-
-
-
 ```bash
-
-
 
 npm install
 
@@ -98,15 +93,12 @@ on the file `.env.example` , you can change / or add the env variables according
 on the file `starter-next/src/app/layout.tsx` , theres this `const`:
 
 
-
 ```typescript
-
-	const MintbaseWalletSetup = {
+const MintbaseWalletSetup = {
 		contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
 		network: process.env.NEXT_PUBLIC_NETWORK,
 		callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL,
 	};
-
 ```
 
 - this object accepts all the properties listed on the package [@mintbase-js/react](https://github.com/Mintbase/mintbase-js/tree/beta/packages/react)
