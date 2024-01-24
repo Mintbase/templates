@@ -19,13 +19,15 @@ This is a simple marketplace example built on top of Next.js 14
 
 This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
 ### Setup
 
 install dependencies
 ```
 pnpm install
 ```
-and 
+and
 run the project
 ```
 pnpm dev
@@ -47,7 +49,7 @@ copy .env.example .env.local
 
 To get your `api key` visit :
 
-[Mintbase Developers Page for Mainnet](https://www.mintbase.xyz/developer):  
+[Mintbase Developers Page for Mainnet](https://www.mintbase.xyz/developer):
 [Mintbase Developers Page for testnet](https://testnet.mintbase.xyz/developer):
 
 ```

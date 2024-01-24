@@ -19,6 +19,8 @@ AI-Chat is a Next.js project that provides a chat interface with AI capabilities
 
 ## Project Walkthrough
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
 To get started with the project, you need to install the dependencies first. Run the following command in your terminal:
 
 ```

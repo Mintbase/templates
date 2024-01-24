@@ -22,6 +22,9 @@ This example illustrates the creation of a straightforward minting landing page 
 
 The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
+
 ## Run the project
     pnpm i
 
@@ -111,9 +114,9 @@ export const serverMint = async (): Promise<void> => {
 This function triggers the client-side minting process using a Deeplink. It retrieves mint parameters
 using the mintArgs function, constructs transaction arguments, and redirects to the Mintbase wallet
 for transaction signing.
-     
+
 ```typescript
- 
+
     const handleClientMint = async () => {
         // Set loading state to true during transaction processing
         setTxLoading(true);

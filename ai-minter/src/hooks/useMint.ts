@@ -26,33 +26,11 @@ const useMintImage = () => {
     }
   };
 
-  const getImageAsBlob = async (url: string): Promise<Blob | null> => {
-    try {
-      // Fetch the image
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch image. Status code: ${response.status}`);
-      }
-
-      // Convert the image to a Blob
-      const imageBlob = await response.blob();
-
-      // Create a File object from the Blob
-      const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
-
-      return imageFile;
-    } catch (error: any) {
-      console.error(`Error: ${error?.message}`);
-      return null;
-    }
-  };
-
   const onSubmit = async (data: { [x: string]: any }) => {
     const wallet = await getWallet();
-    const reference = await uploadReference({ 
-      title: data?.title, 
-      media: data?.media 
+    const reference = await uploadReference({
+      title: data?.title,
+      media: data?.media
     })
 
     await handleMint(reference.id, activeAccountId as string, wallet);

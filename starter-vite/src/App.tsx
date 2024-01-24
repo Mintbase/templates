@@ -6,9 +6,9 @@ import "./shims";
 function App() {
 
   const MintbaseWalletSetup = {
-    contractAddress: "hellovirtualworld.mintspace2.testnet",
-    network: "testnet",
-    callbackUrl: "http://localhost:3000",
+    contractAddress: import.meta.env.VITE_CONTRACT_ADDRESS,
+    network: import.meta.env.VITE_NETWORK,
+    callbackUrl: import.meta.env.VITE_CALLBACK_URL,
   };
 
   return (
