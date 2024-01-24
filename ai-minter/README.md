@@ -1,8 +1,8 @@
 # AI Minter
 
-<img src="https://i.imgur.com/zLtJSTw.jpg" alt="cover_image" />
+<img src="https://i.imgur.com/jY6k292.png" alt="cover_image" width="0"/>
 
-###
+
 This example demonstrates a dApp where users can mint AI generated images using some [replicate models](https://replicate.com/explore) for text2img generation and [mintbase's sdk](https://github.com/Mintbase/mintbase-js) + [mintbase wallet](https://wallet.mintbase.xyz/) for handling contracts and transactions.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
@@ -25,6 +25,9 @@ This example demonstrates a dApp where users can mint AI generated images using 
 - [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
 
 ## Project Walkthrough
+
+By writing a prompt and selecting a model from the dropdown, users can generate an image through AI when pressing the `prompt` button.  
+If the user then wishes to mint the resulting image, they may add a title and press `Mint Me` which will then redirect them to the transaction page so they can finish the minting process.
 
 ### Setup
 
