@@ -7,7 +7,7 @@ This is a simple-login project with support to Vite
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Utilities-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Vite-blue)](#)
 
@@ -23,7 +23,7 @@ It uses Next.js 14.
 
 
 ## Getting Started
-First run install 
+First run install
 ```bash
 
 npm  install

@@ -2,12 +2,12 @@
 <img src="https://i.imgur.com/uIIL4tt.png" alt="cover_image" width="0"/>
 AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Mintbase Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.
 
-[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)]([https://ai-chat.mintbase.xyz/](https://ai-chat.mintbase.xyz))
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-chat.mintbase.xyz)
 [![Deploy](https://img.shields.io/badge/Deploy-on%Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-chat)
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-AI%2CMinter-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-AI-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/rpc%2C@mintbase.js/react%2C@mintbase.js/data%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
