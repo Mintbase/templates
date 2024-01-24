@@ -19,6 +19,9 @@ This is a simple minter example built on top of Next.js 14
 
 This is a simple minter example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
+
 ### Setup
 on the file *layout.tsx* you have the object
 
@@ -36,7 +39,7 @@ after that you can run
 ```
 pnpm install
 ```
-and 
+and
 
 ```
 pnpm dev

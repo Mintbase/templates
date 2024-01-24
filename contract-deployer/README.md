@@ -22,6 +22,8 @@ This is a simple contract deployer example built on top of [mintbase nextjs star
 
 To initiate the contract deployment process, the user is required to connect their wallet. Following the wallet connection, the user can proceed to select the desired contract name and its corresponding symbol. It's important to note that the deployment fee for a contract is 3.7 NEAR.
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
 ## Run the project
     pnpm i
 

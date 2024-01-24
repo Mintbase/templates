@@ -20,6 +20,9 @@ Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into
 
 Within the framework of blogchain, every blog manifests as a sophisticated smart contract, while each individual blog post is uniquely represented as a non-fungible token (NFT).
 
+*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
+
 ## Run the project
     pnpm i
 
