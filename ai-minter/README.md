@@ -7,7 +7,7 @@ This example illustrates an dapp where users can do Mints with AI Image Generato
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-AI%20Image%20Generation-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-AI-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 

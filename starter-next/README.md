@@ -7,7 +7,7 @@ This is a simple-login project with support to Next.js 14
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Starter-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Utilities-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 

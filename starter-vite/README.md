@@ -7,9 +7,9 @@ This is a simple-login project with support to Vite
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Starter-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2CMintbase%20Wallet-blue)](#)
-[![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Vite-blue)](#)
 
 **Author:**
 
