@@ -7,11 +7,9 @@ import { useMbWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { mint, execute } from "@mintbase-js/sdk";
 import { uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
-import { MintbaseWalletSetup } from "@/config/setup";
-import { Wallet } from "@near-wallet-selector/core";
+import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -26,7 +24,7 @@ const useMintImage = () => {
     }
   };
 
-  const onSubmit = async (data: { [x: string]: string }) => {
+  const onSubmit = async (data: { [x: string]: any }) => {
     const wallet = await getWallet();
     const reference = await uploadReference({
       title: data?.title,
@@ -43,18 +41,27 @@ const useMintImage = () => {
   async function handleMint(
     reference: string,
     activeAccountId: string,
-    wallet: Wallet
+    wallet: any
   ) {
     if (reference) {
-      const mintCall = mint({
-        noMedia: true,
-        metadata: {
-          reference: reference
-        },
-        contractAddress: MintbaseWalletSetup.contractAddress,
-        ownerId: activeAccountId,
+      await wallet.signAndSendTransaction({
+        signerId: activeAccountId,
+        receiverId: proxyAddress,
+        actions: [
+          {
+            type: "FunctionCall",
+            params: {
+              methodName: "mint",
+              args: {
+                metadata: JSON.stringify({ reference: reference}),
+                nft_contract_id: MintbaseWalletSetup.contractAddress,
+              },
+              gas: "200000000000000",
+              deposit: "10000000000000000000000",
+            },
+          },
+        ],
       });
-      await execute({ wallet }, mintCall);
     }
   }
 

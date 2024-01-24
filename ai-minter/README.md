@@ -1,6 +1,9 @@
 # AI Minter
-<img src="https://i.imgur.com/jY6k292.png" alt="cover_image" width="0" />
-This example illustrates an dapp where users can do Mints with AI Image Generator tools
+
+<img src="https://i.imgur.com/zLtJSTw.jpg" alt="cover_image" />
+
+###
+This example demonstrates a dApp where users can mint AI generated images using some [replicate models](https://replicate.com/explore) for text2img generation and [mintbase's sdk](https://github.com/Mintbase/mintbase-js) + [mintbase wallet](https://wallet.mintbase.xyz/) for handling contracts and transactions.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-minter)
@@ -13,7 +16,7 @@ This example illustrates an dapp where users can do Mints with AI Image Generato
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase)  [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 - [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute call when minting
 
@@ -21,36 +24,44 @@ This example illustrates an dapp where users can do Mints with AI Image Generato
 
 - [@mintbase.js/storage](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to upload the images to Arweave
 
-
 ## Project Walkthrough
-on the file *config/setup.ts* you have the object
 
-```ts
-export const MintbaseWalletSetup  = {
-	contractAddress:  "test122212.mintspace2.testnet",
-	network:  "testnet",
-};
+### Setup
+
+you should create an `.env` file with the following properties:
+
 ```
-where contractAddress is the address of a store that you are a minter.
-if you dont have a store you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad
+REPLICATE_API_TOKEN='...'
+MINT_CONTRACT_ADDRESS='...'
+PROXY_CONTRACT_ADDRESS='...'
+```
 
-after that you can run
+`REPLICATE_API_TOKEN` should have the value of your token for the replicate api. You can get a token on the [replicate website](https://replicate.com/).
+
+`MINT_CONTRACT_ADDRESS` is the address of the contract where you want to mint the result into an NFT. If you dont have one, you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad.
+
+`PROXY_CONTRACT_ADDRESS` is the address of a proxy contract to allow you to relay the transaction to the minting address. This address should have minting permissions on your minting contract.
+
+### Run project
+
+After setting up, you can run:
+
 ```
 pnpm install
 ```
-and 
+
+After the install succeeds, you con start the project with:
 
 ```
 pnpm dev
 ```
 
+And you're done! The project should be running [locally](http://localhost:3000) on your machine.
 
 ## Extending
 
-This project is setup using Next.js + @mintbase/js +  shadcn ui + react hook form
-You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
-
-
+This project is set up using Next.js + @mintbase/js + shadcn ui + react hook form.  
+You can use this project as a reference to build your own, and use or remove any library as needed.
 
 ## Get in touch
 
@@ -58,4 +69,3 @@ You can use this project as a reference to build your own, and use or remove any
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
 <img src="https://i.imgur.com/6epdJFw.png" alt="detail_image" width="0" />
-
