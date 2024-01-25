@@ -3,16 +3,18 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MintbaseWalletContextProvider } from "@mintbase-js/react";
-import { MintbaseWalletSetup } from "@/config/setup";
 import "@near-wallet-selector/modal-ui/styles.css";
+import { MintbaseWalletSetup } from "@/config/setup";
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
       <html lang="en">

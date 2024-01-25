@@ -21,19 +21,36 @@ This is a simple minter example built on top of **Next.js 14** using some of [@m
 
 *NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
 
+if you dont have a store you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad
+
 
 ### Setup
-on the file *layout.tsx* you have the object
 
-```ts
-export const MintbaseWalletSetup  = {
-	contractAddress:  "test122212.mintspace2.testnet",
-	network:  "testnet",
-	callbackUrl:  "http://testnet.localhost:3000/",
-};
-```
-where contractAddress is the address of a store that you are a minter.
-if you dont have a store you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad
+
+In the `minter/src/config/setup.ts` file, we define several key configurations for interacting with the Mintbase platform. This setup is crucial for ensuring that our application communicates correctly with Mintbase smart contracts.
+
+## ENV Variables
+
+- `proxyAddress`: This is the address of the proxy contract on Mintbase. It is either taken from the environment variable `NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS` or defaults to `"0.minsta.proxy.mintbase.testnet"` if the environment variable is not set.
+
+- `contractAddress`: The address of the minting contract. Similar to `proxyAddress`, it is sourced from `NEXT_PUBLIC_MINT_CONTRACT_ADDRESS` or defaults to `"test122212.mintspace2.testnet"`.
+
+- `network`: Indicates the blockchain network we are interacting with. It defaults to `"testnet"` if `NEXT_PUBLIC_NETWORK` is not specified in the environment.
+
+- `callbackUrl`: A URL used for callbacks, constructed dynamically based on the `network` variable. If we are on the testnet, it uses the testnet URL; otherwise, it defaults to the mainnet URL.
+
+
+To customize these configurations for different environments, you can set the following environment variables in your `.env` file:
+
+`NOTE: the env variables need to have the NEXT_PUBLIC_ on the variable name due to be available for the browser to process`
+
+- `NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS`: Your proxy contract address on Mintbase.
+- `NEXT_PUBLIC_MINT_CONTRACT_ADDRESS`: Your mint contract address on Mintbase.
+- `NEXT_PUBLIC_NETWORK`: The network you want to interact with (`"testnet"` or `"mainnet"`).
+
+
+
+
 
 after that you can run
 ```
@@ -48,7 +65,7 @@ pnpm dev
 
 ## Extending
 
-This project is setup using Next.js + @mintbase/js +  shadcn ui + react hook form
+This project is setup using Next.js + @mintbase/js + shadcn ui + react hook form
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
 
