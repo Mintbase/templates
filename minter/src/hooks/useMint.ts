@@ -16,7 +16,7 @@ import { useMbWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { ArweaveResponse, uploadReference } from "@mintbase-js/storage"
+import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core"
@@ -50,8 +50,10 @@ const useMintImage = () => {
       media: data?.media as unknown as File
     })
 
+    const file = uploadFile(data?.media as unknown as File
+    );
 
-    await handleMint(reference, activeAccountId as string, wallet);
+    await handleMint(reference.id, file, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -59,7 +61,8 @@ const useMintImage = () => {
   });
 
   async function handleMint(
-    reference: ArweaveResponse,
+    reference: string,
+    media: Promise<ArweaveResponse>,
     activeAccountId: string,
     wallet: Wallet
   ) {
@@ -73,8 +76,8 @@ const useMintImage = () => {
             params: {
               methodName: "mint",
               args: {
-                metadata: JSON.stringify({ media: reference }),
-                nft_contract_id: MintbaseWalletSetup.contractAddress,
+                metadata: JSON.stringify({ reference, media: (await media).id }),
+                 nft_contract_id: MintbaseWalletSetup.contractAddress,
               },
               gas: "200000000000000",
               deposit: "10000000000000000000000",
