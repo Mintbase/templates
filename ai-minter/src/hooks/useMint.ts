@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
+import { Wallet } from "@near-wallet-selector/core";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -40,13 +41,13 @@ const useMintImage = () => {
       const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
 
       return imageFile;
-    } catch (error: any) {
-      console.error(`Error: ${error?.message}`);
+    } catch (error: unknown) {
+      console.error(`Error: ${error}`);
       throw new Error("Failed to convert image to File");
     }
   };
 
-  const onSubmit = async (data: { [x: string]: any }) => {
+  const onSubmit = async (data: { [x: string]: string }) => {
     const wallet = await getWallet();
     const media = await getImageAsFile(data?.media);
     const reference = await uploadReference({
@@ -66,7 +67,7 @@ const useMintImage = () => {
     reference: string,
     media: Promise<ArweaveResponse>,
     activeAccountId: string,
-    wallet: any
+    wallet: Wallet
   ) {
     if (reference) {
       await wallet.signAndSendTransaction({
