@@ -32,7 +32,7 @@ function Item({
             className="rounded-md w-full h-64 object-cover"
           />
         ) : (
-          <div className="w-full h-72 mb-10 flex justify-center items-center">
+          <div className="w-full h-64 flex justify-center items-center">
             No Nft Media Available
           </div>
         )}
