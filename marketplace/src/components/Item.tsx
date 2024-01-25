@@ -24,15 +24,15 @@ function Item({
       className="p-2 bg-black bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 rounded-xl shadow-xl cursor-pointer"
       onClick={() => showModal({ metadataId: metadata_id })}
     >
-      <div className="w-full relative object-cover">
+      <div className="w-full relative">
         {mediaUrl ? (
           <img
             src={getCachedImage(mediaUrl)}
             alt={title}
-            className="rounded-md"
+            className="rounded-md w-full h-64 object-cover"
           />
         ) : (
-          <div className="w-full h-72 mb-10 flex justify-center items-center">
+          <div className="w-full h-64 flex justify-center items-center">
             No Nft Media Available
           </div>
         )}

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="px-24 py-12">
+    <main className="px-2 sm:px-8 md:px-24 py-12">
       <LandingPage />
     </main>
   );
