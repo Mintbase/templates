@@ -4,21 +4,21 @@ import {
   MbIcon,
   MbMenuWrapper,
   MbTab,
-} from 'mintbase-ui';
-import { useState } from 'react';
-import { useStoreData } from '../hooks/useStoreData';
-import { useStoreNfts } from '../hooks/useStoreNfts';
-import { SelectedNft, Store } from '../types/types';
-import { Item, LoadingItem } from './Item';
-import { StoreNftsData } from '@mintbase-js/data/lib/api/storeNfts/storeNfts.types';
+} from "mintbase-ui";
+import { useState } from "react";
+import { useStoreData } from "../hooks/useStoreData";
+import { useStoreNfts } from "../hooks/useStoreNfts";
+import { SelectedNft, Store } from "../types/types";
+import { Item, LoadingItem } from "./Item";
+import { StoreNftsData } from "@mintbase-js/data/lib/api/storeNfts/storeNfts.types";
 
 function Items({
   showModal,
 }: {
-  showModal: (item: SelectedNft) => void
+  showModal: (item: SelectedNft) => void;
 }): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedStore, setSelectedStore] = useState('');
+  const [selectedStore, setSelectedStore] = useState("");
 
   const { nftsData, loading } = useStoreNfts(selectedStore);
   const { stores } = useStoreData();
@@ -32,11 +32,11 @@ function Items({
   // add 'all stores' to the beginning of the dropdown menu
   storeTabs?.unshift({
     content: <span>All Stores</span>,
-    onClick: () => setSelectedStore(''),
+    onClick: () => setSelectedStore(""),
   });
 
   return (
-    <div className="w-full items-center p-12">
+    <div className="w-full items-center">
       <div className="flex w-full gap-4 items-center justify-end">
         <MbMenuWrapper setIsOpen={setMenuOpen}>
           <div
@@ -46,14 +46,14 @@ function Items({
             tabIndex={-1}
           >
             <MbTab
-              label={(
+              label={
                 <div className="flex space-x-8 items-center">
                   <span>
-                    {selectedStore === ''
-                      ? 'All Stores'
+                    {selectedStore === ""
+                      ? "All Stores"
                       : stores?.find(
-                        (store: Store) => store.id === selectedStore,
-                      )?.name}
+                          (store: Store) => store.id === selectedStore
+                        )?.name}
                   </span>
                   <div className="pointer-events-none">
                     <MbIcon
@@ -68,7 +68,7 @@ function Items({
                     />
                   </div>
                 </div>
-              )}
+              }
               isSmall
             />
           </div>
