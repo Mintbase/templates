@@ -7,10 +7,9 @@ import { useMbWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { mint, execute } from "@mintbase-js/sdk";
-import { uploadReference } from "@mintbase-js/storage"
+import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
-import { MintbaseWalletSetup } from "@/config/setup";
+import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
 
 const useMintImage = () => {
@@ -26,14 +25,38 @@ const useMintImage = () => {
     }
   };
 
+  const getImageAsFile = async (url: string): Promise<File> => {
+    try {
+      // Fetch the image
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch image. Status code: ${response.status}`);
+      }
+
+      // Convert the image to a Blob
+      const imageBlob = await response.blob();
+
+      // Create a File object from the Blob
+      const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
+
+      return imageFile;
+    } catch (error: unknown) {
+      console.error(`Error: ${error}`);
+      throw new Error("Failed to convert image to File");
+    }
+  };
+
   const onSubmit = async (data: { [x: string]: string }) => {
     const wallet = await getWallet();
+    const media = await getImageAsFile(data?.media);
     const reference = await uploadReference({
       title: data?.title,
       media: data?.media
-    })
+    });
+    const file = uploadFile(media);
 
-    await handleMint(reference.id, activeAccountId as string, wallet);
+    await handleMint(reference.id, file, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -42,19 +65,29 @@ const useMintImage = () => {
 
   async function handleMint(
     reference: string,
+    media: Promise<ArweaveResponse>,
     activeAccountId: string,
     wallet: Wallet
   ) {
     if (reference) {
-      const mintCall = mint({
-        noMedia: true,
-        metadata: {
-          reference: reference
-        },
-        contractAddress: MintbaseWalletSetup.contractAddress,
-        ownerId: activeAccountId,
+      await wallet.signAndSendTransaction({
+        signerId: activeAccountId,
+        receiverId: proxyAddress,
+        actions: [
+          {
+            type: "FunctionCall",
+            params: {
+              methodName: "mint",
+              args: {
+                metadata: JSON.stringify({ reference, media: (await media).id }),
+                nft_contract_id: MintbaseWalletSetup.contractAddress,
+              },
+              gas: "200000000000000",
+              deposit: "10000000000000000000000",
+            },
+          },
+        ],
       });
-      await execute({ wallet }, mintCall);
     }
   }
 

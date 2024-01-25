@@ -160,7 +160,6 @@ export default function Minter() {
                 <SelectValue placeholder="Select a model"/>
               </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="selectitem test">SelectItem test</SelectItem>
                     {models.map( (model) => {
                       return <SelectItem key={model.label} value={model.version}>{model.label}</SelectItem>
                     })}
