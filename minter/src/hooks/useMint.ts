@@ -45,8 +45,6 @@ const useMintImage = () => {
   const onSubmit = async (data: SubmitData) => {
     const wallet = await getWallet();
 
-
-
     const reference = await uploadReference({
       title: typeof data?.title === 'string' ? data.title : '',
       media: data?.media as unknown as File
@@ -54,7 +52,6 @@ const useMintImage = () => {
 
     const file = uploadFile(data?.media as unknown as File
     );
-
 
     await handleMint(reference.id, file, activeAccountId as string, wallet);
   };
