@@ -12,7 +12,7 @@ export default function PostDetail() {
   const { id } = useParams();
   const { post } = useGetBlogPostMetadata(decodeURIComponent(id as string));
 
-  if( typeof post === undefined) {
+  if (typeof post === undefined) {
     return <>Theres no Posts for this user!</>
   }
 
