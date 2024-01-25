@@ -2,7 +2,6 @@
 
 <img src="https://i.imgur.com/jY6k292.png" alt="cover_image" width="0"/>
 
-
 This example demonstrates a dApp where users can mint AI generated images using some [replicate models](https://replicate.com/explore) for text2img generation and [mintbase's sdk](https://github.com/Mintbase/mintbase-js) + [mintbase wallet](https://wallet.mintbase.xyz/) for handling contracts and transactions.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
@@ -35,15 +34,18 @@ you should create an `.env` file with the following properties:
 
 ```
 REPLICATE_API_TOKEN='...'
-MINT_CONTRACT_ADDRESS='...'
-PROXY_CONTRACT_ADDRESS='...'
+NEXT_PUBLIC_MINT_CONTRACT_ADDRESS='...'
+NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS='...'
+NEXT_PUBLIC_NETWORK='...'
 ```
 
 `REPLICATE_API_TOKEN` should have the value of your token for the replicate api. You can get a token on the [replicate website](https://replicate.com/).
 
-`MINT_CONTRACT_ADDRESS` is the address of the contract where you want to mint the result into an NFT. If you dont have one, you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad.
+`NEXT_PUBLIC_MINT_CONTRACT_ADDRESS` is the address of the contract where you want to mint the result into an NFT. If you dont have one, you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad.
 
-`PROXY_CONTRACT_ADDRESS` is the address of a proxy contract to allow you to relay the transaction to the minting address. This address should have minting permissions on your minting contract.
+`NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS` is the address of a proxy contract to allow you to relay the transaction to the minting address. This address should have minting permissions on your minting contract.
+
+`NEXT_PUBLIC_NETWORK` is the network of the contracts being used (usually 'mainnet' or 'testnet').
 
 ### Run project
 
