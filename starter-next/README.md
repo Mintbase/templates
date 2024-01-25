@@ -11,26 +11,19 @@ Use this project to bootstrap your dapp ideas and make progress as fast as possi
 
 Welcome to the NEAR ecosystem—an exciting space where development meets innovation. If you're new, we've got the essentials to kickstart your journey. For those familiar with the tools, feel free to skip ahead to the project walkthrough
 
-- **Make Your First Contract Call and Deploy Contract:** Explore the capabilities of the `@mintbase-js/sdk` to interact with smart contracts seamlessly. Begin your journey with the [Mintbase SDK Reference - SDK](<Link to SDK Reference>).
 
-- **Upload Reference Material to Arweave and Mint:** Understand how to utilize `@mintbase-js/storage` to store and mint reference materials on Arweave. Check out the [Mintbase SDK Reference - Storage](<Link to Storage SDK Reference>).
+- [Make Your First Contract Call and Deploy Contract](https://docs.mintbase.xyz/dev/getting-started/make-your-first-contract-call-deploycontract)
+- [Upload Reference Material to Arweave and Mint](https://docs.mintbase.xyz/dev/getting-started/upload-reference-material-to-arweave-and-mint)
+- [Get Blockchain Data (Owned Tokens)](https://docs.mintbase.xyz/dev/getting-started/get-blockchain-data-ownedtokens)
 
-- **Get Blockchain Data (Owned Tokens):** Utilize the Mintbase Graph, powered by the Indexer, to fetch blockchain data effortlessly using GraphQL. Discover more about the Indexer in the [Mintbase SDK Reference - Data](<Link to Data SDK Reference>).
+- **Indexer:** Get blockchain data using GraphQL [Mintbase Graph](https://docs.mintbase.xyz/dev/mintbase-graph)
+- **@mintbase-js/sdk:** Interact with smart contracts in the simplest way [Getting Started](https://docs.mintbase.xyz/dev/getting-started)
+- **@mintbase-js/wallet:** Add wallet connection to your app [Mintbase SDK Reference - Wallet](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/wallet)
+- **@mintbase-js/data:** Make it as easy as possible to get blockchain data [Mintbase SDK Reference - Data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data)
+- **@mintbase-js/storage:** Utilities for permanent storage like Arweave [Mintbase SDK Reference - Storage](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/storage)
 
-During your exploration, familiarize yourself with the key technologies employed in our templates:
-
-- **Indexer:** Fetch blockchain data using GraphQL Mintbase Graph.
-
-- **@mintbase-js/sdk:** Interact with smart contracts effortlessly.
-
-- **@mintbase-js/wallet:** Seamlessly add wallet connections to your applications.
-
-- **@mintbase-js/data:** Simplify the process of obtaining blockchain data.
-
-- **@mintbase-js/storage:** Access utilities for permanent storage on Arweave.
-
-Additionally, if you're venturing into the NEAR ecosystem, leverage the power of [near-api-js](https://github.com/near/near-api-js) a comprehensive library for interacting with the NEAR blockchain. 
-
+- **near-api-js** NEAR JavaScript API is a complete library to interact with the NEAR blockchain [Near API](https://github.com/near/)near-api-js
+- **Official Near Docs** Explore the official SDKs provided by near protocol [Official Docs](https://docs.near.org/)
 
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
