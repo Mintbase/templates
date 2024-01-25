@@ -7,7 +7,7 @@ Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into
 
 **Tooling:**
 
-[![Use Case](https://img.shields.io/badge/Use%20Case-Blog-blue)](#)
+[![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
 [![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/storage%2C@mintbase.js/react%2C@mintbase.js/react%2C@mintbase.js/data%2CArweave%2CMintbase%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
