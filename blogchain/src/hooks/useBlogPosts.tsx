@@ -2,19 +2,9 @@
 
 import { GET_BLOG_POSTS } from "@/app/data/queries/blogs";
 import { useGraphQlQuery } from "@/app/data/useGraphQLQuery";
+import { BLOG_POSTS, USER_POST_DATA } from "@/app/typings";
 
-interface USER_POSTS {
-  posts: {
-    metadata_id: string;
-    media: string;
-    title: string;
-    description: string;
-    minted_timestamp: string;
-  }[];
-  isLoading: boolean;
-}
-
-const useBlogPosts = (contractId: string): USER_POSTS => {
+const useBlogPosts = (contractId: string): BLOG_POSTS => {
   const queryObj = {
     queryName: "q_GET_BLOG_POSTS",
     query: GET_BLOG_POSTS,
@@ -25,10 +15,10 @@ const useBlogPosts = (contractId: string): USER_POSTS => {
     queryParams: [contractId],
   };
 
-  const { data, isLoading } = useGraphQlQuery(queryObj);
+  const { data, isLoading } = useGraphQlQuery<USER_POST_DATA, unknown>(queryObj);
 
   return {
-    posts: data?.mb_views_nft_tokens,
+    posts: data?.mb_views_nft_tokens ?? [],
     isLoading,
   };
 };

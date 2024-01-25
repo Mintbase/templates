@@ -5,9 +5,8 @@ export interface QueryOptions {
   variables?: {
     [key: string]: Object;
   };
-  onCompleted?: (data: any) => void;
+  onCompleted?: (data: TokenData[]) => void;
 }
-
 export const mapQueryObj = (data:TokenData[]) => {
   let queryOptions: QueryOptions = { skip: true };
 

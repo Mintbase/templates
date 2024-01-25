@@ -41,7 +41,7 @@ export const serverMint = async (): Promise<void> => {
 
     const accountId = [...Array(7)].map(() => Math.random().toString(36)[2]).join('') + `.${SERVER_WALLET_ID}`;
 
-    const newKeyPair: any = KeyPair.fromRandom('ed25519')
+    const newKeyPair: KeyPair = KeyPair.fromRandom('ed25519')
     const serverWallet: Account = await connect();
     await serverWallet.createAccount(accountId, newKeyPair.getPublicKey().toString(), new BN("0"))
 
@@ -93,7 +93,7 @@ export const serverMint = async (): Promise<void> => {
 
     //Create a new keypair, instantiate server wallet and create account with generated keypair
     const accountId = [...Array(7)].map(() => Math.random().toString(36)[2]).join('') + `.${SERVER_WALLET_ID}`;
-    const newKeyPair: any = KeyPair.fromRandom('ed25519')
+    const newKeyPair: KeyPair = KeyPair.fromRandom('ed25519')
     const serverWallet: Account = await connect();
     await serverWallet.createAccount(accountId, newKeyPair.getPublicKey().toString(), new BN("0"))
 

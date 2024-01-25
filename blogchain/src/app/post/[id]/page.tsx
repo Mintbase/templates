@@ -12,7 +12,11 @@ export default function PostDetail() {
   const { id } = useParams();
   const { post } = useGetBlogPostMetadata(decodeURIComponent(id as string));
 
-  const postDate = formatDate(post?.minted_timestamp);
+  if( typeof post === undefined) {
+    return <>Theres no Posts for this user!</>
+  }
+
+  const postDate = post?.minted_timestamp ? formatDate(post?.minted_timestamp): "";
 
   return post ? (
     <main className="flex min-h-screen flex-col gap-4 my-12 px-8 md:px-24 w-full md:w-7/12 mx-auto">
