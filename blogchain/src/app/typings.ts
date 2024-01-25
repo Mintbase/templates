@@ -17,12 +17,17 @@ export interface BLOG_POST_UNIQUE extends USER_POSTS {
 }
 
 export interface BLOG_POST_DATA {
-  post: BLOG_POST_UNIQUE
+  post: BLOG_POST_UNIQUE | undefined
   isLoading: boolean;
 }
 
 export interface QUERY_RESPONSE<T> {
   mb_views_nft_tokens: T[] | never[]
+  isLoading: boolean;
+}
+
+export interface QUERY_RESPONSE_METADATA<T> {
+  mb_views_nft_metadata: T[] | never[]
   isLoading: boolean;
 }
 
@@ -39,4 +44,21 @@ export interface BLOG_POSTS {
 export interface BLOG_POST {
   post: USER_POSTS[] | never[]
   isLoading: boolean
+}
+
+export interface CONTRACTS {
+   nft_contract_id: string; nft_contract_owner_id: string
+}
+export interface LATEST_BLOGS {
+  contracts:CONTRACTS[]
+  isLoading: boolean;
+}
+
+export interface BLOGS {
+  nft_contracts: { id: string }[] | never[]
+}
+
+export interface BLOGS_RESPONSE {
+  blogs: { id: string }[]
+  isLoading: boolean;
 }

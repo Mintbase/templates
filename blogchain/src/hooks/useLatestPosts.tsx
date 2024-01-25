@@ -1,21 +1,11 @@
 "use client";
 
-import { GET_BLOG_POSTS } from "@/app/data/queries/blogs";
 import { GET_LATEST_POSTS } from "@/app/data/queries/posts";
 import { useGraphQlQuery } from "@/app/data/useGraphQLQuery";
+import { BLOG_POSTS, USER_POST_DATA } from "@/app/typings";
 
-interface USER_POSTS {
-  posts: {
-    metadata_id: string;
-    media: string;
-    title: string;
-    description: string;
-    minted_timestamp: string;
-  }[];
-  isLoading: boolean;
-}
 
-const useLatestPosts = (): USER_POSTS => {
+const useLatestPosts = (): BLOG_POSTS => {
   const queryObj = {
     queryName: "q_GET_LATEST_POSTS",
     query: GET_LATEST_POSTS,
@@ -23,10 +13,10 @@ const useLatestPosts = (): USER_POSTS => {
     queryOpts: { staleTime: Infinity },
   };
 
-  const { data, isLoading } = useGraphQlQuery(queryObj);
+  const { data, isLoading } = useGraphQlQuery<USER_POST_DATA, unknown>(queryObj);
 
   return {
-    posts: data?.mb_views_nft_tokens,
+    posts: data?.mb_views_nft_tokens ?? [],
     isLoading,
   };
 };

@@ -1,4 +1,4 @@
-import { request, GraphQLClient, Variables } from "graphql-request";
+import { GraphQLClient, Variables } from "graphql-request";
 
 export type GqlFetchResult<T> = {
   data?: T;

@@ -1,7 +1,6 @@
 import { Account, KeyPair, InMemorySigner } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { JsonRpcProvider } from "near-api-js/lib/providers";
-import { constants } from "./constants";
 
 export const connect = async (
   accountId: string,

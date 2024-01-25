@@ -1,8 +1,6 @@
 "use client";
 
-import { CreatePostDialog } from "@/components/create-post";
 import PostCard from "@/components/post-card";
-import UserPosts from "@/components/user-posts";
 import { useBlogPosts } from "@/hooks/useBlogPosts";
 import { useParams } from "next/navigation";
 

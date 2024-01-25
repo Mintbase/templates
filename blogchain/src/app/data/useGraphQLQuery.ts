@@ -20,7 +20,7 @@ type QueryParamsType = string[];
 export interface GQLQueryOptions<TData, TError> {
   queryName: string;
   query: string;
-  variables: Record<string, any>;
+  variables: Record<string, unknown>;
   queryOpts?: QueryOptionsType<TData, TError>;
   queryParams?: QueryParamsType;
 }

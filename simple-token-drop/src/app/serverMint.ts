@@ -9,13 +9,12 @@ import { redirect } from 'next/navigation'
 import { MEDIA_URL, NETWORK, NFT_CONTRACT, REFERENCE_URL, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
 
 
-
 export const serverMint = async (): Promise<void> => {
 
     console.info("Server Action: Server Mint Called")
     //Create a new keypair, instantiate server wallet and create account with generated keypair
     const accountId = [...Array(7)].map(() => Math.random().toString(36)[2]).join('') + `.${SERVER_WALLET_ID}`;
-    const newKeyPair: KeyPair = KeyPair.fromRandom('ed25519')
+    const newKeyPair = KeyPair.fromRandom('ed25519')
     const serverWallet: Account = await connect();
     await serverWallet.createAccount(accountId, newKeyPair.getPublicKey().toString(), new BN("0"))
 
@@ -25,6 +24,7 @@ export const serverMint = async (): Promise<void> => {
 
     console.info("Server Action: Executed mint with", mintArgs(accountId))
 
+    //@ts-ignore
     redirect(`${WALLET_AUTO_IMPORT_URL}${accountId}/${newKeyPair.secretKey}`)
 
 }

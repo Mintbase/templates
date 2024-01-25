@@ -25,7 +25,7 @@ import { getImageData } from "@/hooks/utils";
 export default function Minter() {
   const { form, onSubmit, preview, setPreview } = useMintImage();
 
-  return ( 
+  return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>
@@ -73,6 +73,7 @@ export default function Minter() {
             <FormField
               control={form.control}
               name="media"
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
               render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
                   <FormControl>
