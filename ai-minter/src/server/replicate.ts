@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const replicate = () => {
   return {
     handlers: {
-      GET: async (request: Request, data: any) => {
+      GET: async (request: Request, data: {params: {id: string }}) => {
         const { params } = data;
         const { id } = params;
 

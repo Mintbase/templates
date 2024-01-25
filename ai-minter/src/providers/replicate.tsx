@@ -2,20 +2,20 @@
 import React, { createContext, useContext, ReactNode, useState } from "react";
 
 interface RequestProps {
-  input: any;
+  input: unknown;
   version: string;
 }
 
 interface ReplicateProps {
   id: string;
-  inputs: any;
-  output: any;
-  status: any;
+  inputs: unknown;
+  output: unknown;
+  status: unknown;
 }
 
 interface ReplicateContextProps {
   requests: Record<string, ReplicateProps> | null;
-  addRequest: (input: any, version: string) => Promise<any>;
+  addRequest: (input: string, version: string) => Promise<unknown>;
 }
 
 const ReplicateContext = createContext<ReplicateContextProps | undefined>(
@@ -34,7 +34,7 @@ export const ReplicateProvider: React.FC<ReplicateProviderProps> = ({
     ReplicateProps
   > | null>(null);
 
-  const addRequest = async (input: any, version: string) => {
+  const addRequest = async (input: string, version: string) => {
     const prediction = await runPrediction({ input, version }, 2000);
     return prediction;
   };

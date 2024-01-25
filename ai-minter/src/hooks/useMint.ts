@@ -5,13 +5,13 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useMbWallet } from "@mintbase-js/react";
 
-import { TITLE, DESCRIPTION } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { mint, execute } from "@mintbase-js/sdk";
 import { uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup } from "@/config/setup";
+import { Wallet } from "@near-wallet-selector/core";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -26,7 +26,7 @@ const useMintImage = () => {
     }
   };
 
-  const onSubmit = async (data: { [x: string]: any }) => {
+  const onSubmit = async (data: { [x: string]: string }) => {
     const wallet = await getWallet();
     const reference = await uploadReference({
       title: data?.title,
@@ -43,7 +43,7 @@ const useMintImage = () => {
   async function handleMint(
     reference: string,
     activeAccountId: string,
-    wallet: any
+    wallet: Wallet
   ) {
     if (reference) {
       const mintCall = mint({
@@ -54,7 +54,7 @@ const useMintImage = () => {
         contractAddress: MintbaseWalletSetup.contractAddress,
         ownerId: activeAccountId,
       });
-      const res = await execute({ wallet }, mintCall);
+      await execute({ wallet }, mintCall);
     }
   }
 
