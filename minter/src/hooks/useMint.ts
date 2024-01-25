@@ -21,6 +21,13 @@ import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core"
 
+interface SubmitData {
+  title: string;
+  description: string;
+  media: ((false | File) & (false | File | undefined)) | null;
+}
+
+
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
   const [preview, setPreview] = useState<string | File>("");
@@ -35,12 +42,12 @@ const useMintImage = () => {
   };
 
 
-  const onSubmit = async (data: { [x: string]: string }) => {
+  const onSubmit = async (data: SubmitData) => {
     const wallet = await getWallet();
 
     const reference = await uploadReference({
-      title: data?.title,
-      media: data?.media
+      title: typeof data?.title === 'string' ? data.title : '',
+      media: data?.media as unknown as File
     })
 
 
