@@ -53,7 +53,7 @@ export type Store = {
 };
 
 export type StoreNfts = {
-  base_uri: any
+  base_uri: string
   createdAt: string;
   listed: boolean;
   media: string;

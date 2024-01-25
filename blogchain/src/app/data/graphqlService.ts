@@ -1,4 +1,4 @@
-import request from "graphql-request";
+import { GraphQLClient, Variables } from "graphql-request";
 
 export type GqlFetchResult<T> = {
   data?: T;
@@ -7,55 +7,55 @@ export type GqlFetchResult<T> = {
 
 export const baseUrl = "https://graph.mintbase.xyz/testnet";
 
-export const graphqlQLService = async ({
+export const graphqlQLService = async <T>({
   query,
   variables,
 }: {
-  query: any;
-  variables?: Record<string, unknown>;
-}) => {
+  query: string;
+  variables?: Variables;
+}): Promise<GqlFetchResult<T>> => {
   const headers = {
     "content-type": "application/json",
     "mb-api-key": "anon",
     "Access-Control-Allow-Origin": "*",
   };
 
-  const queryLoad = () => request(baseUrl, query, variables, headers);
+  const queryLoad = (): Promise<T> => new GraphQLClient(baseUrl, { headers }).request<T>(query, variables);
 
-  return await queryLoad();
-};
-
-export const graphQLService = async ({
-  query,
-  variables,
-}: {
-  query: any;
-  variables?: Record<string, unknown>;
-}) => {
   try {
-    const data = await graphQlFetch(query, variables).then(
-      async (data: Response) => {
-        const res = await data.json();
-        return res.data;
-      }
-    );
-
+    const data = await queryLoad();
     return { data };
   } catch (error) {
-    console.log(error, "error");
+    console.error(error);
     return { error: `Query Error: ${error}` };
   }
 };
 
-export const graphQlFetch = async (
+export const graphQLService = async <T>({
+  query,
+  variables,
+}: {
+  query: string;
+  variables?: Variables;
+}): Promise<GqlFetchResult<T>> => {
+  try {
+    const data = await graphQlFetch<T>(query, variables);
+    return { data };
+  } catch (error) {
+    console.error(error);
+    return { error: `Query Error: ${error}` };
+  }
+};
+
+export const graphQlFetch = async <T>(
   query: string,
-  variables: any
-): Promise<Response> => {
-  const res = fetch(baseUrl, {
+  variables?: Variables
+): Promise<T> => {
+  const res = await fetch(baseUrl, {
     method: "POST",
     body: JSON.stringify({
-      query: query,
-      variables: variables,
+      query,
+      variables,
     }),
     headers: {
       "content-type": "application/json",
@@ -63,5 +63,9 @@ export const graphQlFetch = async (
     },
   });
 
-  return await res;
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+
+  return res.json() as Promise<T>;
 };

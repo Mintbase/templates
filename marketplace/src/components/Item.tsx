@@ -1,4 +1,4 @@
-import { bigToNear, yoctoToNear } from "@/utils/numbers";
+import { bigToNear } from "@/utils/numbers";
 import { StoreNftsData } from "@mintbase-js/data/lib/api/storeNfts/storeNfts.types";
 import { SelectedNft } from "../types/types";
 import { parseMedia } from "../utils";

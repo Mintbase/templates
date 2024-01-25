@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const MintbaseWalletSetup = {
   contractAddress: "hellovirtualworld.mintspace2.testnet",
-  network: "testnet" as any,
+  network: "testnet",
   callbackUrl: "http://localhost:3000",
 };
 

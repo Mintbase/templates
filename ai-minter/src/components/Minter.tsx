@@ -63,14 +63,14 @@ type PromptResult = {
 }
 
 export default function Minter() {
-  const { form, onSubmit, preview, setPreview } = useMintImage();
+  const { form, onSubmit, } = useMintImage();
   const [promptResult, setPrediction] = useState<PromptResult | null>(null);
-  const [error, setError] = useState<string | undefined>();
+  const [,setError] = useState<string | undefined>();
   const [model, setModel] = useState<string | undefined>();
 
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-  const handlePrompt = async (e: any) => {
+  const handlePrompt = async (e: React.MouseEvent) => {
     e.preventDefault();
 
     const promptValue = form.getValues("description");

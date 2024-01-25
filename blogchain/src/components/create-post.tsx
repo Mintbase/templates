@@ -215,6 +215,7 @@ export function CreatePostDialog() {
                 <FormField
                   control={form.control}
                   name="media"
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   render={({ field: { onChange, value, ...rest } }) => (
                     <FormItem>
                       <FormControl>

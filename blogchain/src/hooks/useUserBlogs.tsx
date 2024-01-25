@@ -2,13 +2,9 @@
 
 import { GET_USER_BLOGS } from "@/app/data/queries/user";
 import { useGraphQlQuery } from "@/app/data/useGraphQLQuery";
+import { BLOGS, BLOGS_RESPONSE } from "@/app/typings";
 
-interface USER_BLOGS {
-  blogs: { id: string }[];
-  isLoading: boolean;
-}
-
-const useUserBlogs = (accountId: string): USER_BLOGS => {
+const useUserBlogs = (accountId: string): BLOGS_RESPONSE => {
   const queryObj = {
     queryName: "q_GET_GET_USER_BLOGS",
     query: GET_USER_BLOGS,
@@ -19,10 +15,10 @@ const useUserBlogs = (accountId: string): USER_BLOGS => {
     queryParams: [accountId],
   };
 
-  const { data, isLoading } = useGraphQlQuery(queryObj);
+  const { data, isLoading } = useGraphQlQuery<BLOGS, unknown>(queryObj);
 
   return {
-    blogs: data?.nft_contracts,
+    blogs: data?.nft_contracts ?? [],
     isLoading,
   };
 };

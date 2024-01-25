@@ -11,7 +11,7 @@ import {
   deployContract,
   execute,
 } from "@mintbase-js/sdk";
-import { Network, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import * as z from "zod";

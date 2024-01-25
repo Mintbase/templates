@@ -16,9 +16,17 @@ import { useMbWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { uploadFile } from "@mintbase-js/storage"
+import { ArweaveResponse, uploadReference } from "@mintbase-js/storage"
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
+import { Wallet } from "@near-wallet-selector/core"
+
+interface SubmitData {
+  title: string;
+  description: string;
+  media: ((false | File) & (false | File | undefined)) | null;
+}
+
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -34,11 +42,16 @@ const useMintImage = () => {
   };
 
 
-  const onSubmit = async (data: { [x: string]: any }) => {
+  const onSubmit = async (data: SubmitData) => {
     const wallet = await getWallet();
-    const file = await uploadFile(data?.media)
 
-    await handleMint(file.id, activeAccountId as string, wallet);
+    const reference = await uploadReference({
+      title: typeof data?.title === 'string' ? data.title : '',
+      media: data?.media as unknown as File
+    })
+
+
+    await handleMint(reference, activeAccountId as string, wallet);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,9 +59,9 @@ const useMintImage = () => {
   });
 
   async function handleMint(
-    reference: string,
+    reference: ArweaveResponse,
     activeAccountId: string,
-    wallet: any
+    wallet: Wallet
   ) {
     if (reference) {
       await wallet.signAndSendTransaction({
