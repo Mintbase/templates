@@ -9,17 +9,17 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
   '@mintbase-js/data':
-    specifier: 0.5.0-beta.13
-    version: 0.5.0-beta.13(graphql@16.8.1)(isomorphic-fetch@3.0.0)
+    specifier: 0.5.3-beta.0
+    version: 0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0)
   '@mintbase-js/react':
-    specifier: 0.5.0-beta.13
-    version: 0.5.0-beta.13(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.3-beta.0
+    version: 0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
   '@mintbase-js/sdk':
-    specifier: 0.5.0-beta.13
-    version: 0.5.0-beta.13
+    specifier: 0.5.3-beta.0
+    version: 0.5.3-beta.0
   '@mintbase-js/storage':
-    specifier: 0.5.0-beta.13
-    version: 0.5.0-beta.13
+    specifier: 0.5.3-beta.0
+    version: 0.5.3-beta.0
   '@radix-ui/react-avatar':
     specifier: ^1.0.4
     version: 1.0.4(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
@@ -284,8 +284,8 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/data@0.5.0-beta.13(graphql@16.8.1)(isomorphic-fetch@3.0.0):
-    resolution: {integrity: sha512-L3S83y52/uAM9rLpGU61zm/mR0I0xb/zu63Qu74qZ+vmC8zJbrtM96FMAeNCDU5csv9fGUFbApLJsTtyx+VZNw==}
+  /@mintbase-js/data@0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0):
+    resolution: {integrity: sha512-6/uc8uGsfN/i2plrGkO1HhLfpKQHuuO2OU7/f1D/CYhpUZsaPHxmx2DCIFUw7gjL912YFIp0RNm1Mff6ydRMRw==}
     peerDependencies:
       isomorphic-fetch: ^3.0.0
     dependencies:
@@ -296,16 +296,15 @@ packages:
       - graphql
     dev: false
 
-  /@mintbase-js/react@0.5.0-beta.13(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-T83kpxWRARPkZDbp/1by2S9EVDNd0LNuIXpyGjTFuyHFdlqwvpHI2yElouxJFgajNDcA8lO5sRMYI24oFt7YnQ==}
+  /@mintbase-js/react@0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-RsSCkeaCyfQfYlx/6Mw+alwxJqEUmO5IMAqcsO+xbFYZtPhGVV/YznQdMWsKw/4CdefmANltQaKxKA6uY5f/Sw==}
     dependencies:
-      '@mintbase-js/wallet': 0.5.0-beta.4
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/here-wallet': 8.9.2(borsh@0.7.0)(near-api-js@2.1.4)
-      '@near-wallet-selector/meteor-wallet': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/modal-ui': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/my-near-wallet': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/near-wallet': 8.9.2(near-api-js@2.1.4)
+      '@mintbase-js/wallet': 0.5.2-beta.0
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
+      '@near-wallet-selector/here-wallet': 8.9.3(borsh@0.7.0)(near-api-js@2.1.4)
+      '@near-wallet-selector/meteor-wallet': 8.9.3(near-api-js@2.1.4)
+      '@near-wallet-selector/modal-ui': 8.9.3(near-api-js@2.1.4)
+      '@near-wallet-selector/my-near-wallet': 8.9.3(near-api-js@2.1.4)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -314,8 +313,8 @@ packages:
       - near-api-js
     dev: false
 
-  /@mintbase-js/sdk@0.5.0-beta.13:
-    resolution: {integrity: sha512-V9GklnDfyiNw2o1c6z51gBWgDBTUSWPzmM/xOxr2mXShO/N5LMAP2QFeniF30PhQehplZ4oQMCCXE/Iy97wlXg==}
+  /@mintbase-js/sdk@0.5.2-beta.0:
+    resolution: {integrity: sha512-Jo8OWlYkZFQoO40I9FCbLGRJG1xW+kkMkF+fvqrS7IrxsCZ2j8TZeZOArPALsDtX4S5ltcCQczjBVQWj0ub1DA==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -323,8 +322,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/sdk@0.5.0-v0.5.1-beta.1-20ccd71.0:
-    resolution: {integrity: sha512-jw0F5qkfjVxtYF/iVQ3kkJTDOaDM29ZTzF1MDxCheIyYfiOotdFeUTO7QXnfiIOmEMRKCFO4HSgYLm7Uj2TGVw==}
+  /@mintbase-js/sdk@0.5.3-beta.0:
+    resolution: {integrity: sha512-3m+KBdA9nxkoGk4WsK0c20T5VeU+JmMVrebf6neKvyvPlxUaXDb1o2XyA9XsjXeRrw1KNhIujb/YsSD/hoAxSg==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -332,19 +331,19 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/storage@0.5.0-beta.13:
-    resolution: {integrity: sha512-QxuPDq4d+785EoVSz/BSZ/vIp6oLXiD279bUzjXPRa6MaXL7+tZcA93T62BhxkxzwyxQIvyKPZcm0VgNAHVooA==}
+  /@mintbase-js/storage@0.5.3-beta.0:
+    resolution: {integrity: sha512-i9ZS7omF9oAq3pA63HUeZA9guf223wJMa2W7TgM35Nfbx1nxK9Azz3RPm5jSLslXDWXQXQinfjvnhH+2XWzDPA==}
     dependencies:
-      '@mintbase-js/sdk': 0.5.0-v0.5.1-beta.1-20ccd71.0
+      '@mintbase-js/sdk': 0.5.2-beta.0
       near-api-js: 2.1.4
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@mintbase-js/wallet@0.5.0-beta.4:
-    resolution: {integrity: sha512-rYKd8ZOeLw+qdgT+QGN6qKdhPgl03EZ1gYdGs97aQ2BufsCTAiejBQN5AdHKMH7XLOAefvEsk+BqtoYK7JKQ9w==}
+  /@mintbase-js/wallet@0.5.2-beta.0:
+    resolution: {integrity: sha512-8byHdddYMTn/QbrTV9Nhk7HocDSPxuye30W3e3TitgR8PvWXiY/mnj0QstiV9Cb+82dssH5vSrNQ1cUPet7xPw==}
     dependencies:
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       bn.js: 5.2.1
       near-api-js: 2.1.4
     transitivePeerDependencies:
@@ -466,8 +465,8 @@ packages:
       - encoding
     dev: false
 
-  /@near-wallet-selector/core@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-vCUoVOezCn5+5etHT0ejzgJ7DpnkUjLasYLYjjUh+E2BlUzrI63qMWfvdL8eoUoELXY7vtJVMEy/Td1kgrt10w==}
+  /@near-wallet-selector/core@8.9.3(near-api-js@2.1.4):
+    resolution: {integrity: sha512-Mjmos4ska8eHwU/tGiWdAY+hHrFRSIpsmLYEfWuO/Uh1bWbJVueyKI7OGxbyWEOL1GJw1J5rx+MzXRS+U3fJow==}
     peerDependencies:
       near-api-js: ^1.0.0 || ^2.0.0
     dependencies:
@@ -478,33 +477,33 @@ packages:
       rxjs: 7.8.1
     dev: false
 
-  /@near-wallet-selector/here-wallet@8.9.2(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-LJ8vO4NAAPzkHDdPEfq5IEGqzLS8Zmg7fKhIuxL1E7iAAAHFg7P5yxjP+jh8wwa0x7fZPs0aoYRsug1kCJanxA==}
+  /@near-wallet-selector/here-wallet@8.9.3(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-y7vLNuzIkMWZSRcj0v7Ass2IVAEE2GFlpTc1MjrwXdJ0IL1SDLGntGk2A9dQ+0Iu9kACSmacyRUBXIggZV6NpA==}
     peerDependencies:
       near-api-js: ^1.0.0 || ^2.0.0
     dependencies:
       '@here-wallet/core': 1.5.1(bn.js@5.2.1)(borsh@0.7.0)(near-api-js@2.1.4)
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       bn.js: 5.2.1
       near-api-js: 2.1.4
     transitivePeerDependencies:
       - borsh
     dev: false
 
-  /@near-wallet-selector/meteor-wallet@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-GIfPVi4FakvJNbkeQffjXLFy0t8vTj3fXSRPny+0JmfiNJr7FBd4/QopmYsWsNpxLT+nekl7TBQsJvjovWooqg==}
+  /@near-wallet-selector/meteor-wallet@8.9.3(near-api-js@2.1.4):
+    resolution: {integrity: sha512-mYfDJ9U5MSxy8LQj6JZTD6XT4NaLqzz9+8BGT1/QW7wGEMCODL6WJJBT7nPDnnXxWT6BtiBaoGJcnMEhV43GSQ==}
     peerDependencies:
       near-api-js: ^1.0.0 || ^2.0.0
     dependencies:
       '@meteorwallet/sdk': 1.0.9(near-api-js@2.1.4)
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       near-api-js: 2.1.4
     dev: false
 
-  /@near-wallet-selector/modal-ui@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-v4TTyZpCTsJ1NiovPER1mWpiHXk0minJ5G6I/72cqcPM7gbPEBoMXpW4djY/hN7uTMr+oPyEfZK1gnM4tTEP2Q==}
+  /@near-wallet-selector/modal-ui@8.9.3(near-api-js@2.1.4):
+    resolution: {integrity: sha512-jxRssW9trlqqvK9dde7Nx0hfPMOjoO+RGmFTY1V3+yth1k1pHNC67lXM49WuNTrDqiyXcI/SvkDq/5mPMbUx6Q==}
     dependencies:
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       copy-to-clipboard: 3.3.3
       qrcode: 1.5.3
       react: 18.2.0
@@ -513,32 +512,22 @@ packages:
       - near-api-js
     dev: false
 
-  /@near-wallet-selector/my-near-wallet@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-K+jOLLl8uuJGrEzly8FuTvX2AveevhyUA21CQFRF4wrAl8+Wq6D6juf428tvOILdl56iGV2hC9Iv7quWrrL/Ug==}
+  /@near-wallet-selector/my-near-wallet@8.9.3(near-api-js@2.1.4):
+    resolution: {integrity: sha512-26TsvJ8YxqFqD21tSrj/f9qIPNxHYPU+YFEvbnAGcZL3VV/+BTbyIM8OnFP5H3KdtW0Wcc33PDoDyeidEqdTvQ==}
     peerDependencies:
       near-api-js: ^1.0.0 || ^2.0.0
     dependencies:
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/wallet-utils': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
+      '@near-wallet-selector/wallet-utils': 8.9.3(near-api-js@2.1.4)
       near-api-js: 2.1.4
     dev: false
 
-  /@near-wallet-selector/near-wallet@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-tXTOnqv+2AhioLYqzuQ7D1xyfHxwhoNZFUsciMeeLEqqnd9sYV8TPbkklvKw1A7Kf2725PrhARD4oZhSdYqTZg==}
+  /@near-wallet-selector/wallet-utils@8.9.3(near-api-js@2.1.4):
+    resolution: {integrity: sha512-CGAM1Ocz+nUI03rxSTNnHHx9K8gvqFrCI63Y1yIUNSI/EyRXJKvWUJCyGMBCjzEqcL5fh0qMzcGm9ThSgXOwOA==}
     peerDependencies:
       near-api-js: ^1.0.0 || ^2.0.0
     dependencies:
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
-      '@near-wallet-selector/my-near-wallet': 8.9.2(near-api-js@2.1.4)
-      near-api-js: 2.1.4
-    dev: false
-
-  /@near-wallet-selector/wallet-utils@8.9.2(near-api-js@2.1.4):
-    resolution: {integrity: sha512-k2Sr66Al9q2T25xQRUlWR4hIEL4LXH24VIHdmKPG9zXT3hlR7zKdHcxEz6vEYgm3fwqva9P9s3WgsZ1+GORtCQ==}
-    peerDependencies:
-      near-api-js: ^1.0.0 || ^2.0.0
-    dependencies:
-      '@near-wallet-selector/core': 8.9.2(near-api-js@2.1.4)
+      '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       bn.js: 5.2.1
       near-api-js: 2.1.4
     dev: false
