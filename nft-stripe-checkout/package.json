@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mintbase-js/data": "0.5.0-beta.2",
-    "@mintbase-js/react": "0.5.0-beta.2",
-    "@mintbase-js/rpc": "0.5.0-beta.2",
-    "@mintbase-js/sdk": "0.5.0-beta.2",
-    "@mintbase-js/storage": "0.5.0-beta.2",
+    "@mintbase-js/data": "0.5.3-beta.0",
+    "@mintbase-js/react": "0.5.3-beta.0",
+    "@mintbase-js/rpc": "0.5.3-beta.0",
+    "@mintbase-js/sdk": "0.5.3-beta.0",
+    "@mintbase-js/storage": "0.5.3-beta.0",
     "@near-js/accounts": "^0.1.4",
     "@stripe/react-stripe-js": "^2.3.1",
     "@stripe/stripe-js": "^2.1.10",
