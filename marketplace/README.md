@@ -35,9 +35,9 @@ This guide will take you step by step through the process of creating a basic ma
 
 The mintbase-js/data package provides convenient functions for retrieving data from our indexer. In this example, you will be able to view and purchase NFTs from a specific store.
 
-You can find more information on Github: [GitHub link]
+You can find more information on Github: [GitHub link](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data)
 
-A live demo of the marketplace can be found here: [Live demo link]
+A live demo of the marketplace can be found here: [Live demo link](https://marketplace-template.mintbase.xyz/)
 
 ## Step 1: Connect Wallet
 
@@ -45,7 +45,7 @@ Before proceeding, it is important to have a wallet connection feature implement
 
 ## Step 2: Get NFTs from Store
 
-In this example, we utilized react-query to manage the loading state when retrieving NFTs from the contract via the storeNfts method. This method returns all NFTs from the specified contract, allowing you to display them in the user interface. 
+In this example, we utilized react-query to manage the loading state when retrieving NFTs from the contract via the storeNfts method. This method returns all listed NFTs from the specified contract, allowing you to display them in the user interface. 
 
 ```ts
 // src/hooks/useStoreNfts.ts
