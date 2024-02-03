@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@joychi-js/sdk": "^0.5.1-beta-prerelease.3",
+    "near-api-js": "^3.0.2"
+  }
+}

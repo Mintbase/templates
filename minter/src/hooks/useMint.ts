@@ -1,36 +1,36 @@
-/**
- * @file useMint.ts
- * @title Minting Hook for Images
- * @description Provides a React hook `useMintImage` for handling the minting process of images on the Mintbase platform.
- * This includes form handling, file uploading, and interacting with the Mintbase blockchain to mint the image as an NFT.
- * It utilizes the `@mintbase-js/react` and `@mintbase-js/storage` packages for wallet integration and file storage, respectively.
- * The hook returns an object containing the form handlers and a preview state for the image to be minted.
- */
-
 "use client"
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
 import { useMbWallet } from "@mintbase-js/react";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/storage"
-import { formSchema } from "./formSchema";
-import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
-import { Wallet } from "@near-wallet-selector/core"
-
-interface SubmitData {
-  title: string;
-  description: string;
-  media: ((false | File) & (false | File | undefined)) | null;
-}
+import type { NearContractCall,FinalExecutionOutcome,NearExecuteOptions, ExecuteArgsResponse } from "@mintbase-js/sdk";
+import { MAX_GAS,execute } from "@mintbase-js/sdk";
+import axios from "axios";
+import type {
+  CodeResult,
+} from "near-api-js/lib/providers/provider";
+import { providers } from "near-api-js";
 
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
   const [preview, setPreview] = useState<string | File>("");
+  const [fileImg, setFileImg] =  useState<any>(null);
+  const [description, setDescription] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [totalProject, setTotalProject] = useState<any>(null);
+
+  const provider = new providers.JsonRpcProvider({ url: "https://rpc.testnet.near.org" });
+  provider.query<CodeResult>({
+          request_type: "call_function",
+          account_id: "nft_delegate.joychi.testnet",
+          method_name: "nft_total_supply",
+          args_base64: (Buffer.from(JSON.stringify({}))).toString("base64"),
+          finality: "optimistic",
+      })
+      .then((res:any) => {
+          const totalProject = JSON.parse(Buffer.from(res.result).toString());
+          setTotalProject(totalProject)
+      })
 
   const getWallet = async () => {
     try {
@@ -41,54 +41,62 @@ const useMintImage = () => {
     }
   };
 
+  const onSubmit = async() =>{
+    const API_KEY = "f6e91c4fd6bc7a809c85"
+    const API_SECRET = "54825c33d2a968f3eddd01c3cbcfa9b5a3b3e364a0639d0aab3dad94f028c74f"
+    const formData = new FormData()
+    formData.append("file",fileImg)
+    // the endpoint needed to upload the file
+    const url =  `https://api.pinata.cloud/pinning/pinFileToIPFS`
 
-  const onSubmit = async (data: SubmitData) => {
-    const wallet = await getWallet();
-
-    const reference = await uploadReference({
-      title: typeof data?.title === 'string' ? data.title : '',
-      media: data?.media as unknown as File
+    const response = await axios({
+      method: "post",
+      url: url,
+      data: formData,
+      headers: {
+        "Content-Type": `multipart/form-data`, 
+        'pinata_api_key': API_KEY,
+        'pinata_secret_api_key': API_SECRET
+      }
     })
 
-    const file = uploadFile(data?.media as unknown as File
-    );
+    console.log("res ipfs",response);
 
-    await handleMint(reference.id, file, activeAccountId as string, wallet);
-  };
+    const handleUpdateMetadata: NearContractCall<ExecuteArgsResponse> = {
+      signerId: activeAccountId as string,
+      contractAddress: "nft_delegate.joychi.testnet",
+      methodName: "nft_mint",
+      args:{
+        token_id: (Number(totalProject)+1).toString(),
+        metadata:{
+          title: title,
+          description: description,
+          media: response.data.IpfsHash, 
+          issued_at: Date.now(),
+        },
+        receiver_id: activeAccountId
+      },
+      gas: MAX_GAS,
+      //6730000000000000000000
+      deposit: "10000000000000000000000",
+    };
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
-  });
-
-  async function handleMint(
-    reference: string,
-    media: Promise<ArweaveResponse>,
-    activeAccountId: string,
-    wallet: Wallet
-  ) {
-    if (reference) {
-      await wallet.signAndSendTransaction({
-        signerId: activeAccountId,
-        receiverId: proxyAddress,
-        actions: [
-          {
-            type: "FunctionCall",
-            params: {
-              methodName: "mint",
-              args: {
-                metadata: JSON.stringify({ reference, media: (await media).id }),
-                 nft_contract_id: MintbaseWalletSetup.contractAddress,
-              },
-              gas: "200000000000000",
-              deposit: "10000000000000000000000",
-            },
-          },
-        ],
-      });
+    const makeSmartContractCall = async (): Promise<FinalExecutionOutcome> => {
+      const wallet = await getWallet();
+      const options: NearExecuteOptions = {
+        wallet,
+        callbackUrl:"http://localhost:3000/"
+      }
+      return await execute(options,handleUpdateMetadata) as FinalExecutionOutcome;
     }
+
+    makeSmartContractCall()
+    .then((res:FinalExecutionOutcome)=>console.log("res",res))
+    .catch((err)=>console.error("err",err))
+
   }
 
-  return { form, onSubmit, preview, setPreview };
+  return { onSubmit, preview, setPreview,setFileImg, setDescription, setTitle };
 };
 
 export default useMintImage;
