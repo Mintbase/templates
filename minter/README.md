@@ -74,4 +74,5 @@ You can use this project as a reference to build your own, and use or remove any
 - Support: [Join the Telegram](https://tg.me/mintdev)
 - Twitter: [@mintbase](https://twitter.com/mintbase)
 
-<img src="https://i.imgur.com/SBiSEAB.png" alt="detail_image" width="0" />
+<img src="https://i.imgur.com/SBiSEAB.png" alt="detail_image" width="0" /># mint_mintnase
+# update_metadata_mintbase
