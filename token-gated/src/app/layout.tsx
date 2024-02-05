@@ -6,6 +6,7 @@ import "@near-wallet-selector/modal-ui/styles.css";
 import "../styles.css";
 
 import { MintbaseWalletContextProvider } from "@mintbase-js/react";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,8 +25,11 @@ export default function RootLayout({
     <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
       <html lang="en">
         <body className={inter.className}>
-          <div className="flex flex-1 flex-col min-h-screen text-gray-500 gradient w-full  h-full flex justify-center items-center bold text-white">
-            {children}
+          <div className="flex flex-col min-h-screen bg-transparent relative">
+            <Header />
+            <div className="flex flex-1 flex-col min-h-screen text-gray-500 gradient w-full h-full flex justify-center items-center bold text-white">
+              {children}
+            </div>
           </div>
         </body>
       </html>

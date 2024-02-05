@@ -1,5 +1,5 @@
-import { NearWalletConnector } from "@/components/NearWalletSelector";
 import type { Metadata } from "next";
+import { TokenCheck } from "@/components/TokenCheck";
 
 export const metadata: Metadata = {
   title: "Mintbase Starter with Next.js",
@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  /*   const { isConnected, selector, connect, activeAccountId } = useMbWallet(); */
   return (
     <>
       <main className="flex flex-col items-center justify-center mt-2">
@@ -16,7 +17,7 @@ export default function Home() {
               <div className="flex flex-col justify-center items-center space-y-8 text-[40px]">
                 Mintbase.js Simple Login Example
               </div>
-              <NearWalletConnector />
+              <TokenCheck />
             </div>
           </div>
         </div>
