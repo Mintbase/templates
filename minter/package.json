@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "@mintbase-js/react": "0.5.3-beta.0",
-    "@mintbase-js/sdk": "0.5.3-beta.0",
-    "@mintbase-js/storage": "0.5.3-beta.0",
+    "@mintbase-js/react": "0.5.4-beta.0",
+    "@mintbase-js/sdk": "0.5.4-beta.0",
+    "@mintbase-js/storage": "0.5.4-beta.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",

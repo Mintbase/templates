@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@mintbase-js/react':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
   next:
     specifier: 14.0.1
     version: 14.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -184,8 +184,8 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/react@0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-RsSCkeaCyfQfYlx/6Mw+alwxJqEUmO5IMAqcsO+xbFYZtPhGVV/YznQdMWsKw/4CdefmANltQaKxKA6uY5f/Sw==}
+  /@mintbase-js/react@0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-vr4njHyMXxaCYtQnpGOfG80J8sz2f5KegJlV7qOiSUcFYETJ/4x/y0Vt5+Gf3y6vOkfEbFGd3OdS2j5uSxYBgA==}
     dependencies:
       '@mintbase-js/wallet': 0.5.2-beta.0
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)

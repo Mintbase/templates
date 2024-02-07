@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@mintbase-js/react':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
   '@mintbase-js/sdk':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   '@mintbase-js/storage':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   near-api-js:
     specifier: ^2.1.4
     version: 2.1.4
@@ -193,8 +193,8 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/react@0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-RsSCkeaCyfQfYlx/6Mw+alwxJqEUmO5IMAqcsO+xbFYZtPhGVV/YznQdMWsKw/4CdefmANltQaKxKA6uY5f/Sw==}
+  /@mintbase-js/react@0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-vr4njHyMXxaCYtQnpGOfG80J8sz2f5KegJlV7qOiSUcFYETJ/4x/y0Vt5+Gf3y6vOkfEbFGd3OdS2j5uSxYBgA==}
     dependencies:
       '@mintbase-js/wallet': 0.5.2-beta.0
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
@@ -219,8 +219,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/sdk@0.5.3-beta.0:
-    resolution: {integrity: sha512-3m+KBdA9nxkoGk4WsK0c20T5VeU+JmMVrebf6neKvyvPlxUaXDb1o2XyA9XsjXeRrw1KNhIujb/YsSD/hoAxSg==}
+  /@mintbase-js/sdk@0.5.4-beta.0:
+    resolution: {integrity: sha512-pFBdqYUb9BwmR4nJj2eTx/2NGMsCx+okiwT2GfitJYwUNe2ZCVwuUZOU3izdvLEUsQVrQUfDDVPSY/EOf8q4Hw==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -228,8 +228,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/storage@0.5.3-beta.0:
-    resolution: {integrity: sha512-i9ZS7omF9oAq3pA63HUeZA9guf223wJMa2W7TgM35Nfbx1nxK9Azz3RPm5jSLslXDWXQXQinfjvnhH+2XWzDPA==}
+  /@mintbase-js/storage@0.5.4-beta.0:
+    resolution: {integrity: sha512-eeoXcoFA/QvxHPn/OV66hPjOTsr93WaZeIpht0SsbgyMrPKqGlXvQpmtKpI1SnH1bzq4wcgo78pdgeqQl5NlQw==}
     dependencies:
       '@mintbase-js/sdk': 0.5.2-beta.0
       near-api-js: 2.1.4
