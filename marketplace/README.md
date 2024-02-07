@@ -1,4 +1,5 @@
 # Marketplace
+
 <img src="https://i.imgur.com/FjcUss9.png" alt="cover_image" width="0" />
 This is a simple marketplace example built on top of Next.js 14
 
@@ -17,10 +18,6 @@ This is a simple marketplace example built on top of Next.js 14
 
 ## Project Walkthrough
 
-This is a simple marketplace example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
-
-*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
-
 ### Setup
 
 install dependencies
@@ -32,6 +29,145 @@ run the project
 ```
 pnpm dev
 ```
+
+
+This guide will take you step by step through the process of creating a basic marketplace where you can purchase tokens and filter your selection by store. It uses [mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data) for retrieving data and [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk) for executing marketplace methods.
+
+The mintbase-js/data package provides convenient functions for retrieving data from our indexer. In this example, you will be able to view and purchase NFTs from a specific store.
+
+You can find more information on Github: [GitHub link](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data)
+
+A live demo of the marketplace can be found here: [Live demo link](https://marketplace-template.mintbase.xyz/)
+
+## Step 1: Connect Wallet
+
+Before proceeding, it is important to have a wallet connection feature implemented in your application in order to interact with the contract. To do this, you can check our guide [Wallet Connection Guide](https://docs.mintbase.xyz/dev/getting-started/add-wallet-connection-to-your-react-app).
+
+## Step 2: Get NFTs from Store
+
+In this example, we utilized react-query to manage the loading state when retrieving NFTs from the contract via the storeNfts method. This method returns all listed NFTs from the specified contract, allowing you to display them in the user interface. 
+
+```ts
+// src/hooks/useStoreNfts.ts
+import { useQuery } from 'react-query';
+import { storeNfts } from '@mintbase-js/data';
+
+const useStoreNfts = (store?: string) => {
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
+  const formattedStores = defaultStores.split(/[ ,]+/);
+
+  const { isLoading, error, data } = useQuery(['storeNfts', store], () => storeNfts(store || formattedStores, true), {
+    retry: false,
+    refetchOnWindowFocus: false,
+    select: mapStoreNfts,
+  });
+
+  return { ...data, error, loading: isLoading };
+};
+
+export { useStoreNfts };
+```
+
+## Step 3: Get Store Data
+
+To control the tabs, we need to retrieve store data using the storeData method. This method returns the data from the specified contract, enabling you to display it in the user interface.
+
+```ts
+// src/hooks/useStoreData.ts
+import { useQuery } from 'react-query';
+import { storeData } from '@mintbase-js/data';
+
+const useStoreData = () => {
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
+  const formattedStores = defaultStores.split(/[ ,]+/);
+
+  const { isLoading, error, data } = useQuery('storeData', () => storeData(formattedStores), {
+    retry: false,
+    refetchOnWindowFocus: false,
+    select: mapStoreData,
+  });
+
+  return { ...data, error, loading: isLoading };
+};
+
+export { useStoreData };
+
+```
+## Step 4: Get Metadata from an NFT
+
+To display NFT pricing information, available quantities, and other details in the user interface, it is necessary to access the NFT metadata using the metadataByMetadataId method.
+
+```ts
+// src/hooks/useMetadataByMetadataId.ts
+import { useQuery } from 'react-query';
+import { metadataByMetadataId } from '@mintbase-js/data';
+
+const useMetadataByMetadataId = ({ metadataId }) => {
+  const { isLoading, data: metadata } = useQuery('metadataByMetadataId', () => metadataByMetadataId(metadataId), {
+    retry: false,
+    refetchOnWindowFocus: false,
+    select: mapMetadata,
+  });
+
+  return { ...metadata, isTokenListLoading: isLoading };
+};
+
+export { useMetadataByMetadataId };
+```
+
+## Step 5: Get Current NEAR Price
+
+To obtain the current price of the NFT in USD, it is necessary to retrieve the current Near price. We accomplish this by using the nearPrice method.
+
+```ts
+// src/hooks/useNearPrice.ts
+import { useEffect, useState } from 'react';
+import { nearPrice } from '@mintbase-js/data';
+
+const useNearPrice = () => {
+  const [nearPriceData, setNearPriceData] = useState('0');
+
+  useEffect(() => {
+    const getNearPrice = async () => {
+      const { data: priceData, error } = await nearPrice();
+      setNearPriceData(error ? '0' : priceData);
+    };
+
+    getNearPrice();
+  }, []);
+
+  return nearPriceData;
+};
+
+export { useNearPrice };
+``````
+
+## Step 6: Execute the Contract Call - Buy
+
+The execute method accepts one or more contract call objects and executes them using a specified wallet instance. In this example, we need to use the execute method to execute the "buy" call, allowing the user to purchase the desired NFT.
+
+````ts
+const singleBuy = async () => {
+    const wallet = await selector.wallet();
+
+    if (tokenId) {
+      (await execute(
+        { wallet, callbackArgs: callback },
+        {
+          ...buy({
+            contractAddress: nftContractId,
+            tokenId,
+            affiliateAccount:
+              process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
+              MAINNET_CONFIG.affiliate,
+            marketId,
+            price: nearToYocto(currentPrice?.toString()) || "0",
+          }),
+        }
+      )) as FinalExecutionOutcome;
+    }
+  };
+``````
 
 ## Set ENV variables
 
