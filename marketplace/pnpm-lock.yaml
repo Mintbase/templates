@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@mintbase-js/data':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(graphql@16.8.1)
   '@mintbase-js/react':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
   '@mintbase-js/sdk':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   big.js:
     specifier: ^6.2.1
     version: 6.2.1
@@ -61,9 +61,6 @@ devDependencies:
   eslint-config-next:
     specifier: 14.0.1
     version: 14.0.1(eslint@8.53.0)(typescript@5.2.2)
-  isomorphic-unfetch:
-    specifier: ^3.1.0
-    version: 3.1.0
   postcss:
     specifier: ^8
     version: 8.4.31
@@ -212,20 +209,19 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/data@0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0):
-    resolution: {integrity: sha512-6/uc8uGsfN/i2plrGkO1HhLfpKQHuuO2OU7/f1D/CYhpUZsaPHxmx2DCIFUw7gjL912YFIp0RNm1Mff6ydRMRw==}
-    peerDependencies:
-      isomorphic-fetch: ^3.0.0
+  /@mintbase-js/data@0.5.4-beta.0(graphql@16.8.1):
+    resolution: {integrity: sha512-HNmiZga/rCzSjheGUWXqcYTgNiigk7AsbRP9grEP095sukECcNE/e5xxRDpEeRk/zeCknrNUv1X0qGXysKbIpA==}
     dependencies:
+      '@mintbase-js/sdk': 0.5.2-v0.5.3-beta.0-94da14c.0
+      cross-fetch: 4.0.0
       graphql-request: 5.2.0(graphql@16.8.1)
-      isomorphic-fetch: 3.0.0
     transitivePeerDependencies:
       - encoding
       - graphql
     dev: false
 
-  /@mintbase-js/react@0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-RsSCkeaCyfQfYlx/6Mw+alwxJqEUmO5IMAqcsO+xbFYZtPhGVV/YznQdMWsKw/4CdefmANltQaKxKA6uY5f/Sw==}
+  /@mintbase-js/react@0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-vr4njHyMXxaCYtQnpGOfG80J8sz2f5KegJlV7qOiSUcFYETJ/4x/y0Vt5+Gf3y6vOkfEbFGd3OdS2j5uSxYBgA==}
     dependencies:
       '@mintbase-js/wallet': 0.5.2-beta.0
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
@@ -241,8 +237,17 @@ packages:
       - near-api-js
     dev: false
 
-  /@mintbase-js/sdk@0.5.3-beta.0:
-    resolution: {integrity: sha512-3m+KBdA9nxkoGk4WsK0c20T5VeU+JmMVrebf6neKvyvPlxUaXDb1o2XyA9XsjXeRrw1KNhIujb/YsSD/hoAxSg==}
+  /@mintbase-js/sdk@0.5.2-v0.5.3-beta.0-94da14c.0:
+    resolution: {integrity: sha512-PIdw9buRyxGre1UqBJAq0gHssz4YrLo2kzeYnsqYC0htktFLfjXaPuv4/NF7aEqINpXo9LFz1MTaFaFxC0eIzA==}
+    dependencies:
+      bn.js: 5.2.1
+      near-api-js: 2.1.4
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /@mintbase-js/sdk@0.5.4-beta.0:
+    resolution: {integrity: sha512-pFBdqYUb9BwmR4nJj2eTx/2NGMsCx+okiwT2GfitJYwUNe2ZCVwuUZOU3izdvLEUsQVrQUfDDVPSY/EOf8q4Hw==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -1141,6 +1146,14 @@ packages:
 
   /cross-fetch@3.1.8:
     resolution: {integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==}
+    dependencies:
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /cross-fetch@4.0.0:
+    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
     dependencies:
       node-fetch: 2.7.0
     transitivePeerDependencies:
@@ -2230,24 +2243,6 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
-  /isomorphic-fetch@3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
-    dependencies:
-      node-fetch: 2.7.0
-      whatwg-fetch: 3.6.19
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /isomorphic-unfetch@3.1.0:
-    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
-    dependencies:
-      node-fetch: 2.7.0
-      unfetch: 4.2.0
-    transitivePeerDependencies:
-      - encoding
-    dev: true
-
   /iterator.prototype@1.1.2:
     resolution: {integrity: sha512-DR33HMMr8EzwuRL8Y9D3u2BMj8+RqSE850jfGu59kS7tbmPLzGkZmVSfyCFSDxuZiEY6Rzt3T2NA/qU+NwVj1w==}
     dependencies:
@@ -2584,6 +2579,7 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
+    dev: false
 
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
@@ -3377,6 +3373,7 @@ packages:
 
   /tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+    dev: false
 
   /ts-api-utils@1.0.3(typescript@5.2.2):
     resolution: {integrity: sha512-wNMeqtMz5NtwpT/UZGY5alT+VoKdSsOOP/kqHFcUW1P/VRhH2wJ48+DN2WwUliNbQ976ETwDL0Ifd2VVvgonvg==}
@@ -3486,10 +3483,6 @@ packages:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
     dev: true
 
-  /unfetch@4.2.0:
-    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
-    dev: true
-
   /unload@2.2.0:
     resolution: {integrity: sha512-B60uB5TNBLtN6/LsgAf3udH9saB5p7gqJwcFfbOEZ8BcBHnGwCf6G/TGiEqkRAxX7zAFIUtzdrXQSdL3Q/wqNA==}
     dependencies:
@@ -3543,9 +3536,6 @@ packages:
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
-  /whatwg-fetch@3.6.19:
-    resolution: {integrity: sha512-d67JP4dHSbm2TrpFj8AbO8DnL1JXL5J9u0Kq2xW6d0TFDbCA3Muhdt8orXC22utleTVj7Prqt82baN6RBvnEgw==}
     dev: false
 
   /whatwg-url@5.0.0:
@@ -3553,6 +3543,7 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    dev: false
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}

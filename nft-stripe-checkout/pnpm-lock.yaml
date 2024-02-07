@@ -6,20 +6,20 @@ settings:
 
 dependencies:
   '@mintbase-js/data':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(graphql@16.8.1)
   '@mintbase-js/react':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
   '@mintbase-js/rpc':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0(isomorphic-unfetch@3.1.0)
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   '@mintbase-js/sdk':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   '@mintbase-js/storage':
-    specifier: 0.5.3-beta.0
-    version: 0.5.3-beta.0
+    specifier: 0.5.4-beta.0
+    version: 0.5.4-beta.0
   '@near-js/accounts':
     specifier: ^0.1.4
     version: 0.1.4
@@ -66,7 +66,7 @@ devDependencies:
     version: 6.19.1(eslint@8.0.0)(typescript@5.0.2)
   autoprefixer:
     specifier: ^10.0.1
-    version: 10.0.1(postcss@8.0.0)
+    version: 10.0.1(postcss@8.4.21)
   eslint:
     specifier: ^8
     version: 8.0.0
@@ -74,11 +74,11 @@ devDependencies:
     specifier: 14.0.1
     version: 14.0.1(eslint@8.0.0)(typescript@5.0.2)
   postcss:
-    specifier: ^8
-    version: 8.0.0
+    specifier: ^8.4.21
+    version: 8.4.21
   tailwindcss:
     specifier: ^3.3.0
-    version: 3.3.0(postcss@8.0.0)
+    version: 3.3.0(postcss@8.4.21)
   typescript:
     specifier: ^5
     version: 5.0.2
@@ -522,20 +522,19 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/data@0.5.3-beta.0(graphql@16.8.1)(isomorphic-fetch@3.0.0):
-    resolution: {integrity: sha512-6/uc8uGsfN/i2plrGkO1HhLfpKQHuuO2OU7/f1D/CYhpUZsaPHxmx2DCIFUw7gjL912YFIp0RNm1Mff6ydRMRw==}
-    peerDependencies:
-      isomorphic-fetch: ^3.0.0
+  /@mintbase-js/data@0.5.4-beta.0(graphql@16.8.1):
+    resolution: {integrity: sha512-HNmiZga/rCzSjheGUWXqcYTgNiigk7AsbRP9grEP095sukECcNE/e5xxRDpEeRk/zeCknrNUv1X0qGXysKbIpA==}
     dependencies:
+      '@mintbase-js/sdk': 0.5.2-beta.0
+      cross-fetch: 4.0.0
       graphql-request: 5.2.0(graphql@16.8.1)
-      isomorphic-fetch: 3.0.0
     transitivePeerDependencies:
       - encoding
       - graphql
     dev: false
 
-  /@mintbase-js/react@0.5.3-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-RsSCkeaCyfQfYlx/6Mw+alwxJqEUmO5IMAqcsO+xbFYZtPhGVV/YznQdMWsKw/4CdefmANltQaKxKA6uY5f/Sw==}
+  /@mintbase-js/react@0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-vr4njHyMXxaCYtQnpGOfG80J8sz2f5KegJlV7qOiSUcFYETJ/4x/y0Vt5+Gf3y6vOkfEbFGd3OdS2j5uSxYBgA==}
     dependencies:
       '@mintbase-js/wallet': 0.5.2-beta.0
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
@@ -551,14 +550,15 @@ packages:
       - near-api-js
     dev: false
 
-  /@mintbase-js/rpc@0.5.3-beta.0(isomorphic-unfetch@3.1.0):
-    resolution: {integrity: sha512-jXFpFO3u5E+mllU7gbaUKa7OgOtT0zPunj09I/hW2qac3sMCWNpitU5XRJORW5dd/PVoIBDF7T32kuXMQ85OyQ==}
-    peerDependencies:
-      isomorphic-unfetch: ^3.1.0
+  /@mintbase-js/rpc@0.5.4-beta.0:
+    resolution: {integrity: sha512-5lRA/3+sCOFcj3cxaHf1udtS2tlw8ATR444cOiloFRqTDY2BYSYCvtAXXxIBipbtRbrW8iUrH7zV/JQicCXCYQ==}
     dependencies:
+      '@mintbase-js/sdk': 0.5.2-beta.0
       '@types/node': 18.11.9
       bn.js: 5.2.1
-      isomorphic-unfetch: 3.1.0
+      cross-fetch: 4.0.0
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /@mintbase-js/sdk@0.5.2-beta.0:
@@ -570,8 +570,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/sdk@0.5.3-beta.0:
-    resolution: {integrity: sha512-3m+KBdA9nxkoGk4WsK0c20T5VeU+JmMVrebf6neKvyvPlxUaXDb1o2XyA9XsjXeRrw1KNhIujb/YsSD/hoAxSg==}
+  /@mintbase-js/sdk@0.5.4-beta.0:
+    resolution: {integrity: sha512-pFBdqYUb9BwmR4nJj2eTx/2NGMsCx+okiwT2GfitJYwUNe2ZCVwuUZOU3izdvLEUsQVrQUfDDVPSY/EOf8q4Hw==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -579,8 +579,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/storage@0.5.3-beta.0:
-    resolution: {integrity: sha512-i9ZS7omF9oAq3pA63HUeZA9guf223wJMa2W7TgM35Nfbx1nxK9Azz3RPm5jSLslXDWXQXQinfjvnhH+2XWzDPA==}
+  /@mintbase-js/storage@0.5.4-beta.0:
+    resolution: {integrity: sha512-eeoXcoFA/QvxHPn/OV66hPjOTsr93WaZeIpht0SsbgyMrPKqGlXvQpmtKpI1SnH1bzq4wcgo78pdgeqQl5NlQw==}
     dependencies:
       '@mintbase-js/sdk': 0.5.2-beta.0
       near-api-js: 2.1.4
@@ -1270,7 +1270,7 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /autoprefixer@10.0.1(postcss@8.0.0):
+  /autoprefixer@10.0.1(postcss@8.4.21):
     resolution: {integrity: sha512-aQo2BDIsoOdemXUAOBpFv4ZQa2DrOtEufarYhtFsK1088Ca0TUwu/aQWf0M3mrILXZ3mTIVn1lR3hPW8acacsw==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -1282,7 +1282,7 @@ packages:
       colorette: 1.4.0
       normalize-range: 0.1.2
       num2fraction: 1.2.2
-      postcss: 8.0.0
+      postcss: 8.4.21
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1490,6 +1490,14 @@ packages:
 
   /cross-fetch@3.1.8:
     resolution: {integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==}
+    dependencies:
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /cross-fetch@4.0.0:
+    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
     dependencies:
       node-fetch: 2.7.0
     transitivePeerDependencies:
@@ -2632,10 +2640,6 @@ packages:
       get-intrinsic: 1.2.2
     dev: true
 
-  /isarray@1.0.0:
-    resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
-    dev: true
-
   /isarray@2.0.5:
     resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==}
     dev: true
@@ -2643,31 +2647,6 @@ packages:
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
-
-  /isobject@2.1.0:
-    resolution: {integrity: sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      isarray: 1.0.0
-    dev: true
-
-  /isomorphic-fetch@3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
-    dependencies:
-      node-fetch: 2.7.0
-      whatwg-fetch: 3.6.19
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /isomorphic-unfetch@3.1.0:
-    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
-    dependencies:
-      node-fetch: 2.7.0
-      unfetch: 4.2.0
-    transitivePeerDependencies:
-      - encoding
-    dev: false
 
   /iterator.prototype@1.1.2:
     resolution: {integrity: sha512-DR33HMMr8EzwuRL8Y9D3u2BMj8+RqSE850jfGu59kS7tbmPLzGkZmVSfyCFSDxuZiEY6Rzt3T2NA/qU+NwVj1w==}
@@ -2763,13 +2742,6 @@ packages:
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
-    dev: true
-
-  /line-column@1.0.2:
-    resolution: {integrity: sha512-Ktrjk5noGYlHsVnYWh62FLVs4hTb8A3e+vucNZMgPeAOITdshMSgv4cCZQeRDjm7+goqmo6+liZwTXo+U3sVww==}
-    dependencies:
-      isarray: 1.0.0
-      isobject: 2.1.0
     dev: true
 
   /lines-and-columns@1.2.4:
@@ -3156,29 +3128,29 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /postcss-import@14.1.0(postcss@8.0.0):
+  /postcss-import@14.1.0(postcss@8.4.21):
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.0.0
+      postcss: 8.4.21
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
     dev: true
 
-  /postcss-js@4.0.1(postcss@8.0.0):
+  /postcss-js@4.0.1(postcss@8.4.21):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.0.0
+      postcss: 8.4.21
     dev: true
 
-  /postcss-load-config@3.1.4(postcss@8.0.0):
+  /postcss-load-config@3.1.4(postcss@8.4.21):
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -3191,17 +3163,17 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.0.0
+      postcss: 8.4.21
       yaml: 1.10.2
     dev: true
 
-  /postcss-nested@6.0.0(postcss@8.0.0):
+  /postcss-nested@6.0.0(postcss@8.4.21):
     resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.0.0
+      postcss: 8.4.21
       postcss-selector-parser: 6.0.13
     dev: true
 
@@ -3217,14 +3189,13 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss@8.0.0:
-    resolution: {integrity: sha512-BriaW5AeZHfyuuKhK3Z6yRDKI6NR2TdRWyZcj3+Pk2nczQsMBqavggAzTledsbyexPthW3nFA6XfgCWjZqmVPA==}
+  /postcss@8.4.21:
+    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      colorette: 1.4.0
-      line-column: 1.0.2
       nanoid: 3.3.7
-      source-map: 0.6.1
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
     dev: true
 
   /postcss@8.4.31:
@@ -3527,12 +3498,6 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /source-map@0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
-    engines: {node: '>=0.10.0'}
-    dev: true
 
   /split-on-first@1.1.0:
     resolution: {integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==}
@@ -3669,7 +3634,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tailwindcss@3.3.0(postcss@8.0.0):
+  /tailwindcss@3.3.0(postcss@8.4.21):
     resolution: {integrity: sha512-hOXlFx+YcklJ8kXiCAfk/FMyr4Pm9ck477G0m/us2344Vuj355IpoEDB5UmGAsSpTBmr+4ZhjzW04JuFXkb/fw==}
     engines: {node: '>=12.13.0'}
     hasBin: true
@@ -3690,11 +3655,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.0.0
-      postcss-import: 14.1.0(postcss@8.0.0)
-      postcss-js: 4.0.1(postcss@8.0.0)
-      postcss-load-config: 3.1.4(postcss@8.0.0)
-      postcss-nested: 6.0.0(postcss@8.0.0)
+      postcss: 8.4.21
+      postcss-import: 14.1.0(postcss@8.4.21)
+      postcss-js: 4.0.1(postcss@8.4.21)
+      postcss-load-config: 3.1.4(postcss@8.4.21)
+      postcss-nested: 6.0.0(postcss@8.4.21)
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
@@ -3850,10 +3815,6 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
-  /unfetch@4.2.0:
-    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
-    dev: false
-
   /update-browserslist-db@1.0.13(browserslist@4.22.1):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
     hasBin: true
@@ -3893,10 +3854,6 @@ packages:
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
     requiresBuild: true
-    dev: false
-
-  /whatwg-fetch@3.6.19:
-    resolution: {integrity: sha512-d67JP4dHSbm2TrpFj8AbO8DnL1JXL5J9u0Kq2xW6d0TFDbCA3Muhdt8orXC22utleTVj7Prqt82baN6RBvnEgw==}
     dev: false
 
   /whatwg-url@5.0.0:
