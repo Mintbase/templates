@@ -29,11 +29,15 @@ export const NearWalletConnector = ({
   }
 
   return (
-    <div>
-      {!isHeader && <p>You are connected as {activeAccountId}</p>}
-      <div className="flex justify-center items-center mt-4">
+    <div className="flex gap-3 items-center">
+      {isHeader && activeAccountId && (
+        <span className="hidden md:block p-3 rounded-lg bg-black text-white">
+          {activeAccountId}
+        </span>
+      )}
+      <div className="flex justify-center items-center w-full">
         <button
-          className="bg-red-500 text-black rounded p-3 hover:bg-[#e1e1e1]"
+          className="bg-black text-white rounded-lg p-3 hover:bg-[#e1e1e1] mx-auto"
           onClick={handleSignout}
         >
           {" "}
