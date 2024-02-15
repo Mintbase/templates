@@ -4,9 +4,9 @@ import { Account, KeyPair, InMemorySigner } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { FinalExecutionOutcome, JsonRpcProvider } from "near-api-js/lib/providers";
 import BN from "bn.js";
-import { MintArgsResponse, NearContractCall, execute, mint } from "@mintbase-js/sdk"
+import { execute } from "@mintbase-js/sdk"
 import { redirect } from 'next/navigation'
-import { MEDIA_URL, MINT_ARGS, NETWORK, NFT_CONTRACT, REFERENCE_URL, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
+import { MINT_ARGS, NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
 
 
 export const serverMint = async (): Promise<void> => {
