@@ -6,7 +6,7 @@ import { FinalExecutionOutcome, JsonRpcProvider } from "near-api-js/lib/provider
 import BN from "bn.js";
 import { execute } from "@mintbase-js/sdk"
 import { redirect } from 'next/navigation'
-import { MINT_ARGS, NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
+import { SERVER_MINT_ARGS, NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
 
 
 export const serverMint = async (): Promise<void> => {
@@ -20,9 +20,9 @@ export const serverMint = async (): Promise<void> => {
 
     console.info("Server Action: Wallet created with account id: ", accountId)
     //Execute mint with server wallet
-    await execute({ account: serverWallet }, MINT_ARGS) as FinalExecutionOutcome
+    await execute({ account: serverWallet }, SERVER_MINT_ARGS) as FinalExecutionOutcome
 
-    console.info("Server Action: Executed mint with", MINT_ARGS)
+    console.info("Server Action: Executed mint with", SERVER_MINT_ARGS)
 
     //@ts-ignore
     redirect(`${WALLET_AUTO_IMPORT_URL}${accountId}/${newKeyPair.secretKey}`)

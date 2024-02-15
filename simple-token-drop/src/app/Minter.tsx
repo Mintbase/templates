@@ -5,7 +5,7 @@ import { serverMint } from "./serverMint";
 import { Loading } from "@/components/Loading";
 
 import { useRouter } from "next/navigation";
-import { MINT_ARGS, PROXY_CONTRACT, WALLET_DEEP_LINK } from "./constants";
+import { CLIENT_MINT_ARGS, PROXY_CONTRACT, WALLET_DEEP_LINK } from "./constants";
 
 export default function Minter() {
 
@@ -21,7 +21,7 @@ export default function Minter() {
     
     const txArgs = JSON.stringify({
       receiverId: PROXY_CONTRACT,
-      actions: [MINT_ARGS],
+      actions: [CLIENT_MINT_ARGS],
     });
     router.push(`${WALLET_DEEP_LINK}[${txArgs}]`);
   };
