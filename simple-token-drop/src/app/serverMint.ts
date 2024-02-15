@@ -4,9 +4,9 @@ import { Account, KeyPair, InMemorySigner } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { FinalExecutionOutcome, JsonRpcProvider } from "near-api-js/lib/providers";
 import BN from "bn.js";
-import { MintArgsResponse, NearContractCall, execute, mint } from "@mintbase-js/sdk"
+import { execute } from "@mintbase-js/sdk"
 import { redirect } from 'next/navigation'
-import { MEDIA_URL, NETWORK, NFT_CONTRACT, REFERENCE_URL, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
+import { SERVER_MINT_ARGS, NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
 
 
 export const serverMint = async (): Promise<void> => {
@@ -20,25 +20,15 @@ export const serverMint = async (): Promise<void> => {
 
     console.info("Server Action: Wallet created with account id: ", accountId)
     //Execute mint with server wallet
-    await execute({ account: serverWallet }, mintArgs(accountId)) as FinalExecutionOutcome
+    await execute({ account: serverWallet }, SERVER_MINT_ARGS) as FinalExecutionOutcome
 
-    console.info("Server Action: Executed mint with", mintArgs(accountId))
+    console.info("Server Action: Executed mint with", SERVER_MINT_ARGS)
 
     //@ts-ignore
     redirect(`${WALLET_AUTO_IMPORT_URL}${accountId}/${newKeyPair.secretKey}`)
 
 }
 
-export const mintArgs = (accountId: string): NearContractCall<MintArgsResponse> => {
-    return mint({
-        contractAddress: NFT_CONTRACT,
-        ownerId: accountId,
-        metadata: {
-            media: MEDIA_URL,
-            reference: REFERENCE_URL
-        }
-    })
-}
 
 export const connect = async (
 ): Promise<Account> => {

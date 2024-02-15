@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
-import { mintArgs, serverMint } from "./serverMint";
+import { serverMint } from "./serverMint";
 import { Loading } from "@/components/Loading";
 
 import { useRouter } from "next/navigation";
-import { WALLET_DEEP_LINK } from "./constants";
+import { CLIENT_MINT_ARGS, PROXY_CONTRACT, WALLET_DEEP_LINK } from "./constants";
 
 export default function Minter() {
+
   const [txLoading, setTxLoading] = useState(false);
   const router = useRouter();
-
   const handleServerMint = () => {
     setTxLoading(true);
     serverMint();
@@ -18,11 +18,10 @@ export default function Minter() {
 
   const handleClientMint = async () => {
     setTxLoading(true);
-    const mintParams = await mintArgs("");
-    const action = { type: "FunctionCall", params: mintParams };
+    
     const txArgs = JSON.stringify({
-      receiverId: "1.minsta.mintbus.near",
-      actions: [action],
+      receiverId: PROXY_CONTRACT,
+      actions: [CLIENT_MINT_ARGS],
     });
     router.push(`${WALLET_DEEP_LINK}[${txArgs}]`);
   };
