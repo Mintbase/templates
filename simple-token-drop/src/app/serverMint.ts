@@ -30,14 +30,18 @@ export const serverMint = async (): Promise<void> => {
 }
 
 export const mintArgs = (accountId: string): NearContractCall<MintArgsResponse> => {
-    return mint({
-        contractAddress: NFT_CONTRACT,
-        ownerId: accountId,
-        metadata: {
-            media: MEDIA_URL,
-            reference: REFERENCE_URL
-        }
-    })
+    return {
+            type: "FunctionCall",
+            params: {
+              methodName: "mint",
+              args: {
+                metadata: JSON.stringify({ reference: REFERENCE_URL, media: MEDIA_URL }),
+                nft_contract_id: NFT_CONTRACT
+              },
+            gas: "200000000000000",
+            deposit: "10000000000000000000000",        
+    }
+}
 }
 
 export const connect = async (
