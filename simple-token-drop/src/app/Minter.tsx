@@ -10,7 +10,7 @@ import { WALLET_DEEP_LINK } from "./constants";
 export default function Minter() {
   const [txLoading, setTxLoading] = useState(false);
   const router = useRouter();
-
+  const PROXY_CONTRACT = 'drop.proxy.mintbase.testnet'
   const handleServerMint = () => {
     setTxLoading(true);
     serverMint();
@@ -21,7 +21,7 @@ export default function Minter() {
     const mintParams = await mintArgs("");
     const action = { type: "FunctionCall", params: mintParams };
     const txArgs = JSON.stringify({
-      receiverId: "1.minsta.mintbus.near",
+      receiverId: PROXY_CONTRACT,
       actions: [action],
     });
     router.push(`${WALLET_DEEP_LINK}[${txArgs}]`);
