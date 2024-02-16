@@ -4,25 +4,27 @@ import { Account, KeyPair, InMemorySigner } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { FinalExecutionOutcome, JsonRpcProvider } from "near-api-js/lib/providers";
 import BN from "bn.js";
-import { execute } from "@mintbase-js/sdk"
+import { MintArgsResponse, NearContractCall, execute, mint } from "@mintbase-js/sdk"
 import { redirect } from 'next/navigation'
-import { SERVER_MINT_ARGS, NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL } from "./constants";
+import { NETWORK, SERVER_WALLET_ID, SERVER_WALLET_PK, WALLET_AUTO_IMPORT_URL, NFT_CONTRACT, MEDIA_URL, REFERENCE_URL } from "./constants";
 
 
 export const serverMint = async (): Promise<void> => {
-
+    
     console.info("Server Action: Server Mint Called")
     //Create a new keypair, instantiate server wallet and create account with generated keypair
     const accountId = [...Array(7)].map(() => Math.random().toString(36)[2]).join('') + `.${SERVER_WALLET_ID}`;
     const newKeyPair = KeyPair.fromRandom('ed25519')
     const serverWallet: Account = await connect();
+    
     await serverWallet.createAccount(accountId, newKeyPair.getPublicKey().toString(), new BN("0"))
 
     console.info("Server Action: Wallet created with account id: ", accountId)
+    const mintArgs = await serverMintArgs(accountId)
     //Execute mint with server wallet
-    await execute({ account: serverWallet }, SERVER_MINT_ARGS) as FinalExecutionOutcome
+    await execute({ account: serverWallet }, mintArgs) as FinalExecutionOutcome
 
-    console.info("Server Action: Executed mint with", SERVER_MINT_ARGS)
+    console.info("Server Action: Executed mint with", mintArgs)
 
     //@ts-ignore
     redirect(`${WALLET_AUTO_IMPORT_URL}${accountId}/${newKeyPair.secretKey}`)
@@ -57,3 +59,14 @@ export const connect = async (
 
     return account;
 };
+
+export const serverMintArgs = (accountId: string): NearContractCall<MintArgsResponse> => {
+    return mint({
+        contractAddress: NFT_CONTRACT,
+        ownerId: accountId,
+        metadata: {
+            media: MEDIA_URL,
+            reference: REFERENCE_URL
+        }
+    })
+}
