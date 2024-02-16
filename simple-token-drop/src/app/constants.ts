@@ -23,15 +23,4 @@ export const CLIENT_MINT_ARGS = {
     }
 
 export const PROXY_CONTRACT = '0.drop.proxy.mintbase.testnet'    
-
-export const SERVER_MINT_ARGS = {
-    contractAddress: PROXY_CONTRACT,
-    methodName: 'mint',
-    args: {
-        metadata: JSON.stringify({ reference: REFERENCE_URL, media: MEDIA_URL }),
-        nft_contract_id: NFT_CONTRACT
-    },
-    gas: "200000000000000",
-    deposit: "10000000000000000000000",        
-        
-    }
+export const maxDuration = 30;
