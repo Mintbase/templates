@@ -150,7 +150,7 @@ export function CreatePostDialog() {
                 name="contract"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Blog</FormLabel>
+                    <FormLabel>Blog *</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -177,7 +177,7 @@ export function CreatePostDialog() {
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Title</FormLabel>
+                      <FormLabel>Title *</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -188,7 +188,7 @@ export function CreatePostDialog() {
               </div>
 
               <div>
-                <Label>Content</Label>
+                <Label>Content *</Label>
 
                 <div className="markdownEditor">
                   <SimpleMDE
@@ -200,7 +200,7 @@ export function CreatePostDialog() {
               </div>
 
               <div>
-                <Label>Image</Label>
+                <Label>Image *</Label>
                 {preview && (
                   <img
                     src={preview as string}
