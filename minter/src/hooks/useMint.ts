@@ -66,10 +66,19 @@ const useMintImage = () => {
     activeAccountId: string,
     wallet: Wallet
   ) {
+
+
+    const callbackArgs = {
+      contractAddress: finalAddress.toString(),
+      amount: Number(mintAmount),
+      ref: `${id}`,
+    }
+
     if (reference) {
       await wallet.signAndSendTransaction({
         signerId: activeAccountId,
         receiverId: proxyAddress,
+        callbackUrl:
         actions: [
           {
             type: "FunctionCall",

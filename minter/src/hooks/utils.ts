@@ -39,11 +39,6 @@ export const callbackUrl = (
   )}`
 
 
-const callbackArgs = {
-  contractAddress: finalAddress.toString(),
-  amount: Number(mintAmount),
-  ref: `${id}`,
-}
 
-export const cbUrl = (hash: string) =>
+export const cbUrl = (hash: string, callbackArgs: any) =>
   callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs)
