@@ -23,4 +23,3 @@ export const CLIENT_MINT_ARGS = {
     }
 
 export const PROXY_CONTRACT = '0.drop.proxy.mintbase.testnet'    
-export const maxDuration = 30;
