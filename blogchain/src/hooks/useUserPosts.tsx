@@ -15,10 +15,13 @@ const useUserPosts = (accountId: string): HOOK_RESPONSE<USER_POSTS> => {
     queryParams: [accountId],
   };
 
-  const { data, isLoading } = useGraphQlQuery<QUERY_RESPONSE<USER_POSTS>, unknown>(queryObj);
+  const { data, isLoading } = useGraphQlQuery<
+    QUERY_RESPONSE<USER_POSTS>,
+    unknown
+  >(queryObj);
 
   return {
-    posts: data?.mb_views_nft_tokens ?? [],
+    posts: data?.data?.mb_views_nft_tokens ?? [],
     isLoading,
   };
 };
