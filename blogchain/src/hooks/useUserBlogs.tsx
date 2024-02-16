@@ -18,7 +18,7 @@ const useUserBlogs = (accountId: string): BLOGS_RESPONSE => {
   const { data, isLoading } = useGraphQlQuery<BLOGS, unknown>(queryObj);
 
   return {
-    blogs: data?.nft_contracts ?? [],
+    blogs: data?.data?.nft_contracts ?? [],
     isLoading,
   };
 };
