@@ -5,9 +5,35 @@ import { NearWalletConnector } from "@/components/NearWalletSelector";
 
 import Head from "next/head";
 import Minter from "@/components/Minter";
+import { useSearchParams } from "next/navigation";
+import { SuccessPage } from "@/components/Success";
 
 export default function Home() {
   const { isConnected } = useMbWallet();
+
+  const params = useSearchParams();
+
+  const mintedParams = params.get("signMeta")
+    ? JSON.parse(params.get("signMeta") as string)
+    : "";
+  const txnHashes = params.get("transactionHashes")
+    ? params.get("transactionHashes")
+    : "";
+
+
+  if (mintedParams) {
+    const metaPage = `https://testnet.mintbase.xyz/ref/${mintedParams.args.ref}?type=meta`;
+    const txnHashUrl = `https://testnet.nearblocks.io/txns/${txnHashes}`;
+
+    const successPageData = {
+      nftTitle: mintedParams.args.title as string,
+      mediaUrl: mintedParams.args.mediaUrl  as string,
+      metaPage,
+      txnHashUrl,
+    };
+
+    return <SuccessPage data={successPageData} />;
+  }
 
   if (isConnected)
     return (
