@@ -43,6 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title:pageTitle,
       description: pageDescription,
+      images:['https://i.imgur.com/QDJPsAA.png'],
     },
     twitter: {
       title: pageTitle,
