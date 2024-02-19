@@ -37,12 +37,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    metadataBase: new URL("https://minter.mintbase.xyz"),
+    metadataBase: new URL("https://ai-minter.mintbase.xyz"),
     title: pageTitle,
     openGraph: {
       title: pageTitle,
       description: pageDescription,
-      images: ["https://i.imgur.com/QDJPsAA.png"],
+      images: ["./thumbnail.png"],
     },
     twitter: {
       title: pageTitle,
@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteId: "1467726470533754880",
       creator: "Mintbase",
       card: "summary_large_image",
-      images: "https://i.imgur.com/QDJPsAA.png",
+      images: "./thumbnail.png",
     },
   };
 }
