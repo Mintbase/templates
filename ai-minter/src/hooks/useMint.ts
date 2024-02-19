@@ -81,11 +81,13 @@ const useMintImage = () => {
   ) {
     if (reference) {
 
+      const finalMediaUrl = mediaUrl.replace("https://arweave.net/", "");
+
       const callbackArgs = {
         contractAddress: MintbaseWalletSetup.contractAddress.toString(),
         amount: 1,
         ref: `${reference}`,
-        mediaUrl: mediaUrl,
+        mediaUrl: finalMediaUrl,
         title: nftTitle,
       };
 
