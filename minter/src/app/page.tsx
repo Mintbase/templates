@@ -23,7 +23,7 @@ export default function Home() {
 
 
   if (mintedParams) {
-    const metaPage = `https:/${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
+    const metaPage = `https://${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
     const txnHashUrl = `https://${nearblocksUrl}/txns/${txnHashes}`;
 
     const successPageData = {
