@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
   let pageTitle = "Mintbase Minter Example";
+  let pageDescription = "Learn how to Mint NFTs on NEAR with Mintbase Minter Example"
 
   // Check if signMeta exists in the URL
   const signMeta = referer ? extractSignMeta(referer) : "";
@@ -32,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const signMetaData = JSON.parse(decodeURIComponent(signMeta));
 
     pageTitle = `Success! You just minted: ${signMetaData?.args?.title}`;
-
+    pageDescription = `Just Minted ${signMetaData?.args?.title} on Mintbase`
     // Now you can further process the extracted signMeta value
   }
 
@@ -40,12 +41,12 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL("https://minter.mintbase.xyz"),
     title: pageTitle,
     openGraph: {
-      title: "Mintbase Drop",
-      description: "Claim this drop for free with the Mintbase Wallet.",
+      title:pageTitle,
+      description: pageDescription,
     },
     twitter: {
-      title: "Mintbase Minter Example",
-      description: "Claim this drop for free with the Mintbase Wallet.",
+      title: pageTitle,
+      description: pageDescription,
       siteId: "1467726470533754880",
       creator: "Mintbase",
       card: "summary_large_image",
