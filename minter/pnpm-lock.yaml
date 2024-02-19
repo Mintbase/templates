@@ -9,14 +9,14 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
   '@mintbase-js/react':
-    specifier: 0.5.4-beta.0
-    version: 0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4)
+    specifier: 0.5.5-beta.2
+    version: 0.5.5-beta.2(borsh@0.7.0)(near-api-js@2.1.4)
   '@mintbase-js/sdk':
-    specifier: 0.5.4-beta.0
-    version: 0.5.4-beta.0
+    specifier: 0.5.5-beta.2
+    version: 0.5.5-beta.2
   '@mintbase-js/storage':
-    specifier: 0.5.4-beta.0
-    version: 0.5.4-beta.0
+    specifier: 0.5.5-beta.2
+    version: 0.5.5-beta.2
   '@radix-ui/react-label':
     specifier: ^2.0.2
     version: 2.0.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
@@ -224,10 +224,10 @@ packages:
       query-string: 7.1.3
     dev: false
 
-  /@mintbase-js/react@0.5.4-beta.0(borsh@0.7.0)(near-api-js@2.1.4):
-    resolution: {integrity: sha512-vr4njHyMXxaCYtQnpGOfG80J8sz2f5KegJlV7qOiSUcFYETJ/4x/y0Vt5+Gf3y6vOkfEbFGd3OdS2j5uSxYBgA==}
+  /@mintbase-js/react@0.5.5-beta.2(borsh@0.7.0)(near-api-js@2.1.4):
+    resolution: {integrity: sha512-A4QIaMmtTvY9WLruoYkhXWnRNEjf4+NL3b2KNZSLoCyK/lx5q7vhfFqdCIiGhfXgnnf0AnAzqLPIoWYg6nqUAw==}
     dependencies:
-      '@mintbase-js/wallet': 0.5.2-beta.0
+      '@mintbase-js/wallet': 0.5.5-fix-success-url-issue-765a756.0
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       '@near-wallet-selector/here-wallet': 8.9.3(borsh@0.7.0)(near-api-js@2.1.4)
       '@near-wallet-selector/meteor-wallet': 8.9.3(near-api-js@2.1.4)
@@ -250,8 +250,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/sdk@0.5.4-beta.0:
-    resolution: {integrity: sha512-pFBdqYUb9BwmR4nJj2eTx/2NGMsCx+okiwT2GfitJYwUNe2ZCVwuUZOU3izdvLEUsQVrQUfDDVPSY/EOf8q4Hw==}
+  /@mintbase-js/sdk@0.5.5-beta.2:
+    resolution: {integrity: sha512-gvbRFyt4+hyPowVRP9U45/ZR8x4ti+mX9UTkXoJt6Zz7fFSxAz7cWCVambx+9bMxeE2tycz0L12aqSjxS77M4Q==}
     dependencies:
       bn.js: 5.2.1
       near-api-js: 2.1.4
@@ -259,8 +259,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/storage@0.5.4-beta.0:
-    resolution: {integrity: sha512-eeoXcoFA/QvxHPn/OV66hPjOTsr93WaZeIpht0SsbgyMrPKqGlXvQpmtKpI1SnH1bzq4wcgo78pdgeqQl5NlQw==}
+  /@mintbase-js/storage@0.5.5-beta.2:
+    resolution: {integrity: sha512-cItytfg7pPsa54vl/rPamSp2BYjRcRgS5FLtz5Tv40p/ahEzYqlgraB6hzCpKo3OU8rvgMDiTyizPwTn22cVnw==}
     dependencies:
       '@mintbase-js/sdk': 0.5.2-beta.0
       near-api-js: 2.1.4
@@ -268,8 +268,8 @@ packages:
       - encoding
     dev: false
 
-  /@mintbase-js/wallet@0.5.2-beta.0:
-    resolution: {integrity: sha512-8byHdddYMTn/QbrTV9Nhk7HocDSPxuye30W3e3TitgR8PvWXiY/mnj0QstiV9Cb+82dssH5vSrNQ1cUPet7xPw==}
+  /@mintbase-js/wallet@0.5.5-fix-success-url-issue-765a756.0:
+    resolution: {integrity: sha512-ooojRMJRUExlrayx1Z+0G9ZIf/6gA99nVDn5QQATsQZdnPsyLMAiBjjM/hsTJRUzMAU3JmobeEyJ2SKtIOmb6w==}
     dependencies:
       '@near-wallet-selector/core': 8.9.3(near-api-js@2.1.4)
       bn.js: 5.2.1
