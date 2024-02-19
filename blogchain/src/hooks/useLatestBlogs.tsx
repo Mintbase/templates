@@ -2,9 +2,11 @@
 
 import { GET_LATEST_UPDATED_BLOGS } from "@/app/data/queries/blogs";
 import { useGraphQlQuery } from "@/app/data/useGraphQLQuery";
-import { LATEST_BLOGS, QUERY_RESPONSE_METADATA, CONTRACTS } from "@/app/typings";
-
-
+import {
+  LATEST_BLOGS,
+  QUERY_RESPONSE_METADATA,
+  CONTRACTS,
+} from "@/app/typings";
 
 const useLatestBlogs = (): LATEST_BLOGS => {
   const queryObj = {
@@ -14,10 +16,11 @@ const useLatestBlogs = (): LATEST_BLOGS => {
     queryOpts: { staleTime: Infinity },
   };
 
-  const { data, isLoading } = useGraphQlQuery<QUERY_RESPONSE_METADATA<CONTRACTS>>(queryObj);
+  const { data, isLoading } =
+    useGraphQlQuery<QUERY_RESPONSE_METADATA<CONTRACTS>>(queryObj);
 
   return {
-    contracts: data?.mb_views_nft_metadata ?? [],
+    contracts: data?.data?.mb_views_nft_metadata ?? [],
     isLoading,
   };
 };

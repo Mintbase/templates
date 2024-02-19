@@ -15,10 +15,12 @@ const useBlogPosts = (contractId: string): BLOG_POSTS => {
     queryParams: [contractId],
   };
 
-  const { data, isLoading } = useGraphQlQuery<USER_POST_DATA, unknown>(queryObj);
+  const { data, isLoading } = useGraphQlQuery<USER_POST_DATA, unknown>(
+    queryObj
+  );
 
   return {
-    posts: data?.mb_views_nft_tokens ?? [],
+    posts: data?.data?.mb_views_nft_tokens ?? [],
     isLoading,
   };
 };
