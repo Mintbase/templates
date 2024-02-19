@@ -29,8 +29,8 @@ export function SuccessPage({ data }: { data: SuccessPageData }): JSX.Element {
         <CardTitle>{nftTitle}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex w-full min-h-[200px]	relative">
-          <Image src={mediaUrl} fill alt={nftTitle} />
+        <div className="flex w-full relative">
+          <img src={mediaUrl} width="100%" height="auto" alt={nftTitle} />
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
