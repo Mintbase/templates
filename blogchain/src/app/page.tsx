@@ -4,7 +4,7 @@ import LatestPosts from "@/components/latest-posts";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col px-2 lg:px-24 py-12">
+    <main className="flex min-h-screen flex-col gap-12 px-2 lg:px-24 py-12">
       <Hero />
       <LatestBlogs />
       <LatestPosts />

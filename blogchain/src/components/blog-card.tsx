@@ -20,7 +20,7 @@ const BlogCard = ({
   owner: string;
 }) => {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-auto">
       <CardHeader>
         <CardTitle className="w-11/12 truncate text-lg">{title}</CardTitle>
         <CardDescription className="11/12 truncate">{subtitle}</CardDescription>

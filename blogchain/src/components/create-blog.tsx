@@ -78,7 +78,7 @@ export function CreateBlogDialog() {
           <Plus className="mr-2 h-4 w-4" /> Create Blog
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] lg:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>New Blog</DialogTitle>
           <DialogDescription>

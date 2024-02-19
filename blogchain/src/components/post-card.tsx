@@ -20,7 +20,7 @@ const PostCard = ({
   const postDate = formatDate(createdAt);
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="aspect-video">
         <img
           className="rounded-t-lg w-full h-full object-cover"
@@ -33,7 +33,7 @@ const PostCard = ({
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {title.length > 30 ? `${title.substring(0, 30)}...` : title}
         </h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 break-all">
           <ReactMarkdown>
             {description.length > 100
               ? `${description.substring(0, 100)}...`
