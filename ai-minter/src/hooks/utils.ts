@@ -27,6 +27,21 @@ export function getImageData(event: ChangeEvent<HTMLInputElement>) {
   return { files, displayUrl };
 }
 
+export const callbackUrl = (
+  hash: string,
+  transactionType: TransactionSuccessEnum,
+  args: CallbackArgs
+) =>
+  `${
+    window.location.origin
+  }/?signMeta=${encodeURIComponent(
+    JSON.stringify({
+      type: transactionType,
+      args: args,
+    })
+  )}`
+
+
 export const cbUrl = (hash: string, callbackArgs: CallbackArgs) =>
   callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs)
 
