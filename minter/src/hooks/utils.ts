@@ -2,12 +2,9 @@
 
 import { ChangeEvent } from "react";
 
-
-
 export enum TransactionSuccessEnum {
   MINT = 'mint',
 }
-
 interface CallbackArgs {
   contractAddress: string;
   amount: number;

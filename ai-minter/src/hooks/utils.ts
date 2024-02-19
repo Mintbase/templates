@@ -2,6 +2,16 @@
 
 import { ChangeEvent } from "react";
 
+export enum TransactionSuccessEnum {
+  MINT = 'mint',
+}
+
+interface CallbackArgs {
+  contractAddress: string;
+  amount: number;
+  ref: string;
+}
+
 export function getImageData(event: ChangeEvent<HTMLInputElement>) {
   // FileList is immutable, so we need to create a new one
   const dataTransfer = new DataTransfer();
@@ -16,3 +26,7 @@ export function getImageData(event: ChangeEvent<HTMLInputElement>) {
 
   return { files, displayUrl };
 }
+
+export const cbUrl = (hash: string, callbackArgs: CallbackArgs) =>
+  callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs)
+
