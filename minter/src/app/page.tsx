@@ -23,8 +23,8 @@ export default function Home() {
 
 
   if (mintedParams) {
-    const metaPage = `https://${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
-    const txnHashUrl = `https://${nearblocksUrl}/txns/${txnHashes}`;
+    const metaPage = `${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
+    const txnHashUrl = `${nearblocksUrl}/txns/${txnHashes}`;
 
     const successPageData = {
       nftTitle: mintedParams.args.title as string,
