@@ -7,6 +7,7 @@ import Head from "next/head";
 import Minter from "@/components/Minter";
 import { useSearchParams } from "next/navigation";
 import { SuccessPage } from "@/components/Success";
+import { mbUrl, nearblocksUrl } from "@/config/setup";
 
 export default function Home() {
   const { isConnected } = useMbWallet();
@@ -22,8 +23,8 @@ export default function Home() {
 
 
   if (mintedParams) {
-    const metaPage = `https://testnet.mintbase.xyz/ref/${mintedParams.args.ref}?type=meta`;
-    const txnHashUrl = `https://testnet.nearblocks.io/txns/${txnHashes}`;
+    const metaPage = `https:/${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
+    const txnHashUrl = `https://${nearblocksUrl}/txns/${txnHashes}`;
 
     const successPageData = {
       nftTitle: mintedParams.args.title as string,
