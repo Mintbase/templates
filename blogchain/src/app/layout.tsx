@@ -1,16 +1,17 @@
-"use client";
-
+import { AppProviders } from "@/components/app-providers";
+import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { MintbaseWalletContextProvider } from "@mintbase-js/react";
 import "@near-wallet-selector/modal-ui/styles.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const queryClient = new QueryClient();
+export const metadata: Metadata = {
+  title: `Blogchain`,
+  description: "The decentralized writer's blog",
+};
 
 export default function RootLayout({
   children,
@@ -18,19 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MintbaseWalletContextProvider
-      contractAddress="hellovirtualworld.mintspace2.testnet"
-      network="testnet"
-    >
-      <QueryClientProvider client={queryClient}>
-        <html lang="en">
-          <body className={inter.className}>
-            <Header />
-            {children}
-            <Footer />
-          </body>
-        </html>
-      </QueryClientProvider>
-    </MintbaseWalletContextProvider>
+    <AppProviders>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </AppProviders>
   );
 }
