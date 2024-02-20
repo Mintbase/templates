@@ -78,6 +78,13 @@
 .markdownEditor {
   border: 1px solid rgba(232, 234, 240, 1);
   border-radius: 6px;
+  width: 367px;
+}
+
+@screen lg {
+  .markdownEditor {
+    width: 542px;
+  }
 }
 
 .markdownEditor .CodeMirror-scroll {
@@ -98,6 +105,7 @@
 .markdownEditor .CodeMirror {
   border: rgba(232, 234, 240, 1) !important;
   background: var(--color-canvas-subtle);
+  width: 100%;
 }
 
 .markdownEditor .CodeMirror-cursor {

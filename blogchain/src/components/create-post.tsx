@@ -135,7 +135,7 @@ export function CreatePostDialog() {
           <Plus className="mr-2 h-4 w-4" /> Create Post
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] lg:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>New Post</DialogTitle>
           <DialogDescription>
