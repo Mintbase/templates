@@ -44,8 +44,8 @@ export default function PostDetail() {
           className="flex gap-2 items-center text-xs"
         >
           <div>
-            {post.nft_contract_id.length > 48
-              ? `${post.nft_contract_id.substring(0, 48)}...`
+            {post.nft_contract_id?.length > 48
+              ? `${post.nft_contract_id?.substring(0, 48)}...`
               : post.nft_contract_id}
           </div>
         </Link>

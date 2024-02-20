@@ -31,11 +31,11 @@ const PostCard = ({
       <div className="p-5">
         <Badge>{postDate}</Badge>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+          {title?.length > 30 ? `${title.substring(0, 30)}...` : title}
         </h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 break-all">
           <ReactMarkdown>
-            {description.length > 100
+            {description?.length > 100
               ? `${description.substring(0, 100)}...`
               : description}
           </ReactMarkdown>
