@@ -1,6 +1,7 @@
 # Blogchain
 <img src="https://i.imgur.com/oAVyr9o.png" alt="cover_image" width="0" />
-Welcome to Blogchain: the decentralized writer's blog. Transform your blogs into smart contracts and posts into NFTs.
+
+Blogchain makes your content unstoppable and profitable. Transform your blogs into smart contracts and posts into NFTs.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://blogchain.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fblogchain)
