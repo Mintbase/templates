@@ -2,7 +2,7 @@
 
 ## Introduction
 
-At Mintbase, we value innovation and quality, offering rewards up to $2,000 for the development of new templates. 
+At Mintbase, we value innovation and quality, offering rewards up to $3,000 for the development of new templates. 
 
 Mintbase Templates are grab-and-go solutions to effortlessly launch blockchain activations like Minsta for events and AI minter for branding. These templates allow any developer to deploy functional applications with a single click, thanks to MintbaseJS and Mintbase GraphQL APIs. This bounty tackles a specific community-requested feature so you'll be making direct impact with your work. 
 
@@ -11,6 +11,10 @@ Your submited Mintbase Template should be a user friendly DApp with a seamless e
 ## Overview
 
 The goal of this bounty is to enhance the Minsta application to support dynamic NFT badges that evolve as users participate in a series of five distinct events within a campaign. The goal is to incentivize full participation across all events, with the NFT badges evolving to signify user engagement, culminating in eligibility for special rewards for those who achieve the final evolution stage.
+
+## Reward
+
+This specific bounty is eligible for a reward of up to 3,000$.
 
 ## Functionality
 
