@@ -12,6 +12,10 @@ Your submited Mintbase Template should be a user friendly DApp with a seamless e
 
 This open bounty presents an opportunity for developers, designers, and innovators to showcase their creativity on the NEAR Protocol. We are seeking proposals for decentralized applications (DApps) that introduce novel utilities for Non-Fungible Tokens (NFTs). Your challenge is to think outside the conventional frameworks of NFTs, exploring new functionalities, interactions, and value propositions that can be integrated into the digital asset space. Aim to develop a concept that leverages the unique capabilities of the NEAR Protocol, offering users fresh and engaging experiences with NFTs.
 
+## Reward
+
+This specific bounty is eligible for a reward of up to 3,000$.
+
 ## Submission Guidelines
 
 ### How to apply
