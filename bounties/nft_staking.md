@@ -3,7 +3,7 @@
 
 ## Introduction
 
-At Mintbase, we value innovation and quality, offering rewards up to $2,000 for the development of new templates. 
+At Mintbase, we value innovation and quality, offering rewards up to $3,000 for the development of new templates. 
 
 Mintbase Templates are grab-and-go solutions to effortlessly launch blockchain activations like Minsta for events and AI minter for branding. These templates allow any developer to deploy functional applications with a single click, thanks to MintbaseJS and Mintbase GraphQL APIs. This bounty tackles a specific community-requested feature so you'll be making direct impact with your work. 
 
@@ -14,6 +14,10 @@ Your submited Mintbase Template should be a user friendly DApp with a seamless e
 To enhance the appeal and utility of collections, creators are constantly on the lookout for innovative ways to deliver engaging content to their token holders. The practice of staking NFTs to earn fungible tokens (such as meme coins or loyalty points) provides an ideal incentive for collectors to retain their assets.
 
 We are in search of a talented team or an enthusiastic individual developer capable of developing a template that empowers creators to leverage their existing NFT collections. This template would enable the addition of a feature allowing the staking of NFTs via a smart contract, in return for fungible tokens. It's crucial that the collection and fungible token system be customizable and user-friendly, facilitating an easy setup process for any creator looking to adopt this functionality.
+
+## Reward
+
+This specific bounty is eligible for a reward of up to 3,000$.
 
 ## Functionality
 
@@ -64,3 +68,4 @@ Evaluation of the following criteria will decide on the bounty reward for your M
 - Code Quality: Code should be clean, well-documented, and maintainable.
 - Security: Implementations must adhere to best practices in smart contract security and user data protection.
 - Originality: The template should feature original code and not be copied from existing sources. Creating something new and unique is highly valued; original contributions take precedence over duplicating existing content with minor modifications.
+

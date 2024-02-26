@@ -3,7 +3,7 @@
 
 ## Introduction
 
-At Mintbase, we value innovation and quality, offering rewards up to $2,000 for the development of new templates. 
+At Mintbase, we value innovation and quality, offering rewards up to $3,000 for the development of new templates. 
 
 Mintbase Templates are grab-and-go solutions to effortlessly launch blockchain activations like Minsta for events and AI minter for branding. These templates allow any developer to deploy functional applications with a single click, thanks to MintbaseJS and Mintbase GraphQL APIs. This bounty tackles a specific community-requested feature so you'll be making direct impact with your work. 
 
@@ -14,6 +14,10 @@ Your submited Mintbase Template should be a user friendly DApp with a seamless e
 We are seeking a senior developer to create an innovative Mintbase template that facilitates a daily art battle, leveraging Mintbase technology. This template will automate the process of voting for art pieces, minting NFTs for participants, and incentivizing continuous engagement through a unique reward mechanism. The concept, titled ""Daily Art Battle"" (DAB), pits two pieces of art (A vs B) against each other, with the community voting for their favorite. Winners and participants receive NFT rewards based on the outcome and their participation streak. 
 
 Develop a user-friendly interface that allows participants to easily vote, view upcoming battles, and track their voting streak and rewards. The interface will also allow artists to upload art to be voted into the daily battle slot.
+
+## Reward
+
+This specific bounty is eligible for a reward of up to 2,000$.
 
 ## Functionality
 

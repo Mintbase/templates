@@ -2,7 +2,7 @@
 
 ## Introduction
 
-At Mintbase, we value innovation and quality, offering rewards up to $2,000 for the development of new templates. 
+At Mintbase, we value innovation and quality, offering rewards up to $3,000 for the development of new templates. 
 
 Mintbase Templates are grab-and-go solutions to effortlessly launch blockchain activations like Minsta for events and AI minter for branding. These templates allow any developer to deploy functional applications with a single click, thanks to MintbaseJS and Mintbase GraphQL APIs. This bounty tackles a specific community-requested feature so you'll be making direct impact with your work. 
 
@@ -13,6 +13,9 @@ Burning is the act of permanantly destroying digital assets. It enables brands t
 
 We're seeking a skilled developer or team to create a decentralized application (DApp) on the NEAR Protocol, facilitating an innovative on-chain rewards system. This DApp will enable users to burn their assets, such as Non-Fungible Tokens (NFTs), in exchange for unique rewards. The mechanics of the burn-to-reward process can be flexible, ranging from direct asset burning with subsequent reward eligibility to more complex interactions involving UI elements and automated background processes.
 
+## Reward
+
+This specific bounty is eligible for a reward of up to 1,000$.
 
 ## Functionality
 
