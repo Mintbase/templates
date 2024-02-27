@@ -43,7 +43,7 @@ export const cbUrl = (hash: string, callbackArgs: CallbackArgs) =>
   callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs);
 
 export const getTxnHash = async (hash: string) => {
-  const res = await fetch(`$${nearblocksApi}/v1/search/?keyword=${hash}`);
+  const res = await fetch(`${nearblocksApi}/v1/search/?keyword=${hash}`);
 
   const txn = await res.json();
 
