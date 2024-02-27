@@ -3,9 +3,7 @@
 
 <img  src="https://i.imgur.com/bHpvyk6.png"  alt="cover_image"  width="0"  />
 
-This project serves as a starting point for your web3 project, it contains an empty canvas with nothing but a NEAR wallet connection.
-
-Use this project to bootstrap your dapp ideas and make progress as fast as possible!
+Effortless Onboarding: Jumpstart Your Web3 Journey with Ultra-Easy NEAR Wallet Integration. An empty canvas with nothing but a NEAR wallet connection. Use this project to bootstrap your dapp ideas and make progress as fast as possible!
 
 ## Getting Started
 
