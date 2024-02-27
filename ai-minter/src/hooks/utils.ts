@@ -4,7 +4,7 @@ import { nearblocksApi } from "@/config/setup";
 import { ChangeEvent } from "react";
 
 export enum TransactionSuccessEnum {
-  MINT = 'mint',
+  MINT = "mint",
 }
 
 interface CallbackArgs {
@@ -33,26 +33,20 @@ export const callbackUrl = (
   transactionType: TransactionSuccessEnum,
   args: CallbackArgs
 ) =>
-  `${
-    window.location.origin
-  }/?signMeta=${encodeURIComponent(
+  `${window.location.origin}/?signMeta=${encodeURIComponent(
     JSON.stringify({
       type: transactionType,
       args: args,
     })
-  )}`
-
+  )}`;
 
 export const cbUrl = (hash: string, callbackArgs: CallbackArgs) =>
-  callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs)
+  callbackUrl(hash, TransactionSuccessEnum.MINT, callbackArgs);
 
+export const getTxnHash = async (hash: string) => {
+  const res = await fetch(`$${nearblocksApi}/v1/search/?keyword=${hash}`);
 
+  const txn = await res.json();
 
-
-  export const getTxnHash  = async (hash:string) => {
-    const res = await fetch(`$${nearblocksApi}/v1/search/?keyword=${hash}`)
-
-    const txn = await res.json();
-
-    return txn?.receipts[0].originated_from_transaction_hash;
-  }
+  return txn?.receipts[0].originated_from_transaction_hash;
+};
