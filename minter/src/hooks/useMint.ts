@@ -53,8 +53,6 @@ const useMintImage = () => {
       media: data?.media as unknown as File,
     });
 
-    console.log(reference, "reference");
-
     const file = uploadFile(data?.media as unknown as File);
 
     await handleMint(

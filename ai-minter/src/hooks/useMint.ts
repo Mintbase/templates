@@ -11,6 +11,7 @@ import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/stora
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
+import { cbUrl } from "./utils";
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useMbWallet();
@@ -56,7 +57,14 @@ const useMintImage = () => {
     });
     const file = uploadFile(media);
 
-    await handleMint(reference.id, file, activeAccountId as string, wallet);
+    await handleMint(
+      reference.id,
+      file,
+      activeAccountId as string,
+      wallet,
+      reference.media_url as string,
+      data.title
+    );
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -67,12 +75,26 @@ const useMintImage = () => {
     reference: string,
     media: Promise<ArweaveResponse>,
     activeAccountId: string,
-    wallet: Wallet
+    wallet: Wallet,
+    mediaUrl: string,
+    nftTitle: string
   ) {
     if (reference) {
+
+      const finalMediaUrl = mediaUrl.replace("https://arweave.net/", "");
+
+      const callbackArgs = {
+        contractAddress: MintbaseWalletSetup.contractAddress.toString(),
+        amount: 1,
+        ref: `${reference}`,
+        mediaUrl: finalMediaUrl,
+        title: nftTitle,
+      };
+
       await wallet.signAndSendTransaction({
         signerId: activeAccountId,
         receiverId: proxyAddress,
+        callbackUrl: cbUrl(reference, callbackArgs),
         actions: [
           {
             type: "FunctionCall",

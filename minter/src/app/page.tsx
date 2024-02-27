@@ -8,23 +8,37 @@ import Minter from "@/components/Minter";
 import { useSearchParams } from "next/navigation";
 import { SuccessPage } from "@/components/Success";
 import { mbUrl, nearblocksUrl } from "@/config/setup";
+import { getTxnHash } from "@/hooks/utils";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
   const { isConnected } = useMbWallet();
+  const [txnUrl, setTxnUrl] = useState("");
+
 
   const params = useSearchParams();
 
   const mintedParams = params.get("signMeta")
-    ? JSON.parse(params.get("signMeta") as string)
-    : "";
-  const txnHashes = params.get("transactionHashes")
-    ? params.get("transactionHashes")
-    : "";
+  ? JSON.parse(params.get("signMeta") as string)
+  : "";
+const txnHashes = params.get("transactionHashes")
+  ? params.get("transactionHashes")
+  : "";
 
+  useEffect(() => {
+    const fetchTxnHash = async () => {
+      const txn = await getTxnHash(txnHashes as string);
+      setTxnUrl(txn);
+    };
+
+    fetchTxnHash();
+  }, [txnHashes]);
 
   if (mintedParams) {
     const metaPage = `${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
-    const txnHashUrl = `${nearblocksUrl}/txns/${txnHashes}`;
+    const txnHashUrl = `${nearblocksUrl}/txns/${txnUrl}`;
+
 
     const successPageData = {
       nftTitle: mintedParams.args.title as string,
