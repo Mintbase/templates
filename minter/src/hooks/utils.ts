@@ -50,7 +50,7 @@ export const cbUrl = (hash: string, callbackArgs: CallbackArgs) =>
   export const getTxnHash  = async (hash:string) => {
     const res = await fetch(`$${nearblocksApi}/v1/search/?keyword=${hash}`)
 
-    const txn = res.json();
+    const txn =  await res.json();
 
     return txn?.receipts.?[0]?.originated_from_transaction_hash;
   }
