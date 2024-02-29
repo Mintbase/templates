@@ -41,11 +41,8 @@ const Chat = () => {
             {messages.length > 0 ? (
               messages.map(
                 (
-                  message: {
-                    role: "user" | "admin" | "assistant" | "function";
-                    content: string;
-                  },
-                  index: number
+                  message,
+                  index
                 ) => {
                   return (
                     <div
