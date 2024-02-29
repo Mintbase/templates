@@ -39,47 +39,38 @@ const Chat = () => {
         <div className="w-full h-full overflow-y-auto chat-border pb-[60px]">
           <div className="flex flex-col gap-2 p-2  mt-[30px]">
             {messages.length > 0 ? (
-              messages.map(
-                (
-                  message,
-                  index
-                ) => {
-                  return (
-                    <div
-                      key={index}
-                      className="chat-card-bg chat-card chat-scale shadow overflow-hidden rounded-md p-3"
-                    >
-                      <div className="text-sm font-medium user-label">
-                        {message.role === "user"
-                          ? activeAccountId
-                          : message.role}
-                      </div>
-                      <div className="text-sm text-white">
-                        <Markdown children={message.content} />
-                      </div>
+              messages.map((message, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="chat-card-bg chat-card chat-scale shadow overflow-hidden rounded-md p-3"
+                  >
+                    <div className="text-sm font-medium user-label">
+                      {message.role === "user" ? activeAccountId : message.role}
                     </div>
-                  );
-                }
-              )
+                    <div className="text-sm text-white">
+                      <Markdown children={message.content} />
+                    </div>
+                  </div>
+                );
+              })
             ) : (
               <div className="text-white w-full default-message text-center justify-center">
                 {" "}
                 <div className="block text-center">
-                {defaultMessage}
-                {!isConnected && (
-
-                  <Button
-                    className="white-button mt-4"
-                    onClick={() => {
-                      connect();
-                    }}
-                  >
-                    {" "}
-                    Connect
-                  </Button>
-
-                )}
-                 </div>
+                  <div>{defaultMessage}</div>
+                  {!isConnected && (
+                    <Button
+                      className="white-button mt-4"
+                      onClick={() => {
+                        connect();
+                      }}
+                    >
+                      {" "}
+                      Connect
+                    </Button>
+                  )}
+                </div>
               </div>
             )}
           </div>
