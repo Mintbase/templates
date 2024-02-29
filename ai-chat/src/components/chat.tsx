@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react/no-children-prop */
 
 import {
   Form,
@@ -14,10 +15,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "./ui/button";
 import { useMbWallet } from "@mintbase-js/react";
+import Markdown from "react-markdown";
 import { ConnectWallet } from "./connect-wallet";
 
 const Chat = () => {
-  const { activeAccountId, isConnected } = useMbWallet();
+  const { activeAccountId, isConnected, connect } = useMbWallet();
 
   const { append, messages, isLoading } = useChat({
     api: "/api/chat-completion",
@@ -27,28 +29,69 @@ const Chat = () => {
     append({ role: "user", content: message });
   };
 
+  const defaultMessage = isConnected
+    ? "please start typing something on the input below"
+    : "please connect first to use the AI Chat.";
+
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative chat">
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <div className="w-full h-full overflow-y-auto border pb-[60px]">
-          <div className="flex flex-col gap-2 p-2">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className="bg-white shadow overflow-hidden rounded-md p-3"
-              >
-                <div className="text-sm font-medium text-gray-900">
-                  {message.role === "user" ? activeAccountId : message.role}
-                </div>
-                <div className="text-sm text-gray-500">{message.content}</div>
+        <div className="w-full h-full overflow-y-auto chat-border pb-[60px]">
+          <div className="flex flex-col gap-2 p-2  mt-[30px]">
+            {messages.length > 0 ? (
+              messages.map(
+                (
+                  message: {
+                    role: "user" | "admin" | "assistant";
+                    content: string;
+                  },
+                  index: number
+                ) => {
+                  return (
+                    <div
+                      key={index}
+                      className="chat-card-bg chat-card chat-scale shadow overflow-hidden rounded-md p-3"
+                    >
+                      <div className="text-sm font-medium user-label">
+                        {message.role === "user"
+                          ? activeAccountId
+                          : message.role}
+                      </div>
+                      <div className="text-sm text-white">
+                        <Markdown children={message.content} />
+                      </div>
+                    </div>
+                  );
+                }
+              )
+            ) : (
+              <div className="text-white w-full default-message text-center justify-center">
+                {" "}
+                <div className="block text-center">
+                {defaultMessage}
+                {!isConnected && (
+
+                  <Button
+                    className="white-button"
+                    onClick={() => {
+                      connect();
+                    }}
+                  >
+                    {" "}
+                    Connect
+                  </Button>
+
+                )}
+                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full">
+      <div className="chat-border-down absolute bottom-0 w-full">
         <InputForm sendMessage={sendMessage} disabled={isLoading}></InputForm>
       </div>
+      <ConnectWallet />
     </div>
   );
 };
@@ -64,7 +107,7 @@ export const InputForm = ({
   sendMessage: (message: string) => void;
   disabled: boolean;
 }) => {
-  const { activeAccountId, isConnected } = useMbWallet();
+  const { isConnected } = useMbWallet();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -87,19 +130,20 @@ export const InputForm = ({
           name="message"
           render={({ field }) => (
             <FormItem>
-              <div className="flex gap-2 w-screen p-2 bg-muted/50 bg-white">
-                <FormControl>
-                  <Input
-                    placeholder="Your message here..."
-                    {...field}
-                    autoComplete={"off"}
-                    disabled={!isConnected || disabled}
-                  />
-                </FormControl>
-                <Button type="submit" disabled={!isConnected || disabled}>
-                  Send
-                </Button>
-                <ConnectWallet />
+              <div className="flex gap-2 w-screen p-2 h-[82px] chat-card-bg ">
+                <div className="chat-input flex">
+                  <FormControl>
+                    <Input
+                      placeholder="Your message here..."
+                      {...field}
+                      autoComplete={"off"}
+                      disabled={!isConnected || disabled}
+                    />
+                  </FormControl>
+                  <Button type="submit" disabled={!isConnected || disabled}>
+                    Send
+                  </Button>
+                </div>
               </div>
               <FormMessage />
             </FormItem>

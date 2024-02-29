@@ -4,12 +4,14 @@ import { useMbWallet } from "@mintbase-js/react";
 import { Button } from "@/components/ui/button";
 
 export function ConnectWallet() {
-  const { connect, disconnect, isConnected } = useMbWallet();
+  const { connect, disconnect, isConnected, activeAccountId } = useMbWallet();
 
   return (
-    <>
-      <Button
-        className="w-[100px] hidden md:flex"
+
+  <div className="absolute right-0 bottom-[90px] text-sm text-white flex connect">
+    {isConnected && <span>You are connected as <b>{activeAccountId}</b></span>}
+      <p
+        className="w-[100px] pl-2 text-white connect-link"
         onClick={() => {
           if (isConnected) {
             disconnect();
@@ -19,20 +21,7 @@ export function ConnectWallet() {
         }}
       >
         {isConnected ? "Disconnect" : "Connect"}
-      </Button>
-      <Button
-        size="sm"
-        className="w-[100px] md:hidden"
-        onClick={() => {
-          if (isConnected) {
-            disconnect();
-          } else {
-            connect();
-          }
-        }}
-      >
-        {isConnected ? "Disconnect" : "Connect"}
-      </Button>
-    </>
+      </p>
+      </div>
   );
 }

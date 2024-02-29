@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.MB_API_KEY}`,
+        Authorization: `Bearer ${process.env.MB_API_KEY || 'hey'}`,
       },
       body: JSON.stringify({
         model: "openai/gpt-4-1106-preview",

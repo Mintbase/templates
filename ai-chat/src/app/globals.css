@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -9,68 +9,221 @@
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+ol li p::after {
+  content: "\A"; /* Content of the pseudo-element, which is a line break */
+  white-space: pre; /* Preserve white space */
+}
+
+.user-label {
+  color: rgba(197, 208, 255, 1);
+}
+
+.chat,
+body {
+  background: #101223;
+}
+
+.chat-card-bg {
+  background: #282a3a;
+}
+
+.chat input {
+  background: #121212;
+  border: 1px solid #272a3a;
+  color: #fff;
+}
+
+.chat input:focus {
+  outline: 2px solid #2d5293;
+  outline-offset: 2px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.chat-border {
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.chat-border-down {
+  border: solid rgba(59, 130, 246, 0.5);
+  border-bottom: 1px;
+  border-top: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+}
+
+.chat p:not(strong) {
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.chat strong {
+  font-weight: bolder;
+  color: rgba(197, 208, 255, 1);
+  background: #000;
+  padding: 2px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.chat-input {
+  width: 90%;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.chat-input button,
+.white-button {
+  background-color: #fff;
+  color: #000;
+  scale: 1;
+  transition: all;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-input button:hover {
+  background-color: rgba(197, 208, 255, 1);
+  scale: 1.02;
+}
+
+.white-button {
+  display: flex;
+  margin: 0 auto;
+}
+
+.white-button:hover {
+  background-color: rgba(197, 208, 255, 1) !important;
+  scale: 1.02;
+}
+
+.chat-scale {
+  scale: 1;
+  transition: all;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 95%;
+  margin: 0 auto;
+}
+
+.chat-scale:hover {
+  scale: 1.01;
+}
+
+.connect-link {
+  cursor: pointer;
+  text-align: right;
+  padding-right: 10px;
+}
+.connect-link:hover {
+  text-decoration: underline;
+}
+
+.default-message {
+  height: 70vh;
+  height: 70vh;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .chat-card {
+    margin-top: 20px;
+  }
+
+  .chat-card:last-child {
+    margin-bottom: 120px;
+  }
+
+  .connect {
+    text-align: center;
+    padding: 20px 4px;
+    width: 99%;
+    right: 2px;
+    height: 42px;
+    bottom: 81px;
+    background: #101223;
+  }
+
+  .connect span {
+    display: none;
+  }
+  .connect p{
+    position: absolute;
+    right: 0px;
+    margin-top: -11px;
   }
 }
