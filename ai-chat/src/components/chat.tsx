@@ -42,7 +42,7 @@ const Chat = () => {
               messages.map(
                 (
                   message: {
-                    role: "user" | "admin" | "assistant";
+                    role: "user" | "admin" | "assistant" | "function";
                     content: string;
                   },
                   index: number
