@@ -159,7 +159,7 @@ body {
 
 .white-button {
   display: flex;
-  margin: 0 auto;
+  margin: 6px auto 0 auto;
 }
 
 .white-button:hover {

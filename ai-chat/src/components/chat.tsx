@@ -61,7 +61,7 @@ const Chat = () => {
                   <div>{defaultMessage}</div>
                   {!isConnected && (
                     <Button
-                      className="white-button mt-4"
+                      className="white-button"
                       onClick={() => {
                         connect();
                       }}
