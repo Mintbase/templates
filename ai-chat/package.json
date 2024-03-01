@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
+  "name": "AI-Chat-Mintbase-Templates",
   "version": "0.1.0",
-  "private": true,
+  "author": "Mintbase Team",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
