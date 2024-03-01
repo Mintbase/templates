@@ -2,6 +2,7 @@ import { MintbaseWalletContextProvider } from "@mintbase-js/react";
 import "./App.css";
 import { NearWalletConnector } from "./NearWalletConnector";
 import "./shims";
+import { SocialMedias } from "./Social";
 
 function App() {
 
@@ -12,8 +13,11 @@ function App() {
   };
 
   return (
+    <>
+          <SocialMedias />
+
     <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
-      <main className="flex flex-col items-center justify-center mt-2">
+      <main className="flex flex-col items-center justify-center mt-2 root">
         <div className="mx-6 sm:mx-24 mt-4 mb-4">
           <div className="w-full flex flex-col justify-center items-center">
             <div className="w-full flex flex-col justify-center items-center space-y-8">
@@ -26,6 +30,7 @@ function App() {
         </div>
       </main>
     </MintbaseWalletContextProvider>
+    </>
   );
 }
 

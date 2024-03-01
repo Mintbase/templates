@@ -1,5 +1,17 @@
 {
-  "name": "react-vite",
+  "name": "Mintbase-Templates-Starter-Vite",
+  "keywords": [
+    "templates",
+    "mintbase",
+    "web3",
+    "Vite",
+    "react",
+    "starter",
+    "nft"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/starter-vite",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +25,9 @@
     "@mintbase-js/react": "0.5.4-beta.0",
     "buffer": "^6.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-github-btn": "^1.4.0",
+    "react-share": "^5.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
