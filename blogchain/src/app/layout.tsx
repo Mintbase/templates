@@ -5,6 +5,7 @@ import "@near-wallet-selector/modal-ui/styles.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SocialMedias } from "@/components/social";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
     <AppProviders>
       <html lang="en">
         <body className={inter.className}>
+          <SocialMedias />
           <Header />
           {children}
           <Footer />
