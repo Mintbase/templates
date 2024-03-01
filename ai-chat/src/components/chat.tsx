@@ -17,6 +17,7 @@ import { Button } from "./ui/button";
 import { useMbWallet } from "@mintbase-js/react";
 import Markdown from "react-markdown";
 import { ConnectWallet } from "./connect-wallet";
+import { SocialMedias } from "./social";
 
 const Chat = () => {
   const { activeAccountId, isConnected, connect } = useMbWallet();
@@ -37,6 +38,8 @@ const Chat = () => {
     <div className="h-screen relative chat">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="w-full h-full overflow-y-auto chat-border pb-[60px]">
+        <SocialMedias />
+
           <div className="flex flex-col gap-2 p-2  mt-[30px]">
             {messages.length > 0 ? (
               messages.map((message, index) => {

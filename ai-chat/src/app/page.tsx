@@ -1,6 +1,8 @@
+
 import Chat from "@/components/chat";
 import CreditsCounter from "@/components/credits";
 import { WalletProvider } from "@/components/providers/MintbaseWalletProvider";
+import { SocialMedias } from "@/components/social";
 
 export default function Home() {
   return (

@@ -244,3 +244,11 @@ body {
     margin-top: -11px;
   }
 }
+
+
+.social-networks{
+  position:relative;
+  top: -3px;
+  display: flex;
+  gap:4px;
+}
