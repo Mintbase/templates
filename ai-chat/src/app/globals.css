@@ -203,7 +203,6 @@ body {
   margin-bottom: 120px;
 }
 
-
 .connect {
   background: #101223;
   height: 40px;
@@ -213,8 +212,6 @@ body {
   width: 100%;
   justify-content: right;
 }
-
-
 
 @media (max-width: 768px) {
   .chat-card {
@@ -238,17 +235,16 @@ body {
   .connect span {
     display: none;
   }
-  .connect p{
+  .connect p {
     position: absolute;
     right: 0px;
     margin-top: -11px;
   }
 }
 
-
-.social-networks{
-  position:relative;
+.social-networks {
+  position: relative;
   top: -3px;
   display: flex;
-  gap:4px;
+  gap: 4px;
 }

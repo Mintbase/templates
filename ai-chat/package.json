@@ -1,7 +1,10 @@
 {
   "name": "AI-Chat-Mintbase-Templates",
   "version": "0.1.0",
-  "author": "Mintbase Team",
+  "keywords": ["templates", "mintbase", "web3", "nextjs", "react", "ai"],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/ai-chat",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -22,9 +22,9 @@ export const getCachedImage = (
   }
 
   if (useThumbnail && checkThumbnailCache) {
-    url = `${process.env.NEXT_PUBLIC_IMAGE_CACHE_THUMBNAIL_URL}${image}`;
+    url = `${process.env.NEXT_PUBLIC_IMAGE_CACHE_THUMBNAIL_URL || `https://image-cache-service-z3w7d7dnea-ew.a.run.app/thumbnail?url=`}${image}`;
   } else if (checkCache && checkImage) {
-    url = `${process.env.NEXT_PUBLIC_IMAGE_CACHE_MEDIA_URL}${image}`;
+    url = `${process.env.NEXT_PUBLIC_IMAGE_CACHE_MEDIA_URL || `https://image-cache-service-z3w7d7dnea-ew.a.run.app/media?url=`}${image}`;
   }
 
   return url;

@@ -1,6 +1,19 @@
 {
-  "name": "next-js-latest",
+  "name": "Mintbase-Templates-Marketplace",
   "version": "0.1.0",
+  "keywords": [
+    "templates",
+    "mintbase",
+    "web3",
+    "nextjs",
+    "react",
+    "marketplace",
+    "contract",
+    "nft"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/marketplace",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -18,7 +31,9 @@
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-query": "^3.39.3"
+    "react-github-btn": "^1.4.0",
+    "react-query": "^3.39.3",
+    "react-share": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

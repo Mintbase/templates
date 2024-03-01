@@ -18,6 +18,7 @@ const replicate = () => {
           "https://api.replicate.com/v1/predictions/" + id,
           {
             headers: {
+              // get your REPLICATE Token on https://replicate.com/account/api-tokens
               Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
               "Content-Type": "application/json",
             },
@@ -51,6 +52,7 @@ const replicate = () => {
           {
             method: "POST",
             headers: {
+              // get your REPLICATE Token on https://replicate.com/account/api-tokens
               Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
               "Content-Type": "application/json",
             },

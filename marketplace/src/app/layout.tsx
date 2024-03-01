@@ -9,6 +9,7 @@ import { MintbaseWalletContextProvider } from "@mintbase-js/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "@/components/header";
 import { mbjs } from "@mintbase-js/sdk";
+import { SocialMedias } from "@/components/Social";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,6 +51,7 @@ export default function RootLayout({
       <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
         <html lang="en">
           <body className={inter.className}>
+            <SocialMedias />
             <Header />
             <div className="min-h-screen">{children}</div>
           </body>

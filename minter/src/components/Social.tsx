@@ -15,11 +15,11 @@ import {
 } from "react-share";
 
 export const SocialMedias = () => {
-  const url = 'https://blogchain.mintbase.xyz';
-  const title = "Mintbase Templates - Blogchain";
+  const url = 'https://minter.mintbase.xyz';
+  const title = "Mintbase Templates - Minter";
 
   return (
-    <div className="fixed pt-5 top-[70px] left-0  w-full h-[30px] z-50">
+    <div className="absolute pt-5 top-2 left-0  w-full h-[30px] z-50">
       <div className="flex gap-2 justify-end	pr-4">
         <GitHubButton
           href="https://github.com/mintbase/templates/generate"

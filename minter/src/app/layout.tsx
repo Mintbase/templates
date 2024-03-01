@@ -2,6 +2,7 @@ import { AppProvider } from "@/components/Provider";
 import { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import { SocialMedias } from "@/components/Social";
 
 const extractSignMeta = (url: string): string | null => {
   const signMetaIndex = url.indexOf("signMeta=");
@@ -61,5 +62,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <AppProvider> {children} </AppProvider>;
+  return <AppProvider> <SocialMedias /> {children} </AppProvider>;
 }

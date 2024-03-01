@@ -1,5 +1,9 @@
 {
-  "name": "minter",
+  "name": "AI-Minter-Mintbase",
+  "keywords": ["templates", "mintbase", "web3", "nextjs", "react", "ai"],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/ai-minter",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,7 +26,9 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-github-btn": "^1.4.0",
     "react-hook-form": "^7.48.2",
+    "react-share": "^5.1.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
