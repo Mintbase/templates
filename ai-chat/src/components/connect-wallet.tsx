@@ -8,7 +8,7 @@ export function ConnectWallet() {
 
   return (
 
-  <div className="absolute right-0 bottom-[90px] text-sm text-white flex connect">
+  <div className="absolute right-0 bottom-[80px] text-sm text-white flex connect">
     {isConnected && <span>You are connected as <b>{activeAccountId}</b></span>}
       <p
         className="w-[100px] pl-2 text-white connect-link"

@@ -199,6 +199,23 @@ body {
   font-size: 20px;
 }
 
+.chat-card:last-child {
+  margin-bottom: 120px;
+}
+
+
+.connect {
+  background: #101223;
+  height: 40px;
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: right;
+}
+
+
+
 @media (max-width: 768px) {
   .chat-card {
     margin-top: 20px;
