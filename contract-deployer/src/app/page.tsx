@@ -19,7 +19,7 @@ export default function Home() {
 
   const params = useSearchParams();
 
-  const mintedParams = params.get("signMeta")
+  const contractDeployParams = params.get("signMeta")
     ? JSON.parse(params.get("signMeta") as string)
     : "";
   const txnHashes = params.get("transactionHashes")
@@ -35,8 +35,8 @@ export default function Home() {
     fetchTxnHash();
   }, [txnHashes]);
 
-  if (mintedParams) {
-    const contractName = mintedParams.args.contractAddress as string;
+  if (contractDeployParams) {
+    const contractName = contractDeployParams.args.contractAddress as string;
     const contractPage = `${mbUrl}/contract/${contractName}`;
     const txnHashUrl = `${nearblocksUrl}/txns/${txnUrl}`;
 
