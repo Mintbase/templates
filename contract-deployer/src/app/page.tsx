@@ -1,14 +1,53 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
 import { NearWalletConnector } from "@/components/NearWalletSelector";
+import { useMbWallet } from "@mintbase-js/react";
 
-import Head from "next/head";
 import ContractDeployer from "@/components/ContractDeployer";
+import { SuccessPage } from "@/components/Success";
 import { Button } from "@/components/ui/button";
+import { mbUrl, nearblocksUrl } from "@/config/setup";
+import { getTxnHash } from "@/lib/utils";
+import Head from "next/head";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { isConnected, activeAccountId } = useMbWallet();
+
+  const [txnUrl, setTxnUrl] = useState("");
+
+  const params = useSearchParams();
+
+  const mintedParams = params.get("signMeta")
+    ? JSON.parse(params.get("signMeta") as string)
+    : "";
+  const txnHashes = params.get("transactionHashes")
+    ? params.get("transactionHashes")
+    : "";
+
+  useEffect(() => {
+    const fetchTxnHash = async () => {
+      const txn = await getTxnHash(txnHashes as string);
+      setTxnUrl(txn);
+    };
+
+    fetchTxnHash();
+  }, [txnHashes]);
+
+  if (mintedParams) {
+    const contractName = mintedParams.args.contractAddress as string;
+    const contractPage = `${mbUrl}/contract/${contractName}`;
+    const txnHashUrl = `${nearblocksUrl}/txns/${txnUrl}`;
+
+    const successPageData = {
+      contractName: contractName,
+      contractPage,
+      txnHashUrl,
+    };
+
+    return <SuccessPage data={successPageData} />;
+  }
 
   if (isConnected)
     return (
