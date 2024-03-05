@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mintbase Simple Marketplace Example",
   description: "Simple Marketplace",
+  openGraph: {
+    images: ['https://i.imgur.com/FjcUss9.png']
+  }
 };
 
 export default function Home() {
