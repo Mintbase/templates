@@ -23,7 +23,7 @@ export default function Minter() {
       receiverId: PROXY_CONTRACT,
       actions: [CLIENT_MINT_ARGS],
     });
-    router.push(`${WALLET_DEEP_LINK}[${txArgs}]`);
+    router.push(`${WALLET_DEEP_LINK}[${txArgs}]&isDrop=true`);
   };
   if (txLoading) return <Loading />;
 
