@@ -19,8 +19,8 @@ export const SocialMedias = () => {
   const title = "Mintbase Templates - NFT Stripe Checkout";
 
   return (
-    <div className="fixed pt-5 top-[70px] left-0  w-full h-[30px] z-50">
-      <div className="flex gap-2 justify-end	pr-4">
+    <div className="fixed pt-5 bottom-[30px] left-0  w-full h-[30px] z-50">
+      <div className="flex gap-2 justify-end flex-wrap pr-4">
         <GitHubButton
           href="https://github.com/mintbase/templates/generate"
           data-color-scheme="no-preference: light; light: light; dark: dark;"

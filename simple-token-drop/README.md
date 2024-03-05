@@ -3,7 +3,7 @@
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://token-drop-template.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop&env=NEXT_PUBLIC_REFERENCE_URL,NEXT_PUBLIC_MEDIA_URL,NEXT_PUBLIC_NFT_CONTRACT,NEXT_PUBLIC_CALLBACK_URL,SERVER_WALLET_PK,SERVER_WALLET_ID&envDescription=API%20Keys%20for%20Simple%20Token%20Drop)
 
 **Tooling:**
 

@@ -54,16 +54,17 @@ function PurchasePage() {
   };
 
   if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-    throw 'Did you forget to add a ".env.local" file?';
+    console.log('Did you forget to add a ".env.local" file?');
   }
-  const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+  const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_u3xKazkyGGPUI4gME4iKwVgv00D8HG8H4X');
 
   return (
     <main className="flex flex-col gap-y-8 items-center p-4 md:p-12">
       <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12 items-center shadow-[12px_12px_12px_rgb(55,65,81,0.5)]">
         <div className="flex flex-col gap-2 items-center">
-          <h2 className="text-xl font-extrabold">{"Token Title"}</h2>
-          <p className="text-gray-500">{"A description of your NFT."}</p>
+          <h2 className="text-xl font-extrabold">Token Title</h2>
+          <p className="text-gray-500">A description of your NFT.</p>
           <img
             className="w-36"
             src="https://arweave.net/eUdPgtRlT9Ua8ZHsGuNi1P8TUfVJaGUTH42NB1i1s4E"

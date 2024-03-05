@@ -3,7 +3,7 @@
 NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://nft-stripe-checkout.mintbase.xyz)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout&env=NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,NEXT_PUBLIC_MINTBASE_WALLET_URL,NEXT_PUBLIC_NETWORK&envDescription=API%20Keys%20for%20NFT%20Stripe%20Checkout&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout%23environment-variables)
 
 **Tooling:**
 
@@ -27,9 +27,11 @@ Note that this is currently a testnet-only template. It allows you to define a s
 
 ## Setup
 
-1. First [deploy](https://mintbase.xyz/auth) a Mintbase Contract
+1. First [deploy](https://testnet.mintbase.xyz/auth) a Testnet Mintbase Contract
 
-2. Add `mintbus.testnet` as a minter to deployed contract contract
+2. Add `mintbus.testnet` as a minter to deployed contract contract, under Contract Settings
+
+3. Login to your Stripe Account and [find API Keys](https://support.stripe.com/questions/locate-api-keys-in-the-dashboard) under developer section (get Publishable Key)
 
 ### Environment Variables
 
@@ -38,7 +40,7 @@ Checkout `.env.example` and create a local env file (`.env.local`) with:
 
 ```
 NEXT_PUBLIC_NFT_CONTRACT_ADDRESS="stripeteststore.mintspace2.testnet"
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=""
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="""
 NEXT_PUBLIC_MINTBASE_WALLET_URL="https://testnet.wallet.mintbase.xyz"
 NEXT_PUBLIC_NETWORK="testnet"
 ```

@@ -3,7 +3,7 @@
 This is a simple minter example built on top of Next.js 14
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fminter)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Fblob%2Fmain%2Fminter%2F&env=NEXT_PUBLIC_MINT_CONTRACT_ADDRESS,NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS,NEXT_PUBLIC_NETWORK&envDescription=API%20Keys%20for%20Markeplace&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Fblob%2Fmain%2Fminter%2FREADME.md%23env-variables)
 
 **Tooling:**
 
