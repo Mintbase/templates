@@ -1,6 +1,7 @@
 import { AppComponent } from "@/components/App";
 import "./globals.css";
 
+import { SocialMedias } from "@/components/Social";
 import "@near-wallet-selector/modal-ui/styles.css";
 import { Metadata } from "next";
 
@@ -34,6 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AppComponent> {children} </AppComponent>
+    <AppComponent>
+      <SocialMedias /> {children}
+    </AppComponent>
   );
 }

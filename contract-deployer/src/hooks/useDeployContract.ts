@@ -7,8 +7,16 @@ import * as z from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { network } from "@/config/setup";
+import { callbackUrl } from "@/lib/utils";
 import { checkStoreName } from "@mintbase-js/data";
-import { MINTBASE_CONTRACTS, deployContract, execute } from "@mintbase-js/sdk";
+import {
+  CallBackArgs,
+  MINTBASE_CONTRACTS,
+  TransactionSuccessEnum,
+  deployContract,
+  execute,
+} from "@mintbase-js/sdk";
 import { formSchema } from "./formSchema";
 
 const useDeployContract = () => {
@@ -33,24 +41,38 @@ const useDeployContract = () => {
   });
 
   const handleDeployContract = async (data: FieldValues): Promise<void> => {
-    if (!activeAccountId) return;
+    if (!activeAccountId || !data?.name) return;
+
+    const contractName = data.name;
 
     // check if contract already exists.
-    const { data: checkStore } = await checkStoreName(data.name);
+    const { data: checkStore } = await checkStoreName(contractName);
 
     if (checkStore?.nft_contracts.length === 0) {
       setAlreadyExistsError("");
       const wallet = await getWallet();
+
+      const factoryContractId = MINTBASE_CONTRACTS[network];
+
+      const callbackArgs: CallBackArgs = {
+        args: {
+          contractAddress: `${contractName}.${factoryContractId}`,
+        },
+        type: TransactionSuccessEnum.DEPLOY_STORE,
+      };
+
+      const cbUrl = callbackUrl(callbackArgs);
+
       const deployArgs = deployContract({
-        name: data.name,
+        name: contractName,
         ownerId: activeAccountId,
-        factoryContractId: MINTBASE_CONTRACTS.testnet,
+        factoryContractId: factoryContractId,
         metadata: {
           symbol: data.symbol,
         },
       });
 
-      await execute({ wallet }, deployArgs);
+      await execute({ wallet, callbackUrl: cbUrl }, deployArgs);
     } else {
       setAlreadyExistsError("Contract already exists.");
     }
