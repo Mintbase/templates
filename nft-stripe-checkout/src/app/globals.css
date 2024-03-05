@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: black
 }
 
 .social-networks {
@@ -32,3 +27,9 @@ body {
   display: flex;
   gap: 4px;
 }
+
+
+.gradient {
+  background: rgb(144,40,47);
+  background: radial-gradient(circle, rgba(144,40,47,0.3) 0%, rgba(144,40,47,0.6) 0%, rgba(16,18,35,0.3730085784313726) 55%);
+  }

@@ -60,8 +60,8 @@ function PurchasePage() {
   const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_u3xKazkyGGPUI4gME4iKwVgv00D8HG8H4X');
 
   return (
-    <main className="flex flex-col gap-y-8 items-center p-4 md:p-12">
-      <div className="flex flex-col gap-8 border border-gray-700 rounded-xl p-12 items-center shadow-[12px_12px_12px_rgb(55,65,81,0.5)]">
+    <main className="flex flex-col gap-y-8 items-center justify-center h-screen p-4 md:p-12 gradient">
+      <div className="flex flex-col gap-8 border border-gray-700 rounded-xl bg-black p-12 items-center ">
         <div className="flex flex-col gap-2 items-center">
           <h2 className="text-xl font-extrabold">Token Title</h2>
           <p className="text-gray-500">A description of your NFT.</p>
@@ -96,7 +96,7 @@ function PurchasePage() {
 
           {isConnected && (
             <a
-              className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg disabled:bg-gray-400 disabled:opacity-50 text-center"
+              className=" font-bold py-2 px-4 rounded-lg disabled:bg-gray-400 disabled:opacity-50 text-center"
               href={`https://${
                 constants.network === "testnet" ? "testnet." : ""
               }mintbase.xyz/human/${activeAccountId}/owned`}
@@ -135,9 +135,6 @@ const CreditCardForm = () => {
         throw error.message;
       }
       if (paymentIntent.status === "succeeded") {
-        alert(
-          "Payment success. The NFT will be delivered to your wallet shortly."
-        );
         setIsCompleted(true);
       } else {
         alert("Payment failed. Please try again.");
@@ -149,8 +146,17 @@ const CreditCardForm = () => {
     setIsLoading(false);
   };
 
+if(isCompleted) {
   return (
     <>
+      <h1> Success you just bough an NFT!</h1>
+    </>
+  )
+}
+
+  return (
+    <>
+    <p> You can test with a 4242 4242 4242 4242 card</p>
       <PaymentElement />
 
       <button
