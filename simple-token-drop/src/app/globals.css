@@ -94,3 +94,10 @@ body {
     transform: translate(24px, 0);
   }
 }
+
+.social-networks {
+  position: relative;
+  top: -3px;
+  display: flex;
+  gap: 4px;
+}

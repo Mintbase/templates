@@ -5,7 +5,7 @@
 Dreams to NFTs: AI Image Generation & Minting built with Replicate Models and MintbaseJS.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-minter)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-minter&env=REPLICATE_API_TOKEN,NEXT_PUBLIC_MINT_CONTRACT_ADDRESS,NEXT_PUBLIC_PROXY_CONTRACT_ADDRESS,NEXT_PUBLIC_NETWORK&envDescription=API%20Keys%20for%20AI%20Minter&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Fblob%2Ffix-share-projects%2Fai-minter%2FREADME.md%23setup)
 
 **Tooling:**
 

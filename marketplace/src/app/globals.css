@@ -15,3 +15,10 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.social-networks {
+  position: relative;
+  top: -3px;
+  display: flex;
+  gap: 4px;
+}

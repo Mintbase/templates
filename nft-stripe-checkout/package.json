@@ -1,6 +1,20 @@
 {
-  "name": "engine-nft-checkout",
+  "name": "Mintbase-Templates-NFT-Stripe-Checkout",
   "version": "0.1.0",
+  "keywords": [
+    "templates",
+    "mintbase",
+    "web3",
+    "nextjs",
+    "react",
+    "stripe",
+    "checkout",
+    "contract",
+    "nft"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/nft-stripe-checkout",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,7 +36,9 @@
     "next": "^14",
     "react": "^18.2",
     "react-dom": "^18.2",
-    "stripe": "^14.2.0"
+    "stripe": "^14.2.0",
+    "react-share": "^5.1.0",
+    "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

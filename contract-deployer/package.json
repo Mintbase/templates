@@ -1,6 +1,10 @@
 {
-  "name": "minter",
+  "name": "NFT-Contract-Deployer-Mintbase-Templates",
   "version": "0.1.0",
+  "keywords": ["templates", "mintbase", "web3", "nextjs", "react", "blog","contract","contract-deployer"],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/contract-deployer",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {
     "dev": "next dev",

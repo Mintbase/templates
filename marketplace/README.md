@@ -5,7 +5,7 @@
 Unlock Your NFT Storefront: Clone & Customize Your Path to Blockchain Success with this whitelabel marketplace template!
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://marketplace-template.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fmarketplace)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fmarketplace&env=NEXT_PUBLIC_AFFILIATE_ACCOUNT,NEXT_PUBLIC_STORES,NEXT_PUBLIC_NETWORK&envDescription=API%20Keys%20for%20Markeplace&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fmarketplace%23set-env-variables)
 
 **Tooling:**
 
@@ -46,7 +46,7 @@ Before proceeding, it is important to have a wallet connection feature implement
 
 ## Step 2: Get NFTs from Store
 
-In this example, we utilized react-query to manage the loading state when retrieving NFTs from the contract via the storeNfts method. This method returns all listed NFTs from the specified contract, allowing you to display them in the user interface. 
+In this example, we utilized react-query to manage the loading state when retrieving NFTs from the contract via the storeNfts method. This method returns all listed NFTs from the specified contract, allowing you to display them in the user interface.
 
 ```ts
 // src/hooks/useStoreNfts.ts

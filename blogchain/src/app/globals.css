@@ -125,3 +125,10 @@
 .markdownEditor .editor-toolbar i.separator {
   display: none;
 }
+
+.social-networks {
+  position: relative;
+  top: -3px;
+  display: flex;
+  gap: 4px;
+}

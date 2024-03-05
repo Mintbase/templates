@@ -1,6 +1,18 @@
 {
-  "name": "next-js-latest",
+  "name": "Mintbase-Templates-Starter-Next",
   "version": "0.1.0",
+  "keywords": [
+    "templates",
+    "mintbase",
+    "web3",
+    "nextjs",
+    "react",
+    "starter",
+    "nft"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/starter-next",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +24,9 @@
     "@mintbase-js/react": "0.5.4-beta.0",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-github-btn": "^1.4.0",
+    "react-share": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

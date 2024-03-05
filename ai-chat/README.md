@@ -4,7 +4,7 @@
 Turn Your AI Passion into NFT Profits: A Blueprint for Aspiring Digital Moguls! Customize this AI Chat example to capture value for your next AI product.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-chat.mintbase.xyz)
-[![Deploy](https://img.shields.io/badge/Deploy-on%Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-chat)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-chat)
 
 **Tooling:**
 

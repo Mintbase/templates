@@ -15,8 +15,8 @@ import {
 } from "react-share";
 
 export const SocialMedias = () => {
-  const url = 'https://ai-chat.mintbase.xyz';
-  const title = "Mintbase Templates - AI Chat";
+  const url = 'https://ai-minter.mintbase.xyz';
+  const title = "Mintbase Templates - AI Minter";
 
   return (
     <div className="relative pt-5 top-0 left-0  w-full h-[30px] z-50">
