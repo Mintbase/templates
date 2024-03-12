@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/bHpvyk6.png" alt="cover_image" width="0" />
 This is a simple-login project with support to Vite
 
-[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter-react-vite.mintbase.xyz)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter-vite&env=VITE_NETWORK,VITE_CONTRACT_ADDRESS,VITE_CALLBACK_URL&envDescription=API%20Keys%20for%20Starter%20Vite&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Fblob%2Fmain%2Fstarter-vite%2FREADME.md%23setup)
 
 **Tooling:**
