@@ -4,12 +4,15 @@ import { NearWalletConnector } from "./NearWalletConnector";
 import "./shims";
 import { SocialMedias } from "./Social";
 
+import "@near-wallet-selector/modal-ui/styles.css";
+
+
 function App() {
 
   const MintbaseWalletSetup = {
-    contractAddress: import.meta.env.VITE_CONTRACT_ADDRESS,
-    network: import.meta.env.VITE_NETWORK,
-    callbackUrl: import.meta.env.VITE_CALLBACK_URL,
+    contractAddress: import.meta.env.VITE_CONTRACT_ADDRESS || 'mintspace2.testnet',
+    network: import.meta.env.VITE_NETWORK || 'testnet',
+    callbackUrl: import.meta.env.VITE_CALLBACK_URL || window.location.origin,
   };
 
   return (
