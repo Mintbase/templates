@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -7,7 +7,11 @@ import { useMbWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { ArweaveResponse, uploadFile, uploadReference } from "@mintbase-js/storage"
+import {
+  ArweaveResponse,
+  uploadFile,
+  uploadReference,
+} from "@mintbase-js/storage";
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
@@ -32,14 +36,18 @@ const useMintImage = () => {
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch image. Status code: ${response.status}`);
+        throw new Error(
+          `Failed to fetch image. Status code: ${response.status}`
+        );
       }
 
       // Convert the image to a Blob
       const imageBlob = await response.blob();
 
       // Create a File object from the Blob
-      const imageFile = new File([imageBlob], 'image', { type: imageBlob.type });
+      const imageFile = new File([imageBlob], "image", {
+        type: imageBlob.type,
+      });
 
       return imageFile;
     } catch (error: unknown) {
@@ -53,7 +61,7 @@ const useMintImage = () => {
     const media = await getImageAsFile(data?.media);
     const reference = await uploadReference({
       title: data?.title,
-      media: data?.media
+      media: data?.media,
     });
     const file = uploadFile(media);
 
@@ -68,7 +76,12 @@ const useMintImage = () => {
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      media: "",
+    },
   });
 
   async function handleMint(
@@ -80,7 +93,6 @@ const useMintImage = () => {
     nftTitle: string
   ) {
     if (reference) {
-
       const finalMediaUrl = mediaUrl.replace("https://arweave.net/", "");
 
       const callbackArgs = {
@@ -101,7 +113,10 @@ const useMintImage = () => {
             params: {
               methodName: "mint",
               args: {
-                metadata: JSON.stringify({ reference, media: (await media).id }),
+                metadata: JSON.stringify({
+                  reference,
+                  media: (await media).id,
+                }),
                 nft_contract_id: MintbaseWalletSetup.contractAddress,
               },
               gas: "200000000000000",
