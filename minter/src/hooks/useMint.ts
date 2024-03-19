@@ -67,6 +67,7 @@ const useMintImage = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: { description: "", media: null, title: "" },
   });
 
   async function handleMint(

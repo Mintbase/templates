@@ -38,6 +38,10 @@ const useDeployContract = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      symbol: "",
+    },
   });
 
   const handleDeployContract = async (data: FieldValues): Promise<void> => {
