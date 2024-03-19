@@ -110,7 +110,6 @@ export function CreatePostDialog() {
       const referenceJson = await uploadReference(metadata);
       const reference = referenceJson.id;
 
-      console.log({ data });
       if (reference) {
         const wallet = await selector.wallet();
         const mintCall = mint({
