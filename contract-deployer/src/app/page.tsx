@@ -74,7 +74,7 @@ export default function Home() {
           <div className="mx-6 sm:mx-24 mt-4 mb-4">
             <div className="w-full flex flex-col justify-center items-center">
               <div className="w-full flex flex-col justify-center items-center space-y-8">
-                <div className="flex flex-col justify-center items-center space-y-8">
+                <div className="flex flex-col justify-center items-center space-y-8 text-center">
                   <h1 className="h1-90 text-5xl text-white">
                     Mintbase Contract Deployer
                   </h1>
