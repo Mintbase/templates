@@ -14,7 +14,7 @@ export const getTxnHash = async (hash: string) => {
 
   const txn = await res.json();
 
-  return txn?.receipts[0].originated_from_transaction_hash;
+  return txn?.receipts[0]?.originated_from_transaction_hash;
 };
 
 export const callbackUrl = (cbArgs: CallBackArgs) =>
