@@ -11,7 +11,7 @@ export default function BlogDetail() {
 
   return (
     <main className="flex min-h-screen flex-col items-start gap-4 mt-12 px-2 lg:px-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
         {posts?.map(
           (
             { metadata_id, description, media, title, minted_timestamp },

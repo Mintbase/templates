@@ -44,6 +44,7 @@ export function CreateBlogDialog() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: { name: "" },
   });
 
   const handleDeployContract = async (data: FieldValues): Promise<void> => {

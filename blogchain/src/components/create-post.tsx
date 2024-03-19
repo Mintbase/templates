@@ -67,6 +67,7 @@ export function CreatePostDialog() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: { title: "", contract: "", media: null },
   });
 
   const autofocusNoSpellcheckerOptions: EasyMDE.Options = useMemo(() => {
@@ -109,6 +110,7 @@ export function CreatePostDialog() {
       const referenceJson = await uploadReference(metadata);
       const reference = referenceJson.id;
 
+      console.log({ data });
       if (reference) {
         const wallet = await selector.wallet();
         const mintCall = mint({
