@@ -67,6 +67,7 @@ export function CreatePostDialog() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: { title: "", contract: "", media: null },
   });
 
   const autofocusNoSpellcheckerOptions: EasyMDE.Options = useMemo(() => {
