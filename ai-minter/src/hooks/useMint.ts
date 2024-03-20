@@ -8,10 +8,11 @@ import { useMbWallet } from "@mintbase-js/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
-  ArweaveResponse,
   uploadFile,
   uploadReference,
 } from "@mintbase-js/storage";
+import { ArweaveResponse } from "@mintbase-js/storage/lib/types";
+
 import { formSchema } from "./formSchema";
 import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
