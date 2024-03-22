@@ -6,9 +6,9 @@
   
 | Template | Demo |
 |--|--|
-| [Starter](./starter/next-js/) | [Demo](https://starter.mintbase.xyz/) |
-| [Starter React Vite](./starter/react-vite/)| [Demo](https://starter-react-vite.mintbase.xyz/) |
-| [AI Chat](./ai-chat) | [Demo](https://ai-chat.mintbase.xyz/) |
+| [Starter](./starter-next/) | [Demo](https://starter.mintbase.xyz/) |
+| [Starter React Vite](./starter-vite/)| [Demo](https://starter-react-vite.mintbase.xyz/) |
+| [AI Chat](./ai-chat/) | [Demo](https://ai-chat.mintbase.xyz/) |
 | [AI Minter](./ai-minter/) | [Demo](https://ai-minter.mintbase.xyz/) |
 | [Blogchain](./blogchain/) | [Demo](https://blogchain.mintbase.xyz) |
 | [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.mintbase.xyz/) |
