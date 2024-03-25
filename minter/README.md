@@ -26,11 +26,11 @@ if you dont have a store you can [deploy a new contract](https://www.mintbase.xy
 
 ## Pre-Setup - Proxy Contract
 
-1. You need to have a NEAR Contract where you add a proxy contract as a minter.
-2. The proxy contract enables non-minter users to mint images on your contract.
-3. The Near Contract will be where the NFT images will be minted.
-4. The proxy contract will be the minter.
-5. The user wallet address will be the owner of the NFT.
+-  You need to have a NEAR Contract where you add a proxy contract as a minter.
+-  The proxy contract enables non-minter users to mint images on your contract.
+-  The Near Contract will be where the NFT images will be minted.
+-  The proxy contract will be the minter.
+-  The user wallet address will be the owner of the NFT.
 
 ### Deploying a Near Contract on Mintbase:
 1. Login on Mintbase and access [Contracts Page](https://www.mintbase.xyz/launchpad/contracts/0)
