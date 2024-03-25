@@ -26,7 +26,7 @@ Welcome to the NEAR ecosystem—an exciting space where development meets innova
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://starter.mintbase.xyz)
 
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter-next&env=NEXT_PUBLIC_NETWORK,NEXT_PUBLIC_CONTRACT_ADDRESS,NEXT_PUBLIC_CALLBACK_URL&envDescription=API%20Keys%20for%20Starter%20Next&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter-next)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fstarter-next)
 
 
 

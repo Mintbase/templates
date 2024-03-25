@@ -1,9 +1,9 @@
 # NFT Stripe Checkout
 <img src="https://i.imgur.com/9byWkpK.png" alt="cover_image" width="0" />
-NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe.
+NFT-Stripe-Checkout is a template that lets users buy NFTs with their credit-cards using Stripe.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://nft-stripe-checkout.mintbase.xyz)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout&env=NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,NEXT_PUBLIC_MINTBASE_WALLET_URL,NEXT_PUBLIC_NETWORK&envDescription=API%20Keys%20for%20NFT%20Stripe%20Checkout&envLink=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout%23environment-variables)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fnft-stripe-checkout)
 
 **Tooling:**
 
