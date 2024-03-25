@@ -11,9 +11,9 @@ import { SocialMedias } from "@/components/Social";
 const inter = Inter({ subsets: ["latin"] });
 
 const MintbaseWalletSetup = {
-  contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  network: process.env.NEXT_PUBLIC_NETWORK,
-  callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL,
+  contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || 'hellovirtualworld.mintspace2.testnet',
+  network: process.env.NEXT_PUBLIC_NETWORK || 'testnet',
+  callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL || window.location.origin,
 };
 
 export default function RootLayout({

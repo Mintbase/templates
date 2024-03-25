@@ -3,7 +3,7 @@
 This example illustrates the creation of a straightforward minting landing page with pre-defined metadata.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://token-drop-template.mintbase.xyz/)
-[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop&env=NEXT_PUBLIC_REFERENCE_URL,NEXT_PUBLIC_MEDIA_URL,NEXT_PUBLIC_NFT_CONTRACT,NEXT_PUBLIC_CALLBACK_URL,SERVER_WALLET_PK,SERVER_WALLET_ID&envDescription=API%20Keys%20for%20Simple%20Token%20Drop)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fsimple-token-drop)
 
 **Tooling:**
 
@@ -23,6 +23,29 @@ This example illustrates the creation of a straightforward minting landing page 
 The project is separated into two portions, the first one creates a wallet, server mints into it and then auto imports it. The alternate one deeplinks to a minting transaction on mintbase wallet.
 
 *NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+
+
+## Pre-Setup - Proxy Contract
+
+1. You need to have a NEAR Contract where you add a proxy contract as a minter.
+2. The proxy contract enables non-minter users to mint images on your contract.
+3. The Near Contract will be where the NFT images will be minted.
+4. The proxy contract will be the minter.
+5. The user wallet address will be the owner of the NFT.
+
+### Deploying a Near Contract on Mintbase:
+1. Login on Mintbase and access [Contracts Page](https://www.mintbase.xyz/launchpad/contracts/0)
+2. Click on New Contract
+3. Choose Store Name (this will be the contract address to add on your minsta instance, this need to be added on the `process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` environment variable) and Store Symbol
+4. Proceed to transaction.
+5. Succeeded
+6. Go to Contract Settings
+
+### Add Proxy Minter Contract
+1. Under Contract Settings go to Minters
+2. add `0.drop.proxy.mintbase.near` (this is the contract address that need to be added on `process.env.NEXT_PUBLIC_PROXY_MINTER_CONTRACT_ADDRESS`), and click Add Minters.
+3. Proceed to transaction.
+4. Succeeded
 
 
 ## Run the project
