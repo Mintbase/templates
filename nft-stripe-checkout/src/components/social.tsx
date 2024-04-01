@@ -22,14 +22,6 @@ export const SocialMedias = () => {
     <div className="absolute pt-5 top-[5px] left-0  w-full h-[30px] z-50">
       <div className="flex gap-2 justify-end flex-wrap pr-4">
         <GitHubButton
-          href="https://github.com/mintbase/templates/generate"
-          data-color-scheme="no-preference: light; light: light; dark: dark;"
-          data-size="large"
-          aria-label="Use this template mintbase/templates on GitHub"
-        >
-          Use this template
-        </GitHubButton>
-        <GitHubButton
           href="https://github.com/mintbase/templates"
           data-color-scheme="no-preference: dark; light: light; dark: dark;"
           data-icon="octicon-star"
