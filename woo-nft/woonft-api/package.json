@@ -1,0 +1,32 @@
+{
+  "name": "woo-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mintbase-js/sdk": "^0.5.6-beta.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "fetch-blob": "^4.0.0",
+    "firebase": "^10.8.1",
+    "firebase-admin": "^12.0.0",
+    "form-data": "^4.0.0",
+    "mime": "^4.0.1",
+    "mintbase": "github:mintbase/mintbase-js",
+    "near-api-js": "^3.0.3",
+    "nft.storage": "^7.1.1",
+    "nodemailer": "^6.9.11",
+    "openai": "^4.28.4",
+    "sharp": "^0.33.2",
+    "uuid": "^9.0.1"
+  }
+}
