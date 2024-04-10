@@ -17,7 +17,7 @@ Develop a user-friendly interface that allows participants to easily vote, view 
 
 ## Reward
 
-This specific bounty is eligible for a reward of up to 2,000$.
+This specific bounty is eligible for a reward of up to $2,000.
 
 ## Functionality
 

@@ -15,7 +15,7 @@ We're seeking a skilled developer or team to create a decentralized application 
 
 ## Reward
 
-This specific bounty is eligible for a reward of up to 1,000$.
+This specific bounty is eligible for a reward of up to $1,000.
 
 ## Functionality
 
