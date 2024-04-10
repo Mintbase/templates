@@ -14,7 +14,7 @@ The goal of this bounty is to enhance the Minsta application to support dynamic 
 
 ## Reward
 
-This specific bounty is eligible for a reward of up to 3,000$.
+This specific bounty is eligible for a reward of up to $3,000.
 
 ## Functionality
 

@@ -14,7 +14,7 @@ This open bounty presents an opportunity for developers, designers, and innovato
 
 ## Reward
 
-This specific bounty is eligible for a reward of up to 3,000$.
+This specific bounty is eligible for a reward of up to $3,000.
 
 ## Submission Guidelines
 

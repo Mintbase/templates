@@ -17,7 +17,7 @@ We are in search of a talented team or an enthusiastic individual developer capa
 
 ## Reward
 
-This specific bounty is eligible for a reward of up to 3,000$.
+This specific bounty is eligible for a reward of up to $3,000.
 
 ## Functionality
 
