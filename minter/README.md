@@ -1,6 +1,6 @@
 # Minter
 <img src="https://i.imgur.com/QDJPsAA.png" alt="cover_image" width="0" />
-This is a simple minter example built on top of Next.js 14
+This is a Next.js 14 frontend minter example that includes a simple interface from which you can mint nfts easily
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://minter.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Fblob%2Fmain%2Fminter)
@@ -23,14 +23,8 @@ This is a simple minter example built on top of **Next.js 14** using some of [@m
 
 if you dont have a store you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad
 
-
-## Pre-Setup - Proxy Contract
-
--  You need to have a NEAR Contract where you add a proxy contract as a minter.
--  The proxy contract enables non-minter users to mint images on your contract.
--  The Near Contract will be where the NFT images will be minted.
--  The proxy contract will be the minter.
--  The user wallet address will be the owner of the NFT.
+## Pre-Setup
+If you would like the minter to use your own NFT contract you can easily deploy one through the mintbase market UI, additionally if you want to open up minting to be available for any person you will need to connect it to a proxy contract
 
 ### Deploying a Near Contract on Mintbase:
 1. Login on Mintbase and access [Contracts Page](https://www.mintbase.xyz/launchpad/contracts/0)
@@ -45,6 +39,124 @@ if you dont have a store you can [deploy a new contract](https://www.mintbase.xy
 2. add `0.drop.proxy.mintbase.near` (this is the contract address that need to be added on `process.env.NEXT_PUBLIC_PROXY_MINTER_CONTRACT_ADDRESS`), and click Add Minters.
 3. Proceed to transaction.
 4. Succeeded
+
+### Step 1: Get the wallet connection
+
+This method will get the wallet instance used to send the mint transaction. To learn more about this, you can check our guide at [Wallet Connection Guide](https://docs.mintbase.xyz/dev/getting-started/add-wallet-connection-to-your-react-app).
+
+```typescript
+ const getWallet = async () => {
+    try {
+      return await selector.wallet();
+    } catch (error) {
+      console.error("Failed to retrieve the wallet:", error);
+      throw new Error("Failed to retrieve the wallet");
+    }
+  };
+  ```
+
+### Step 2: Use the onSubmit method 
+
+Get all the form data and use the onSubmit method to handle the minting process
+
+```typescript
+const onSubmit = async (data: SubmitData) => {
+    const wallet = await getWallet();
+
+    const reference = await uploadReference({
+      title: typeof data?.title === "string" ? data.title : "",
+      media: data?.media as unknown as File,
+    });
+
+    const file = uploadFile(data?.media as unknown as File);
+
+    await handleMint(
+      reference.id,
+      file,
+      activeAccountId as string,
+      wallet,
+      reference.media_url as string,
+      data.title
+    );
+  };
+  ```
+
+  ### Step 3: Upload the NFT reference
+
+  The nft reference represents the offchain data which permanently stored on IPFS on Arweave in this case you can use [@mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data) to easily upload it to arweave.
+
+  In this not only are we uploading an offchain JSON object which contains the media as well as the title but also uploading a separate media file to be included onchain.
+
+  [Learn more about how references work here](https://docs.mintbase.xyz/dev/getting-started/anatomy-of-a-non-fungible-token)
+
+  ```typescript
+  const reference = await uploadReference({
+      title: typeof data?.title === "string" ? data.title : "",
+      media: data?.media as unknown as File,
+    });
+
+    const file = uploadFile(data?.media as unknown as File);
+
+```
+
+### Step 3: Handling the mint
+
+    Here we start by configuring the callback which is the link and params to where the user will be redirected after minting after signing the mint transaction on the wallet.
+
+    In this case a number of params are included to be able to show a better success page.
+
+    The argument for calling the contracts "mint" function is then built. This transaction will be sent to the proxy contract which then calls the nft contracts nft_batch_mint method
+
+
+  ```typescript
+   async function handleMint(
+    reference: string,
+    media: Promise<ArweaveResponse>,
+    activeAccountId: string,
+    wallet: Wallet,
+    mediaUrl: string,
+    nftTitle: string
+  ) {
+    const callbackArgs = {
+      contractAddress: MintbaseWalletSetup.contractAddress.toString(),
+      amount: 1,
+      ref: `${reference}`,
+      mediaUrl: mediaUrl,
+      title: nftTitle,
+    };
+
+    if (reference) {
+      await wallet.signAndSendTransaction({
+        signerId: activeAccountId,
+        receiverId: proxyAddress,
+        callbackUrl: cbUrl(reference, callbackArgs),
+        actions: [
+          {
+            type: "FunctionCall",
+            params: {
+              methodName: "mint",
+              args: {
+                metadata: JSON.stringify({
+                  reference,
+                  media: (await media).id,
+                }),
+                nft_contract_id: MintbaseWalletSetup.contractAddress,
+              },
+              gas: "200000000000000",
+              deposit: "10000000000000000000000",
+            },
+          },
+        ],
+      });
+    }
+  }
+
+  return { form, onSubmit, preview, setPreview };
+};
+
+```
+
+This sums up the blockchain portion of the code
 
 
 ### Setup
