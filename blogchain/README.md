@@ -19,7 +19,7 @@ Blogchain makes your content unstoppable and profitable. Transform your blogs in
 
 ## Project Walkthrough
 
-Within the framework of blogchain, every blog manifests as a sophisticated smart contract, while each individual blog post is uniquely represented as a non-fungible token (NFT).
+Within the framework of blogchain, every blog manifests as an nft contract deployed from the Mintbase contract factory, while each individual blog post is uniquely represented as a non-fungible token (NFT).
 
 *NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
 
@@ -48,7 +48,7 @@ if (checkStore?.nft_contracts.length === 0) {
 
 #### Step 2: if contract name doesn't exist execute the deploy contract action with the instantiated wallet
 
-Create deploy contract args using [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract) deployContract method.
+Create deploy contract args using [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk/deploycontract) deployContract method. This will deploy an NFT contract from the [mintbase contract factory](https://github.com/Mintbase/mb-contracts/tree/main/mb-factory-v1)
 
 ```typescript
 const wallet = await selector.wallet();
@@ -63,7 +63,7 @@ const deployArgs = deployContract({
 });
 ```
 
-We can then execute the deploy contract by passing in the serverWallet as the sender
+We can then execute the deploy contract by passing in the wallet. If you wan't to learn about wallet connection check out the [wallet starter template](https://templates.mintbase.xyz/templates/starter-next)
 
 ```typescript
   await execute({ wallet }, deployArgs);
@@ -228,7 +228,7 @@ query GET_POST_METADATA($metadataId: String!) {
   }`;
 ```
 
-Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration in <MintbaseWalletContextProvider> and every 'testnet' instance.
+Presently, this template exclusively functions within the testnet environment. To transition to a different network the configuration must be changed in ```<MintbaseWalletContextProvider>``` and every 'testnet' instance.
 
 ## Get in touch
 
