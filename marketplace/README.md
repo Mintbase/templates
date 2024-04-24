@@ -19,6 +19,15 @@ Unlock Your NFT Storefront: Clone & Customize Your Path to Blockchain Success wi
 
 ## Project Walkthrough
 
+This guide will take you step by step through the process of creating a basic marketplace frontend where you can purchase tokens and filter your selection by store. It uses [mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data) for retrieving data and [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk) for executing marketplace methods on the [mintbase marketplace contract](https://github.com/Mintbase/mb-contracts/tree/main/mb-interop-market).
+
+The mintbase-js/data package provides convenient functions for retrieving nft data from the mintbase indexer. In this example, you will be able to view and purchase NFTs from a specific nft contract.
+
+You can find more information on Github: [GitHub link](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data)
+
+A live demo of the marketplace can be found here: [Live demo link](https://marketplace-template.mintbase.xyz/)
+
+
 ### Setup
 
 install dependencies
@@ -30,15 +39,6 @@ run the project
 ```
 pnpm dev
 ```
-
-
-This guide will take you step by step through the process of creating a basic marketplace where you can purchase tokens and filter your selection by store. It uses [mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data) for retrieving data and [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk) for executing marketplace methods.
-
-The mintbase-js/data package provides convenient functions for retrieving data from our indexer. In this example, you will be able to view and purchase NFTs from a specific store.
-
-You can find more information on Github: [GitHub link](https://github.com/Mintbase/mintbase-js/tree/beta/packages/data)
-
-A live demo of the marketplace can be found here: [Live demo link](https://marketplace-template.mintbase.xyz/)
 
 ## Step 1: Connect Wallet
 
