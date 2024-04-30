@@ -11,9 +11,13 @@ import { SocialMedias } from "@/components/Social";
 const inter = Inter({ subsets: ["latin"] });
 
 const MintbaseWalletSetup = {
-  contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || 'hellovirtualworld.mintspace2.testnet',
-  network: process.env.NEXT_PUBLIC_NETWORK || 'testnet',
-  callbackUrl: process.env.NEXT_PUBLIC_CALLBACK_URL || window.location.origin,
+  contractAddress:
+    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS ||
+    "hellovirtualworld.mintspace2.testnet",
+  network: process.env.NEXT_PUBLIC_NETWORK || "testnet",
+  callbackUrl:
+    process.env.NEXT_PUBLIC_CALLBACK_URL ||
+    (typeof window !== "undefined" ? window.location.origin : ""),
 };
 
 export default function RootLayout({
