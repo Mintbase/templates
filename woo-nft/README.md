@@ -27,7 +27,7 @@ Check out the video bellow:
 [![Framework](https://img.shields.io/badge/Framework-Node.js,Wordpress-blue)](#)
 
 
-## Project Walkthrough
+## Walkthrough
 
 The project is structured into three core components:
 
@@ -92,18 +92,34 @@ WooNFT API is a custom backend service designed to integrate NFT minting capabil
 - **License Verification**: Ensures that only authorized domains can mint NFTs, enhancing security and control.
 - **Environment Support**: Configurable for both testnet and mainnet, facilitating development, testing, and production deployments.
 
-### Installation
+### Setup
 
 To set up the WooNFT API in your environment, follow these steps:
 
-1. **Clone the Repository**
+1. **Deploy a Mintbase contract**
+
+If it's your first time deploying a smart contract you may want to switch over to testnet so you can get the hang of things without paying any fees.
+
+***Deploy the contract***
+
+Log in to your Mintbase profile and deploy a new contract or choose an existing one. This will be the NFT contract that your Minsta instance mints to.
+
+![Licenses](https://woonft.art/wp-content/uploads/2024/05/mintbase-deploy-contract.png)
+
+***Add a minter***
+
+In your Mintbase contract settings, navigate to the "Minters" tab and add the 0.drop.proxy.mintbase.near contract as a new minter. This lets your app mint on behalf of users.
+
+![Licenses](https://woonft.art/wp-content/uploads/2024/05/mintbase-contract.png)
+
+2. **Clone the Repository**
 
 ```bash
 git clone https://github.com/ivanciric/woo-api.git
 cd woo-api
 ```
 
-2. **Install dependencies**
+3. **Install dependencies**
 ```bash
 npm install
 ```
@@ -113,17 +129,23 @@ To deploy the WooNFT API with Vercel, you need to install the Vercel CLI globall
 npm install -g vercel
 ```
 
-3. **Configure environment variables**
+4. **Configure environment variables**
 ```bash
 Duplicate `.env.example` to `.env` and update it with your Mintbase, NEAR, and Firebase credentials.
 ```
 
-4. **Start the development server**
+5. **Start the development server**
 ```bash
 vercel dev
 ```
 
 Your API is now running and ready to connect your WooCommerce store to the blockchain!
+
+NOTE: Currently, API usage is free when you setup the licence key to `trial`. If you wish to manage licence keys for your API, you can create a Firestore database `licenses` and have your document structure setup like this:
+
+![Licenses](https://woonft.art/wp-content/uploads/2024/05/firestore-licenses.png)
+
+
 
 ### Usage
 
@@ -167,6 +189,19 @@ curl -X POST 'https://<vercel-deployment-url>/api/verify-license' \
   "domain": "YOUR_DOMAIN"
 }'
 ```
+
+### Wordpress plugin setup
+
+If you want to experiment with the plugin and customize it to your own needs/product, you can edit the code directly in your Wordpress installation. 
+
+Download and install the plugin via [![Github](https://img.shields.io/badge/Github-download-blue)](https://github.com/ivanciric/woonft-plugin/raw/9fbd511defc55d06c4bcd4095466a58f917bc72b/productnft.zip)
+
+You will find the code in your Wordpress installation at `/app/public/wp-content/plugins/productnft`
+
+In the `productnft.php` file, change the line 167 `'api_url' => 'https://woonft-api.yoshi.tech/api/'` to your corresponding API url and you're ready to go!
+
+All plugin functionality is contained within `productnft.php` and `js/productnft-button.js` files.
+
 
 ## Deployment 
 
