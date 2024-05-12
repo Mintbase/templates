@@ -51,6 +51,15 @@ Customer is taken to the Mintbase wallet creation page, where he can get a crypt
 **Finalisation:**
 Customer is redirected back to the store ‘thank you’ page, and a congratulatory message is displayed along with a link to Mintbase, where customers can view their newly minted NFTs.
 
+**Benefits for Merchants:**
+
+- **Attract a New Audience**: Tap into the rapidly growing NFT market and attract customers looking for unique digital collectibles.
+- **Enhanced Product Value**: By offering your products as NFTs, you add a layer of rarity and exclusivity, potentially increasing their value.
+- **Innovative Branding Opportunity**: Position your brand at the forefront of technology and innovation, appealing to tech-savvy consumers.
+- **Easy to Use**: With Mintbase chain abstraction, you don't need to be a blockchain expert to leverage the benefits of NFTs in your store.
+
+[See it in action](https://www.youtube.com/watch?v=RwVIi6312t4)
+
 ### Usage
 
 Head over to the [Shop](https://woonft.art/shop/) part of the site and buy something (don’t worry, there’s no actual payment involved).
@@ -61,38 +70,9 @@ After checkout, you’ll get a chance to claim the NFTs of the bought items, one
 This plugin bridges the gap between traditional e-commerce and the burgeoning world of NFTs, offering customers a unique value proposition. By seamlessly integrating the minting process into the shopping experience, the project not only enhances product appeal but also introduces customers to the world of digital asset ownership, fostering a new dimension of engagement and value.
 
 
-## WooCommerce plugin
-
-### **Key Features:**
-
-- **AI-Powered Art Generation**: Transform your products into one-of-a-kind digital masterpieces. Every item is distinct and collectible.
-- **Seamless Integration with WooCommerce**: ProductNFT is built to integrate flawlessly with your existing WooCommerce store, allowing for a smooth transition to offering NFT variants of your products.
-- **NEAR Protocol Support**: Benefit from the speed, low transaction fees, and eco-friendly blockchain technology of NEAR protocol. ProductNFT leverages NEAR to offer a scalable and sustainable NFT experience.
-- **Mintbase Chain Abstraction**: We simplify the blockchain experience through Mintbase, offering a layer of abstraction that lowers the barrier of entry for both merchants and buyers. No need for deep technical knowledge to start selling or collecting NFTs.
-
-### **Benefits for Merchants:**
-
-- **Attract a New Audience**: Tap into the rapidly growing NFT market and attract customers looking for unique digital collectibles.
-- **Enhanced Product Value**: By offering your products as NFTs, you add a layer of rarity and exclusivity, potentially increasing their value.
-- **Innovative Branding Opportunity**: Position your brand at the forefront of technology and innovation, appealing to tech-savvy consumers.
-- **Easy to Use**: With Mintbase chain abstraction, you don't need to be a blockchain expert to leverage the benefits of NFTs in your store.
-
-[See it in action](https://www.youtube.com/watch?v=RwVIi6312t4)
-
-
-## Serverless/Edge Functions API
+## Step By Step
 
 WooNFT API is a custom backend service designed to integrate NFT minting capabilities into WooCommerce stores. It leverages the Mintbase API for NFT minting on the NEAR protocol and provides additional functionalities such as image resizing and license verification for domain-based access control.
-
-### Features
-
-- **AI image generation**: Create a unique AI art based on the actual product.
-- **NFT Minting**: Allows WooCommerce store owners to mint NFTs corresponding to physical products.
-- **Image Resizing**: Dynamically resizes product images before minting them as NFTs to meet platform requirements.
-- **License Verification**: Ensures that only authorized domains can mint NFTs, enhancing security and control.
-- **Environment Support**: Configurable for both testnet and mainnet, facilitating development, testing, and production deployments.
-
-### Setup
 
 To set up the WooNFT API in your environment, follow these steps:
 
@@ -213,3 +193,34 @@ All plugin functionality is contained within `productnft.php` and `js/productnft
 
 [![Gallery](https://img.shields.io/badge/Gallery_(Minsta_clone)-deploy-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/minsta-clone)
 <sup>(Make sure to adjust the .env variables as shown in the .env.example file)</sup>
+
+
+## Next Steps
+
+Congratulations on integrating the WooNFT plugin with your WooCommerce store! Here’s how you can maximize your new setup and engage with a wider audience:
+
+### Share Your Store
+Don’t keep your innovative approach a secret! Share your store's link through your social media channels, newsletters, and other marketing platforms to attract visitors. Showcasing your unique NFT offerings can draw in a crowd eager for digital collectibles.
+
+### Notify LNC and Mintbase
+Let us know about your launch! Mintbase and the LNC community are excited to support innovative projects. By notifying us, you can receive additional promotion and support. Send us a message with details about your store and any specific features you would like to highlight.
+
+### Promote on Mintbase
+Mintbase provides a platform not just for minting NFTs but also for promoting them. Use the Mintbase store to showcase your NFTs to a broader audience interested in digital art and collectibles.
+
+### Engage with the Community
+Join forums and social media groups focused on NFTs, WooCommerce, and blockchain technology. Engagement with these communities can provide valuable feedback and help you gain insights that could improve your offerings.
+
+### Stay Updated
+Keep an eye on updates from both WooCommerce and Mintbase. Staying updated ensures that your plugin remains compatible and leverages any new features or improvements in the blockchain and NFT domains.
+
+### Explore Further Learning
+Visit the [Learn NEAR Club](https://learnnear.club) for resources, tutorials, and community support that can help you expand your knowledge and make the most of your NFT business.
+
+### Feedback and Continuous Improvement
+Your journey doesn’t end here. Gather feedback from your users and continuously seek to enhance their experience. Consider adding new features based on user suggestions and the evolving capabilities of the NEAR protocol.
+
+### Connect with Us
+Finally, don’t hesitate to reach out for support or partnership opportunities. Connecting with [Mintbase](https://mintbase.xyz) and [LNC](https://learnnear.club) can provide you with resources and insights that are invaluable for scaling your project.
+
+By following these steps, you’ll be able to ensure that your store not only thrives but also contributes to the growing ecosystem of digital assets and e-commerce integration. We’re excited to see how your store evolves and helps shape the future of NFT commerce!
