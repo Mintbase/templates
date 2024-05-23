@@ -1,6 +1,7 @@
 # WooNFT
 
-<img src="https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png" alt="cover_image" width="0" />
+<img src="https://imgur.com/zVapLYd" alt="cover_image" width="0" />
+WooCommerce plugin enabling merchants to offer products as unique NFT variants on NEAR.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://woonft.art/shop/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/woo-api)
@@ -224,3 +225,6 @@ Your journey doesn’t end here. Gather feedback from your users and continuousl
 Finally, don’t hesitate to reach out for support or partnership opportunities. Connecting with [Mintbase](https://mintbase.xyz) and [LNC](https://learnnear.club) can provide you with resources and insights that are invaluable for scaling your project.
 
 By following these steps, you’ll be able to ensure that your store not only thrives but also contributes to the growing ecosystem of digital assets and e-commerce integration. We’re excited to see how your store evolves and helps shape the future of NFT commerce!
+
+<img src="https://imgur.com/zVapLYd" alt="detail_image" width="0" />
+
