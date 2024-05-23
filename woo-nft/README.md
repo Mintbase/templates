@@ -1,6 +1,6 @@
 # WooNFT
 
-<img src="https://i.imgur.com/zVapLYd" alt="cover_image" width="0" />
+<img src="https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png" alt="cover_image" width="0" />
 WooCommerce plugin enabling merchants to offer products as unique NFT variants on NEAR.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://woonft.art/shop/)
