@@ -1,7 +1,17 @@
 # WooNFT
 
+<img src="https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png" alt="cover_image" width="0" />
 
-[![Website](https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png)](https://woonft.art)
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://woonft.art/shop/)
+[![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/woo-api)
+
+**Tooling:**
+
+[![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
+[![Tools](https://img.shields.io/badge/Mintbase,Wordpress,Arweave-blue)](#)
+[![Framework](https://img.shields.io/badge/Framework-Node.js,Wordpress-blue)](#)
+
+[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
 
 ## Description
 
@@ -13,19 +23,9 @@ Check out the video bellow:
 
 [![View the video](https://img.youtube.com/vi/RwVIi6312t4/0.jpg)](https://www.youtube.com/watch?v=RwVIi6312t4)
 
-
 [![Website](https://img.shields.io/badge/Website-Visit-brightgreen)](https://woonft.art)
 [![Demo Store](https://img.shields.io/badge/Demo_Store-Visit-brightgreen)](https://woonft.art/shop/)
 [![Gallery](https://img.shields.io/badge/NFT_Gallery-Visit-brightgreen)](https://woonfts.yoshi.tech)
-
-[![Deploy API](https://img.shields.io/badge/Deploy_API-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/woo-api/)
-
-**Tooling:**
-
-[![Use Case](https://img.shields.io/badge/Use%20Case-{eCommerce,Minter}-blue)](#)
-[![Tools](https://img.shields.io/badge/Mintbase,Wordpress,Arweave-blue)](#)
-[![Framework](https://img.shields.io/badge/Framework-Node.js,Wordpress-blue)](#)
-
 
 ## Walkthrough
 
