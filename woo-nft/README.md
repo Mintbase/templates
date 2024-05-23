@@ -11,7 +11,7 @@
 [![Tools](https://img.shields.io/badge/Mintbase,Wordpress,Arweave-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Node.js,Wordpress-blue)](#)
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/yoshi_tech?style=social&logo=twitter)](https://x.com/yoshi_tech) [![Organization](https://img.shields.io/badge/WooNFT-blue)](https://woonft.art)
 
 ## Description
 
