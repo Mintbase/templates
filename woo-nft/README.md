@@ -226,5 +226,5 @@ Finally, don’t hesitate to reach out for support or partnership opportunities.
 
 By following these steps, you’ll be able to ensure that your store not only thrives but also contributes to the growing ecosystem of digital assets and e-commerce integration. We’re excited to see how your store evolves and helps shape the future of NFT commerce!
 
-<img src="https://i.imgur.com/zVapLYd" alt="detail_image" width="0" />
+<img src="https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png" alt="detail_image" width="0" />
 
