@@ -1,0 +1,37 @@
+{
+  "name": "woonft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode development"
+  },
+  "dependencies": {
+    "@mintbase-js/storage": "^0.5.6-beta.0",
+    "axios": "^1.6.7",
+    "babel-loader": "^9.1.3",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "fetch": "^1.1.0",
+    "fs": "^0.0.1-security",
+    "https-browserify": "^1.0.0",
+    "mime": "^4.0.1",
+    "mintbase": "^0.8.5-rc.2",
+    "near-api-js": "^3.0.3",
+    "nft.storage": "^7.1.1",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.28.4",
+    "path": "^0.12.7",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.0",
+    "browserify-zlib": "^0.2.0",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
