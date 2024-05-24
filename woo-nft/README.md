@@ -1,6 +1,6 @@
 # WooNFT
-
 <img src="https://woonft.art/wp-content/uploads/2024/04/woonft-art-hero.png" alt="cover_image" width="0" />
+This project introduces an easy to use WooCommerce plugin that empowers customers to mint NFTs on Mintbase
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://woonft.art/shop/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/woo-api)
@@ -8,16 +8,18 @@
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
-[![Tools](https://img.shields.io/badge/Mintbase,Wordpress,Arweave-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/react%2CArweave%2CMintbase%20Wallet%2CWordpress-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Node.js,Wordpress-blue)](#)
+
+**Author:**
 
 [![Author](https://img.shields.io/twitter/follow/yoshi_tech?style=social&logo=twitter)](https://x.com/yoshi_tech) [![Organization](https://img.shields.io/badge/WooNFT-blue)](https://woonft.art)
 
 ## Description
 
-WooCommerce plugin enabling merchants to offer products as unique NFT variants on NEAR. Art is generated on the fly using AI, and barrier of entry is lowered through chain abstraction via Mintbase. 
+WooCommerce plugin enabling merchants to offer products as unique NFT variants on NEAR. Art is generated on the fly using AI, and barrier of entry is lowered through chain abstraction via Mintbase.
 
-This project introduces an easy to use WooCommerce plugin that empowers customers to mint NFTs on Mintbase corresponding to the products of their choice. By absorbing all associated costs and fees, the initiative aims to merge the realms of e-commerce and digital assets, providing tangible value through digital ownership. 
+This project introduces an easy to use WooCommerce plugin that empowers customers to mint NFTs on Mintbase corresponding to the products of their choice. By absorbing all associated costs and fees, the initiative aims to merge the realms of e-commerce and digital assets, providing tangible value through digital ownership.
 
 Check out the video bellow:
 
@@ -27,7 +29,7 @@ Check out the video bellow:
 [![Demo Store](https://img.shields.io/badge/Demo_Store-Visit-brightgreen)](https://woonft.art/shop/)
 [![Gallery](https://img.shields.io/badge/NFT_Gallery-Visit-brightgreen)](https://woonfts.yoshi.tech)
 
-## Walkthrough
+## Project Walkthrough
 
 The project is structured into three core components:
 
@@ -42,10 +44,10 @@ The project is structured into three core components:
 **Initiation:**
 Customers are allowed to mint an NFT for a product they bought by clicking the “Claim a free NFT” button on the checkout complete (’thank you’) page.
 
-**Image Generation:** 
+**Image Generation:**
 A unique digital piece of art is created, based on the actual product. Alternatively, default product image is used.
 
-**Minting Process:** 
+**Minting Process:**
 Customer is taken to the Mintbase wallet creation page, where he can get a cryptocurrency wallet seamlessly. He’s then guided through the transaction signing process, and their NFT is minted.
 
 **Finalisation:**
@@ -172,7 +174,7 @@ curl -X POST 'https://<vercel-deployment-url>/api/verify-license' \
 
 ### Wordpress plugin setup
 
-If you want to experiment with the plugin and customize it to your own needs/product, you can edit the code directly in your Wordpress installation. 
+If you want to experiment with the plugin and customize it to your own needs/product, you can edit the code directly in your Wordpress installation.
 
 Download and install the plugin via [![Github](https://img.shields.io/badge/Github-download-blue)](https://github.com/ivanciric/woonft-plugin/raw/9fbd511defc55d06c4bcd4095466a58f917bc72b/productnft.zip)
 
@@ -183,7 +185,7 @@ In the `productnft.php` file, change the line 167 `'api_url' => 'https://woonft-
 All plugin functionality is contained within `productnft.php` and `js/productnft-button.js` files.
 
 
-## Deployment 
+## Deployment
 
 [![Deploy API](https://img.shields.io/badge/Deploy_API-deploy-blue)](https://vercel.com/new/clone?repository-url=https://github.com/ivanciric/woo-api/)
 <sup>(Make sure to adjust the .env variables as shown in the .env.example file)</sup>
@@ -224,3 +226,6 @@ Your journey doesn’t end here. Gather feedback from your users and continuousl
 Finally, don’t hesitate to reach out for support or partnership opportunities. Connecting with [Mintbase](https://mintbase.xyz) and [LNC](https://learnnear.club) can provide you with resources and insights that are invaluable for scaling your project.
 
 By following these steps, you’ll be able to ensure that your store not only thrives but also contributes to the growing ecosystem of digital assets and e-commerce integration. We’re excited to see how your store evolves and helps shape the future of NFT commerce!
+
+
+<img src="https://i.imgur.com/HWseeHw.png" alt="detail_image" width="0" />
