@@ -14,6 +14,7 @@
 | [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.mintbase.xyz/) |
 | [Minter](./minter/) | [Demo](https://minter.mintbase.xyz/) |
 | [Minsta](https://github.com/Mintbase/minsta) | [Demo](https://minsta.mintbase.xyz/) |
+| [Multi-Event Minsta](https://github.com/armsves/ethBerlin04) | [Demo](https://eth-berlin04.vercel.app/) |
 | [Marketplace](./marketplace/) | [Demo](https://marketplace-template.mintbase.xyz/) |
 | [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.mintbase.xyz/) 
 | [Token Drop](./simple-token-drop) | [Demo](https://token-drop-template.mintbase.xyz/) |
