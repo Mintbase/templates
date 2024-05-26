@@ -1,0 +1,68 @@
+
+
+
+.nws-modal-wrapper .nws-modal {
+  height: auto !important;
+}
+
+.nws-modal-wrapper .nws-modal .modal-right {
+  display: none !important;
+}
+
+.nws-modal-wrapper .nws-modal .modal-left {
+  width: 100%;
+  border-right: 1px solid
+    var(--wallet-selector-sidebar-border-color, var(--sidebar-border-color));
+  padding: 32px 24px;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+}
+.nws-modal-wrapper .nws-modal {
+  height: 215px;
+}
+.wallet-options-wrapper {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.nws-modal-wrapper .nws-modal > .modal-left > div:nth-child(2) {
+  display: flex;
+  justify-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.nws-modal-wrapper
+  .modal-left
+  .wallet-options-wrapper
+  .options-list-section
+  .options-list-section-header {
+  display: none;
+}
+
+
+
+:root {
+          --primary: #F3F4F8;
+          --secondary: #000;
+          --mainBg: #fdfaa7;
+          --gradOne: #4472ad;
+          --gradTwo: #009dea;
+          --cardOne: #E8EAF0;
+          --cardTwo: #049BE8;
+          --linkColor: #4f58a3;
+          --icon: #4B9CE3;
+          --camera: #FFFFFF;
+          --modalText: #000000;
+          --leaderboardText: #000000;
+          --headerText: #000000;
+          --mainText: #000000;
+          --freeUseText: #0A7D6C;
+          --bgFreeUse: #0A7D6C1A;
+          --primaryBtnText: #FFFFFF;
+          --secondaryBtnText: #000000;
+          --lightBlue: #50b0d9;
+        }
