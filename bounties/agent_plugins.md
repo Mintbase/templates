@@ -12,7 +12,7 @@ We are seeking developers to create Agent Plugins for the Bitte AI Registry. The
 
 ## Reward
 
-Rewards are offered for creating and registering innovative Agent Plugins. The specific reward amount is not set, but will be determined based on the quality and innovation of the submitted plugins.  Refer to other bounties for reward ranges.
+Rewards are offered for creating and registering innovative Agent Plugins. Reward amount is broken into 3 tiers based on the complexity and the value added to the Bitte Registry Ecosystem.  Up to $3000 in rewards per Agent Plugin at the highest tier.  A valid plugin is one that adds new funcitonality or extends the functionality of another plugins in a valuable way.
 
 ## Functionality
 
@@ -37,14 +37,14 @@ While not immediately available, consider future plugin development for enabling
 3. Update the OpenAPI Spec to describe how to use your endpoints and their outputs.
 4. Extend the spec with the [Bitte Extension](https://docs.mintbase.xyz/ai/assistant-plugins#openapi-bitte-extension) to describe and provide instructions for your AI Agent.
 5. Host your Agent Plugin, ensuring external API access from origin https://wallet.bitte.ai.
-6. Register your plugin using the `ai-plugins/register` endpoint.
+6. Register your plugin using the [`api/ai-plugins/ref`](https://wallet.bitte.ai/api/ai-plugins/ref) API Reference.
 
 ### Deliverables
 
 1. Source Code: Complete source code for the Agent Plugin.
 2. OpenAPI Spec: Updated and extended specification describing your plugin's functionality.
 3. Deployment: Hosted Agent Plugin accessible from https://wallet.bitte.ai.
-4. Registration: Successfully registered plugin using the `ai-plugins/register` endpoint.
+4. Registration: Successfully registered plugin using the [`api/ai-plugins/ref`](https://wallet.bitte.ai/api/ai-plugins/ref) API reference.
 5. Documentation: Clear instructions on how to use and interact with your Agent Plugin.
 6. Demo: A working demo of your plugin in the Bitte playground.
 
