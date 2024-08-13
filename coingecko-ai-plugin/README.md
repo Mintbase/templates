@@ -9,8 +9,8 @@ CoinGecko-AI: Your intelligent companion for real-time cryptocurrency insights a
 CoinGecko-AI is a cutting-edge project that combines the power of artificial intelligence with real-time cryptocurrency data from CoinGecko. This innovative tool provides users with intelligent insights on crypto market data. CoinGecko-AI offers a unique and intuitive way to navigate the complex world of digital assets, making it an invaluable resource for both novice and experienced crypto enthusiasts.
 
 [![Agent Demo](https://img.shields.io/badge/Demo-Visit%20Demo-orange)](https://wallet.bitte.ai/smart-actions/prompt/what%20can%20you%20help%20me%20with?mode=debug&agentId=coingecko-ai.vercel.app)
-[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://coingecko-ai-demo.vercel.app/)
-[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fcoingecko-ai)
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://coingecko-ai.vercel.app/)
+[![Deploy](https://img.shields.io/badge/Deploy-Deploy%20Now-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fcoingecko-ai-plugin)
 
 
 **Tooling:**
