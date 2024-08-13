@@ -1,5 +1,7 @@
 # Bitte Agent Plugin Bounties
 
+<img src="https://github.com/user-attachments/assets/5f90c4fa-33d4-4abe-b823-68c0b7799de5" alt="cover_image" width="0" />
+
 ## Introduction
 
 At Bitte, we're revolutionizing blockchain interactions through our AI Wallet on Near Protocol. Our mission is to make any blockchain transaction as easy as chatting with a friend, solving the blockchain UX problem and removing barriers to entry for new users while streamlining complex operations for experienced ones.
