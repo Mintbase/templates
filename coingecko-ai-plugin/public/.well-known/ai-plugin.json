@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CoinGecko Price Assistant API",
-    "description": "API for retrieving the latest price data on cryptocurrency tokens using CoinGecko's data.",
+    "description": "API for retrieving the latest price data on cryptocurrency tokens using CoinGecko.",
     "version": "1.0.0"
   },
   "servers": [
