@@ -27,10 +27,10 @@ CoinGecko-AI is built using Next.js 14 and exposes an API Reference using [Scala
 
 To run the project locally:
 
-1. Clone the repository: `git clone https://github.com/markeljan/coingecko-ai.git`
-2. Install dependencies: `bun install`
+1. Clone this template from the repository tree: `git clone git clone --no-checkout https://github.com/Mintbase/templates.git && cd templates && git sparse-checkout set coingecko-ai-plugin && git checkout && cd coingecko-ai-plugin`
+2. Install dependencies: `pnpm install`
 3. Set up environment variables: Copy `.env.example` to `.env.local` and fill in your CoinGecko API key.
-4. Run the development server: `bun run dev`
+4. Run the development server: `pnpm run dev`
 5. Open `http://localhost:3000` in your browser to view the application.
 
 ## Deployment
