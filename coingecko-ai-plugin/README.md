@@ -1,6 +1,6 @@
 # CoinGecko-AI
 
-<img src="https://i.imgur.com/s9HSENw.jpg" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/ZAxWAoD.png" alt="cover_image" width="0" />
 
 ## Description
 
@@ -21,7 +21,7 @@ CoinGecko-AI is a cutting-edge project that combines the power of artificial int
 
 ## Project Walkthrough
 
-<img src="https://github.com/user-attachments/assets/c59dcf62-fdfe-40d6-a128-073c16a9479f" alt="detail_image" width="500"/>
+<img src="https://github.com/user-attachments/assets/c59dcf62-fdfe-40d6-a128-073c16a9479f" width="500"/>
 
 CoinGecko-AI is built using Next.js 14 and exposes an API Reference using [Scalar](https://scalar.com/).
 
@@ -48,3 +48,7 @@ To deploy CoinGecko-AI on Vercel:
 Once deployed, you can access your CoinGecko-AI instance at the provided Vercel URL. You can customize the application by modifying the source code and pushing changes to your repository. Vercel will automatically redeploy your application with the latest changes.
 
 For any issues or questions regarding deployment, please refer to the Vercel documentation or open an issue in the project repository.
+
+
+<img src="https://i.imgur.com/dfI9OSL.png" alt="detail_image" width="0"/>
+
