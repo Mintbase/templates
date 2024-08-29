@@ -21,8 +21,6 @@ CoinGecko-AI is a cutting-edge project that combines the power of artificial int
 
 ## Project Walkthrough
 
-<img src="https://github.com/user-attachments/assets/c59dcf62-fdfe-40d6-a128-073c16a9479f" width="500"/>
-
 CoinGecko-AI is built using Next.js 14 and exposes an API Reference using [Scalar](https://scalar.com/).
 
 To run the project locally:
