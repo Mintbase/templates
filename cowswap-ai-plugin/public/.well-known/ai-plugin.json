@@ -1,0 +1,206 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CoW Swap Assistant API",
+    "description": "API for Interacting with CowSwap",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "TODO: FIXME"
+    }
+  ],
+  "x-mb": {
+    "account-id": "farmface.near",
+    "assistant": {
+      "name": "CoW Swap Assistant",
+      "description": "CoW Swap Assistant description",
+      "instructions": "CoW Swap Assistant instructions",
+      "tools": [
+        {
+          "type": "generate-transaction"
+        }
+      ]
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Confirms server running",
+        "description": "Test Endpoint to confirm system is running",
+        "operationId": "WTF is this shit?",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok Message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "result": {
+                    "type": "string",
+                    "description": "Ok Message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quote": {
+      "post": {
+        "tags": ["quote"],
+        "operationId": "WTF is Operation ID?",
+        "summary": "Quote a price and fee for the specified order parameters.",
+        "description": "Given a partial order compute the minimum fee and a price estimate for the order. Return a full order that can be used directly for signing, and with an included signature, passed directly to the order creation endpoint.",
+        "requestBody": {
+          "description": "The order parameters to compute a quote for.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderQuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quoted order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderQuoteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error quoting order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceEstimationError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No route was found for the specified order."
+          },
+          "429": {
+            "description": "Too many order quotes."
+          },
+          "500": {
+            "description": "Unexpected error quoting an order."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OrderQuoteRequest": {
+        "description": "Request fee and price quote.",
+        "allOf": [
+          { "$ref": "#/components/schemas/OrderQuoteSide" },
+          { "$ref": "#/components/schemas/OrderQuoteValidity" },
+          {
+            "type": "object",
+            "properties": {
+              "sellToken": {
+                "description": "ERC-20 token to be sold",
+                "allOf": [{ "$ref": "#/components/schemas/Address" }]
+              },
+              "buyToken": {
+                "description": "ERC-20 token to be bought",
+                "allOf": [{ "$ref": "#/components/schemas/Address" }]
+              },
+              "receiver": {
+                "description": "An optional address to receive the proceeds of the trade instead of the `owner` (i.e. the order signer).",
+                "allOf": [{ "$ref": "#/components/schemas/Address" }],
+                "nullable": true
+              },
+              "appData": {
+                "description": "AppData which will be assigned to the order. Expects either a string JSON doc as defined on [AppData](https://github.com/cowprotocol/app-data) or a hex encoded string for backwards compatibility. When the first format is used, it's possible to provide the derived appDataHash field.",
+                "oneOf": [
+                  { "$ref": "#/components/schemas/AppData" },
+                  { "$ref": "#/components/schemas/AppDataHash" }
+                ]
+              },
+              "appDataHash": {
+                "description": "The hash of the stringified JSON appData doc. If present, `appData` field must be set with the aforementioned data where this hash is derived from. In case they differ, the call will fail.",
+                "anyOf": [{ "$ref": "#/components/schemas/AppDataHash" }]
+              },
+              "sellTokenBalance": {
+                "allOf": [{ "$ref": "#/components/schemas/SellTokenSource" }],
+                "default": "erc20"
+              },
+              "buyTokenBalance": {
+                "allOf": [{ "$ref": "#/components/schemas/BuyTokenDestination" }],
+                "default": "erc20"
+              },
+              "from": { "$ref": "#/components/schemas/Address" },
+              "priceQuality": {
+                "allOf": [{ "$ref": "#/components/schemas/PriceQuality" }],
+                "default": "verified"
+              },
+              "signingScheme": {
+                "allOf": [{ "$ref": "#/components/schemas/SigningScheme" }],
+                "default": "eip712"
+              },
+              "onchainOrder": {
+                "description": "Flag to signal whether the order is intended for on-chain order placement. Only valid for non ECDSA-signed orders.",
+                "default": false
+              },
+              "network": {
+                "description": "The network on which the order is to be placed.",
+                "type": "string",
+                "enum": ["mainnet", "xdai", "arbitrum_one"]
+              }
+            },
+            "required": ["sellToken", "buyToken", "from"]
+          }
+        ]
+      },
+      "OrderQuoteResponse": {
+        "description": "An order quoted by the backend that can be directly signed and submitted to the order creation backend.",
+        "type": "object",
+        "properties": {
+          "quote": { "$ref": "#/components/schemas/OrderParameters" },
+          "from": { "$ref": "#/components/schemas/Address" },
+          "expiration": {
+            "description": "Expiration date of the offered fee. Order service might not accept the fee after this expiration date. Encoded as ISO 8601 UTC.",
+            "type": "string",
+            "example": "1985-03-10T18:35:18.814523Z"
+          },
+          "id": {
+            "description": "Quote ID linked to a quote to enable providing more metadata when analysing order slippage.",
+            "type": "integer"
+          },
+          "verified": {
+            "description": "Whether it was possible to verify that the quoted amounts are accurate using a simulation.",
+            "type": "boolean"
+          }
+        },
+        "required": ["quote", "expiration", "verified"]
+      },
+      "PriceEstimationError": {
+        "type": "object",
+        "properties": {
+          "errorType": {
+            "type": "string",
+            "enum": ["QuoteNotVerified", "UnsupportedToken", "ZeroAmount", "UnsupportedOrderType"]
+          },
+          "description": { "type": "string" }
+        },
+        "required": ["errorType", "description"]
+      }
+    }
+  },
+  "x-readme": {
+    "explorer-enabled": true,
+    "proxy-enabled": true
+  }
+}

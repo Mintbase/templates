@@ -1,0 +1,41 @@
+{
+  "name": "cowswap-ai-mintbase-template",
+  "keywords": [
+    "bitte",
+    "templates",
+    "ai",
+    "agents",
+    "openapi",
+    "web3"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cowprotocol/cow-sdk": "^5.4.1",
+    "@scalar/api-reference": "^1.24.75",
+    "@scalar/nextjs-api-reference": "^0.4.73",
+    "ethers": "^5",
+    "next": "^14.2.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "vercel-url": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
