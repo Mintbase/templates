@@ -1,6 +1,6 @@
 # CoWSwap-AI
 
-<img src="https://imgur.com/gallery/cow-wig-with-wind-machine-OWTWH8G" alt="cover_image" width="0" />
+<img src="https://i.imgur.com/cHYkemc.png" alt="cover_image" width="0" />
 
 ## Description
 
@@ -44,3 +44,6 @@ To deploy CoWSwap-AI on Vercel:
 Once deployed, you can access your CoWSwap-AI instance at the provided Vercel URL. You can customize the application by modifying the source code and pushing changes to your repository. Vercel will automatically redeploy your application with the latest changes.
 
 For any issues or questions regarding deployment, please refer to the Vercel documentation or open an issue in the project repository.
+
+<img src="https://i.imgur.com/CcWSqba.png" alt="detail_image" width="0"/>
+
