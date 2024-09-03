@@ -1,9 +1,6 @@
 # Mintbase.js Templates
 [Mintbase templates](http://templates.mintbase.xyz) are a compilation of web3 project examples on Near Protocol, providing developers with starter projects and practical use cases. We invite diverse projects to submit demonstrations featuring their technology or developed using ours. Explore demos of existing templates, along with contribution guidelines and documentation to kickstart your journey below!
 
-# GraphQL Indexer
-You can use [our indexer playground](https://docs.mintbase.xyz/dev/mintbase-graph) to make your own complex queries that have been optimized for our own markets
-
 ## Templates
 
   
