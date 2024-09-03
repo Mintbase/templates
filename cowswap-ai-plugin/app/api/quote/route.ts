@@ -8,7 +8,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   console.log("POST Request for quote:", requestBody)
 
   const network: Network = requestBody.network;
-
+  
   if (!["mainnet", "xdai", "arbitrum_one"].includes(network)) {
     return NextResponse.json({ error: `Invalid network '${network}'. Must be one of 'mainnet', 'xdai' OR 'arbitrum_one'` }, { status: 400 });
   }
@@ -20,7 +20,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     },
     body: JSON.stringify(requestBody)
   });
-  
+  if (!response.ok) {
+    const message = await response.text();
+    console.error(message)
+    throw new Error(message)
+  }
   const data = await response.json();
 
   return NextResponse.json(data);
