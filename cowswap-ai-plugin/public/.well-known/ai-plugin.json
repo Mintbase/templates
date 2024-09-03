@@ -24,6 +24,33 @@
     }
   },
   "paths": {
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Confirms server running",
+        "description": "Test Endpoint to confirm system is running",
+        "operationId": "healthCheck",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok Message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "Ok Message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/quote": {
       "post": {
         "tags": ["quote"],
