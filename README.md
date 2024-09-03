@@ -1,4 +1,4 @@
-# Mintbase.js Templates
+# Bitte Templates
 [Bitte templates](http://templates.bitte.ai) are a compilation of web3 project examples on Near Protocol, providing developers with starter projects and practical use cases. We invite diverse projects to submit demonstrations featuring their technology or developed using ours. Explore demos of existing templates, along with contribution guidelines and documentation to kickstart your journey below!
 
 ## Templates
