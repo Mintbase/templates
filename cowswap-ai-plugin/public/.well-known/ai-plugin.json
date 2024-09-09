@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://thirty-hats-unite.loca.lt"
+      "url": "https://great-carrots-rush.loca.lt"
     }
   ],
   "x-mb": {
@@ -57,6 +57,71 @@
         "operationId": "quote-request",
         "summary": "Quote a price and fee for the specified order parameters.",
         "description": "Given a partial order compute the minimum fee and a price estimate for the order. Return a full order that can be used directly for signing, and with an included signature, passed directly to the order creation endpoint.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "network",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The network on which the order is to be placed (e.g., 'mainnet')."
+          },
+          {
+            "in": "query",
+            "name": "sellToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ERC-20 token address to be sold."
+          },
+          {
+            "in": "query",
+            "name": "buyToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ERC-20 token address to be bought."
+          },
+          {
+            "in": "query",
+            "name": "receiver",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The address to receive the proceeds of the trade, instead of the sender's address."
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The address from which the order is sent."
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The type of order, e.g., 'sell'."
+          },
+          {
+            "in": "query",
+            "name": "sellAmountBeforeFee",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The amount of tokens to sell before fees, represented as a string."
+          }
+        ],
         "requestBody": {
           "description": "The order parameters to compute a quote for.",
           "required": true,
