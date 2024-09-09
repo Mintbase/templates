@@ -52,6 +52,8 @@ const cowToDuneMapping: Record<CowNetwork, DuneNetwork> = {
 
 export async function tokenFromSymbol(network: CowNetwork, symbol: string): Promise<TokenInfo> {
   // TODO. Load once and cache.
+  // Token data comes from https://dune.com/queries/4055949
+  //  curl -X GET https://api.dune.com/api/v1/query/4055949/results/csv -H "x-dune-api-key: $DUNE_API_KEY"  > tokens.csv
   const tokenMap = await loadTokenMapping("./tokens.csv")
   return tokenMap[cowToDuneMapping[network]!][symbol]
 }
