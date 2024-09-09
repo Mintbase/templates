@@ -40,12 +40,18 @@ export async function loadTokenMapping(filePath: string): Promise<BlockchainMapp
     });
 }
 
-// Example usage
-// const filePath = './tokens.csv'; // Path to your CSV file
-// loadCsvToMapping(filePath)
-//     .then((mapping) => {
-//         console.log('Blockchain to Symbol Mapping:', mapping);
-//     })
-//     .catch((error) => {
-//         console.error('Error loading CSV file:', error);
-//     });
+export type CowNetwork = "mainnet" | "xdai" | "arbitrum_one";
+
+type DuneNetwork = "ethereum" | "gnosis" | "arbitrum";
+
+const cowToDuneMapping: Record<CowNetwork, DuneNetwork> = {
+  mainnet: "ethereum",
+  xdai: "gnosis",
+  arbitrum_one: "arbitrum"
+};
+
+export async function tokenFromSymbol(network: CowNetwork, symbol: string): Promise<TokenInfo> {
+  // TODO. Load once and cache.
+  const tokenMap = await loadTokenMapping("./tokens.csv")
+  return tokenMap[cowToDuneMapping[network]!][symbol]
+}
