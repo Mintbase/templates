@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://sweet-mice-train.loca.lt"
+      "url": "https://thirty-hats-unite.loca.lt"
     }
   ],
   "x-mb": {
@@ -54,7 +54,7 @@
     "/quote": {
       "post": {
         "tags": ["quote"],
-        "operationId": "cowswap-plugin",
+        "operationId": "quote-request",
         "summary": "Quote a price and fee for the specified order parameters.",
         "description": "Given a partial order compute the minimum fee and a price estimate for the order. Return a full order that can be used directly for signing, and with an included signature, passed directly to the order creation endpoint.",
         "requestBody": {
