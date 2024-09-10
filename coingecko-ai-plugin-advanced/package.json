@@ -1,5 +1,5 @@
 {
-  "name": "coingecko-ai-mintbase-template",
+  "name": "coingecko-ai-plugin-advanced-mintbase-template",
   "keywords": [
     "bitte",
     "templates",
@@ -9,11 +9,11 @@
     "web3"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin",
+  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin-advanced",
   "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
