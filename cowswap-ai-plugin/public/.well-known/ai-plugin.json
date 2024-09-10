@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://https://mighty-banks-show.loca.lt"
+      "url": "https://dull-pillows-show.loca.lt"
     }
   ],
   "x-mb": {
@@ -74,7 +74,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "The ERC-20 token address to be sold."
+            "description": "The ERC-20 token symbol or address to be sold."
           },
           {
             "in": "query",
@@ -83,7 +83,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "The ERC-20 token address to be bought."
+            "description": "The ERC-20 token symbol or address to be bought."
           },
           {
             "in": "query",
@@ -102,15 +102,6 @@
               "type": "string"
             },
             "description": "The address from which the order is sent."
-          },
-          {
-            "in": "query",
-            "name": "kind",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The type of order, e.g., 'sell'."
           },
           {
             "in": "query",
