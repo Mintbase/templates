@@ -1,0 +1,37 @@
+{
+  "name": "coingecko-ai-plugin-advanced-mintbase-template",
+  "keywords": [
+    "bitte",
+    "templates",
+    "ai",
+    "agents",
+    "openapi",
+    "web3"
+  ],
+  "repository": "https://github.com/mintbase/templates.git",
+  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin-advanced",
+  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@scalar/api-reference": "^1.24.75",
+    "@scalar/nextjs-api-reference": "^0.4.73",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "vercel-url": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
