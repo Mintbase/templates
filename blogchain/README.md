@@ -1,4 +1,5 @@
 # Blogchain
+
 <img src="https://i.imgur.com/oAVyr9o.png" alt="cover_image" width="0" />
 
 Blogchain makes your content unstoppable and profitable. Transform your blogs into smart contracts and posts into NFTs.
@@ -14,17 +15,16 @@ Blogchain makes your content unstoppable and profitable. Transform your blogs in
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/sainthiago_?style=social&logo=twitter)](https://twitter.com/sainthiago_) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
-
+[![Author](https://img.shields.io/twitter/follow/sainthiago_?style=social&logo=twitter)](https://twitter.com/sainthiago_) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.xyz)
 
 ## Project Walkthrough
 
 Within the framework of blogchain, every blog manifests as a sophisticated smart contract, while each individual blog post is uniquely represented as a non-fungible token (NFT).
 
-*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
-
+_NOTE: As a standard on Biite as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice._
 
 ## Run the project
+
     pnpm i
 
     pnpm run dev
@@ -66,7 +66,7 @@ const deployArgs = deployContract({
 We can then execute the deploy contract by passing in the serverWallet as the sender
 
 ```typescript
-  await execute({ wallet }, deployArgs);
+await execute({ wallet }, deployArgs);
 ```
 
 ## Create a Blog Post (mint an NFT)
@@ -107,12 +107,12 @@ const mintCall = mint({
 We can then execute the mint nft method
 
 ```typescript
-  await execute({ wallet }, mintCall);
+await execute({ wallet }, mintCall);
 ```
 
 #### Note: We populate the 'extra' field with the value 'blogpost' to subsequently filter the displayed NFTs and blogs in blogchain, ensuring that only blogs are included.
 
------
+---
 
 ## Get Data
 
@@ -121,8 +121,7 @@ We can then execute the mint nft method
 Using [Mintbase GraphQL Indexer](https://docs.mintbase.xyz/dev/mintbase-graph) we can fetch the nfts from a specific smart contract - to filter by blog post we use 'blogpost' as an extra field as explained in the previous step.
 
 ```typescript
-export const GET_BLOG_POSTS =
-`
+export const GET_BLOG_POSTS = `
 query GET_BLOG_POSTS($contractId: String!) {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}, _and: {nft_contract_id: {_eq: $contractId}}}
@@ -140,8 +139,7 @@ query GET_BLOG_POSTS($contractId: String!) {
 #### Get user blog posts (nfts)
 
 ```typescript
-export const GET_USER_POSTS =
-`
+export const GET_USER_POSTS = `
 query GET_USER_POSTS($accountId: String!) {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}, _and: {nft_contract_owner_id: {_eq: $accountId}}}
@@ -159,8 +157,7 @@ query GET_USER_POSTS($accountId: String!) {
 #### Get user blogs (smart contracts)
 
 ```typescript
-export const GET_USER_BLOGS =
-`
+export const GET_USER_BLOGS = `
 query GET_USER_BLOGS($accountId: String!) {
     nft_contracts(where: {owner_id: {_eq: $accountId}}) {
       id
@@ -172,8 +169,7 @@ query GET_USER_BLOGS($accountId: String!) {
 #### Get latest blogs (smart contracts)
 
 ```typescript
-export const GET_LATEST_UPDATED_BLOGS =
-`
+export const GET_LATEST_UPDATED_BLOGS = `
 query GET_LATEST_UPDATED_BLOGS {
   mb_views_nft_metadata(
     where: {extra: {_eq: "blogpost"}}
@@ -191,8 +187,7 @@ query GET_LATEST_UPDATED_BLOGS {
 #### Get latest blog posts (nfts)
 
 ```typescript
-export const GET_LATEST_POSTS =
-`
+export const GET_LATEST_POSTS = `
 query GET_LATEST_POSTS {
     mb_views_nft_tokens(
       where: {extra: {_eq: "blogpost"}}
@@ -213,8 +208,7 @@ query GET_LATEST_POSTS {
 #### Get blog post (nft) data
 
 ```typescript
-export const GET_POST_METADATA =
-`
+export const GET_POST_METADATA = `
 query GET_POST_METADATA($metadataId: String!) {
     mb_views_nft_tokens(where: {metadata_id: {_eq: $metadataId}}) {
       metadata_id
@@ -228,12 +222,11 @@ query GET_POST_METADATA($metadataId: String!) {
   }`;
 ```
 
-Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration in <MintbaseWalletContextProvider> and every 'testnet' instance.
+Presently, this template exclusively functions within the testnet environment. To transition to a different network, it is imperative to modify the configuration in <BitteWalletContextProvider> and every 'testnet' instance.
 
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
-
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 <img src="https://i.imgur.com/RKTNOxn.png" alt="detail_image" width="0" />

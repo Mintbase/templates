@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { uploadReference } from "@mintbase-js/storage";
 import "easymde/dist/easymde.min.css";
 import { Plus } from "lucide-react";
@@ -63,7 +63,7 @@ export function CreatePostDialog() {
   const [postContent, setPostContent] = useState("");
   const [preview, setPreview] = useState<string | File>("");
 
-  const { selector, activeAccountId } = useMbWallet();
+  const { selector, activeAccountId } = useBitteWallet();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

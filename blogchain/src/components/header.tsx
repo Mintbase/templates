@@ -1,5 +1,5 @@
 "use client";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
@@ -11,7 +11,7 @@ import {
 } from "./ui/dropdown-menu";
 
 const Header = () => {
-  const { isConnected, selector, connect, activeAccountId } = useMbWallet();
+  const { isConnected, selector, connect, activeAccountId } = useBitteWallet();
   const router = useRouter();
 
   const handleSignout = async () => {

@@ -1,9 +1,9 @@
 {
-  "name": "BlogChain-Mintbase-Templates",
+  "name": "Bitte-Templates-BlogChain",
   "version": "0.1.0",
   "keywords": [
     "templates",
-    "mintbase",
+    "bitte",
     "web3",
     "nextjs",
     "react",
@@ -11,8 +11,8 @@
     "blogchain"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/blogchain",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https://templates.bitte.ai/templates/blogchain",
+  "author": "Bitte Protocol <eng@bitte.ai>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "@mintbase-js/data": "0.5.4-beta.0",
-    "@mintbase-js/react": "0.5.4-beta.0",
-    "@mintbase-js/sdk": "0.5.4-beta.0",
-    "@mintbase-js/storage": "0.5.4-beta.0",
+    "@mintbase-js/data": "0.6.5",
+    "@mintbase-js/react": "0.6.5",
+    "@mintbase-js/sdk": "0.6.5",
+    "@mintbase-js/storage": "0.6.5",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
