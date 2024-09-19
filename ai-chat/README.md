@@ -16,13 +16,13 @@ AI-Chat is a Next.js project that provides a chat interface with AI capabilities
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/microchipgnu?style=social&logo=twitter)](https://twitter.com/microchipgnu) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 
 
 ## Project Walkthrough
 
-*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+*NOTE: As a standard on Bitte as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
 
 To get started with the project, you need to install the dependencies first. Run the following command in your terminal:
 
@@ -135,7 +135,7 @@ export function ConnectWallet() {
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 
 <img src="https://i.imgur.com/3aH1Lur.png" alt="detail_image" width="500"/>
