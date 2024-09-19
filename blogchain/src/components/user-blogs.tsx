@@ -1,10 +1,10 @@
 import { useUserBlogs } from "@/hooks/useUserBlogs";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import BlogCard from "./blog-card";
 import { MINTBASE_CONTRACTS } from "@mintbase-js/sdk";
 
 const UserBlogs = () => {
-  const { activeAccountId } = useMbWallet();
+  const { activeAccountId } = useBitteWallet();
 
   const accountId = activeAccountId || "";
 

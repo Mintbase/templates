@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { checkStoreName } from "@mintbase-js/data";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import {
   MINTBASE_CONTRACTS,
   NEAR_NETWORKS,
@@ -38,7 +38,7 @@ const formSchema = z.object({
 });
 
 export function CreateBlogDialog() {
-  const { selector, activeAccountId } = useMbWallet();
+  const { selector, activeAccountId } = useBitteWallet();
 
   const [error, setError] = useState("");
 

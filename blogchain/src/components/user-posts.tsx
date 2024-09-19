@@ -1,9 +1,9 @@
 import { useUserPosts } from "@/hooks/useUserPosts";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import PostCard from "./post-card";
 
 const UserPosts = () => {
-  const { activeAccountId } = useMbWallet();
+  const { activeAccountId } = useBitteWallet();
 
   const accountId = activeAccountId || "";
 
