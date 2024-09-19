@@ -1,9 +1,9 @@
 {
-  "name": "AI-Minter-Mintbase",
+  "name": "Bitte-Templates-AI-Minter",
   "keywords": ["templates", "mintbase", "web3", "nextjs", "react", "ai"],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/ai-minter",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https://templates.bitte.ai/ai-minter",
+  "author": "Bitte Protocol Team <eng@bitte.ai>",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "@mintbase-js/react": "0.5.5-beta.2",
-    "@mintbase-js/sdk": "0.5.5-beta.2",
-    "@mintbase-js/storage": "0.5.5-beta.2",
+    "@mintbase-js/react": "0.6.5",
+    "@mintbase-js/sdk": "0.6.5",
+    "@mintbase-js/storage": "0.6.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",

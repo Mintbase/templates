@@ -1,7 +1,7 @@
 "use client"
 
-import { MintbaseWalletContextProvider } from "@mintbase-js/react";
-import { MintbaseWalletSetup } from "@/config/setup";
+import { BitteWalletContextProvider } from "@mintbase-js/react";
+import { BitteWalletSetup } from "@/config/setup";
 import "@near-wallet-selector/modal-ui/styles.css";
 import { ReplicateProvider } from "@/providers/replicate";
 import { Inter } from "next/font/google";
@@ -15,7 +15,7 @@ export const AppProvider = ({
 }) => {
 
   return (
-    <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
+    <BitteWalletContextProvider {...BitteWalletSetup} onlyBitteWallet>
       <ReplicateProvider>
       <html lang="en">
         <body className={`${inter.className} dark`}>
@@ -25,6 +25,6 @@ export const AppProvider = ({
         </body>
       </html>
   </ReplicateProvider>
-    </MintbaseWalletContextProvider>
+    </BitteWalletContextProvider>
   )
 }

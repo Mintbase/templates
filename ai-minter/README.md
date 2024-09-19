@@ -2,7 +2,7 @@
 
 <img src="https://i.imgur.com/jY6k292.png" alt="cover_image" width="0"/>
 
-Dreams to NFTs: AI Image Generation & Minting built with Replicate Models and MintbaseJS.
+Dreams to NFTs: AI Image Generation & Minting built with Replicate Models and Mintbase.js.
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://ai-minter.mintbase.xyz/)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMintbase%2Ftemplates%2Ftree%2Fmain%2Fai-minter)
@@ -10,12 +10,12 @@ Dreams to NFTs: AI Image Generation & Minting built with Replicate Models and Mi
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-AI-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2CArweave%2CMintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2CArweave%2CBitte%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/BitteProtocol) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 - [@mintbase.js/sdk](https://github.com/Mintbase/mintbase-js/tree/beta/packages/sdk): to use the execute call when minting
 
@@ -93,6 +93,6 @@ You can use this project as a reference to build your own, and use or remove any
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 <img src="https://i.imgur.com/6epdJFw.png" alt="detail_image" width="0" />

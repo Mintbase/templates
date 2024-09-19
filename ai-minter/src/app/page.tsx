@@ -1,6 +1,6 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { NearWalletConnector } from "@/components/NearWalletSelector";
 
 import Head from "next/head";
@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const { isConnected } = useMbWallet();
+  const { isConnected } = useBitteWallet();
   const [txnUrl, setTxnUrl] = useState("");
 
 

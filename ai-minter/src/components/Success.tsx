@@ -21,8 +21,6 @@ interface SuccessPageData {
 export function SuccessPage({ data }: { data: SuccessPageData }): JSX.Element {
   const { nftTitle, mediaUrl, metaPage, txnHashUrl } = data;
 
-
-
   return (
     <Card className="w-[350px]">
       <CardHeader>

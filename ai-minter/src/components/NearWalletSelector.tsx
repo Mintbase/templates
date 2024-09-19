@@ -1,10 +1,10 @@
 "use client"
 
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { Button } from "@/components/ui/button"
 
 export const NearWalletConnector = () => {
-  const { connect, disconnect, activeAccountId, isConnected } = useMbWallet();
+  const { connect, disconnect, activeAccountId, isConnected } = useBitteWallet();
 
   if (!isConnected) {
     return <Button onClick={connect}> Connect To NEAR </Button>;

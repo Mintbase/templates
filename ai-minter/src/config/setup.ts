@@ -18,8 +18,8 @@ export const nearblocksUrl = !isTestnet
   ? "https://api.nearblocks.io"
   : "https://api-testnet.nearblocks.io";
 
-export const MintbaseWalletSetup = {
+export const BitteWalletSetup = {
   contractAddress,
   network,
-  callbackUrl
+  callbackUrl,
 };
