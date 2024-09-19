@@ -16,6 +16,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
     <BitteWalletContextProvider
       contractAddress="hellovirtualworld.mintspace2.testnet"
       network="testnet"
+      onlyBitteWallet
     >
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </BitteWalletContextProvider>
