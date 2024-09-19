@@ -15,7 +15,7 @@ Blogchain makes your content unstoppable and profitable. Transform your blogs in
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/sainthiago_?style=social&logo=twitter)](https://twitter.com/sainthiago_) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.xyz)
+[![Author](https://img.shields.io/twitter/follow/snthgo_?style=social&logo=twitter)](https://twitter.com/snthgo_) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 ## Project Walkthrough
 
