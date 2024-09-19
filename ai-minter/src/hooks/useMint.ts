@@ -8,7 +8,6 @@ import { useBitteWallet } from "@mintbase-js/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
-  ArweaveResponse,
   uploadFile,
   uploadReference,
 } from "@mintbase-js/storage";
@@ -16,6 +15,14 @@ import { formSchema } from "./formSchema";
 import { BitteWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
 import { cbUrl } from "./utils";
+
+export type ArweaveResponse = {
+  id: string;
+  block: string;
+  name: string;
+  mimeType: string;
+  media_url?: string;
+};
 
 const useMintImage = () => {
   const { selector, activeAccountId } = useBitteWallet();
