@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Blogchain`,
     description: "Your forever thoughts on the Blockchain",
-    creator: "Mintbase",
+    creator: "Bitte",
     images: "./thumbnail.png",
   },
 };

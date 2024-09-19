@@ -1,11 +1,11 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { CreateBlogDialog } from "./create-blog";
 import { CreatePostDialog } from "./create-post";
 
 const Hero = () => {
-  const { isConnected, connect } = useMbWallet();
+  const { isConnected, connect } = useBitteWallet();
 
   const handleSignIn = async () => {
     return connect();
