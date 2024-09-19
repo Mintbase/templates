@@ -14,13 +14,13 @@ import { useChat } from "ai/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "./ui/button";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import Markdown from "react-markdown";
 import { ConnectWallet } from "./connect-wallet";
 import { SocialMedias } from "./social";
 
 const Chat = () => {
-  const { activeAccountId, isConnected, connect } = useMbWallet();
+  const { activeAccountId, isConnected, connect } = useBitteWallet();
 
   const { append, messages, isLoading } = useChat({
     api: "/api/chat-completion",
@@ -29,6 +29,7 @@ const Chat = () => {
   const sendMessage = (message: string) => {
     append({ role: "user", content: message });
   };
+
 
   const defaultMessage = isConnected
     ? "please start typing something on the input below"
@@ -98,7 +99,7 @@ export const InputForm = ({
   sendMessage: (message: string) => void;
   disabled: boolean;
 }) => {
-  const { isConnected } = useMbWallet();
+  const { isConnected } = useBitteWallet();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),

@@ -6,8 +6,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AI Chat - Mintbase Templates',
-  description: 'AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Mintbase Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.',
+  title: 'AI Chat - Bitte Templates',
+  description: 'AI-Chat is a Next.js project that provides a chat interface with AI capabilities. It uses the Bitte Wallet for user authentication and the OpenAI GPT-4 model for generating chat responses.',
   openGraph: {
     images: [ 'https://i.imgur.com/uIIL4tt.png']
   }

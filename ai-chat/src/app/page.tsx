@@ -1,8 +1,7 @@
 
 import Chat from "@/components/chat";
 import CreditsCounter from "@/components/credits";
-import { WalletProvider } from "@/components/providers/MintbaseWalletProvider";
-import { SocialMedias } from "@/components/social";
+import { WalletProvider } from "@/components/providers/BitteWalletProvider";
 
 export default function Home() {
   return (
