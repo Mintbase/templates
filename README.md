@@ -6,7 +6,7 @@
 
 ### Starter Templates
 
-    PS: we not officially supporting create-react-app due to many issues it has with packages used for crypto dapps. Also isnt recommended by React Team. If you want a SPA project we recommend React Vite.
+`PS: we not officially supporting create-react-app due to many issues it has with packages used for crypto dapps. Also isnt recommended by React Team. If you want a SPA project we recommend React Vite.`
 
 | Template | Demo |
 |--|--|
