@@ -1,4 +1,4 @@
-import { MintbaseWalletContextProvider } from "@mintbase-js/react";
+import { BitteWalletContextProvider } from "@mintbase-js/react";
 import "./App.css";
 import { NearWalletConnector } from "./NearWalletConnector";
 import "./shims";
@@ -7,7 +7,7 @@ import { SocialMedias } from "./Social";
 import "@near-wallet-selector/modal-ui/styles.css";
 
 function App() {
-  const MintbaseWalletSetup = {
+  const setup = {
     contractAddress:
       import.meta.env.VITE_CONTRACT_ADDRESS || "mintspace2.testnet",
     network: import.meta.env.VITE_NETWORK || "testnet",
@@ -20,7 +20,7 @@ function App() {
     <>
       <SocialMedias />
 
-      <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
+      <BitteWalletContextProvider {...setup}>
         <main className="flex flex-col items-center justify-center mt-2 root">
           <div className="mx-6 sm:mx-24 mt-4 mb-4">
             <div className="w-full flex flex-col justify-center items-center">
@@ -33,7 +33,7 @@ function App() {
             </div>
           </div>
         </main>
-      </MintbaseWalletContextProvider>
+      </BitteWalletContextProvider>
     </>
   );
 }
