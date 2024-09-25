@@ -3,25 +3,43 @@
 
 ## Templates
 
-  
+
+### Starter Templates
+
+    PS: we not officially supporting create-react-app due to many issues it has with packages used for crypto dapps. Also isnt recommended by React Team. If you want a SPA project we recommend React Vite.
+
 | Template | Demo |
 |--|--|
-| [Starter](./starter-next/) | [Demo](https://starter.mintbase.xyz/) |
+| [Starter Next](./starter-next/) | [Demo](https://starter.mintbase.xyz/) |
 | [Starter React Vite](./starter-vite/)| [Demo](https://starter-react-vite.mintbase.xyz/) |
+
+
+### AI Templates
+
+| Template | Demo |
+|--|--|
 | [AI Chat](./ai-chat/) | [Demo](https://ai-chat.mintbase.xyz/) |
 | [AI Minter](./ai-minter/) | [Demo](https://ai-minter.mintbase.xyz/) |
+| [Coingecko AI Plugin Simple](./coingecko-ai-plugin-simple/) | [Demo](https://wallet.bitte.ai/smart-actions/prompt/what%20can%20you%20help%20me%20with?mode=debug&agentId=coingecko-ai-simple.vercel.app) |
+| [Coingecko AI Plugin Advanced](./coingecko-ai-plugin-advanced/) | [Demo](https://wallet.bitte.ai/smart-actions/prompt/what%20can%20you%20help%20me%20with?mode=debug&agentId=coingecko-ai.vercel.app) |
+
+
+### NFT Templates
+
+| Template | Demo |
+|--|--|
 | [Blogchain](./blogchain/) | [Demo](https://blogchain.mintbase.xyz) |
 | [Contract Deployer](./contract-deployer/) | [Demo](https://contract-deployer-template.mintbase.xyz/) |
 | [Minter](./minter/) | [Demo](https://minter.mintbase.xyz/) |
 | [Minsta](https://github.com/Mintbase/minsta) | [Demo](https://minsta.mintbase.xyz/) |
 | [Marketplace](./marketplace/) | [Demo](https://marketplace-template.mintbase.xyz/) |
-| [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.mintbase.xyz/) 
+| [NFT Stripe Checkout](./nft-stripe-checkout/) | [Demo](https://nft-stripe-checkout.mintbase.xyz/)
 | [Token Drop](./simple-token-drop) | [Demo](https://token-drop-template.mintbase.xyz/) |
 
 
 ## Contribution Guidelines
 
-We're excited to invite you to contribute templates that showcase the capabilities of web3 projects on the Near Protocol. These templates can serve as starter projects for developers or exemplify specific use cases, inspiring real-world problem-solving. 
+We're excited to invite you to contribute templates that showcase the capabilities of web3 projects on the Near Protocol. These templates can serve as starter projects for developers or exemplify specific use cases, inspiring real-world problem-solving.
 
 Here are some instructions to get started:
 
@@ -81,7 +99,7 @@ Add a thumbnail to your project <img src="https://i.imgur.com/s9HSENw.jpg" alt="
 
 The first sentence of the description is captured as the intro for the project and will be displayed on the mintbase landing page, use this to grab attention and get someone to click on your template.
 
-Complete project description goes here. Explain the purpose, key features, or anything that provides context from both a business and technical perspective. This section should cover the 'what' and 'why' about the template, catering to users who may be deploying it for their business or developers looking to expand on it. 
+Complete project description goes here. Explain the purpose, key features, or anything that provides context from both a business and technical perspective. This section should cover the 'what' and 'why' about the template, catering to users who may be deploying it for their business or developers looking to expand on it.
 
 
 [![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://your-live-app/)
@@ -102,7 +120,7 @@ Complete project description goes here. Explain the purpose, key features, or an
 
 Explain the project structure, key components, or any significant details. Provide step-by-step instructions for running the project locally.
 
-## Deployment 
+## Deployment
 
 Deployment instructions. We include a link to deploy on vercel in every template because it makes it very easy for non developers to spin off their own tempaltes. This section is also a good place to speak about how to configure the project and environment variables.
 
