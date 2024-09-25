@@ -2,7 +2,7 @@ import { NearWalletConnector } from "@/components/NearWalletSelector";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mintbase Starter with Next.js",
+  title: "Bitte Starter with Next.js",
   description: "Simple Login with Next.js 14",
 };
 

@@ -5,12 +5,12 @@ import "./globals.css";
 import "@near-wallet-selector/modal-ui/styles.css";
 import "../styles.css";
 
-import { MintbaseWalletContextProvider } from "@mintbase-js/react";
+import { BitteWalletContextProvider } from "@mintbase-js/react";
 import { SocialMedias } from "@/components/Social";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const MintbaseWalletSetup = {
+const BitteWalletSetup = {
   contractAddress:
     process.env.NEXT_PUBLIC_CONTRACT_ADDRESS ||
     "hellovirtualworld.mintspace2.testnet",
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
+    <BitteWalletContextProvider {...BitteWalletSetup} onlyBitteWallet>
       <html lang="en">
         <body className={inter.className}>
           <SocialMedias />
@@ -35,6 +35,6 @@ export default function RootLayout({
           </div>
         </body>
       </html>
-    </MintbaseWalletContextProvider>
+    </BitteWalletContextProvider>
   );
 }
