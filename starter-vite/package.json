@@ -22,7 +22,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mintbase-js/react": "0.6.4",
+    "@mintbase-js/react": "latest",
     "buffer": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
