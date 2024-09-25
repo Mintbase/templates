@@ -1,7 +1,7 @@
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 
 export const NearWalletConnector = () => {
-  const { isConnected, selector, connect , activeAccountId } = useMbWallet();
+  const { isConnected, selector, connect , activeAccountId } = useBitteWallet();
 
 
   const handleSignout = async () => {
