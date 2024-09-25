@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <BitteWalletContextProvider {...BitteWalletSetup}>
+    <BitteWalletContextProvider {...BitteWalletSetup} onlyBitteWallet>
       <html lang="en">
         <body className={inter.className}>
           <SocialMedias />
