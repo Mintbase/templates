@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mintbase-js/react':
-        specifier: 0.6.4
-        version: 0.6.4(bn.js@5.2.1)(borsh@1.0.0)(graphql@16.9.0)
+        specifier: 0.6.5
+        version: 0.6.5(bn.js@5.2.1)(borsh@1.0.0)(graphql@16.9.0)
       next:
         specifier: 14.0.1
         version: 14.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -141,8 +141,8 @@ packages:
   '@mintbase-js/data@0.6.2':
     resolution: {integrity: sha512-qGsIjZwUNMUffgZfwqGeisjbj1UBw8KxB29iUID9rLd+k3WmaLF8233UMXgaQcH81AUuzjuLhp3asUlvLaN/0w==}
 
-  '@mintbase-js/react@0.6.4':
-    resolution: {integrity: sha512-qZ6TXsNUUizg0xG3tSteuWC5ubV+LgyPD5KzkqR4rY3DFfFPK2WiXpWr9AIru6AKFrs/Urq7tfhl6jEi/hWMPQ==}
+  '@mintbase-js/react@0.6.5':
+    resolution: {integrity: sha512-nlCMINhDGsNeKqMdcRg4wBoTiSYvywIHvz2VoVNcGHzR5hXgB5WDoNb05Di6I2xzbKn9bDn7S5yBMAj1IPfNPg==}
 
   '@mintbase-js/sdk@0.6.4':
     resolution: {integrity: sha512-r/vP85lc3vyu1UJunm6seHJHxcqk8LPnigX6FLnKc6kkAwmGWmxx8u0l1hT3+0QllJSFJ5jvoDrOw/1vhtYhrw==}
@@ -2042,7 +2042,7 @@ snapshots:
       - encoding
       - graphql
 
-  '@mintbase-js/react@0.6.4(bn.js@5.2.1)(borsh@1.0.0)(graphql@16.9.0)':
+  '@mintbase-js/react@0.6.5(bn.js@5.2.1)(borsh@1.0.0)(graphql@16.9.0)':
     dependencies:
       '@mintbase-js/data': 0.6.2(graphql@16.9.0)
       '@mintbase-js/wallet': 0.6.2

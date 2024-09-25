@@ -1,9 +1,9 @@
 {
-  "name": "Mintbase-Templates-Starter-Next",
+  "name": "Bitte-Templates-Starter-Next",
   "version": "0.1.0",
   "keywords": [
     "templates",
-    "mintbase",
+    "bitte",
     "web3",
     "nextjs",
     "react",
@@ -11,8 +11,8 @@
     "nft"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/starter-next",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https://templates.bitte.ai/ai-minter",
+  "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,7 +21,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mintbase-js/react": "0.6.4",
+    "@mintbase-js/react": "0.6.5",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",

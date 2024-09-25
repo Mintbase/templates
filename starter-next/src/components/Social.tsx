@@ -15,8 +15,8 @@ import {
 } from "react-share";
 
 export const SocialMedias = () => {
-  const url = 'https://starter.mintbase.xyz';
-  const title = "Mintbase Templates - Starter Next";
+  const url = "https://starter.mintbase.xyz";
+  const title = "Bitte Templates - Starter Next";
 
   return (
     <div className="fixed pt-5 top-[10px] left-0  w-full h-[30px] z-50">
