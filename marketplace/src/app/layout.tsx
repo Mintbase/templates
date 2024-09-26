@@ -47,7 +47,7 @@ export default function RootLayout({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BitteWalletContextProvider {...BitteWalletSetup}>
+      <BitteWalletContextProvider {...BitteWalletSetup} onlyBitteWallet>
         <html lang="en">
           <body className={inter.className}>
             <SocialMedias />
