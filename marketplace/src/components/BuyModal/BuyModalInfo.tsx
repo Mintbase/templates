@@ -1,5 +1,10 @@
-import { useMbWallet } from "@mintbase-js/react";
-import { FinalExecutionOutcome, TransactionSuccessEnum, buy, execute } from "@mintbase-js/sdk";
+import { useBitteWallet } from "@mintbase-js/react";
+import {
+  FinalExecutionOutcome,
+  TransactionSuccessEnum,
+  buy,
+  execute,
+} from "@mintbase-js/sdk";
 import {
   EState,
   MbAmountInput,
@@ -34,7 +39,7 @@ function AvailableNftComponent({
     isTokenListLoading,
   } = data;
 
-  const { selector, isConnected, connect } = useMbWallet();
+  const { selector, isConnected, connect } = useBitteWallet();
 
   const message = `${amountAvailable} of ${tokensTotal} Available`;
   // state to check the price x amount according to user interaction
