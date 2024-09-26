@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "../styles.css";
 import "./globals.css";
 
-import { MintbaseWalletContextProvider } from "@mintbase-js/react";
+import { BitteWalletContextProvider } from "@mintbase-js/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "@/components/header";
 import { mbjs } from "@mintbase-js/sdk";
@@ -13,21 +13,20 @@ import { SocialMedias } from "@/components/Social";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const isDev = process.env.NEXT_PUBLIC_ENV === 'dev'
+export const isDev = process.env.NEXT_PUBLIC_ENV === "dev";
 
 export const getCallbackUrl = () => {
-  let callbackUrl = ''
+  let callbackUrl = "";
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     callbackUrl =
-      isDev || window?.location?.host.includes('localhost')
+      isDev || window?.location?.host.includes("localhost")
         ? `http://${window?.location.host}`
-        : `}`
+        : `}`;
   }
 
-  return callbackUrl
-}
-
+  return callbackUrl;
+};
 
 export default function RootLayout({
   children,
@@ -37,10 +36,10 @@ export default function RootLayout({
   const queryClient = new QueryClient();
 
   mbjs.config({
-    network: process.env.NEXT_PUBLIC_NETWORK || 'testnet'
-  })
+    network: process.env.NEXT_PUBLIC_NETWORK || "testnet",
+  });
 
-  const MintbaseWalletSetup = {
+  const BitteWalletSetup = {
     contractAddress: "hellovirtualworld.mintspace2.testnet",
     network: "testnet",
     callbackUrl: getCallbackUrl(),
@@ -48,7 +47,7 @@ export default function RootLayout({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
+      <BitteWalletContextProvider {...BitteWalletSetup} onlyBitteWallet>
         <html lang="en">
           <body className={inter.className}>
             <SocialMedias />
@@ -56,7 +55,7 @@ export default function RootLayout({
             <div className="min-h-screen">{children}</div>
           </body>
         </html>
-      </MintbaseWalletContextProvider>
+      </BitteWalletContextProvider>
     </QueryClientProvider>
   );
 }

@@ -15,22 +15,24 @@ Unlock Your NFT Storefront: Clone & Customize Your Path to Blockchain Success wi
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/bitte?style=social&logo=twitter)](https://twitter.com/BitteProtocol) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 ## Project Walkthrough
 
 ### Setup
 
 install dependencies
+
 ```
 pnpm install
 ```
+
 and
 run the project
+
 ```
 pnpm dev
 ```
-
 
 This guide will take you step by step through the process of creating a basic marketplace where you can purchase tokens and filter your selection by store. It uses [mintbase-js/data](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/data) for retrieving data and [mintbase-js/sdk](https://docs.mintbase.xyz/dev/mintbase-sdk-ref/sdk) for executing marketplace methods.
 
@@ -50,18 +52,22 @@ In this example, we utilized react-query to manage the loading state when retrie
 
 ```ts
 // src/hooks/useStoreNfts.ts
-import { useQuery } from 'react-query';
-import { storeNfts } from '@mintbase-js/data';
+import { useQuery } from "react-query";
+import { storeNfts } from "@mintbase-js/data";
 
 const useStoreNfts = (store?: string) => {
   const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
   const formattedStores = defaultStores.split(/[ ,]+/);
 
-  const { isLoading, error, data } = useQuery(['storeNfts', store], () => storeNfts(store || formattedStores, true), {
-    retry: false,
-    refetchOnWindowFocus: false,
-    select: mapStoreNfts,
-  });
+  const { isLoading, error, data } = useQuery(
+    ["storeNfts", store],
+    () => storeNfts(store || formattedStores, true),
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+      select: mapStoreNfts,
+    }
+  );
 
   return { ...data, error, loading: isLoading };
 };
@@ -75,40 +81,48 @@ To control the tabs, we need to retrieve store data using the storeData method. 
 
 ```ts
 // src/hooks/useStoreData.ts
-import { useQuery } from 'react-query';
-import { storeData } from '@mintbase-js/data';
+import { useQuery } from "react-query";
+import { storeData } from "@mintbase-js/data";
 
 const useStoreData = () => {
   const defaultStores = process.env.NEXT_PUBLIC_STORES || MAINNET_CONFIG.stores;
   const formattedStores = defaultStores.split(/[ ,]+/);
 
-  const { isLoading, error, data } = useQuery('storeData', () => storeData(formattedStores), {
-    retry: false,
-    refetchOnWindowFocus: false,
-    select: mapStoreData,
-  });
+  const { isLoading, error, data } = useQuery(
+    "storeData",
+    () => storeData(formattedStores),
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+      select: mapStoreData,
+    }
+  );
 
   return { ...data, error, loading: isLoading };
 };
 
 export { useStoreData };
-
 ```
+
 ## Step 4: Get Metadata from an NFT
 
 To display NFT pricing information, available quantities, and other details in the user interface, it is necessary to access the NFT metadata using the metadataByMetadataId method.
 
 ```ts
 // src/hooks/useMetadataByMetadataId.ts
-import { useQuery } from 'react-query';
-import { metadataByMetadataId } from '@mintbase-js/data';
+import { useQuery } from "react-query";
+import { metadataByMetadataId } from "@mintbase-js/data";
 
 const useMetadataByMetadataId = ({ metadataId }) => {
-  const { isLoading, data: metadata } = useQuery('metadataByMetadataId', () => metadataByMetadataId(metadataId), {
-    retry: false,
-    refetchOnWindowFocus: false,
-    select: mapMetadata,
-  });
+  const { isLoading, data: metadata } = useQuery(
+    "metadataByMetadataId",
+    () => metadataByMetadataId(metadataId),
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+      select: mapMetadata,
+    }
+  );
 
   return { ...metadata, isTokenListLoading: isLoading };
 };
@@ -122,16 +136,16 @@ To obtain the current price of the NFT in USD, it is necessary to retrieve the c
 
 ```ts
 // src/hooks/useNearPrice.ts
-import { useEffect, useState } from 'react';
-import { nearPrice } from '@mintbase-js/data';
+import { useEffect, useState } from "react";
+import { nearPrice } from "@mintbase-js/data";
 
 const useNearPrice = () => {
-  const [nearPriceData, setNearPriceData] = useState('0');
+  const [nearPriceData, setNearPriceData] = useState("0");
 
   useEffect(() => {
     const getNearPrice = async () => {
       const { data: priceData, error } = await nearPrice();
-      setNearPriceData(error ? '0' : priceData);
+      setNearPriceData(error ? "0" : priceData);
     };
 
     getNearPrice();
@@ -141,34 +155,34 @@ const useNearPrice = () => {
 };
 
 export { useNearPrice };
-``````
+```
 
 ## Step 6: Execute the Contract Call - Buy
 
 The execute method accepts one or more contract call objects and executes them using a specified wallet instance. In this example, we need to use the execute method to execute the "buy" call, allowing the user to purchase the desired NFT.
 
-````ts
+```ts
 const singleBuy = async () => {
-    const wallet = await selector.wallet();
+  const wallet = await selector.wallet();
 
-    if (tokenId) {
-      (await execute(
-        { wallet, callbackArgs: callback },
-        {
-          ...buy({
-            contractAddress: nftContractId,
-            tokenId,
-            affiliateAccount:
-              process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
-              MAINNET_CONFIG.affiliate,
-            marketId,
-            price: nearToYocto(currentPrice?.toString()) || "0",
-          }),
-        }
-      )) as FinalExecutionOutcome;
-    }
-  };
-``````
+  if (tokenId) {
+    (await execute(
+      { wallet, callbackArgs: callback },
+      {
+        ...buy({
+          contractAddress: nftContractId,
+          tokenId,
+          affiliateAccount:
+            process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
+            MAINNET_CONFIG.affiliate,
+          marketId,
+          price: nearToYocto(currentPrice?.toString()) || "0",
+        }),
+      }
+    )) as FinalExecutionOutcome;
+  }
+};
+```
 
 ## Set ENV variables
 
@@ -214,6 +228,6 @@ NEXT_PUBLIC_AFFILIATE_ACCOUNT=your_near_account.near
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 <img src="https://i.imgur.com/DPWBh8C.png" alt="detail_image" width="0" />

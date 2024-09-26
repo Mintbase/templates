@@ -1,10 +1,11 @@
 "use client";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { MbButton } from "mintbase-ui";
 import Link from "next/link";
 
 const Header = () => {
-  const { isConnected, connect, activeAccountId, disconnect } = useMbWallet();
+  const { isConnected, connect, activeAccountId, disconnect } =
+    useBitteWallet();
 
   const buttonLabel = isConnected
     ? `Sign Out ${activeAccountId}`
