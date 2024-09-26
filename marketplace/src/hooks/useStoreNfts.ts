@@ -28,12 +28,12 @@ const useStoreNfts = (store?: string) => {
   const { isLoading, error, data } = useQuery(
     ["storeNfts", store],
     () =>
-      storeNfts(
-        store || formatedStores,
-        true,
-        undefined,
-        (process?.env?.NEXT_PUBLIC_NETWORK as Network) || "testnet"
-      ),
+      storeNfts({
+        contractAddress: store || formatedStores,
+        showOnlyListed: true,
+        pagination: undefined,
+        network: (process?.env?.NEXT_PUBLIC_NETWORK as Network) || "testnet",
+      }),
     {
       retry: false,
       refetchOnWindowFocus: false,
