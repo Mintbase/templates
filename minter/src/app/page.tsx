@@ -1,6 +1,6 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { NearWalletConnector } from "@/components/NearWalletSelector";
 
 import Head from "next/head";
@@ -11,20 +11,18 @@ import { mbUrl, nearblocksUrl } from "@/config/setup";
 import { getTxnHash } from "@/hooks/utils";
 import { useEffect, useState } from "react";
 
-
 export default function Home() {
-  const { isConnected } = useMbWallet();
+  const { isConnected } = useBitteWallet();
   const [txnUrl, setTxnUrl] = useState("");
-
 
   const params = useSearchParams();
 
   const mintedParams = params.get("signMeta")
-  ? JSON.parse(params.get("signMeta") as string)
-  : "";
-const txnHashes = params.get("transactionHashes")
-  ? params.get("transactionHashes")
-  : "";
+    ? JSON.parse(params.get("signMeta") as string)
+    : "";
+  const txnHashes = params.get("transactionHashes")
+    ? params.get("transactionHashes")
+    : "";
 
   useEffect(() => {
     const fetchTxnHash = async () => {
@@ -39,10 +37,9 @@ const txnHashes = params.get("transactionHashes")
     const metaPage = `${mbUrl}/ref/${mintedParams.args.ref}?type=meta`;
     const txnHashUrl = `${nearblocksUrl}/txns/${txnUrl}`;
 
-
     const successPageData = {
       nftTitle: mintedParams.args.title as string,
-      mediaUrl: mintedParams.args.mediaUrl  as string,
+      mediaUrl: mintedParams.args.mediaUrl as string,
       metaPage,
       txnHashUrl,
     };

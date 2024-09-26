@@ -1,4 +1,5 @@
 # Minter
+
 <img src="https://i.imgur.com/QDJPsAA.png" alt="cover_image" width="0" />
 This is a simple minter example built on top of Next.js 14
 
@@ -8,31 +9,31 @@ This is a simple minter example built on top of Next.js 14
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Minter-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2CArweave%2CMintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2CArweave%2CBitte%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/bitte?style=social&logo=twitter)](https://twitter.com/BitteProtocol) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 ## Project Walkthrough
 
 This is a simple minter example built on top of **Next.js 14** using some of [@mintbase-js](https://github.com/Mintbase/mintbase-js) packages.
 
-*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+_NOTE: As a standard on Bitte as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice._
 
 if you dont have a store you can [deploy a new contract](https://www.mintbase.xyz/launchpad/contracts/0) on our launchpad
 
-
 ## Pre-Setup - Proxy Contract
 
--  You need to have a NEAR Contract where you add a proxy contract as a minter.
--  The proxy contract enables non-minter users to mint images on your contract.
--  The Near Contract will be where the NFT images will be minted.
--  The proxy contract will be the minter.
--  The user wallet address will be the owner of the NFT.
+- You need to have a NEAR Contract where you add a proxy contract as a minter.
+- The proxy contract enables non-minter users to mint images on your contract.
+- The Near Contract will be where the NFT images will be minted.
+- The proxy contract will be the minter.
+- The user wallet address will be the owner of the NFT.
 
 ### Deploying a Near Contract on Mintbase:
+
 1. Login on Mintbase and access [Contracts Page](https://www.mintbase.xyz/launchpad/contracts/0)
 2. Click on New Contract
 3. Choose Store Name (this will be the contract address to add on your minsta instance, this need to be added on the `process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` environment variable) and Store Symbol
@@ -41,14 +42,13 @@ if you dont have a store you can [deploy a new contract](https://www.mintbase.xy
 6. Go to Contract Settings
 
 ### Add Proxy Minter Contract
+
 1. Under Contract Settings go to Minters
 2. add `0.drop.proxy.mintbase.near` (this is the contract address that need to be added on `process.env.NEXT_PUBLIC_PROXY_MINTER_CONTRACT_ADDRESS`), and click Add Minters.
 3. Proceed to transaction.
 4. Succeeded
 
-
 ### Setup
-
 
 In the `minter/src/config/setup.ts` file, we define several key configurations for interacting with the Mintbase platform. This setup is crucial for ensuring that our application communicates correctly with Mintbase smart contracts.
 
@@ -62,7 +62,6 @@ In the `minter/src/config/setup.ts` file, we define several key configurations f
 
 - `callbackUrl`: A URL used for callbacks, constructed dynamically based on the `network` variable. If we are on the testnet, it uses the testnet URL; otherwise, it defaults to the mainnet URL.
 
-
 To customize these configurations for different environments, you can set the following environment variables in your `.env` file:
 
 `NOTE: the env variables need to have the NEXT_PUBLIC_ on the variable name due to be available for the browser to process`
@@ -71,30 +70,26 @@ To customize these configurations for different environments, you can set the fo
 - `NEXT_PUBLIC_MINT_CONTRACT_ADDRESS`: Your mint contract address on Mintbase.
 - `NEXT_PUBLIC_NETWORK`: The network you want to interact with (`"testnet"` or `"mainnet"`).
 
-
-
-
-
 after that you can run
+
 ```
 pnpm install
 ```
+
 and
 
 ```
 pnpm dev
 ```
 
-
 ## Extending
 
 This project is setup using Next.js + @mintbase/js + shadcn ui + react hook form
 You can use this project as a reference to build your own, and use or remove any library you think it would suit your needs.
 
-
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 <img src="https://i.imgur.com/SBiSEAB.png" alt="detail_image" width="0" />

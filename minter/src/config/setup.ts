@@ -17,11 +17,11 @@ export const nearblocksUrl = !isTestnet
   ? "https://nearblocks.io"
   : "https://testnet.nearblocks.io";
 
-  export const nearblocksApi = !isTestnet
+export const nearblocksApi = !isTestnet
   ? "https://api.nearblocks.io"
   : "https://api-testnet.nearblocks.io";
 
-export const MintbaseWalletSetup = {
+export const BitteWalletSetup = {
   contractAddress,
   network,
   callbackUrl,
