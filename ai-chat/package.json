@@ -1,9 +1,16 @@
 {
   "name": "Bitte-Templates-AI-Chat",
   "version": "0.1.0",
-  "keywords": ["templates", "bitte", "web3", "nextjs", "react", "ai"],
+  "keywords": [
+    "templates",
+    "bitte",
+    "web3",
+    "nextjs",
+    "react",
+    "ai"
+  ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https://templates.bitte.ai/ai-chat",
+  "homepage": "https://templates.bitte.ai/templates/ai-chat",
   "author": "Bitte Protocol Team <eng@bitte.ai>",
   "scripts": {
     "dev": "next dev",
@@ -17,7 +24,7 @@
     "@mintbase-js/react": "0.6.5",
     "@mintbase-js/rpc": "0.6.5",
     "@mintbase-js/sdk": "0.6.5",
-    "@mintbase-js/storage":"0.6.5",
+    "@mintbase-js/storage": "0.6.5",
     "@near-wallet-selector/modal-ui": "^8.7.1",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",

@@ -9,8 +9,8 @@
     "web3"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin-advanced",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https;//templates.bitte.ai/templates/coingecko-ai-plugin-advanced",
+  "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
     "dev": "next dev",

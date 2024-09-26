@@ -10,7 +10,7 @@
     "nft"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.bitte.ai/starter-vite",
+  "homepage": "https;//templates.bitte.ai/templates/starter-vite",
   "author": "Bitte Team <eng@bitte.ai>",
   "private": true,
   "version": "0.0.0",

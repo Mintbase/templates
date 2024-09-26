@@ -12,7 +12,7 @@
     "nft"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https://templates.bitte.ai/ai-minter",
+  "homepage": "https://templates.bitte.ai/templates/marketplace",
   "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
