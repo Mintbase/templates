@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: pageTitle,
       description: pageDescription,
       siteId: "1467726470533754880",
-      creator: "Mintbase",
+      creator: "Bitte",
       card: "summary_large_image",
       images: './thumbnail.png'
     },

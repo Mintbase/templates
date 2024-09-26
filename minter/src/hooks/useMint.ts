@@ -12,17 +12,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import {
-  ArweaveResponse,
-  uploadFile,
-  uploadReference,
-} from "@mintbase-js/storage";
+import { uploadFile, uploadReference } from "@mintbase-js/storage";
+import { ArweaveResponse } from "@mintbase-js/storage/lib/types";
 import { formSchema } from "./formSchema";
-import { MintbaseWalletSetup, proxyAddress } from "@/config/setup";
+import { BitteWalletSetup, proxyAddress } from "@/config/setup";
 import { Wallet } from "@near-wallet-selector/core";
 import { cbUrl } from "./utils";
 
@@ -33,7 +30,7 @@ interface SubmitData {
 }
 
 const useMintImage = () => {
-  const { selector, activeAccountId } = useMbWallet();
+  const { selector, activeAccountId } = useBitteWallet();
   const [preview, setPreview] = useState<string | File>("");
 
   const getWallet = async () => {
@@ -79,7 +76,7 @@ const useMintImage = () => {
     nftTitle: string
   ) {
     const callbackArgs = {
-      contractAddress: MintbaseWalletSetup.contractAddress.toString(),
+      contractAddress: BitteWalletSetup.contractAddress.toString(),
       amount: 1,
       ref: `${reference}`,
       mediaUrl: mediaUrl,
@@ -101,7 +98,7 @@ const useMintImage = () => {
                   reference,
                   media: (await media).id,
                 }),
-                nft_contract_id: MintbaseWalletSetup.contractAddress,
+                nft_contract_id: BitteWalletSetup.contractAddress,
               },
               gas: "200000000000000",
               deposit: "10000000000000000000000",
