@@ -1,9 +1,9 @@
 {
-  "name": "Mintbase-Templates-Simple-Token-Drop",
+  "name": "Bitte-Templates-Simple-Token-Drop",
   "version": "0.1.0",
   "keywords": [
     "templates",
-    "mintbase",
+    "bitte",
     "web3",
     "nextjs",
     "react",
@@ -12,8 +12,8 @@
     "nft"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/simple-token-drop",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https://templates.bitte.ai/templates/simple-token-drop",
+  "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,9 +22,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mintbase-js/react": "0.5.4-beta.0",
-    "@mintbase-js/sdk": "0.5.4-beta.0",
-    "@mintbase-js/storage": "0.5.4-beta.0",
+    "@mintbase-js/react": "0.6.5",
+    "@mintbase-js/sdk": "0.6.5",
+    "@mintbase-js/storage": "0.6.5",
     "near-api-js": "^2.1.4",
     "next": "14.0.1",
     "react": "^18",
