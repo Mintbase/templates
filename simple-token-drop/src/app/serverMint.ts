@@ -38,10 +38,7 @@ export const serverMint = async (): Promise<void> => {
   console.info("Server Action: Wallet created with account id: ", accountId);
   const mintArgs = await serverMintArgs(accountId);
   //Execute mint with server wallet
-  (await execute(
-    { account: serverWallet as any },
-    mintArgs
-  )) as FinalExecutionOutcome;
+  (await execute({ account: serverWallet }, mintArgs)) as FinalExecutionOutcome;
 
   console.info("Server Action: Executed mint with", mintArgs);
 
