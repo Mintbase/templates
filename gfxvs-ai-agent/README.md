@@ -6,6 +6,7 @@
 
 The GFXvs Node.js API for the Bitte AI Plugin is designed to facilitate seamless interactions for users on the GFXvs Art Battle platform. This API enables users to generate AI images based on prompts and upload them to the GFXvs platform, enhancing user engagement and creativity in the art community. By providing an intuitive interface, this API streamlines the process of art creation and submission.
 
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://tinyurl.com/gfxvs-art-battle-ai-agent)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Teckas-Technologies/GFXvs-AI-Agent)
 
 **Tooling:**
