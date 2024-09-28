@@ -6,6 +6,7 @@
 
 The PotLock Node.js API for the Bitte AI Plugin is designed to facilitate seamless interactions for users on the PotLock platform, enabling them to manage fundraising projects and donations efficiently. Built on the NEAR blockchain, this API offers a robust backend that supports the creation of projects, management of donations, and user interactions through an AI-powered interface.
 
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://tinyurl.com/potlock-ai-agent)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Teckas-Technologies/PotLock-AI-Agent)
 
 **Tooling:**
