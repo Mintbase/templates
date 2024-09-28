@@ -1,0 +1,379 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "potLock API",
+        "description": "API for interacting with API operations including view & make projects & donations",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://potlockaiagent-hqd5dzcjajhpc3fa.eastus-01.azurewebsites.net"
+        }
+    ],
+    "x-mb": {
+        "account-Id": "golden_comet.near",
+        "assistant": {
+            "name": "PotLock Assistant Testnet",
+            "description": "Assistant for helping users to search projects and donations on PotLock platform and make donations and create project on Near Social platform. You will guide the user through collecting project details and get a project URL from the API response. Finally display the projectUrl to the user.",
+            "instructions": "You are an assistant for help users to view the projects listed on PotLock platform using getProjects tool and show the s.no, project name, description, and status in table view. For create project: First, ask the user to provide a project details for creating project on Potlock  platform. The project details are name, description, categories (such as Social Impact, NonProfit, Climate, Public Good, DeSci, Open Source, Community, Education.), reason, twitter, github, telegram, website, profileImage, and bannerImage. Once the project details are collected, upload the collected details to the createProject tool along with the accountId (the user's account Id). After getting the success API response, display the sign URL {_projectUrl} for the user to create their project on PotLock platform. (replace {_projectUrl} with the projectUrl from the API response). Guide the user throughout the process to ensure all information is provided correctly and the sign URL is generated successfully. For donations: If the user want to see the received donations for their project, the GET endpoint along with recipientId query params or If the user want to see the donations made by the user, the GET endpoint along with donorId query params. The recipientId and donorId query params holding the account Id of the logged in user. Note: The Get endpoints with offset query params, default offset is 0. If user wants view next page set offset is prevOffset + 1. If user wants view previous page set offset is prevOffset - 1. Convert the yoctoNear to Near while showing the total amount, protocol fee and referrer fee in donations table view. The received donation must have the query params recipientId (the account Id of the user). The donation made by the user, must have the query params donorId (the account Id of the user)."
+        },
+        "tools": [
+            {
+                "type": "generate-image"
+            }
+        ]
+    },
+    "paths": {
+        "/api/project": {
+            "get": {
+                "summary": "Get projects with pagination",
+                "description": "Fetch projects with pagination parameter `offset`. If `id` is provided, it will fetch a single project by the selected project's `registrantId`. Show the all details of single project in non table format. Name of the project should be in bold.",
+                "operationId": "getProjects",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "description": "The starting point to return projects from."
+                    },
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "The registrant ID to fetch a specific project."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Projects retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "projects": {
+                                            "type": "array"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new project",
+                "description": "Allows users to create a project with details such as accountId, name, categories, description, reason, and images.",
+                "operationId": "createProject",
+                "requestBody": {
+                    "description": "Project creation request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accountId": {
+                                        "type": "string",
+                                        "description": "The account ID of the project creator."
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the project."
+                                    },
+                                    "categories": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Categories associated with the project."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "A detailed description of the project."
+                                    },
+                                    "reason": {
+                                        "type": "string",
+                                        "description": "Reason for the project being a public good."
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "description": "Twitter handle of the project."
+                                    },
+                                    "github": {
+                                        "type": "string",
+                                        "description": "GitHub repository link."
+                                    },
+                                    "telegram": {
+                                        "type": "string",
+                                        "description": "Telegram channel link."
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "description": "Website link for the project."
+                                    },
+                                    "profileImage": {
+                                        "type": "string",
+                                        "description": "URL of the profile image for the project."
+                                    },
+                                    "bannerImage": {
+                                        "type": "string",
+                                        "description": "URL of the banner image for the project."
+                                    },
+                                    "smartContracts": {
+                                        "type": "string",
+                                        "description": "Smart contracts associated with the project."
+                                    },
+                                    "githubRepos": {
+                                        "type": "string",
+                                        "description": "GitHub repositories for the project."
+                                    },
+                                    "fundingSources": {
+                                        "type": "string",
+                                        "description": "Funding sources for the project."
+                                    },
+                                    "team": {
+                                        "type": "string",
+                                        "description": "Team members of the project."
+                                    }
+                                },
+                                "required": [
+                                    "accountId",
+                                    "name",
+                                    "categories",
+                                    "description",
+                                    "reason",
+                                    "profileImage",
+                                    "bannerImage"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Project creation URL generated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "projectUrl": {
+                                            "type": "string",
+                                            "description": "URL for the user to sign the transaction and create the project."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/donation": {
+            "post": {
+                "summary": "Make a donation",
+                "description": "Allows users to make donations to a recipient with the required amount, recipientId, and message.",
+                "operationId": "makeDonation",
+                "requestBody": {
+                    "description": "Donation request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "recipientId": {
+                                        "type": "string",
+                                        "description": "The recipient's account Id"
+                                    },
+                                    "amount": {
+                                        "type": "string",
+                                        "description": "Donation amount in NEAR tokens"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "Message for the donation"
+                                    }
+                                },
+                                "required": [
+                                    "recipientId",
+                                    "amount"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Donation transaction URL generated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "donateUrl": {
+                                            "type": "string",
+                                            "description": "URL for the user to sign the transaction and make the donation."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/donation/recipient": {
+            "get": {
+                "summary": "Get donations received by the logged in user",
+                "description": "Fetch donations received by a user (recipient). recipientId should be the logged in user's account Id.",
+                "operationId": "getDonationsForRecipient",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "recipientId",
+                        "schema": {
+                            "type": "string",
+                            "description": "The logged in user's account Id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "description": "Offset for pagination."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Donations received by the recipient retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "donations": {
+                                            "type": "array"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/donation/donor": {
+            "get": {
+                "summary": "Get donations made by the logged in user",
+                "description": "Fetch donations made by a user (donor). donorId should be the logged in user's account Id.",
+                "operationId": "getDonationsForDonor",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "donorId",
+                        "schema": {
+                            "type": "string",
+                            "description": "The logged in user's account Id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "description": "Offset for pagination."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Donations made by the donor retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "donations": {
+                                            "type": "array"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
