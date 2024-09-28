@@ -6,6 +6,7 @@
 
 The Near Social Node.js API for the Bitte AI Plugin provides a comprehensive interface for users to interact with the Near Social platform. This API facilitates operations such as setting up user profiles and uploading posts, making it easier for users to engage with the Near Social community. With a focus on seamless integration and user experience, this API utilizes the power of AI to guide users through the process of managing their profiles and content.
 
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Demo-brightgreen)](https://tinyurl.com/near-social-mintbase-ai-agent)
 [![Deploy](https://img.shields.io/badge/Deploy-on%20Vercel-blue)](https://vercel.com/new/clone?repository-url=https://github.com/Teckas-Technologies/NearSocial-AI-Agent)
 
 **Tooling:**
