@@ -1,6 +1,6 @@
 # GFXvs Node.js API for Bitte AI Plugin
 
-![Licenses](./gfxvs-ai-agent/public/images/gfx.png)
+![Licenses](./public/images/gfx.png)
 
 ## Introduction
 
