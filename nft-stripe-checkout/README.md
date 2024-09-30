@@ -1,4 +1,5 @@
 # NFT Stripe Checkout
+
 <img src="https://i.imgur.com/9byWkpK.png" alt="cover_image" width="0" />
 NFT-Stripe-Checkout is a template that lets users buy NFTs with their credit-cards using Stripe.
 
@@ -8,22 +9,22 @@ NFT-Stripe-Checkout is a template that lets users buy NFTs with their credit-car
 **Tooling:**
 
 [![Use Case](https://img.shields.io/badge/Use%20Case-Utilities-blue)](#)
-[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2C@mintbase.js/rpc%2C@mintbase.js/data%2C@Stripe%2CArweave%2CMintbase%20Wallet-blue)](#)
+[![Tools](https://img.shields.io/badge/Tools-@mintbase.js/sdk%2C@mintbase.js/react%2C@mintbase.js/storage%2C@mintbase.js/rpc%2C@mintbase.js/data%2C@Stripe%2CArweave%2CBitte%20Wallet-blue)](#)
 [![Framework](https://img.shields.io/badge/Framework-Next.js%2014-blue)](#)
 
 **Author:**
 
-[![Author](https://img.shields.io/twitter/follow/mintbase?style=social&logo=twitter)](https://twitter.com/mintbase) [![Organization](https://img.shields.io/badge/Mintbase-blue)](https://www.mintbase.xyz)
+[![Author](https://img.shields.io/twitter/follow/bitte?style=social&logo=twitter)](https://twitter.com/BitteProtocol) [![Organization](https://img.shields.io/badge/Bitte-blue)](https://www.bitte.ai)
 
 ## Project Walkthrough
 
-NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe. It uses the Mintbase Wallet for user authentication.
+NFT-Stripe-Checkout is a Next.js project that provides a checkout interface for purchasing NFTs using Stripe. It uses the Bitte Wallet for user authentication.
 
 ## Testnet only!
 
 Note that this is currently a testnet-only template. It allows you to define a smart contract call, which the user is paying for. Until regulatory questions are answered, this will be a testnet-only thing. Please reach out if you would see value in having this on mainnet!
 
-*NOTE: As a standard on Mintbase as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice.*
+_NOTE: As a standard on Bitte as we use the latest versions of Next.js we recommend using pnpm, but the package manager is up to your personal choice._
 
 ## Setup
 
@@ -35,13 +36,12 @@ Note that this is currently a testnet-only template. It allows you to define a s
 
 ### Environment Variables
 
-
 Checkout `.env.example` and create a local env file (`.env.local`) with:
 
 ```
 NEXT_PUBLIC_NFT_CONTRACT_ADDRESS="stripeteststore.mintspace2.testnet"
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="""
-NEXT_PUBLIC_MINTBASE_WALLET_URL="https://testnet.wallet.mintbase.xyz"
+NEXT_PUBLIC_BITTE_WALLET_URL="https://testnet.wallet.bitte.ai"
 NEXT_PUBLIC_NETWORK="testnet"
 ```
 
@@ -72,7 +72,7 @@ The Purchase Page is located in `/src/app/page.tsx`. It uses the `useMbWallet` h
 function PurchasePage() {
   const [clientSecret, setClientSecret] = useState("");
 
-  const { activeAccountId, isConnected } = useMbWallet();
+  const { activeAccountId, isConnected } = useBitteWallet();
 
   const onClick = async () => {
     const resp = await fetch(
@@ -99,14 +99,13 @@ function PurchasePage() {
     }
   };
 
-  ```
+```
 
 ### Credit Card Form
 
 The Credit Card Form is located in nft-stripe-checkout/src/app/page.tsx. It uses the useStripe and useElements hooks from the @stripe/react-stripe-js package to manage the Stripe elements and confirm the payment:
 
 ```ts
-
 const CreditCardForm = () => {
   const elements = useElements();
   const stripe = useStripe();
@@ -164,12 +163,11 @@ const CreditCardForm = () => {
     </>
   );
 };
-
 ```
 
 ## Get in touch
 
 - Support: [Join the Telegram](https://tg.me/mintdev)
-- Twitter: [@mintbase](https://twitter.com/mintbase)
+- Twitter: [@BitteProtocol](https://twitter.com/BitteProtocol)
 
 <img src="https://i.imgur.com/Q9lXgvg.png" alt="detail_image" width="0" />

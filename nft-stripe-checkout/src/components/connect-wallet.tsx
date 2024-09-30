@@ -1,9 +1,9 @@
 "use client";
 
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 
 export function ConnectWallet() {
-  const { connect, disconnect, isConnected } = useMbWallet();
+  const { connect, disconnect, isConnected } = useBitteWallet();
 
   return (
     <div>

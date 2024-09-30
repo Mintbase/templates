@@ -3,10 +3,10 @@ import "./globals.css";
 import { SocialMedias } from "@/components/social";
 
 export const metadata: Metadata = {
-  title: "Fiat NFT checkout | Mintbase Templates",
+  title: "Fiat NFT checkout | Bitte Templates",
   description: "Template for buying a NFT with Credit Card using Stripe",
   openGraph: {
-    title: `Fiat NFT checkout | Mintbase Templates`,
+    title: `Fiat NFT checkout | Bitte Templates`,
     description: "Template for buying a NFT with Credit Card using Stripe",
     images: [
       {
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Fiat NFT checkout | Mintbase Templates`,
-    description:  "Template for buying a NFT with Credit Card using Stripe",
-    creator: "Mintbase",
+    title: `Fiat NFT checkout | Bitte Templates`,
+    description: "Template for buying a NFT with Credit Card using Stripe",
+    creator: "Bitte",
     images: "https://i.imgur.com/9byWkpK.png",
   },
 };
@@ -35,7 +35,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SocialMedias />
-        {children}</body>
+        {children}
+      </body>
     </html>
   );
 }
