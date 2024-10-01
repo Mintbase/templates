@@ -14,6 +14,9 @@ import { constants } from "@/lib/constants";
 import { useBitteWallet } from "@mintbase-js/react";
 import { mint } from "@mintbase-js/sdk";
 import { useState } from "react";
+import { setGlobalEnv } from "@mintbase-js/sdk/lib/config/config";
+
+setGlobalEnv({ network: process.env.NEXT_PUBLIC_NETWORK });
 
 export default function Home() {
   return (
