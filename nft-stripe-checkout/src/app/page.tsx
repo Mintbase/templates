@@ -11,9 +11,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import { ConnectWallet } from "@/components/connect-wallet";
 import { WalletProvider } from "@/components/providers/wallet-provider";
 import { constants } from "@/lib/constants";
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 import { mint } from "@mintbase-js/sdk";
 import { useState } from "react";
+import { setGlobalEnv } from "@mintbase-js/sdk/lib/config/config";
+
+setGlobalEnv({ network: process.env.NEXT_PUBLIC_NETWORK });
 
 export default function Home() {
   return (
@@ -26,7 +29,7 @@ export default function Home() {
 function PurchasePage() {
   const [clientSecret, setClientSecret] = useState("");
 
-  const { activeAccountId, isConnected } = useMbWallet();
+  const { activeAccountId, isConnected } = useBitteWallet();
 
   const onClick = async () => {
     const resp = await fetch(
@@ -57,7 +60,10 @@ function PurchasePage() {
     console.log('Did you forget to add a ".env.local" file?');
   }
 
-  const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_u3xKazkyGGPUI4gME4iKwVgv00D8HG8H4X');
+  const stripe = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ||
+      "pk_test_u3xKazkyGGPUI4gME4iKwVgv00D8HG8H4X"
+  );
 
   return (
     <main className="flex flex-col gap-y-8 items-center justify-center h-screen p-4 md:p-12 gradient">
@@ -146,17 +152,17 @@ const CreditCardForm = () => {
     setIsLoading(false);
   };
 
-if(isCompleted) {
-  return (
-    <>
-      <h1> Success you just bough an NFT!</h1>
-    </>
-  )
-}
+  if (isCompleted) {
+    return (
+      <>
+        <h1> Success you just bough an NFT!</h1>
+      </>
+    );
+  }
 
   return (
     <>
-    <p> You can test with a 4242 4242 4242 4242 card</p>
+      <p> You can test with a 4242 4242 4242 4242 card</p>
       <PaymentElement />
 
       <button

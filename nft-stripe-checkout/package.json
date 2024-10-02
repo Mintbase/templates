@@ -1,9 +1,9 @@
 {
-  "name": "Mintbase-Templates-NFT-Stripe-Checkout",
+  "name": "Bitte-Templates-NFT-Stripe-Checkout",
   "version": "0.1.0",
   "keywords": [
     "templates",
-    "mintbase",
+    "bitte",
     "web3",
     "nextjs",
     "react",
@@ -13,8 +13,8 @@
     "nft"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/nft-stripe-checkout",
-  "author": "Mintbase Team <eng@mintbase.xyz>",
+  "homepage": "https://bitte.ai/templates/nft-stripe-checkout",
+  "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,11 +23,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mintbase-js/data": "0.5.4-beta.0",
-    "@mintbase-js/react": "0.5.4-beta.0",
-    "@mintbase-js/rpc": "0.5.4-beta.0",
-    "@mintbase-js/sdk": "0.5.4-beta.0",
-    "@mintbase-js/storage": "0.5.4-beta.0",
+    "@mintbase-js/data": "0.6.5",
+    "@mintbase-js/react": "0.6.5",
+    "@mintbase-js/rpc": "0.6.5",
+    "@mintbase-js/sdk": "0.6.5",
+    "@mintbase-js/storage": "0.6.5",
     "@near-js/accounts": "^0.1.4",
     "@stripe/react-stripe-js": "^2.3.1",
     "@stripe/stripe-js": "^2.1.10",
