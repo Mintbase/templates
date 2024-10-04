@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "GFXvs API Mainnet",
+        "description": "API for interacting with GFXvs operations including gfxvs art upload.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gfxvsaiagent-dvb6a2hnd4araccq.eastus-01.azurewebsites.net"
+        }
+    ],
+    "x-mb": {
+        "account-id": "golden_comet.near",
+        "assistant": {
+            "name": "GFXvs Assistant Mainnet",
+            "description": "Assistant for helping users generate AI images and upload them to the GFXvs Art Battle platform. You will guide the user through generating images based on prompts, collect image titles, and upload them to the GFXvs platform.",
+            "instructions": "First, ask the user to provide a prompt for generating the image. After the image is generated, ask the user for a title for the image. Once the title is collected, upload the generated image to the /api/artupload endpoint on the GFXvs platform, along with the colouredArt (the generated image), arttitle (the title provided by the user), and artistId (the user's account ID). After the image is successfully uploaded, display the URL with the text like Share your creation with friends and community for upvotes, get featured in the daily art battle, and win amazing prizes! for the user to share their uploaded art to friends: https://gfxvs.com/?artId={_id} (replace {_id} with the _id from the API response). Guide the user throughout the process to ensure all information is provided correctly and the image is uploaded successfully. Note: Ensure all steps have the line break for clear visibility and all the questions you asked is in the bold and the initial process steps should be in bullet points for more visibility. Ensure the displaying URL should be in bold.",
+            "tools": [
+                {
+                    "type": "generate-image"
+                }
+            ]
+        }
+    },
+    "paths": {
+        "/api/artupload": {
+            "post": {
+                "summary": "Upload image data",
+                "description": "Uploads image data including colouredArt, arttitle and artistId.",
+                "operationId": "uploadImageData",
+                "requestBody": {
+                    "description": "Image upload request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "colouredArt": {
+                                        "type": "string",
+                                        "description": "The URL of the image."
+                                    },
+                                    "arttitle": {
+                                        "type": "string",
+                                        "description": "The title of the image."
+                                    },
+                                    "artistId": {
+                                        "type": "string",
+                                        "description": "User's account ID."
+                                    }
+                                },
+                                "required": [
+                                    "colouredArt",
+                                    "arttitle",
+                                    "artistId"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Image data uploaded successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "artistId": {
+                                            "type": "string",
+                                            "description": "User's account ID."
+                                        },
+                                        "arttitle": {
+                                            "type": "string",
+                                            "description": "The title of the image."
+                                        },
+                                        "colouredArt": {
+                                            "type": "string",
+                                            "description": "The URL of the uploaded image."
+                                        },
+                                        "colouredArtReference": {
+                                            "type": "string",
+                                            "description": "Reference URL of the uploaded image."
+                                        },
+                                        "isCompleted": {
+                                            "type": "boolean",
+                                            "description": "Indicates if the art is completed."
+                                        },
+                                        "isStartedBattle": {
+                                            "type": "boolean",
+                                            "description": "Indicates if the art battle has started."
+                                        },
+                                        "tokenId": {
+                                            "type": "integer",
+                                            "description": "Token ID for the uploaded art."
+                                        },
+                                        "upVotes": {
+                                            "type": "integer",
+                                            "description": "Number of upvotes the art has received."
+                                        },
+                                        "uploadedTime": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The timestamp when the art was uploaded."
+                                        },
+                                        "votes": {
+                                            "type": "integer",
+                                            "description": "Total number of votes the art has received."
+                                        },
+                                        "__v": {
+                                            "type": "integer",
+                                            "description": "Version key for the art document."
+                                        },
+                                        "_id": {
+                                            "type": "string",
+                                            "description": "Unique identifier for the art document."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
