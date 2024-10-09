@@ -15,8 +15,8 @@ import {
 } from "react-share";
 
 export const SocialMedias = () => {
-  const url = 'https://token-drop-template.mintbase.xyz/';
-  const title = "Mintbase Templates - Token Drop";
+  const url = "https://token-drop-template.mintbase.xyz/";
+  const title = "Bitte Templates - Token Drop";
 
   return (
     <div className="fixed pt-5 top-[5px] left-0  w-full h-[30px] z-50">
