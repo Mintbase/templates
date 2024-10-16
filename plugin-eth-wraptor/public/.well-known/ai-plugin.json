@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "WETH9 Assistant API",
+    "description": "API for Interacting with WETH9 Contract",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "x-mb": {
+    "account-id": "farmface.near",
+    "assistant": {
+      "name": "WETH9 Assistant",
+      "description": "WETH9 Assistant description",
+      "instructions": "WETH9 Assistant instructions",
+      "tools": [
+        {
+          "type": "generate-transaction"
+        }
+      ]
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Confirms server running",
+        "description": "Test Endpoint to confirm system is running",
+        "operationId": "weth-health",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok Message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "result": {
+                    "type": "string",
+                    "description": "Ok Message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+    }
+  },
+  "x-readme": {
+    "explorer-enabled": true,
+    "proxy-enabled": true
+  }
+}
