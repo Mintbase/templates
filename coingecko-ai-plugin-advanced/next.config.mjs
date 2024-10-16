@@ -20,6 +20,14 @@ const nextConfig = {
 			},
 		];
 	},
+	async rewrites() {
+		return [
+            {
+                source: "/.well-known/ai-plugin.json",
+                destination: "/ai-plugin"
+            }
+        ]
+	}
 };
 
 export default nextConfig;
