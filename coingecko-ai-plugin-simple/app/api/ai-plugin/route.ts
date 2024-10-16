@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
-import bitteDevJson from "@/bitte.dev.json";
 import { DEPLOYMENT_URL } from "vercel-url";
+
+const key = JSON.parse(process.env.BITTE_KEY || "{}");
+const config = JSON.parse(process.env.BITTE_CONFIG || "{}");
+
+if (!key?.accountId) {
+  console.error("no account");
+}
 
 export async function GET() {
   const pluginData = {
@@ -12,11 +18,11 @@ export async function GET() {
     },
     servers: [
       {
-        url: bitteDevJson.url || DEPLOYMENT_URL,
+        url: config?.url || DEPLOYMENT_URL,
       },
     ],
     "x-mb": {
-      "account-id": "markeljan.near",
+      "account-id": key.accountId,
       assistant: {
         name: "CoinGecko Price Assistant",
         description: "CoinGecko Assistant for fetching cryptocurrency token prices",
