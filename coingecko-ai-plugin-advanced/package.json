@@ -13,7 +13,7 @@
   "author": "Bitte Protocol Team <eng@bitte.ai>",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"make-agent dev -p 3000\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +21,7 @@
   "dependencies": {
     "@scalar/api-reference": "^1.24.75",
     "@scalar/nextjs-api-reference": "^0.4.73",
+    "make-agent": "^0.0.16-rc.3",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -30,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
