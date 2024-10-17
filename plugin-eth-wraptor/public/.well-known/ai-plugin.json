@@ -156,7 +156,7 @@
               "eth_signTypedData_v4"
             ],
             "description": "The signing method to be used.",
-            "example": "eth_sign"
+            "example": "eth_sendTransaction"
           },
           "chainId": {
             "type": "integer",
