@@ -3,10 +3,10 @@ import { encodeFunctionData, parseAbi, parseEther } from "viem";
 import { signRequestFor, validateWethInput } from "../utils";
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
+  const search = req.nextUrl.searchParams;
+  console.log("unwrap/", search)
   try {
-    const { chainId, amount, wethAddress } = validateWethInput(
-      req.nextUrl.searchParams,
-    );
+    const { chainId, amount, wethAddress } = validateWethInput(search);
     const signRequest = signRequestFor({
       chainId,
       to: wethAddress,
