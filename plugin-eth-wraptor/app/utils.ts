@@ -1,14 +1,16 @@
-import { Network } from "near-safe";
+import { MetaTransaction, Network, SignRequestData } from "near-safe";
+import { Address, Hex, isAddress, zeroAddress } from "viem";
 
 interface ValidInput {
+  chainId: number;
   amount: number;
-  wethAddress: string;
+  wethAddress: Address;
 }
 
 export function validateWethInput(params: URLSearchParams): ValidInput {
   const chainIdStr = params.get("chainId");
   const amountStr = params.get("amount");
-  
+
   // Ensure required fields
   if (!chainIdStr) {
     throw new Error("Missing required parameter: chainId");
@@ -31,9 +33,29 @@ export function validateWethInput(params: URLSearchParams): ValidInput {
 
   const network = Network.fromChainId(chainId);
   const wethAddress = network.nativeCurrency.wrappedAddress;
-  if (!wethAddress) {
-    throw new Error(`Couldn't find wrapped address for Network ${network.name} (chainId=${chainId})`);
+  if (!wethAddress || !isAddress(wethAddress, { strict: false })) {
+    throw new Error(
+      `Couldn't find wrapped address for Network ${network.name} (chainId=${chainId})`,
+    );
   }
 
-  return { amount, wethAddress };
+  return { chainId, amount, wethAddress };
+}
+
+export function signRequestFor({
+  chainId,
+  to,
+  value,
+  data,
+}: {
+  chainId: number;
+  to: Address;
+  value: Hex;
+  data: Hex;
+}): SignRequestData {
+  return {
+    method: "eth_sendTransaction",
+    chainId,
+    params: [{ from: zeroAddress, to, data, value }],
+  };
 }

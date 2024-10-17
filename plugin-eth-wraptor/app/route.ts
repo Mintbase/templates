@@ -20,8 +20,8 @@ const config: ReferenceConfiguration = {
       // Override server URLs using Vercel system env variables
       // Defaults to http://localhost:3000 on local development
       url: `${DEPLOYMENT_URL}`,
-    }
-  ]
+    },
+  ],
 };
 
 export const GET = ApiReference(config);
