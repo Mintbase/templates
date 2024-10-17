@@ -9,7 +9,6 @@
     "web3"
   ],
   "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.mintbase.xyz/coingecko-ai-plugin",
   "author": "Mintbase Team <eng@mintbase.xyz>",
   "private": true,
   "scripts": {

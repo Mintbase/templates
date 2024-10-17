@@ -37,9 +37,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "result": {
-                    "type": "string",
-                    "description": "Ok Message"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Ok Message"
+                    }
                   }
                 }
               }
@@ -210,13 +213,12 @@
         }
       },
       "MetaTransaction": {
-        "description": "Sufficient data representing and EVM transaction",
+        "description": "Sufficient data representing an EVM transaction",
         "type": "object",
         "properties": {
           "to": {
-            "type": { "$ref": "#/components/schemas/Address" },
-            "description": "Recipient address",
-            "example": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+            "$ref": "#/components/schemas/Address",
+            "description": "Recipient address"
           },
           "data": {
             "type": "string",
