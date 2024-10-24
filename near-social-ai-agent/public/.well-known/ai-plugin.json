@@ -1,0 +1,238 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Profile Setting API Testnet",
+        "description": "API for interacting with API operations including set the user profile.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://nearsocialaiagent-eudccfeugga5fbe0.eastus-01.azurewebsites.net"
+        }
+    ],
+    "x-mb": {
+        "account-Id": "golden_comet.near",
+        "assistant": {
+            "name": "Profile Setting Assistant Testnet",
+            "description": "Assistant for helping users to setup their profile on Near Social platform and upload a post on Near Social platform. You will guIde the user through collecting profile details and get a signing URL from the API response. Finally display the profileUrl to the user.",
+            "instructions": "You are an assistant for help users to set their profile on Near Social platform using uploadProfile tool, and also upload a post on Near Social platform using createPost tool. For setup profile: First, ask the user to provide a profile details for setting profile on Near Social platform. The profile details are name, about, twitter, github, telegram, website, profileImage, bannerImage, and tags (such as rust, web, nft, engineer). Once the profile details are collected, upload the collected details to the uploadProfile tool along with the accountId (the user's account Id). After getting the success API response, display the sign URL {_profileUrl} for the user to set their profile on near social platform. (replace {_profileUrl} with the profileUrl from the API response). GuIde the user throughout the process to ensure all information is provided correctly and the sign URL is generated successfully. Note: You will ensure the collected profile details are sent properly to the /api/profile endpoint along with the accountId of the user. For upload a post: First, ask the user to provIde a content for the post or ask the topic, which you need to generate content in 50 words. After content is ready, if user wants to upload post with image, collect the imageUrl (optional). Once content is ready, and imageUrl (optional) also ready, upload the content and imageUrl to createPost tool along with the accountId (the user's account Id). After getting the success API response, display the post URL {_postUrl} for the user to upload a post on near social platform. (replace {_postUrl} with the postUrl from the API response). GuIde the user throughout the process to ensure all information is provIded correctly and the post URL is generated successfully. Note: You will ensure the collected content details and imageUrl are sent properly to the /api/post endpoint along with the accountId of the user."
+        },
+        "tools": [
+            {
+                "type": "generate-image"
+            }
+        ]
+    },
+    "paths": {
+        "/api/profile": {
+            "post": {
+                "summary": "Upload profile details",
+                "description": "Uploads collected profile details along with user's accountId",
+                "operationId": "uploadProfile",
+                "requestBody": {
+                    "description": "Profile setup request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accountId": {
+                                        "type": "string",
+                                        "description": "User's account Id."
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of the user."
+                                    },
+                                    "about": {
+                                        "type": "string",
+                                        "description": "Brief description about the user."
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "description": "Twitter Id of the user."
+                                    },
+                                    "github": {
+                                        "type": "string",
+                                        "description": "Github Id of the user."
+                                    },
+                                    "telegram": {
+                                        "type": "string",
+                                        "description": "Telegram Id of the user."
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "description": "Personal website link of the user."
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Tags relevant to the user."
+                                    },
+                                    "profileImage": {
+                                        "type": "string",
+                                        "description": "The URL of the profile image."
+                                    },
+                                    "bannerImage": {
+                                        "type": "string",
+                                        "description": "The URL of the banner image."
+                                    }
+                                },
+                                "required": [
+                                    "accountId",
+                                    "name",
+                                    "about",
+                                    "twitter",
+                                    "github",
+                                    "telegram",
+                                    "website",
+                                    "tags",
+                                    "profileImage",
+                                    "bannerImage"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile data uploaded successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "profileUrl": {
+                                            "type": "string",
+                                            "description": "URL for the user to sign the transaction."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get social profile by account ID",
+                "description": "Fetches a user's social profile by their account Id.",
+                "operationId": "getProfile",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "The account Id to fetch a logged in user's profile."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Profile retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "profile": {
+                                            "type": "object",
+                                            "description": "The social profile data of the user."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Account ID is missing.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/post": {
+            "post": {
+                "summary": "Create a post",
+                "description": "Allows users to post content with their accountId",
+                "operationId": "createPost",
+                "requestBody": {
+                    "description": "Post request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accountId": {
+                                        "type": "string",
+                                        "description": "User's account Id"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "description": "Content of the post"
+                                    },
+                                    "imageUrl": {
+                                        "type": "string",
+                                        "description": "The URL of the post image."
+                                    }
+                                },
+                                "required": [
+                                    "accountId",
+                                    "content"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Post created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "postUrl": {
+                                            "type": "string",
+                                            "description": "URL for the user to sign the transaction for creating the post."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
