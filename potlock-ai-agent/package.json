@@ -1,0 +1,20 @@
+{
+  "name": "potlock-ai-agent",
+  "version": "1.0.0",
+  "description": "Mintbase AI Agent to make potlock operations easier.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Teckas Technologies",
+  "license": "ISC",
+  "dependencies": {
+    "big.js": "^6.2.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "near-api-js": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.6"
+  }
+}
