@@ -85,13 +85,13 @@ export default function RootLayout({
 
 ### 3. Utilize the Bitte Wallet Features in Code:
 
-In your code, you can use the `useMbWallet` hook to access Bitte wallet features such as connecting or signing out.
+In your code, you can use the `useBitteWallet` hook to access Bitte wallet features such as connecting or signing out.
 
 ```ts
-import { useMbWallet } from "@mintbase-js/react";
+import { useBitteWallet } from "@mintbase-js/react";
 
 export const NearWalletConnector = () => {
-  const { isConnected, selector, connect, activeAccountId } = useMbWallet();
+  const { isConnected, selector, connect, activeAccountId } = useBitteWallet();
 
   const handleSignout = async () => {
     const wallet = await selector.wallet();
