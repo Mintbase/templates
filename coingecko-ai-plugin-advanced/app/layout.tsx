@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 	metadataBase: new URL(DEPLOYMENT_URL),
 	openGraph: {
 		images: ["/opengraph-image.png"],
+		siteName: "Coingecko Agent Plugin",
+		url: DEPLOYMENT_URL,
 	},
 	twitter: {
 		card: "summary_large_image",
