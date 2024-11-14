@@ -6,29 +6,28 @@
 	"author": "Bitte Protocol Team <eng@bitte.ai>",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"dev:make-agent": "concurrently \"next dev --turbopack\" \"make-agent dev -p 3000\"",
+		"dev": "next dev",
+		"dev:make-agent": "concurrently \"next dev\" \"make-agent dev -p 3000\"",
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome check"
 	},
 	"dependencies": {
-		"@scalar/api-reference": "^1.24.75",
-		"@scalar/nextjs-api-reference": "^0.4.100",
+		"@scalar/api-reference-react": "^0.3.139",
 		"make-agent": "0.0.24-rc.2",
-		"next": "15.0.3",
-		"react": "19.0.0-rc-66855b96-20241106",
-		"react-dom": "19.0.0-rc-66855b96-20241106",
-		"vercel-url": "^0.2.1"
+		"next": "^14.2.18",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"vercel-url": "^0.2.4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"concurrently": "^9.0.1",
-		"postcss": "^8",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"@types/react": "18.3.12",
+		"@types/react-dom": "18.3.1",
+		"concurrently": "^9.1.0",
+		"postcss": "^8.4.49",
+		"tailwindcss": "^3.4.14",
+		"typescript": "^5.6.3"
 	}
 }
