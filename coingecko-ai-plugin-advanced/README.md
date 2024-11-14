@@ -20,13 +20,26 @@ CoinGecko-AI is a cutting-edge project that combines the power of artificial int
 
 CoinGecko-AI is built using Next.js 14 and exposes an API Reference using [Scalar](https://scalar.com/).
 
-To run the project locally:
+To run the project locally, you have two options:
 
-1. Clone this template from the repository tree: `git clone git clone --no-checkout https://github.com/Mintbase/templates.git && cd templates && git sparse-checkout set coingecko-ai-plugin-advanced && git checkout && cd coingecko-ai-plugin-advanced`
+### Local API Testing
+
+To test the Plugin APIs locally:
+
+1. Clone this template from the repository tree: `git clone --no-checkout https://github.com/Mintbase/templates.git && cd templates && git sparse-checkout set coingecko-ai-plugin-advanced && git checkout && cd coingecko-ai-plugin-advanced`
 2. Install dependencies: `pnpm install`
-3. Set up environment variables: Copy `.env.example` to `.env.local` and fill in your CoinGecko API key.
+3. Set up environment variables: Copy `.env.example` to `.env.local` and provide your CoinGecko API key.
 4. Run the development server: `pnpm run dev`
-5. Open `http://localhost:3000` in your browser to view the application.
+5. Open `http://localhost:3000` to test the API using the Scalar API Reference.
+
+### Testing on Bitte Wallet Playground
+
+To test the plugin with a tunnel service and Bitte wallet:
+
+1. Run the development server with tunnel service: `pnpm run dev:make-agent`
+2. This will start both the Next.js server and a `make-agent` server, allowing for external requests to your agent from the Bitte Playground.
+3. Follow the terminal instructions to temporarily register and deploy your agent and receive a URL to test your agent.
+4. To close your session, press `CTRL + C` in the terminal. Agents registered using `make-agent dev` are automatically removed from the Bitte Registry.
 
 ## Deployment
 
@@ -34,11 +47,12 @@ To deploy CoinGecko-AI on Vercel:
 
 1. Fork the repository to your GitHub account.
 2. Sign up for a Vercel account if you haven't already.
-3. Click the "Deploy" button above or go to https://vercel.com/new.
+3. Click the "Deploy" button above or go to <https://vercel.com/new>.
 4. Select your forked repository.
 5. Configure the following environment variables:
    - `COINGECKO_API_KEY`: Your CoinGecko API key
 6. Click "Deploy" and wait for the build to complete.
+7. Deploy your Agent Plugin using `make-agent` with your Vercel deployment URL. For more instructions, see [make-agent Docs](https://docs.bitte.ai/agents/make-agent).
 
 Once deployed, you can access your CoinGecko-AI instance at the provided Vercel URL. You can customize the application by modifying the source code and pushing changes to your repository. Vercel will automatically redeploy your application with the latest changes.
 
@@ -46,6 +60,6 @@ For any issues or questions regarding deployment, please refer to the Vercel doc
 
 ## Bitte Agent Docs
 
-[Bitte Agent Docs](https://docs.bitte.ai/agents/building-agents)
+[Bitte Agent Quick Start](https://docs.bitte.ai/agents/quick-start)
 
 <img src="https://i.imgur.com/dfI9OSL.png" alt="detail_image" width="0"/>
