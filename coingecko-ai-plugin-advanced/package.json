@@ -1,39 +1,34 @@
 {
-  "name": "coingecko-ai-plugin-advanced-mintbase-template",
-  "keywords": [
-    "bitte",
-    "templates",
-    "ai",
-    "agents",
-    "openapi",
-    "web3"
-  ],
-  "repository": "https://github.com/mintbase/templates.git",
-  "homepage": "https;//templates.bitte.ai/templates/coingecko-ai-plugin-advanced",
-  "author": "Bitte Protocol Team <eng@bitte.ai>",
-  "private": true,
-  "scripts": {
-    "dev": "concurrently \"next dev\" \"make-agent dev -p 3000\"",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@scalar/api-reference": "^1.24.75",
-    "@scalar/nextjs-api-reference": "^0.4.73",
-    "make-agent": "^0.0.16-rc.3",
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "vercel-url": "^0.2.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "concurrently": "^9.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+	"name": "coingecko-ai-plugin-advanced-mintbase-template",
+	"keywords": ["bitte", "templates", "ai", "agents", "openapi", "web3"],
+	"repository": "https://github.com/mintbase/templates.git",
+	"homepage": "https;//templates.bitte.ai/templates/coingecko-ai-plugin-advanced",
+	"author": "Bitte Protocol Team <eng@bitte.ai>",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"dev:make-agent": "concurrently \"next dev --turbopack\" \"make-agent dev -p 3000\"",
+		"build": "next build",
+		"start": "next start",
+		"lint": "biome check"
+	},
+	"dependencies": {
+		"@scalar/api-reference": "^1.24.75",
+		"@scalar/nextjs-api-reference": "^0.4.100",
+		"make-agent": "0.0.24-rc.2",
+		"next": "15.0.3",
+		"react": "19.0.0-rc-66855b96-20241106",
+		"react-dom": "19.0.0-rc-66855b96-20241106",
+		"vercel-url": "^0.2.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"concurrently": "^9.0.1",
+		"postcss": "^8",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
 }
