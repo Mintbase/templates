@@ -28,7 +28,7 @@ Create AI Agents that can be used through the Bitte platform, expanding the capa
 Develop plugins that facilitate discovering, creating, and selling NFTs using Mintbase within the Bitte ecosystem.
 
 ### Cross-Chain Support
-While not immediately available, consider future plugin development for enabling transactions to any EVM chain from a Near account using Near Chain Signatures.
+Agents can now execute cross-chain transactions using Near Chain Signatures. For instance, the [Cowswap Agent](https://wallet.bitte.ai/smart-actions?agentId=near-cow-agent.vercel.app) facilitate decentralized exchange interactions, while [Safe Account Assistant](https://wallet.bitte.ai/smart-actions?agentId=near-safe-agent.vercel.app) enables multi-chain wallet management.
 
 ## Submission Guidelines
 
