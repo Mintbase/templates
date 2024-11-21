@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Minter from "./Minter";
+import Minter from "../components/Minter";
 
 
 

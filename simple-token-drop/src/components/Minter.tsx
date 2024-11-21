@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
-import { serverMint } from "./serverMint";
+import { serverMint } from "../utils/serverMint";
 import { Loading } from "@/components/Loading";
 
 import { useRouter } from "next/navigation";
-import { CLIENT_MINT_ARGS, PROXY_CONTRACT, WALLET_DEEP_LINK } from "./constants";
+import { CLIENT_MINT_ARGS, PROXY_CONTRACT, WALLET_DEEP_LINK } from "../utils/constants";
 
 export default function Minter() {
 
