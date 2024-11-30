@@ -1,0 +1,55 @@
+[tasks.clean]
+clear = true
+script = """
+cargo clean
+rm -rf ./neardev/
+rm -rf ./target/
+"""
+
+[tasks.prepare]
+script = """
+#!/bin/bash
+rustup target add wasm32-unknown-unknown
+"""
+
+[tasks.build]
+command = "cargo"
+args = ["build", "--target", "wasm32-unknown-unknown", "--release"]
+
+[tasks.dev-deploy]
+dependencies = ["build"]
+script = """
+#!/bin/bash
+
+set -e
+WASM_PATH="$(find ../target/wasm32-unknown-unknown/release -maxdepth 1 -name "*.wasm")"
+
+near dev-deploy --wasmFile $WASM_PATH
+"""
+
+[tasks.call]
+script = """
+#!/bin/bash
+
+set -e
+[ -f ./neardev/dev-account ] || (echo "Contract must be deployed"; false)
+near call "$(<./neardev/dev-account)" "$@"
+"""
+
+[tasks.call-self]
+script = """
+#!/bin/bash
+
+set -e
+[ -f ./neardev/dev-account ] || (echo "Contract must be deployed"; false)
+near call "$(<./neardev/dev-account)" "$@" --accountId "$(<./neardev/dev-account)"
+"""
+
+[tasks.view]
+script = """
+#!/bin/bash
+
+set -e
+[ -f ./neardev/dev-account ] || (echo "Contract must be deployed"; false)
+near view "$(<./neardev/dev-account)" "$@"
+"""
